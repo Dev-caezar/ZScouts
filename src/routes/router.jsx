@@ -6,11 +6,12 @@ import Register from "../auth/Register";
 import ForgotPassword from "../auth/ForgotPassword";
 import ResetPassword from "../auth/ResetPassword";
 import ErrorPage from "../pages/ErrorPage";
+import PrivateRoutes from "./privateRoutes";
 
 export const Element = createBrowserRouter([
     {
         path: "/",
-        element: <HomeLayout />,
+        element: <PrivateRoutes />,
         children: ([
             {
                 index: true,
