@@ -1,0 +1,159 @@
+.ErrorPage-overlay{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(2, 2, 80);
+}
+
+.Error-div-top{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 110px;
+    color: red;
+}
+
+.Error-div-bottom{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Error-bottom-inner-1{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: column;
+}
+
+.Error-bottom-Inner-2{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.error-btn-back{
+    width: 12%;
+    height: 40%;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 350ms ease-in-out;
+    transform: scale(1);
+}
+
+.error-btn-back:hover{
+    transform: scale(1.03);
+    background-color:  rgb(10, 10, 10);
+    color: white;
+    border: 2px solid white;
+}
+
+@media screen and (min-width: 250px) and (max-width: 320px) {
+    .ErrorPage-overlay{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .Error-div-top{
+        font-size: 60px;
+    }
+
+    .Error-bottom-inner-1{
+        font-size: 9.5px;
+    }
+
+    .Error-bottom-Inner-2{
+        width: 100%;
+    }
+
+    .error-btn-back{
+        width: 30%;
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 475px) {
+    .ErrorPage-overlay{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .Error-div-top{
+        font-size: 60px;
+    }
+
+    .Error-bottom-inner-1{
+        font-size: 9.5px;
+    }
+
+    .Error-bottom-Inner-2{
+        width: 100%;
+    }
+
+    .error-btn-back{
+        width: 25%;
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 476px) and (max-width: 620px) {
+    .ErrorPage-overlay{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .Error-div-top{
+        font-size: 60px;
+    }
+
+    .Error-bottom-inner-1{
+        font-size: 9.5px;
+    }
+
+    .Error-bottom-Inner-2{
+        width: 100%;
+    }
+
+    .error-btn-back{
+        width: 20%;
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (min-width: 621px) and (max-width: 1021px) {
+    .ErrorPage-overlay{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .Error-div-top{
+        font-size: 90px;
+    }
+
+    .Error-bottom-inner-1{
+        font-size: 18px;
+    }
+
+    .Error-bottom-Inner-2{
+        width: 100%;
+    }
+
+    .error-btn-back{
+        width: 16%;
+        font-size: 12px;
+    }
+}

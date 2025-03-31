@@ -5,11 +5,13 @@ import Login from "../auth/Login";
 import Register from "../auth/Register";
 import ForgotPassword from "../auth/ForgotPassword";
 import ResetPassword from "../auth/ResetPassword";
+import ErrorPage from "../pages/ErrorPage";
+import PrivateRoutes from "./privateRoutes";
 
 export const Element = createBrowserRouter([
     {
         path: "/",
-        element: <HomeLayout />,
+        element: <PrivateRoutes />,
         children: ([
             {
                 index: true,
@@ -26,11 +28,15 @@ export const Element = createBrowserRouter([
         element: <Register />
     },
     {
-        path: "/forgot_pass",
+        path: "/forgot_password",
         element: <ForgotPassword />
     },
     {
-        path: "/reset_pass",
+        path: "/reset_password",
         element: <ResetPassword />
+    },
+    {
+        path: "*",
+        element: <ErrorPage />
     },
 ])
