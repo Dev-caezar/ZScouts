@@ -1,0 +1,118 @@
+.signupOption_body{
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.s_option_card{
+    width: 50%;
+    height: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+.s_card_head{
+    width: 50%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.s_card_head h2{
+    font-family: "Poppins",sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; 
+    color: #07232F;
+}
+.s_card_head p{
+    font-family: "Poppins",sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    color: #A4A4A4;
+}
+.s_option_container{
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.s_option_wrapper{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.signup_option{
+    width: 40%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: white;
+}
+.signup_option:hover{
+    border: 2px solid #0C8F00;
+    cursor: pointer;
+}
+
+.signup_card_img{
+    width: 40px;
+    height: 40px;
+}
+.signup_option.selected {
+    border: 2px solid #0C8F00;
+}
+
+.select_option.active {
+    border: 2px solid #0C8F00;
+}
+/* .option.selected p{ 
+    color: white;
+} */
+
+.select_option:disabled {
+    background-color: lightgray; 
+}
+
+
+
+.signup_option p{
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: #0C8F00;
+}
+.select_option{
+    width: 100%;
+    height: 60px;
+    background-color: #0C8F00;
+    color: white;
+    border-radius: 15px;
+    border: none;
+}
+.select_option p{
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    font-weight: 500;
+    line-height: 24px;
+}
