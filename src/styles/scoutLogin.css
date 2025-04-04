@@ -1,13 +1,12 @@
-.player_register_body{
+.scout_login_body{
     width: 70%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.player_register_card{
-    width: 47%;
+.scout_login_card{
+    width: 45%;
     height: 85%;
     display: flex;
     flex-direction: column;
@@ -15,7 +14,7 @@
     justify-content: center;
     gap: 10px;
 }
-.player_form_head{
+.scout_login_head{
     width: 100%;
     height: 15%;
     display: flex;
@@ -24,7 +23,7 @@
     flex-direction: column;
 }
 
-.player_form_head h2{
+.scout_login_head h2{
     color: #07232F;
     text-align: center;
     font-family: "Poppins",sans-serif;
@@ -33,7 +32,7 @@
     font-weight: 700;
     line-height: 32.551px; 
 }
-.player_form_head p{
+.scout_login_head p{
     color: #8E8E8E;
     text-align: center;
     font-family: "Poppins",sans-serif;
@@ -42,25 +41,24 @@
     font-weight: 400;
     line-height: 16.276px; 
 }
-.player_form_body{
+.slogin_form_body{
     width: 100%;
-    height: 55%;
+    height: max-content;
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    /* background-color: blue; */
 }
-.p_floating-label {
+.sl_floating-label {
     position: relative;
     width: 100%;
     height: 50px;
     min-height: max-content;
 }
 
-.player_form_input{
+.scout_login_input{
     width: 100%;
     padding: 12px 8px;
     font-size: 13px;
@@ -69,10 +67,9 @@
     outline: none;
     background: transparent;
     position:relative;
-    font-family: "poppins",sans-serif;
 }
 
-.player_formLabel {
+.slformLabel {
     position: absolute;
     left: 10px;
     top: 12px;
@@ -83,15 +80,15 @@
     padding: 0 5px;
 }
 
-.player_form_input:focus + .player_formLabel,
-.player_form_input:not(:placeholder-shown) + .player_formLabel {
+.scout_login_input:focus + .slformLabel,
+.scout_login_input:not(:placeholder-shown) + .slformLabel {
     top: -10px;
     left: 8px;
     font-size: 12px;
     color: #0C8F00;
 }
 
-.player_form_input:focus {
+.scout_login_input:focus {
     border-color: #0C8F00;
 }
 .eye{
@@ -107,7 +104,7 @@
     padding: 5px;
     gap: 10px;
 }
-.player_checkbox{
+.checkbox{
     width: 15px;
     height: 15px;
     accent-color: #0C8F00;
@@ -128,7 +125,7 @@
     font-weight: 500;
     line-height: 16.276px;
 }
-.player_register_button{
+.register_button{
     width: 100%;
     height: 40px;
     background-color: #0C8F00;
@@ -151,7 +148,7 @@
 }
 .second_option h4{
     color: var(--Colors-Neutral-700, #777);
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins"sans-serif;
     font-size: 10.85px;
     font-style: normal;
     font-weight: 500;
@@ -196,7 +193,7 @@
 }
 .form_footer h4 span{
     color: var(--Colors-New-Primary-600, #0C8F00);
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins"sans-serif;
     font-size: 10.85px;
     font-style: normal;
     font-weight: 500;

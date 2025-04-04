@@ -1,2 +1,2 @@
 export * from "./layout"
-export * from "./static"
+export * from "./layout/static"
