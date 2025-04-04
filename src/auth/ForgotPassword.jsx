@@ -5,6 +5,7 @@ const ForgotPassword = () => {
   return (
     <div>
       Forgot password
+      forgotPassword reset
     </div>
   )
 }

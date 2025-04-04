@@ -8,6 +8,7 @@ import ResetPassword from "../auth/ResetPassword";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRoutes from "./privateRoutes";
 
+
 export const Element = createBrowserRouter([
     {
         path: "/",
