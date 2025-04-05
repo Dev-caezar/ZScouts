@@ -1,6 +1,8 @@
 import React from 'react'
 import "../../../styles/header.css"
 import { useNavigate } from 'react-router'
+import { HiMenuAlt3 } from "react-icons/hi";
+
 
 const Header = () => {
   const navigate = useNavigate();
@@ -26,6 +28,7 @@ const Header = () => {
         <div className="h_buttons">
           <button className='h_login' onClick={handleLogin}> Login</button>
           <button className='h_signup'onClick={handleSignup}>Signup</button>
+          <HiMenuAlt3 className='menu_icon'/>
         </div>
       </div>
     </div>
