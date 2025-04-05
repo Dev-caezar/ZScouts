@@ -8,7 +8,7 @@ const PrivateRoutes = () => {
   const token = useSelector((state) => state.user.token);
   console.log(token)
 
-  return token ? <HomeLayout /> : <AuthLayout />;
+  return token ? <HomeLayout /> : <Navigate to="/login" />;
 }
 
 export default PrivateRoutes
