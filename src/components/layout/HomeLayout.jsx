@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Footer } from '../static'
+import { Header, Footer } from './static'
 import { Outlet } from 'react-router'
 
 const HomeLayout = () => {
