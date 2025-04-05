@@ -15,6 +15,7 @@ import EmailPage from "../auth/EmailPage";
 import EmailVerify from "../auth/emailVerify";
 import EmailNotify from "../auth/EmailNotify";
 
+
 export const Element = createBrowserRouter([
     {
         path: "/",

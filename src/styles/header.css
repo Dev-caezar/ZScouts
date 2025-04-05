@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 .header_wrapper{
     width: 82%;
@@ -15,14 +16,13 @@
     align-items: center;
     justify-content: space-around;
     overflow: hidden;
-    /* padding: 15px; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .h_logo{
     width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
-    /* background-color: red; */
 }
 .z_logo{
     width: 60%;
@@ -113,7 +113,7 @@
 }
 @media screen and (max-width: 768px) {
     .header_body{
-        position: none;
+        position: static;
         height: 13vh;
         background-color: white;
     }
