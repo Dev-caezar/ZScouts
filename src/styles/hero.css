@@ -206,6 +206,7 @@
     /* background-color: red; */
     display: flex;
     justify-content: space-between;
+    align-items: center;
    }
    .hero_wrapper h1{
     color: #FFF;
@@ -218,6 +219,37 @@
    }
    .hero_wrapper h1 span{
     bottom: -28px;
-    width: 55%;
+    width: 59%;
    }
+    .hero_wrapper h4{
+      color: #FFF;
+      text-align: center;
+      font-family: "Poppins",sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+    }
+    .avatar_holder{
+      width: 100%;
+      height: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .avatar_container{
+      width: 35%;
+      height: 50px;
+    }
+    .image-item{
+      width: 35px;
+      height: 35px;
+    }
+    .trust_card{
+      width: 62%;
+    }
+    .trust_card h4{
+      font-size: 14px;
+      /* line-height: 18px; */
+      left: 8px;
+    }
   }
