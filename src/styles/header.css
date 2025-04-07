@@ -16,14 +16,13 @@
     align-items: center;
     justify-content: space-around;
     overflow: hidden;
-    /* padding: 15px; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .h_logo{
     width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
-    /* background-color: red; */
 }
 .z_logo{
     width: 60%;
@@ -88,7 +87,7 @@
     border-radius: 8px;
     background-color: white;
     color: #0C8F00;
-    font-family: Poppins;
+    font-family: "Poppins",sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -102,10 +101,44 @@
     border-radius: 8px;
     color: white;
     background-color: #0C8F00;
-    font-family: Poppins;
+    font-family: "Poppins",sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 24px;
     cursor: pointer;
 }
+.menu_icon{
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .header_body{
+        position: static;
+        height: 13vh;
+        background-color: white;
+    }
+
+    .header_wrapper {
+      width:90%;
+      height: 100%;
+      border-radius: 0%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: none;
+    }
+
+    .z_logo{
+        width: 120px;
+        height: 60px;
+        object-fit: cover;
+    }
+    .h_texts, .h_login, .h_signup{
+        display: none;
+    }
+    .menu_icon{
+        display: block;
+        font-size: 30px;
+    }
+  }
+  

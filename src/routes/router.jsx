@@ -6,7 +6,6 @@ import ErrorPage from "../pages/ErrorPage";
 import PrivateRoutes from "./privateRoutes";
 import LoginOption from "../auth/LoginOption";
 import SignupOption from "../auth/SignupOption";
-import PlayerRegister from "../auth/playerRegister";
 import ScoutRegister from "../auth/ScoutRegister";
 import AuthLayout from "../components/layout/AuthLayout";
 import PlayerLogin from "../auth/playerLogin";
@@ -14,6 +13,9 @@ import ScoutLogin from "../auth/ScoutLogin";
 import EmailPage from "../auth/EmailPage";
 import EmailVerify from "../auth/emailVerify";
 import EmailNotify from "../auth/EmailNotify";
+import PlayerRegister from "../auth/PlayerRegister";
+import Contact from "../pages/Contact";
+import About from "../pages/About";
 
 
 export const Element = createBrowserRouter([
@@ -24,6 +26,14 @@ export const Element = createBrowserRouter([
             {
                 index: true,
                 element: <Homepage />
+            },
+            {
+                path: "about_us",
+                element: <About />
+            },
+            {
+                path: "contact_us",
+                element: <Contact />
             },
         ]),
     },

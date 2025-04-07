@@ -23,19 +23,19 @@ const PlayerRegister = () => {
         <form className='player_form_body' action="">
         <div class="p_floating-label">
             <input type="text" id="fullName" placeholder=" " required  className='player_form_input'/>
-            <label for="fullName" className='formLabel'>Enter Full Name</label>
+            <label for="fullName" className='player_formLabel'>Enter Full Name</label>
         </div>
-        <div class="floating-label">
+        <div class="p_floating-label">
             <input type="email" id="email" placeholder=" " required  className='player_form_input'/>
-            <label for="email" className='formLabel'>Email</label>
+            <label for="email" className='player_formLabel'>Email</label>
         </div>
-        <div class="floating-label">
+        <div class="p_floating-label">
             <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='player_form_input'/>
-            <label for="password" className='formLabel'>Password </label>
+            <label for="password" className='player_formLabel'>Password </label>
            {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
             <FaRegEye className='eye' onClick={handlePassword}/>}
         </div>
-        <div class="floating-label">
+        <div class="p_floating-label">
             <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='player_form_input'/>
             <label for="password" className='player_formLabel'>Confirm Password </label>
            {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
