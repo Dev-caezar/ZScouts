@@ -3,7 +3,7 @@ import Homepage from "../pages/Homepage";
 import ForgotPassword from "../auth/ForgotPassword";
 import ResetPassword from "../auth/ResetPassword";
 import ErrorPage from "../pages/ErrorPage";
-// import PrivateRoutes from "./privateRoutes";
+import PrivateRoutes from "./privateRoutes";
 import LoginOption from "../auth/LoginOption";
 import SignupOption from "../auth/SignupOption";
 import ScoutRegister from "../auth/ScoutRegister";
