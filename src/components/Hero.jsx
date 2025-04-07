@@ -32,7 +32,7 @@ const Hero = () => {
           </div>
         <div className="trust_card">
           <h4>1,000+ Satisfied Players Trust Us</h4>
-          <h4>1,000+ Satisfied Scouts Trust Us</h4>
+          <h4>500+ Satisfied Scouts Trust Us</h4>
         </div>
 
         </div>
