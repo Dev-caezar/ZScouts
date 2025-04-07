@@ -1,0 +1,144 @@
+.header_body{
+    width: 100%;
+    height: 15vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.header_wrapper{
+    width: 82%;
+    height: 80px;
+    border-radius: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.h_logo{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.z_logo{
+    width: 60%;
+    height: 50%;
+
+}
+.z_logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+}
+.h_texts{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.h_texts h4{
+    color: var(--Colors-Secondary-500, #07232F);
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    transition: color 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+.h_texts h4::after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    bottom: -3px;
+    width: 0;
+    height: 3px;
+    background-color: #0C8F00;
+    transition: width 0.3s ease;
+}
+
+.h_texts h4:hover {
+    color: #0C8F00; 
+    cursor: pointer;
+}
+
+.h_texts h4:hover::after {
+    width: 100%; 
+}
+
+.h_buttons{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.h_login{
+    width: 90px;
+    height: 40px;
+    border: 1px solid #07232F;
+    border-radius: 8px;
+    background-color: white;
+    color: #0C8F00;
+    font-family: "Poppins",sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; 
+    cursor: pointer;
+}
+.h_signup{
+    width: 90px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #0C8F00;
+    font-family: "Poppins",sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    cursor: pointer;
+}
+.menu_icon{
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .header_body{
+        position: static;
+        height: 13vh;
+        background-color: white;
+    }
+
+    .header_wrapper {
+      width:90%;
+      height: 100%;
+      border-radius: 0%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: none;
+    }
+
+    .z_logo{
+        width: 120px;
+        height: 60px;
+        object-fit: cover;
+    }
+    .h_texts, .h_login, .h_signup{
+        display: none;
+    }
+    .menu_icon{
+        display: block;
+        font-size: 30px;
+    }
+  }
+  

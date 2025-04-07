@@ -1,0 +1,255 @@
+.hero_body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../assets/public/hero.png");
+    background-repeat: no-repeat;
+}
+.hero_wrapper{
+    width: 80%;
+    height: 80%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+}
+.hero_wrapper h1{
+    color: #FFF;
+    font-family: tahoma;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 75px; 
+}
+.hero_wrapper h4{
+    color: #FFF;
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.get_started{
+    width: 130px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0C8F00;
+    color: white;
+}
+.animated-text {
+    position: relative;
+    display: inline-block;
+    min-width: 150px; 
+  }
+  
+  .animated-text .word {
+    position: absolute;
+    left: 0;
+    top: -57px;
+    opacity: 0;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  
+  .animated-text .word:nth-child(1) {
+    animation-name: fadeInOut1;
+  }
+  
+  .animated-text .word:nth-child(2) {
+    animation-name: fadeInOut2;
+  }
+  
+  @keyframes fadeInOut1 {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    3%,
+    47% {
+      opacity: 1;
+    }
+    50%,
+    97% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeInOut2 {
+    0%,
+    47% {
+      opacity: 0;
+    }
+    50%,
+    97% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .avatar_holder{
+    width: 42%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .avatar_container{
+    width: 38%;
+    height: 45%;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(76.74418640136719px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .image-item {
+    width: 46px;
+    height: 46px;
+    border-radius:50% ;
+    position: relative;
+    z-index: 2;
+    margin-left: -10px; 
+    overflow: hidden;
+}
+
+.image-item:first-child {
+    margin-left: 0;
+    z-index: 3;
+}
+
+.image-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.trust_card{
+    width: 58%;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    display: inline-block;
+}
+.trust_card h4{
+    color: var(--Colors-Neutral-100, #FFF);
+    font-family: "Poppins",sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    opacity: 0;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    
+}
+.trust_card h4:nth-child(1) {
+    animation-name: fadeInOut1;
+  }
+  
+  .trust_card h4:nth-child(2) {
+    animation-name: fadeInOut2;
+  }
+  
+  @keyframes fadeInOut1 {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    3%,
+    47% {
+      opacity: 1;
+    }
+    50%,
+    97% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeInOut2 {
+    0%,
+    47% {
+      opacity: 0;
+    }
+    50%,
+    97% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    .hero_body{
+      width: 100%;
+      height: 50vh;
+    }
+   .hero_wrapper{
+    width: 90%;
+    height: 85%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   .hero_wrapper h1{
+    color: #FFF;
+    text-align: center;
+    font-family: "Poppins",sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 37.4px; /* 106.857% */
+   }
+   .hero_wrapper h1 span{
+    bottom: -28px;
+    width: 59%;
+   }
+    .hero_wrapper h4{
+      color: #FFF;
+      text-align: center;
+      font-family: "Poppins",sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+    }
+    .avatar_holder{
+      width: 100%;
+      height: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .avatar_container{
+      width: 35%;
+      height: 50px;
+    }
+    .image-item{
+      width: 35px;
+      height: 35px;
+    }
+    .trust_card{
+      width: 62%;
+    }
+    .trust_card h4{
+      font-size: 14px;
+      /* line-height: 18px; */
+      left: 8px;
+    }
+  }
