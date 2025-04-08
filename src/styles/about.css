@@ -221,11 +221,6 @@
     height: 80%;
     /* background-color: blue; */
     border-radius: 30px;
-    display: flex;
-    align-items: end;
-    background-position: center;
-    background-size: cover;
-    background-image: url(/src//assets/public/hero.png);
 }
 
 .nextLevel{
@@ -246,8 +241,8 @@
     padding: 20px;
     padding-bottom: 50px;
     border-radius: 30px;
-    background-color: navy;
-    background-image: url("/src//assets/public/hero.png");
+    /* background-color: navy; */
+    background-image: url("/src//assets/public/componentimages.jpeg");
     background-position:center;
     background-size: cover;
 }
@@ -285,7 +280,7 @@
     align-items: end;
     background-position: center;
     background-size: cover;
-    background-image: url(/src//assets/public/hero.png);
+    background-image: url(/src//assets/public/componentimages.jpeg);
 }
 
 .about-us-third-layer-wrap-inner{
@@ -440,3 +435,915 @@
     color: #333333;
 }
 
+@media screen and (min-width: 250px) and (max-width: 320px) {
+    .about-us-hero{
+        width: 100%;
+    }
+
+    .about-us-hero-inner{
+        width: 100%;
+        /* background-color: green; */
+    }
+
+    .about-us-hero-inner-top{
+        /* background-color: red; */
+        font-size: 18px;
+    }
+
+    .about-us-hero-inner-bottom{
+        /* background-color: yellow; */
+        font-size: 9px;
+    }
+
+    .About-us-second-layer{
+        /* background-color: green; */
+        width: 100%;
+        padding-top: 20px;
+        height: max-content;
+        padding-bottom: 20px;
+    }
+
+    .about-us-second-layer-wrap{
+        /* background-color: yellow; */
+        width: 90%;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 15px;
+        height: auto;
+    }
+
+    .about-us-text{
+        /* background-color: magenta; */
+        width: 100%;
+        height: 30vh;
+    }
+
+    .about-us-all-image{
+        width: 100%;
+        height: 30vh;
+    }
+
+    .about-us-logo-div{
+        width: 100%;
+        /* background-color: magenta; */
+    }
+
+    .about-us-logo-main{
+        /* background-color: yellow; */
+        width: 90%;
+    }
+
+    .who-we-are{
+        /* background-color: magenta; */
+        font-size: 14px;
+    }
+
+    .connecting-talent-with-opportunity{
+        /* background-color: magenta; */
+        height: 15%;
+        font-size: 5px;
+    }
+
+    .who-we-are-main-text{
+        /* background-color: green; */
+        height: 70%;
+        font-size: 8px;
+        font-weight: 600;
+    }
+
+    .our-mission-our-vision{
+        /* background-color: red; */
+        width: 100%;
+        height: max-content;
+    }
+
+    .our-mission-our-vision-wrap{
+        /* background-color: blue; */
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .our-mission-our-vision-wrap-box-1{
+        width: 100%;
+        height: 60vh;
+    }
+
+    .our-mission-our-vision-top{
+        /* background-color: red; */
+        display: flex;
+        align-items: end;
+        padding-bottom: 10px;
+    }
+
+    .our-mission-our-vision-middle{
+        /* background-color: green; */
+        font-size: 7px;
+        height: 22%;
+    }
+
+    .our-mission-our-vision-bottom{
+        /* background-color: red; */
+        height: 63%;
+        font-size: 12.8px;
+    }
+
+    .our-mission-our-vision-wrap-box-2{
+        width: 100%;
+        height: 60vh;
+    }
+
+    .about-us-third-layer{
+        /* background-color: green; */
+        width: 100%;
+    }
+
+    .about-us-third-layer-wrap{
+        width: 90%;
+    }
+
+    .about-us-third-layer-wrap-inner-top{
+        /* background-color: green; */
+        font-size: 8px;
+        padding-left: 20px;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom{
+        /* background-color: green; */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom-text{
+        /* background-color: yellow; */
+        padding-left: 20px;
+        font-size: 8px;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom-button{
+        width: 100%;
+        height: 60%;
+    }
+
+    .start-scouting-btn{
+        height: 70%;
+        border-radius: 4px;
+    }
+
+    .Zscout-Team-wrap{
+        /* background-color: blue; */
+        width: 90%;
+    }
+
+    .Zscout-Team-wrap-top{
+        /* background-color: yellow; */
+        height: 35%;
+    }
+
+    .Zscout-Team-wrap-bottom{
+        /* background-color: magenta; */
+        height: 65%;
+        font-size: 10px;
+    }
+
+    .Zscout-Team-main-wrap{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .one-person-image{
+        width: 100%;
+    }
+
+    .developer-name{
+        /* background-color: green; */
+        font-size: 20px;
+    }
+
+    .developer-stack{
+        /* background-color: yellow; */
+        font-size: 15px;
+    }
+
+    .nextLevelImage{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nextLevelText1{
+        /* background-color: red; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        /* gap: 4px; */
+       
+        & h1 {
+            font-size: 18px;
+        }
+
+        & p {
+            font-size: 10px;
+        }
+    }
+
+    .nextLevelText2{
+        width: 100%;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (min-width: 321px) and (max-width: 475px) {
+    .about-us-hero{
+        width: 100%;
+    }
+
+    .about-us-hero-inner{
+        width: 100%;
+        /* background-color: green; */
+    }
+
+    .about-us-hero-inner-top{
+        /* background-color: red; */
+        font-size: 25px;
+    }
+
+    .about-us-hero-inner-bottom{
+        /* background-color: yellow; */
+        font-size: 11px;
+    }
+
+    .About-us-second-layer{
+        /* background-color: green; */
+        width: 100%;
+        padding-top: 20px;
+        height: max-content;
+        padding-bottom: 20px;
+    }
+
+    .about-us-second-layer-wrap{
+        /* background-color: yellow; */
+        width: 90%;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 15px;
+        height: auto;
+    }
+
+    .about-us-text{
+        /* background-color: magenta; */
+        width: 100%;
+        height: 40vh;
+    }
+
+    .about-us-all-image{
+        width: 100%;
+        height: 40vh;
+    }
+
+    .about-us-logo-div{
+        width: 100%;
+        /* background-color: magenta; */
+    }
+
+    .about-us-logo-main{
+        /* background-color: yellow; */
+        width: 90%;
+    }
+
+    .who-we-are{
+        /* background-color: magenta; */
+        font-size: 16px;
+    }
+
+    .connecting-talent-with-opportunity{
+        /* background-color: magenta; */
+        height: 15%;
+        font-size: 7px;
+    }
+
+    .who-we-are-main-text{
+        /* background-color: green; */
+        height: 70%;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .our-mission-our-vision{
+        /* background-color: red; */
+        width: 100%;
+        height: max-content;
+    }
+
+    .our-mission-our-vision-wrap{
+        /* background-color: blue; */
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .our-mission-our-vision-wrap-box-1{
+        width: 100%;
+        height: 55vh;
+    }
+
+    .our-mission-our-vision-top{
+        /* background-color: red; */
+        display: flex;
+        align-items: end;
+        padding-bottom: 10px;
+    }
+
+    .our-mission-our-vision-middle{
+        /* background-color: green; */
+        font-size: 8px;
+        height: 22%;
+    }
+
+    .our-mission-our-vision-bottom{
+        /* background-color: red; */
+        height: 63%;
+        font-size: 17px;
+    }
+
+    .our-mission-our-vision-wrap-box-2{
+        width: 100%;
+        height: 55vh;
+    }
+
+    .about-us-third-layer{
+        /* background-color: green; */
+        width: 100%;
+    }
+
+    .about-us-third-layer-wrap{
+        width: 90%;
+    }
+
+    .about-us-third-layer-wrap-inner-top{
+        /* background-color: green; */
+        font-size: 10px;
+        padding-left: 20px;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom{
+        /* background-color: yellow; */
+        display: flex;
+        flex-direction: row;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom-text{
+        /* background-color: yellow; */
+        padding-left: 20px;
+        font-size: 11px;
+        width: 65%;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom-button{
+        width: 35%;
+        height: 60%;
+        padding-right: 10px;
+    }
+
+    .start-scouting-btn{
+        height: 70%;
+        border-radius: 4px;
+        font-size: 11px;
+    }
+
+    .Zscout-Team-wrap{
+        /* background-color: blue; */
+        width: 90%;
+    }
+
+    .Zscout-Team-wrap-top{
+        /* background-color: yellow; */
+        height: 35%;
+    }
+
+    .Zscout-Team-wrap-bottom{
+        /* background-color: magenta; */
+        height: 65%;
+        font-size: 10px;
+    }
+
+    .Zscout-Team-main-wrap{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .one-person-image{
+        width: 90%;
+    }
+
+    .developer-name{
+        /* background-color: green; */
+        font-size: 25px;
+    }
+
+    .developer-stack{
+        /* background-color: yellow; */
+        font-size: 17px;
+    }
+
+    .nextLevelImage{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nextLevelText1{
+        /* background-color: red; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        /* gap: 4px; */
+       
+        & h1 {
+            font-size: 20px;
+        }
+
+        & p {
+            font-size: 12px;
+        }
+    }
+
+    .nextLevelText2{
+        width: 90%;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+}
+
+
+@media screen and (min-width: 475px) and (max-width: 620px) {
+    .about-us-hero{
+        width: 100%;
+    }
+
+    .about-us-hero-inner{
+        width: 100%;
+        /* background-color: green; */
+    }
+
+    .about-us-hero-inner-top{
+        /* background-color: red; */
+        font-size: 30px;
+    }
+
+    .about-us-hero-inner-bottom{
+        /* background-color: yellow; */
+        font-size: 12px;
+    }
+
+    .About-us-second-layer{
+        /* background-color: green; */
+        width: 100%;
+        padding-top: 20px;
+        height: max-content;
+        padding-bottom: 20px;
+    }
+
+    .about-us-second-layer-wrap{
+        /* background-color: yellow; */
+        width: 90%;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 15px;
+        height: auto;
+    }
+
+    .about-us-text{
+        /* background-color: magenta; */
+        width: 100%;
+        height: 40vh;
+    }
+
+    .about-us-all-image{
+        width: 100%;
+        height: 40vh;
+    }
+
+    .about-us-logo-div{
+        width: 100%;
+        /* background-color: magenta; */
+    }
+
+    .about-us-logo-main{
+        /* background-color: yellow; */
+        width: 90%;
+    }
+
+    .who-we-are{
+        /* background-color: magenta; */
+        font-size: 16px;
+    }
+
+    .connecting-talent-with-opportunity{
+        /* background-color: magenta; */
+        height: 15%;
+        font-size: 10px;
+    }
+
+    .who-we-are-main-text{
+        /* background-color: green; */
+        height: 70%;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .our-mission-our-vision{
+        /* background-color: red; */
+        width: 100%;
+        height: max-content;
+    }
+
+    .our-mission-our-vision-wrap{
+        /* background-color: blue; */
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .our-mission-our-vision-wrap-box-1{
+        width: 100%;
+        height: 55vh;
+    }
+
+    .our-mission-our-vision-top{
+        /* background-color: red; */
+        display: flex;
+        align-items: end;
+        padding-bottom: 10px;
+    }
+
+    .our-mission-our-vision-middle{
+        /* background-color: green; */
+        font-size: 10px;
+        height: 22%;
+    }
+
+    .our-mission-our-vision-bottom{
+        /* background-color: red; */
+        height: 63%;
+        font-size: 21px;
+    }
+
+    .our-mission-our-vision-wrap-box-2{
+        width: 100%;
+        height: 55vh;
+    }
+
+    .about-us-third-layer{
+        /* background-color: green; */
+        width: 100%;
+    }
+
+    .about-us-third-layer-wrap{
+        width: 90%;
+    }
+
+    .about-us-third-layer-wrap-inner-top{
+        /* background-color: green; */
+        font-size: 15px;
+        padding-left: 20px;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom{
+        /* background-color: red; */
+        display: flex;
+        flex-direction: row;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom-text{
+        /* background-color: yellow; */
+        width: 100%;
+        padding-left: 20px;
+        font-size: 14px;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom-button{
+        /* width: 100%; */
+        height: 60%;
+        /* background-color: magenta; */
+        width: 40%;
+        padding-right: 10px;
+    }
+
+    .start-scouting-btn{
+        height: 70%;
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .Zscout-Team-wrap{
+        /* background-color: blue; */
+        width: 90%;
+    }
+
+    .Zscout-Team-wrap-top{
+        /* background-color: yellow; */
+        height: 35%;
+    }
+
+    .Zscout-Team-wrap-bottom{
+        /* background-color: magenta; */
+        height: 65%;
+        font-size: 14px;
+    }
+
+    .Zscout-Team-main-wrap{
+        width: 90%;
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .one-person-image{
+        width: 100%;
+    }
+
+    .developer-name{
+        /* background-color: green; */
+        font-size: 22px;
+    }
+
+    .developer-stack{
+        /* background-color: yellow; */
+        font-size: 17px;
+    }
+
+    .nextLevelImage{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nextLevelText1{
+        /* background-color: red; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        /* gap: 4px; */
+       
+        & h1 {
+            font-size: 28px;
+        }
+
+        & p {
+            font-size: 16px;
+        }
+    }
+
+    .nextLevelText2{
+        width: 90%;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+}
+
+
+
+@media screen and (min-width: 620px) and (max-width: 1021px) {
+    .about-us-hero{
+        width: 100%;
+    }
+
+    .about-us-hero-inner{
+        width: 100%;
+        /* background-color: green; */
+    }
+
+    .about-us-hero-inner-top{
+        /* background-color: red; */
+        font-size: 35px;
+    }
+
+    .about-us-hero-inner-bottom{
+        /* background-color: yellow; */
+        font-size: 18px;
+    }
+
+    .About-us-second-layer{
+        /* background-color: green; */
+        width: 100%;
+        padding-top: 20px;
+        height: max-content;
+        padding-bottom: 20px;
+    }
+
+    .about-us-second-layer-wrap{
+        /* background-color: yellow; */
+        width: 90%;
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        gap: 15px;
+        height: auto;
+    }
+
+    .about-us-text{
+        /* background-color: magenta; */
+        width: 100%;
+        height: 40vh;
+    }
+
+    .about-us-all-image{
+        width: 100%;
+        height: 40vh;
+    }
+
+    .about-us-logo-div{
+        width: 100%;
+        /* background-color: magenta; */
+    }
+
+    .about-us-logo-main{
+        /* background-color: yellow; */
+        width: 90%;
+    }
+
+    .who-we-are{
+        /* background-color: magenta; */
+        font-size: 16px;
+    }
+
+    .connecting-talent-with-opportunity{
+        /* background-color: magenta; */
+        height: 15%;
+        font-size: 7px;
+    }
+
+    .who-we-are-main-text{
+        /* background-color: green; */
+        height: 70%;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .our-mission-our-vision{
+        /* background-color: red; */
+        width: 100%;
+        height: max-content;
+    }
+
+    .our-mission-our-vision-wrap{
+        /* background-color: blue; */
+        width: 90%;
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        height: auto;
+    }
+
+    .our-mission-our-vision-wrap-box-1{
+        width: 100%;
+        height: 55vh;
+    }
+
+    .our-mission-our-vision-top{
+        /* background-color: red; */
+        display: flex;
+        align-items: end;
+        padding-bottom: 10px;
+    }
+
+    .our-mission-our-vision-middle{
+        /* background-color: green; */
+        font-size: 9px;
+        height: 22%;
+    }
+
+    .our-mission-our-vision-bottom{
+        /* background-color: red; */
+        height: 63%;
+        font-size: 16.5px;
+    }
+
+    .our-mission-our-vision-wrap-box-2{
+        width: 100%;
+        height: 55vh;
+    }
+
+    .about-us-third-layer{
+        /* background-color: green; */
+        width: 100%;
+    }
+
+    .about-us-third-layer-wrap{
+        width: 90%;
+    }
+
+    .about-us-third-layer-wrap-inner-top{
+        /* background-color: green; */
+        font-size: 15px;
+        padding-left: 20px;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom{
+        /* background-color: red; */
+        display: flex;
+        flex-direction: row;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom-text{
+        /* background-color: yellow; */
+        width: 100%;
+        padding-left: 20px;
+        font-size: 14px;
+    }
+
+    .about-us-third-layer-wrap-inner-bottom-button{
+        /* width: 100%; */
+        height: 60%;
+        /* background-color: magenta; */
+        width: 40%;
+        padding-right: 10px;
+    }
+
+    .start-scouting-btn{
+        height: 70%;
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .Zscout-Team-wrap{
+        /* background-color: blue; */
+        width: 90%;
+    }
+
+    .Zscout-Team-wrap-top{
+        /* background-color: yellow; */
+        height: 35%;
+    }
+
+    .Zscout-Team-wrap-bottom{
+        /* background-color: magenta; */
+        height: 65%;
+        font-size: 14px;
+    }
+
+    .Zscout-Team-main-wrap{
+        width: 90%;
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .one-person-image{
+        width: 100%;
+    }
+
+    .developer-name{
+        /* background-color: green; */
+        font-size: 22px;
+    }
+
+    .developer-stack{
+        /* background-color: yellow; */
+        font-size: 17px;
+    }
+
+    .nextLevelImage{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nextLevelText1{
+        /* background-color: red; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        /* gap: 4px; */
+       
+        & h1 {
+            font-size: 28px;
+        }
+
+        & p {
+            font-size: 16px;
+        }
+    }
+
+    .nextLevelText2{
+        width: 90%;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+}

@@ -89,7 +89,7 @@ const AboutUs = () => {
           <div className='our-mission-our-vision-top'><h4>Our Mission</h4></div>
           <div className='our-mission-our-vision-middle'> <h1>Connections for players & scouts</h1></div>
           <div className='our-mission-our-vision-bottom'>
-            <p>At Zscouts, our mission is to bridge the gap between aspiring footballers and professional scouts by providing a seamless, platform for talents discovery. We empower playes with the tools to showcase their skills and help scouts make informed recruitment decisions effortlessly.</p>
+            <p>At Zscouts, our mission is to bridge the gap between aspiring footballers and professional scouts by providing a seamless, platform for talents discovery. We empower players with the tools to showcase their skills and help scouts make informed recruitment decisions effortlessly.</p>
           </div>
         </div>
         <div className='our-mission-our-vision-wrap-box-2'>
