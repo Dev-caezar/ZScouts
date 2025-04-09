@@ -16,7 +16,8 @@ import EmailNotify from "../auth/EmailNotify";
 import PlayerRegister from "../auth/PlayerRegister";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
-import { HomeLayout } from "../components";
+import { HomeLayout} from "../components";
+
 
 
 export const Element = createBrowserRouter([
