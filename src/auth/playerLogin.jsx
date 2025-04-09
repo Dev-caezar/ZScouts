@@ -10,6 +10,9 @@ const PlayerLogin = () => {
         const handlePassword =()=>{
           setShowPass((prev)=> !prev)
         }
+        const handlesubmit =()=>{
+          navigate("/email_notify")
+        }
   const handleFrgotPass =()=>{
         navigate("/forgot_password")
   }
@@ -37,7 +40,7 @@ const PlayerLogin = () => {
                       <p onClick={handleFrgotPass}>Forgot password?</p>
                     </div>
                     </div>
-                    <button className='player_login_button'>Login</button>
+                    <button className='player_login_button' onClick={handlesubmit}>Login</button>
                     </form>
                     <div className="second_option">
                       <div className="line"></div>

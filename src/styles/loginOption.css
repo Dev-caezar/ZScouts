@@ -72,27 +72,28 @@
 }
 
 .loginoption_card_img{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+}
+.loginoption_card_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 .login_option.selected {
-    border: 2px solid #0C8F00;
+    background-color: #0C8F00;
+}
+.login_option.selected p{
+    color: white;
 }
 
 .login_select_option.active {
     background-color: #0C8F00; 
     color: white;
 }
-/* .option.selected p{ 
-    color: white;
-} */
-
 .login_select_option:disabled {
     background-color: lightgray; 
 }
-
-
-
 .login_option p{
     font-family: "Poppins",sans-serif;
     font-size: 16px;
@@ -116,4 +117,30 @@
     font-weight: bold;
     font-weight: 500;
     line-height: 24px;
+}
+@media (max-width: 480px){
+    .loginoption_body{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .login_option_wrapper{
+        gap: 10px;
+    }
+    .login_option_card{
+        width: 90%;
+        height: 60%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .login_option{
+        width: 50%;
+        height: 65%;
+    }
 }

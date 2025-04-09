@@ -31,16 +31,23 @@ const SignupOption = () => {
                 <div className={`signup_option ${selectedRole === 'PLAYER' ? 'selected' : ''}`} 
                     onClick={() => handleSelect('PLAYER')}>
                     <div className="signup_card_img">
-                        <img src="/src/assets/public/player_boot.svg" alt="Player Icon" 
-                            style={{ fill: selectedRole === 'PLAYER' ? "#0C8F00": 'gray' }}/>
+                        {
+                            selectedRole === "PLAYER" ?
+                            <img src="/src/assets/public/white_boot.png" alt="Player Icon"/>:
+                            <img src="/src/assets/public/player_boot.jpg" alt="Player Icon"/>
+
+                        }
                     </div>
                     <p>Player</p>
                 </div>
                 <div className={`signup_option ${selectedRole === 'SCOUT' ? 'selected' : ''}`} 
                      onClick={() => handleSelect('SCOUT')}>
                      <div className="signup_card_img">
-                        <img src="/src/assets/public/scout_icon.svg" alt="Scout Icon" 
-                             style={{ fill: selectedRole === 'SCOUT' ? 'green' : 'gray' }}/>
+                        {
+                            selectedRole === "SCOUT" ?
+                            <img src="/src/assets/public/white_icon.png" alt="Scout Icon"/>:
+                            <img src="/src/assets/public/scout_icon.jpg" alt="Scout Icon"/>
+                        }
                         </div>
                         <p>Scout</p>
                     </div>

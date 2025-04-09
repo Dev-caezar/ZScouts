@@ -14,9 +14,8 @@ import EmailPage from "../auth/EmailPage";
 import EmailVerify from "../auth/emailVerify";
 import EmailNotify from "../auth/EmailNotify";
 import PlayerRegister from "../auth/PlayerRegister";
-import Contact from "../pages/Contact";
-import About from "../pages/About";
 import { HomeLayout } from "../components";
+import ContactUs from "../components/Wisdom/contactUs/ContactUs";
 
 
 export const Element = createBrowserRouter([
@@ -29,12 +28,8 @@ export const Element = createBrowserRouter([
                 element: <Homepage />
             },
             {
-                path: "about_us",
-                element: <About />
-            },
-            {
                 path: "contact_us",
-                element: <Contact />
+                element: <ContactUs />
             },
         ]),
     },
@@ -86,6 +81,7 @@ export const Element = createBrowserRouter([
                 path: "/signup_option",
                 element: <SignupOption />
             },
+            
         ])
     },
 
