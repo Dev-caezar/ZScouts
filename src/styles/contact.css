@@ -346,3 +346,8 @@
     font-weight: 500;
     line-height: 24px; /* 150% */
   }
+
+  
+@media screen and (min-width: 321px) and (max-width: 475px) {
+    
+}
