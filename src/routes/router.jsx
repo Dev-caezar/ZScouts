@@ -19,6 +19,8 @@ import About from "../pages/About";
 import { HomeLayout } from "../components";
 
 
+
+
 export const Element = createBrowserRouter([
     {
         path: "/",
@@ -39,7 +41,6 @@ export const Element = createBrowserRouter([
         ]),
     },
     {
-        // path: "/",
         element: <AuthLayout />,
         children: ([
             {
