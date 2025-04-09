@@ -348,6 +348,569 @@
   }
 
   
+@media screen and (min-width: 250px) and (max-width: 320px) {
+    .contact_hero{
+        width: 100%;
+    }
+
+    .contact_hero_content{
+        /* background-color: green; */
+        width: 100%;
+
+        & h2{
+            font-size: 35px;
+        }
+
+        & p {
+            font-size: 8.5px;
+        }
+    }
+
+    .message_board{
+        /* background-color: red; */
+        height: max-content;
+    }
+
+    .board_wrapper{
+        /* background-color: blue; */
+        height: auto;
+    }
+
+    .board_header{
+        /* background-color: yellow; */
+        padding: 10px;
+
+        & h2{
+            font-size: 10px;
+        }
+
+        & h4{
+            font-size: 12px;
+        }
+    }
+
+    .board_content{
+        /* background-color: magenta; */
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .board_input{
+        /* background-color: yellow; */
+        width: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-radius: 7px;
+    }
+
+    .boardinput_header{
+        /* background-color: red; */
+        display: flex;
+        align-items: end;
+
+        & h4 {
+            font-size: 18px;
+        }
+    }
+
+    .board_text{
+        /* background-color: magenta; */
+        height: 7vh;
+        font-size: 10px;
+    }
+
+    .board_button{
+        /* background-color: red; */
+        height: 10%;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+
+
+    .board_contact{
+        width: 100%;
+        /* background-color: red; */
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .inner_card{
+
+        & h4{
+            font-size: 12px;
+        }
+
+        & p{
+            font-size: 10px;
+        }
+    }
+
+    .board_icon{
+        font-size: 20px;
+    }
+
+    .faq_header{
+        /* background-color: yellow; */
+        height: 15%;
+        padding-top: 20px;
+
+        & h2 {
+            font-size: 9px;
+        }
+
+        & h4 {
+            font-size: 11px;
+        }
+    }
+
+    .question_box{
+        /* background-color: green; */
+        height: 5vh;
+    }
+
+    .question_card{
+        /* background-color: magenta; */
+
+        & h4 {
+            font-size: 10px;
+        }
+    }
+
+    .answer_card{
+        /* background-color: green; */
+       
+        & p {
+            font-size: 9px;
+        }
+    }
+}
+
+
 @media screen and (min-width: 321px) and (max-width: 475px) {
-    
+    .contact_hero{
+        width: 100%;
+    }
+
+    .contact_hero_content{
+        /* background-color: green; */
+        width: 100%;
+
+        & h2{
+            font-size: 38px;
+        }
+
+        & p {
+            font-size: 10px;
+        }
+    }
+
+    .message_board{
+        /* background-color: red; */
+        height: max-content;
+    }
+
+    .board_wrapper{
+        /* background-color: blue; */
+        height: auto;
+    }
+
+    .board_header{
+        /* background-color: yellow; */
+        padding: 10px;
+
+        & h2{
+            font-size: 12px;
+        }
+
+        & h4{
+            font-size: 14px;
+        }
+    }
+
+    .board_content{
+        /* background-color: magenta; */
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .board_input{
+        /* background-color: yellow; */
+        width: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-radius: 7px;
+    }
+
+    .boardinput_header{
+        /* background-color: red; */
+        display: flex;
+        align-items: end;
+
+        & h4 {
+            font-size: 18px;
+        }
+    }
+
+    .board_text{
+        /* background-color: magenta; */
+        height: 7vh;
+        font-size: 10px;
+    }
+
+    .board_button{
+        /* background-color: red; */
+        height: 10%;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+
+
+    .board_contact{
+        width: 100%;
+        /* background-color: red; */
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .inner_card{
+
+        & h4{
+            font-size: 12px;
+        }
+
+        & p{
+            font-size: 10px;
+        }
+    }
+
+    .board_icon{
+        font-size: 20px;
+    }
+
+    .faq_header{
+        /* background-color: yellow; */
+        height: 15%;
+        padding-top: 20px;
+
+        & h2 {
+            font-size: 9px;
+        }
+
+        & h4 {
+            font-size: 11px;
+        }
+    }
+
+    .question_box{
+        /* background-color: green; */
+        height: 5vh;
+    }
+
+    .question_card{
+        /* background-color: magenta; */
+
+        & h4 {
+            font-size: 14px;
+        }
+    }
+
+    .answer_card{
+        /* background-color: green; */
+       
+        & p {
+            font-size: 11px;
+        }
+    }
+}
+
+
+@media screen and (min-width: 476px) and (max-width: 620px) {
+    .contact_hero{
+        width: 100%;
+    }
+
+    .contact_hero_content{
+        /* background-color: green; */
+        width: 100%;
+
+        & h2{
+            font-size: 42px;
+        }
+
+        & p {
+            font-size: 12px;
+        }
+    }
+
+    .message_board{
+        /* background-color: red; */
+        height: max-content;
+    }
+
+    .board_wrapper{
+        /* background-color: blue; */
+        height: auto;
+    }
+
+    .board_header{
+        /* background-color: yellow; */
+        padding: 10px;
+
+        & h2{
+            font-size: 14px;
+        }
+
+        & h4{
+            font-size: 16px;
+        }
+    }
+
+    .board_content{
+        /* background-color: magenta; */
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .board_input{
+        /* background-color: yellow; */
+        width: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-radius: 7px;
+    }
+
+    .boardinput_header{
+        /* background-color: red; */
+        display: flex;
+        align-items: end;
+
+        & h4 {
+            font-size: 20px;
+        }
+    }
+
+    .board_text{
+        /* background-color: magenta; */
+        height: 7vh;
+        font-size: 13px;
+    }
+
+    .board_button{
+        /* background-color: red; */
+        height: 10%;
+        border-radius: 6px;
+        font-size: 18px;
+    }
+
+
+
+    .board_contact{
+        width: 100%;
+        /* background-color: red; */
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .inner_card{
+
+        & h4{
+            font-size: 14px;
+        }
+
+        & p{
+            font-size: 12px;
+        }
+    }
+
+    .board_icon{
+        font-size: 20px;
+    }
+
+    .faq_header{
+        /* background-color: yellow; */
+        height: 15%;
+        padding-top: 20px;
+
+        & h2 {
+            font-size: 12px;
+        }
+
+        & h4 {
+            font-size: 13px;
+        }
+    }
+
+    .question_box{
+        /* background-color: green; */
+        height: 5vh;
+    }
+
+    .question_card{
+        /* background-color: magenta; */
+
+        & h4 {
+            font-size: 16px;
+        }
+    }
+
+    .answer_card{
+        /* background-color: green; */
+       
+        & p {
+            font-size: 14px;
+        }
+    }
+}
+
+
+@media screen and (min-width: 621px) and (max-width: 1021px) {
+    .contact_hero{
+        width: 100%;
+    }
+
+    .contact_hero_content{
+        /* background-color: green; */
+        width: 100%;
+
+        & h2{
+            font-size: 45px;
+        }
+
+        & p {
+            font-size: 14px;
+        }
+    }
+
+    .message_board{
+        /* background-color: red; */
+        height: max-content;
+    }
+
+    .board_wrapper{
+        /* background-color: blue; */
+        height: auto;
+    }
+
+    .board_header{
+        /* background-color: yellow; */
+        padding: 10px;
+
+        & h2{
+            font-size: 16px;
+        }
+
+        & h4{
+            font-size: 18px;
+        }
+    }
+
+    .board_content{
+        /* background-color: magenta; */
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .board_input{
+        /* background-color: yellow; */
+        width: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-radius: 7px;
+    }
+
+    .boardinput_header{
+        /* background-color: red; */
+        display: flex;
+        align-items: end;
+
+        & h4 {
+            font-size: 22px;
+        }
+    }
+
+    .board_text{
+        /* background-color: magenta; */
+        height: 7vh;
+        font-size: 14px;
+    }
+
+    .board_button{
+        /* background-color: red; */
+        height: 10%;
+        border-radius: 6px;
+        font-size: 20px;
+    }
+
+
+
+    .board_contact{
+        width: 100%;
+        /* background-color: red; */
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .inner_card{
+
+        & h4{
+            font-size: 14px;
+        }
+
+        & p{
+            font-size: 12px;
+        }
+    }
+
+    .board_icon{
+        font-size: 20px;
+    }
+
+    .faq_header{
+        /* background-color: yellow; */
+        height: 15%;
+        padding-top: 20px;
+
+        & h2 {
+            font-size: 14px;
+        }
+
+        & h4 {
+            font-size: 15px;
+        }
+    }
+
+    .question_box{
+        /* background-color: green; */
+        height: 5vh;
+    }
+
+    .question_card{
+        /* background-color: magenta; */
+
+        & h4 {
+            font-size: 18px;
+        }
+    }
+
+    .answer_card{
+        /* background-color: green; */
+       
+        & p {
+            font-size: 16px;
+        }
+    }
 }
