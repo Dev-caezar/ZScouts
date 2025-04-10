@@ -15,7 +15,12 @@ import EmailVerify from "../auth/emailVerify";
 import EmailNotify from "../auth/EmailNotify";
 import PlayerRegister from "../auth/PlayerRegister";
 import { HomeLayout } from "../components";
-import ContactUs from "../components/Wisdom/contactUs/ContactUs";
+import AboutUs from "../components/Wisdom/AboutUs";
+import ContactUs from "../components/Wisdom/ContactUs";
+import DashboardLayout from "../components/layout/DashboardLayout";
+import PlayerProfile from "../pages/playerProfile";
+
+
 
 
 export const Element = createBrowserRouter([
@@ -28,13 +33,16 @@ export const Element = createBrowserRouter([
                 element: <Homepage />
             },
             {
+                path: "about_us",
+                element: <AboutUs />
+            },
+            {
                 path: "contact_us",
                 element: <ContactUs />
             },
         ]),
     },
     {
-        // path: "/",
         element: <AuthLayout />,
         children: ([
             {
@@ -82,6 +90,15 @@ export const Element = createBrowserRouter([
                 element: <SignupOption />
             },
             
+        ])
+    },
+    {
+        element: <DashboardLayout />,
+        children: ([
+            {
+                path: "player_profile",
+                element:<PlayerProfile />
+            }
         ])
     },
 

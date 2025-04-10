@@ -1,0 +1,154 @@
+.opportunity_body{
+    width: 100%;
+    height: 100vh;
+}
+.opportunities-wrapper{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.howItWorks{
+    width: 93%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.howItWorks-image{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    /* padding-bottom:  10px; */
+}
+
+.howItWorks-text{
+    width: 45%;
+    height: fit-content;
+    padding: 10px;
+    gap: 6px;
+    display: flex;
+    flex-direction: column;
+}
+.howItWorks-text p{
+    color: var(--Colors-New-Primary-600, #0C8F00);
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+}
+.howItWorks-text h4{
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: "Poppins",sans-serif;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 51px; /* 150% */
+}
+.howitworks_img_card{
+    width: 100%;
+    height: 85%;
+    border-radius: 20px;
+    background-color: gold;
+    overflow: hidden;
+}
+.howitworks_img_card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.howItWorks-text-wrapper{
+    width: 100%;
+    height: 100px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.499);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+
+}
+.howItWorks-text-wrapper h4{
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: "Poppins",sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; /* 150% */
+}
+.howItWorks-text-wrapper p{
+    color: var(--Colors-Neutral-700, #777);
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1200px),
+       only screen and (max-width: 900px),
+       only screen and (max-width: 760px),
+       only screen and (max-width: 480px),
+       only screen and (max-width: 379px) {
+  
+  .opportunities-wrapper{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+ 
+
+
+  .HowItWorks{
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+  }
+
+
+  .HowItWorks-image{
+    width:100% ;
+    height: 300px;
+  }
+
+  .HowItWorks-text{
+    width: 100%;
+    height: 500px;
+    gap: 3%;
+    h4{
+        font-size: 15px;
+    }
+
+    p{
+        font-size: 15px;
+    }
+  }
+  .HowItWorks-text-wrapper{
+    width: 100%;
+height: 17% !important;
+span{
+    font-size: 15px;
+}
+p{
+    font-size: 11px;
+}
+  }
+
+ 
+}
