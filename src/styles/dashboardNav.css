@@ -1,7 +1,6 @@
 .sidebar_body{
     width: 15%;
     height: 100vh;
-    position: fixed;
     background-color: #07232F;
     display: flex;
     justify-content: center;
