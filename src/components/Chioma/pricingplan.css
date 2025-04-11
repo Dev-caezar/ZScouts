@@ -1,5 +1,15 @@
 .pricing-container {
     width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: gold; */
+  }
+  
+  .pricing_wrapper {
+    width: 82%;
+    height: 80%;
     height: 80vh;
     display: flex;
     justify-content: center;

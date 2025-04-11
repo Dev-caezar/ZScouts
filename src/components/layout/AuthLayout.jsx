@@ -6,7 +6,9 @@ import { Outlet } from 'react-router'
 const AuthLayout = () => {
   return (
     <div className='layoutBody'>
+      <div className="sidebar">
       <AuthNav />
+      </div>
       <Outlet />
     </div>
   )

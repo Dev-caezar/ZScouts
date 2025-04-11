@@ -50,3 +50,16 @@
     font-weight: 400;
     line-height: 18px;
 }
+@media (max-width: 480px){
+    .email_verify_body{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        align-items: center;
+    }
+    .verify_card{
+        width: 85%;
+        padding: 0;
+    }
+}

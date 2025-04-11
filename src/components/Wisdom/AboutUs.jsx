@@ -1,6 +1,9 @@
 import React from 'react'
 import "../../styles/about.css"
 import { useNavigate } from 'react-router'
+import Nextlevel from '../Chiemerie/Nextlevel'
+import PricingPlans from '../Chioma/PricingPlans'
+import Testimonials from '../Chioma/Testimonials'
 
 const AboutUs = () => {
 
@@ -101,6 +104,8 @@ const AboutUs = () => {
         </div>
       </div>
     </div>
+    <Nextlevel />
+    {/* <div className='about-us-third-layer'>
     <div className='about-us-third-layer'>
       <div className='about-us-third-layer-wrap'>
         <div className='about-us-third-layer-wrap-inner'>
@@ -119,6 +124,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
+    </div> */}
     </div>
     <div className='Zscout-Team'>
       <div className='Zscout-Team-wrap'>
@@ -144,6 +150,10 @@ const AboutUs = () => {
       </div>
     </div>
     <div className='about-us-pricing-div'></div>
+    <PricingPlans />
+    <Nextlevel />
+    <Testimonials />
+    {/* <div className='discover-talents-build-the-future'>
     <div className='discover-talents-build-the-future'>
     <div className="nextLevel">
         <div className="nextLevelImage"> 
@@ -155,7 +165,8 @@ const AboutUs = () => {
           </div>
           <button  onClick={()=>nav("/signup_option")} style={{cursor: "pointer"}} className="nextLevelText2"> Create Your Free Profile</button>
         </div>
-       </div>
+       </
+    </div> 
     </div>
     <div className='aboutus-testimonial-card'></div>
     

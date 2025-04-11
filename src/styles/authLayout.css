@@ -3,3 +3,12 @@
     height: 100vh;
     display: flex;
 }
+.sidebar{
+    width: 30%;
+    height: 100%;
+}
+@media (max-width: 480px){
+    .sidebar{
+        display: none;
+    }
+}

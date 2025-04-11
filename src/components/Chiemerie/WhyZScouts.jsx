@@ -5,6 +5,7 @@ import { BsGlobeAsiaAustralia } from "react-icons/bs";
 import { HiLink } from "react-icons/hi";
 const WhyZScouts = () => {
 
+      const data =[
       const Yzscouts =[
         {title:"Direct Connection with Scouts",description:"Get noticed by professional scouts without middle men. Upload your profile and get contacted directly by clubs and recruiters.",icon:<HiLink   size={25} color="rgba(12, 143, 0, 1)"/>},
         {title:"Video-Based Player Evaluation", description:"Showcase your skills with match highlights. Scouts can watch, assess, and shortlist you for trials based on your performance.",icon:<FaVideo size={25} color="rgba(12, 143, 0, 1)"/>},
@@ -12,6 +13,23 @@ const WhyZScouts = () => {
         {title:"Global Career Opportunities", description:"Expand beyond local leagues. connect with international scout, join virtual trial, and increase your chance of playing professional.",icon:<BsGlobeAsiaAustralia FaVideo size={25} color="rgba(12, 143, 0, 1)"/> }
       ]
   return (
+    <div className="wZ_scout_body">
+      <div className="why_wrapper">
+       <div className="why_header">
+       <h4>Why ZScouts?</h4>
+       <h2>Opportunities. Connections. Growth.</h2>
+       </div>
+       <div className="why_scout_content">
+        {
+          data.map((i,index)=>(
+            <div className="why_card" key={index}>
+              <div className="why_icon">{i.icon}</div>
+              <h4>{i.title}</h4>
+              <p>{i.description}</p>
+            </div>
+          ))
+        }
+       </div>
     <div className="whyZscout-wrapper">
        <div className="Opportunities-connection-growth" >
         <p>Why ZScouts?</p>

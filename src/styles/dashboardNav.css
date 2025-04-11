@@ -1,0 +1,82 @@
+.sidebar_body{
+    width: 15%;
+    height: 100vh;
+    position: fixed;
+    background-color: #07232F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar_wrapper{
+    width: 90%;
+    height: 100%;
+}
+.sidebar_header{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    padding: 10px;
+    /* justify-content: center; */
+    align-items: center;
+}
+.dashboard_logo{
+    width:60%;
+    height: 60%;
+}
+.dashboard_logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.dashboard_content{
+    width: 100%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.d_content_card{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sidebar_icon{
+    font-size: 25px;
+    color: white;
+}
+.d_content_card h4{
+    color: #FFF;
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+}
+.d_content_card:hover{
+    background-color: #9FFF96;
+    color: black;
+    cursor: pointer;
+
+    & .sidebar_icon{
+        color: black;
+    }
+    & h4{
+        color: black;
+    }
+}
+.sidebar_footer{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (max-width: 480px){
+    .sidebar_body{
+        display: none;
+    }
+}

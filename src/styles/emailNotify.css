@@ -1,0 +1,145 @@
+.emailNotify_body{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.emailNotify_card{
+    width: 45%;
+    height: 55%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.emailNotify_icon_holder{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #9FFF96;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.emailNotify_icon{
+    color: #0C8F00;
+    font-size: 30px;
+}
+.emailNotify_card h2{
+    color: var(--Colors-Secondary-500, #07232F);
+    text-align: center;
+    font-family: "Poppins",sans-serif;
+    font-size: 19.799px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29.699px;
+}
+.emailNotify_card h4{
+    color: var(--Colors-Neutral-500, #A4A4A4);
+    text-align: center;
+    font-family: "Poppins",sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14.849px;
+}
+.emailNotify_form{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    /* background-color: red; */
+}
+.notifyFloating-label {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    min-height: max-content;
+}
+
+.notify_input{
+    width: 100%;
+    padding: 12px 8px;
+    font-size: 13px;
+    border: 1px solid #A4A4A4;
+    border-radius: 8px;
+    outline: none;
+    background: transparent;
+    position:relative;
+}
+
+.notifyLabel {
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    color: #aaa;
+    pointer-events: none;
+    transition: 0.3s ease all;
+    background-color: white;
+    padding: 0 5px;
+}
+
+.notify_input:focus + .notifyLabel,
+.notify_input:not(:placeholder-shown) + .notifyLabel {
+    top: -10px;
+    left: 8px;
+    font-size: 12px;
+    color: #0C8F00;
+}
+
+.notify_input:focus {
+    border-color: #0C8F00;
+}
+
+.resend_card{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.resend_card h4{
+    color: var(--Colors-Neutral-800, #606060);
+    font-family: "Poppins",sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+}
+.resend_btn{
+    width: 90px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0C8F00;
+    color: white;
+    color: #FFF;
+    font-family: "Poppins",sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+@media (max-width: 480px){
+    .emailNotify_body{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        align-items: center;
+    }
+    .emailNotify_card{
+        width: 85%;
+        height: 60%;
+    }
+    .emailNotify_icon_holder{
+        width: 60px;
+        height: 60px;
+
+    }
+}
