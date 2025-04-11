@@ -99,7 +99,7 @@
     height: 430px;
     margin-top: 8.1%;
     border: 1.5px solid black;
-    background-image: url("../../assets/public/myfoto.jpeg");
+    background-image: url("../../assets/myfoto.jpeg");
     background-position:center;
     background-size: cover;
     border-radius: 29px;
