@@ -20,6 +20,10 @@ import SignupOption from './auth/SignupOption';
 import DashboardLayout from './components/layout/DashboardLayout';
 import PlayerProfile from "./pages/PlayerProfile"
 import ErrorPage from './pages/ErrorPage';
+import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
+import ScoutProfile from './pages/ScoutProfile';
+import PlayerSettings from './pages/PlayerSettings';
+import PlayerVideo from './pages/playerVideo';
 
 const App = () => {
  const Router = createHashRouter([
@@ -96,6 +100,23 @@ const App = () => {
         {
           path: "player_profile",
           element: <PlayerProfile />,
+        },
+        {
+          path: "player_video",
+          element: <PlayerVideo />,
+        },
+        {
+          path: "player_setting",
+          element: <PlayerSettings />,
+        },
+      ],
+    },
+    {
+      element: <ScoutDashboardLayout />,
+      children: [
+        {
+          path: "scout_profile",
+          element: <ScoutProfile />,
         },
       ],
     },
