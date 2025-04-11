@@ -1,3 +1,82 @@
+
+.wZ_scout_body{
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.why_wrapper{
+    width: 82%;
+    height: 80%;
+}
+.why_header{
+    width: 100%;
+    height: max-content;
+}
+.why_header h4{
+    color: var(--Colors-New-Primary-600, #0C8F00);
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+}
+.why_header h2{
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: "Poppins",sans-serif;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 51px; /* 150% */
+}
+.why_scout_content{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.why_card{
+    width: 25%;
+    height: 80%;
+    border: 1px solid #333;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-inline: 10px;
+    gap: 15px;
+}
+.why_icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #9FFF96;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.why_card h4{
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: "Poppins",sans-serif;
+    font-size: 14.962px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22.443px; 
+    text-align: center;
+}
+.why_card p{
+    color: var(--Colors-Neutral-700, #777);
+    text-align: center;
+    font-family: "Poppins",sans-serif;
+    font-size: 12.824px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 19.237px; /* 150% */
+}
 .whyZscout-wrapper{
     width: 100%;
     height: max-content;

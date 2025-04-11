@@ -7,6 +7,7 @@
 }
 
 .testimonial_container {
+    width: 82%;
     width: 80%;
     height: 100%;
     display: flex;
@@ -50,6 +51,7 @@
 
 .testimony_card{
     width: 32%;
+    height: 65%;
     height: 70%;
     border-radius: 12px;
     border: 1px solid #333;
@@ -59,6 +61,8 @@
     
 }
 .img_holder{
+    width: 50px;
+    height: 50px;
     width: 60px;
     height: 60px;
     border-radius: 50%;

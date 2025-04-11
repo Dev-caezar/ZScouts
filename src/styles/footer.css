@@ -117,24 +117,247 @@
     margin-right: 70px;
 }
 
-@media screen and (max-width: 768px) {
-    .footer-container {
-      flex-direction: column;
-      text-align: center;
-      padding: 20px;
+
+@media screen and (min-width: 250px) and (max-width: 320px) {
+    .footer-body{
+        width: 100%;
+        height: max-content;
     }
-  
-    .contact-info, .addresses {
-      width: 100%;
-      margin-bottom: 15px;
+
+    .footer-details{
+        /* background-color: blue; */
+        height: auto;
+        display: flex;
+        width: 100%;
+        flex-direction: column-reverse;
     }
-  
-    .social-icons {
-      justify-content: center;
+
+    .footer-logo{
+        /* background-color: magenta; */
+        padding-top: 70px;
+        width: 100%;
     }
-  
-    .footer-logo {
-      max-width: 150px;
+
+    .footer-logo-img{
+        width: 50%;
+        height: 15%;
     }
-  }
+
+    .footer-contact{
+        /* background-color: green; */
+        width: 100%;
+
+        & h3 {
+            font-size: 14px;
+        }
+
+        & p {
+            font-size: 12px;
+        }
+    }
+
+    .footer-address{
+        width: 100%;
+        /* background-color: orange; */
+        padding-left: 15px;
+
+        & h3 {
+            font-size: 15px;
+        }
+
+        & p {
+            font-size: 10px;
+        }
+    }
+
+    .footer-bottom{
+        /* background-color: maroon; */
+        width: 100%;
+        font-size: 8px;
+        padding-left: 70px;
+    }
+}
+
+
+@media screen and (min-width: 321px) and (max-width: 475px) {
+    .footer-body{
+        width: 100%;
+        height: max-content;
+    }
+
+    .footer-details{
+        /* background-color: blue; */
+        height: auto;
+        display: flex;
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .footer-logo{
+        /* background-color: magenta; */
+        padding-top: 70px;
+        width: 100%;
+    }
+
+    .footer-logo-img{
+        width: 55%;
+        height: 18%;
+    }
+
+    .footer-contact{
+        /* background-color: green; */
+        width: 100%;
+
+        & h3 {
+            font-size: 18px;
+        }
+
+        & p {
+            font-size: 14px;
+        }
+    }
+
+    .footer-address{
+        width: 100%;
+        /* background-color: orange; */
+        padding-left: 15px;
+
+        & h3 {
+            font-size: 18px;
+        }
+
+        & p {
+            font-size: 12px;
+        }
+    }
+
+    .footer-bottom{
+        /* background-color: maroon; */
+        width: 100%;
+        font-size: 12px;
+        padding-left: 70px;
+    }
+}
+
+
+@media screen and (min-width: 476px) and (max-width: 620px) {
+    .footer-body{
+        width: 100%;
+        height: max-content;
+    }
+
+    .footer-details{
+        /* background-color: blue; */
+        height: auto;
+        display: flex;
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .footer-logo{
+        /* background-color: magenta; */
+        padding-top: 70px;
+        width: 100%;
+    }
+
+    .footer-logo-img{
+        width: 55%;
+        height: 18%;
+    }
+
+    .footer-contact{
+        /* background-color: green; */
+        width: 100%;
+
+        & h3 {
+            font-size: 22px;
+        }
+
+        & p {
+            font-size: 16px;
+        }
+    }
+
+    .footer-address{
+        width: 100%;
+        /* background-color: orange; */
+        padding-left: 15px;
+
+        & h3 {
+            font-size: 20px;
+        }
+
+        & p {
+            font-size: 14px;
+        }
+    }
+
+    .footer-bottom{
+        /* background-color: maroon; */
+        width: 100%;
+        font-size: 18px;
+        padding-left: 70px;
+    }
+}
+
+
+@media screen and (min-width: 621px) and (max-width: 1021px) {
+    .footer-body{
+        width: 100%;
+        height: max-content;
+    }
+
+    .footer-details{
+        /* background-color: blue; */
+        height: auto;
+        display: flex;
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .footer-logo{
+        /* background-color: magenta; */
+        padding-top: 70px;
+        width: 100%;
+    }
+
+    .footer-logo-img{
+        width: 55%;
+        height: 18%;
+    }
+
+    .footer-contact{
+        /* background-color: green; */
+        width: 100%;
+
+        & h3 {
+            font-size: 25px;
+        }
+
+        & p {
+            font-size: 18px;
+        }
+    }
+
+    .footer-address{
+        width: 100%;
+        /* background-color: orange; */
+        padding-left: 15px;
+
+        & h3 {
+            font-size: 23px;
+        }
+
+        & p {
+            font-size: 16px;
+        }
+    }
+
+    .footer-bottom{
+        /* background-color: maroon; */
+        width: 100%;
+        font-size: 20px;
+        padding-left: 70px;
+    }
+}
   
