@@ -1,5 +1,5 @@
 import React from 'react'
-import { RouterProvider } from 'react-router'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 // import { Element } from './routes/router'
 import { HomeLayout } from './components';
 import Homepage from './pages/Homepage';
