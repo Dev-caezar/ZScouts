@@ -7,7 +7,7 @@ const Footer = () => {
     <div className='footer-body'>
       <div className='footer-details'>
         <div className='footer-logo'>
-         <img src="src/assets/Asset 2@2x 1 (1).png" alt="ZScouts logo" className='footer-logo-img' />
+         <img src="/src/assets/public/Asset 2@2x 1 (1).png" alt="ZScouts logo" className='footer-logo-img' />
           <div className='social-icons'>
             <a href="#"><FaXTwitter /></a>
             <a href="#"><FaFacebook /></a>
@@ -18,7 +18,7 @@ const Footer = () => {
 
         <div className='footer-contact'>
           <h3>Contact</h3>
-          <a href="mailto:zscoutzscouts@gmail.com">zscoutzscouts@gmail.com</a>
+          <a href="mailto:zscoutzscouts@gmail.com"><p>zscoutzscouts@gmail.com</p></a>
           <p>+234 905 9461 351</p>
           <p>+234 802 499 5013</p>
         </div>
