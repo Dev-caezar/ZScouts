@@ -10,6 +10,14 @@
   .pricing_wrapper {
     width: 82%;
     height: 80%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pricing_wrapper {
+    width: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
   }

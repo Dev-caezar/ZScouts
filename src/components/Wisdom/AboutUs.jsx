@@ -106,6 +106,7 @@ const AboutUs = () => {
     </div>
     <Nextlevel />
     {/* <div className='about-us-third-layer'>
+    <div className='about-us-third-layer'>
       <div className='about-us-third-layer-wrap'>
         <div className='about-us-third-layer-wrap-inner'>
           <div className='about-us-third-layer-wrap-inner-top'>
@@ -124,6 +125,7 @@ const AboutUs = () => {
         </div>
       </div>
     </div> */}
+    </div>
     <div className='Zscout-Team'>
       <div className='Zscout-Team-wrap'>
         <div className='Zscout-Team-wrap-top'><h4>Zscout Team</h4></div>
@@ -152,6 +154,7 @@ const AboutUs = () => {
     <Nextlevel />
     <Testimonials />
     {/* <div className='discover-talents-build-the-future'>
+    <div className='discover-talents-build-the-future'>
     <div className="nextLevel">
         <div className="nextLevelImage"> 
           <div className="nextLevelText1">
@@ -162,8 +165,9 @@ const AboutUs = () => {
           </div>
           <button  onClick={()=>nav("/signup_option")} style={{cursor: "pointer"}} className="nextLevelText2"> Create Your Free Profile</button>
         </div>
-       </div>
-    </div> */}
+       </
+    </div> 
+    </div>
     <div className='aboutus-testimonial-card'></div>
     
     </div>
