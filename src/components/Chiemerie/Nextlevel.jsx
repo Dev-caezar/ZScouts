@@ -6,8 +6,7 @@ const Nextlevel = () => {
         <div className="nextLevel">
         <div className="nextLevelImage"> 
           <div className="nextLevelText1">
-            <h4>Take Your Career to the Next Level!</h4>
-            <h5>Take Your Career to the Next Level!</h5>
+            <h1>Take Your Career to the Next Level!</h1>
             <p>Create your profile, upload your higlights, and attract scouts looking for talent like you.</p>
           </div>
           <button style={{cursor: "pointer"}} className="nextLevelText2"> Create Your Free Profile</button>

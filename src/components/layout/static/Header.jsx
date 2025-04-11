@@ -26,7 +26,7 @@ const Header = () => {
       <div className="header_wrapper">
         <div className="h_logo">
           <div className="z_logo">
-            <img src="/src/assets/public/Zlogo.jpg" alt="" />
+            <img src="/src/assets/Zlogo.jpg" alt="" />
           </div>
         </div>
         <div className="h_texts">

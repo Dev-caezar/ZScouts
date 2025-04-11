@@ -11,42 +11,42 @@ const AboutUs = () => {
 
   const Data = [
     {
-      image: "/src/assets/public/michaelimage.png",
+      image: "/src/assets/michaelimage.png",
       name: "Michael Onyekachi",
       stack: "Product Designer / TeamLead",
     },
     {
-      image: "/src/assets/public/chiomaimage.png",
+      image: "/src/assets/chiomaimage.png",
       name: "Ozofor Chioma",
       stack: "Frontend Developer",
     },
     {
-      image: "/src/assets/public/etijoroimage.png",
+      image: "/src/assets/etijoroimage.png",
       name: "Etijoro Emmanuel",
       stack: "Backend Developer",
     },
     {
-      image: "/src/assets/public/christianimage.png",
+      image: "/src/assets/christianimage.png",
       name: "Oko Christian",
       stack: "Frontend Developer",
     },
     {
-      image: "/src/assets/public/chiemerieimage.png",
+      image: "/src/assets/chiemerieimage.png",
       name: "Chiemerie",
       stack: "Frontend Developer",
     },
     {
-      image: "/src/assets/public/daniellaimage.png",
+      image: "/src/assets/daniellaimage.png",
       name: "Sodade Daniella",
       stack: "Backend Developer",
     },
     {
-      image: "/src/assets/public/amadiimage.png",
+      image: "/src/assets/amadiimage.png",
       name: "Amadi Emmanuel",
       stack: "Backend Developer",
     },
     {
-      image: "/src/assets/public/wisdomimage.png",
+      image: "/src/assets/wisdomimage.png",
       name: "Osuji Wisdom",
       stack: "Frontend Developer",
     },
@@ -70,11 +70,11 @@ const AboutUs = () => {
         <div className='about-us-all-image'>
           <div className='about-us-logo-div'>
             <div className='about-us-logo-main'>
-              <img src="/src/assets/public/aboutuslogo.png" alt="" />
+              <img src="/src/assets/aboutuslogo.png" alt="" />
             </div>
           </div>
           <div className='about-us-all-image-div'>
-            <img src="/src/assets/public/aboutustogetherimage.png" alt="" />
+            <img src="/src/assets/aboutustogetherimage.png" alt="" />
           </div>
         </div>
         <div className='about-us-text'>

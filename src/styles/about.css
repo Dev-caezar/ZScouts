@@ -6,7 +6,7 @@
 .about-us-hero{
     width: 100%;
     height: 55vh;
-    background-image: url(/src/assets/public/hero.png);
+    background-image: url(/src/assets/hero.png);
     /* background-position: center; */
     display: flex;
     justify-content: center;
@@ -244,7 +244,7 @@
     padding-bottom: 50px;
     border-radius: 30px;
     /* background-color: navy; */
-    background-image: url("/src//assets/public/componentimages.jpeg");
+    background-image: url("/src//assets/componentimages.jpeg");
     background-position:center;
     background-size: cover;
 }
@@ -282,7 +282,7 @@
     align-items: end;
     background-position: center;
     background-size: cover;
-    background-image: url(/src//assets/public/componentimages.jpeg);
+    background-image: url(/src//assets/componentimages.jpeg);
 }
 
 .about-us-third-layer-wrap-inner{

@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import {createHashRouter, RouterProvider} from 'react-router'
 // import { Element } from './routes/router'
 import { HomeLayout } from './components';
 import Homepage from './pages/Homepage';
@@ -22,7 +22,7 @@ import PlayerProfile from "./pages/PlayerProfile"
 import ErrorPage from './pages/ErrorPage';
 
 const App = () => {
- const Router = createBrowserRouter([
+ const Router = createHashRouter([
     {
       path: "/",
       element: <HomeLayout />,
