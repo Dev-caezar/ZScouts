@@ -113,20 +113,18 @@
     gap: 6px;
     display: flex;
     flex-direction: column;
-    p{
-        font-family: Poppins;
-        font-size: 18px;
-        line-height: 24px;
-         color:rgba(12, 143, 0, 1) ; 
-          
-        
-    }
-    h4{
-        font-family: sans-serif;
-        font-weight: 700;
-        font-size: 32px;
-    
-    }
+}
+.howItWorks-text p{
+    font-family: "Poppins",sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+     color:rgba(12, 143, 0, 1) ;   
+}
+.howItWorks h4{
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+
 }
 
 .HowItWorks-text-wrapper{
