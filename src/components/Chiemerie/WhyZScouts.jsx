@@ -13,19 +13,22 @@ const WhyZScouts = () => {
       ]
 
   return (
-    <div className="whyZscout-wrapper">
-       <div className="Opportunities-connection-growth" >
-        <p>Why ZScouts?</p>
-        <h4>Opportunities. Connections. Growth.</h4>
-        <div className="o-c-g-wrapper">
-          { Yzscouts.map((whyZscout, index)=>( 
-              <div key={index} className="o-c-g">
-                <div className="o-c-g-IconHolder">{whyZscout.icon}</div><br /><br />
-                <h5>{whyZscout.title}</h5>
-                <p>{whyZscout.description}</p>
-              </div> 
-           ))}   
-           
+    <div className="whyZscout">
+      <div className="whyZscout-wrapper">
+        <div className="text_holder">
+          <h4>Why ZScouts?</h4>
+          <h2>Opportunities. Connections. Growth.</h2>
+        </div>
+        <div className="whycard_wrapper">
+          {
+            Yzscouts.map((i,index)=>(
+              <div className="why_card">
+                <div className="icon_holder">{i.icon}</div>
+                <h4>{i.title}</h4>
+                <p>{i.description}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>

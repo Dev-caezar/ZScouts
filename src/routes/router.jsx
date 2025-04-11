@@ -15,9 +15,9 @@ import { HomeLayout } from "../components";
 import AboutUs from "../components/Wisdom/AboutUs";
 import ContactUs from "../components/Wisdom/ContactUs";
 import DashboardLayout from "../components/layout/DashboardLayout";
-// import PlayerProfile from "../pages/playerProfile";
-// import RegisterPlayer from "../auth/RegisterPlayer";
+import RegisterPlayer from "../auth/RegisterPlayer";
 import EmailVerify from "../auth/emailVerify";
+import PlayerProfile from "../pages/PlayerProfile";
 
 export const Element = createBrowserRouter([
   {
@@ -49,10 +49,10 @@ export const Element = createBrowserRouter([
         path: "/scout_login",
         element: <ScoutLogin />,
       },
-      // {
-      //     path: "/player_register",
-      //     element: <RegisterPlayer />
-      // },
+      {
+          path: "/player_register",
+          element: <RegisterPlayer />
+      },
       {
         path: "/scout_register",
         element: <ScoutRegister />,
@@ -90,10 +90,10 @@ export const Element = createBrowserRouter([
   {
     element: <DashboardLayout />,
     children: [
-    //   {
-    //     path: "player_profile",
-    //     element: <PlayerProfile />,
-    //   },
+      {
+        path: "player_profile",
+        element: <PlayerProfile />,
+      },
     ],
   },
   {

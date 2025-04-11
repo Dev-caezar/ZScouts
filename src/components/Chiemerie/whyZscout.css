@@ -1,63 +1,63 @@
-
-.wZ_scout_body{
-    width: 82%;
-    height: 70vh;
+.whyZscout{
+    width: 100%;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.why_wrapper{
+.whyZscout-wrapper{
     width: 82%;
     height: 80%;
 }
-.why_header{
+.text_holder{
     width: 100%;
     height: max-content;
 }
-.why_header h4{
+.text_holder h4{
     color: var(--Colors-New-Primary-600, #0C8F00);
     font-family: "Poppins",sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
 }
-.why_header h2{
+.text_holder h2{
     color: var(--Colors-Neutral-1000, #333);
     font-family: "Poppins",sans-serif;
     font-size: 34px;
     font-style: normal;
     font-weight: 700;
-    line-height: 51px; /* 150% */
+    line-height: 51px;
 }
-.why_scout_content{
+
+.whycard_wrapper{
     width: 100%;
-    height: 80%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 .why_card{
     width: 25%;
-    height: 80%;
+    height: 70%;
     border: 1px solid #333;
     border-radius: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    padding-inline: 10px;
-    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
 }
-.why_icon{
-    width: 40px;
-    height: 40px;
+.icon_holder{
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: #9FFF96;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 .why_card h4{
     color: var(--Colors-Neutral-1000, #333);
@@ -65,8 +65,7 @@
     font-size: 14.962px;
     font-style: normal;
     font-weight: 700;
-    line-height: 22.443px; 
-    text-align: center;
+    line-height: 22.443px; /* 150% */
 }
 .why_card p{
     color: var(--Colors-Neutral-700, #777);
@@ -77,155 +76,3 @@
     font-weight: 500;
     line-height: 19.237px; /* 150% */
 }
-.whyZscout-wrapper{
-    width: 100%;
-    height: max-content;
-    /* background-color: black; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    padding: 10px;
-}
-
-
-
-.Opportunities-connection-growth{
-    
-    width: 100%;
-    height: 400px;
-      /* border: 5px solid black; */
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      p{
-          font-family: Poppins;
-          font-size: 18px;
-          line-height: 24px;
-           color:rgba(12, 143, 0, 1) ; 
-            padding-left: 9.5%;
-          
-      }
-      h4{
-          font-family: sans-serif;
-          font-weight: 700;
-          font-size: 32px;
-          line-height: 24px;
-          padding-left: 9.5%;
-  
-      }
-  
-     
-  }
-  
-  .o-c-g-wrapper{
-      width: 100%;
-      height: 340px;
-      /* border: 5px solid red; */
-      background-repeat:no-repeat ;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2%;
-  }
-  .o-c-g{
-      width: 19%;
-      height: 80%;
-      border: 1.7px solid black;
-      border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      /* gap: 3%; */
-      align-items: center;
-      justify-content: center;
-      
-      h5{
-          /* font-size: 18px; */
-          font-family: Poppins;
-          font-weight: 900;
-          font-size: 14.5px;
-          line-height: 22.44px;
-          letter-spacing: 0px;
-          vertical-align: middle;
-  
-      }
-      p{
-          text-align: center;
-          color: rgba(0, 0, 0, 0.766) !important;
-          font-size: 14px;
-          padding: 10px;
-          
-          /* background-color: blue; */
-      }
-  }
-  
-  .o-c-g-IconHolder{
-      width: 19%;
-      height: 20%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50px;
-      background-color: rgba(159, 255, 150, 1);
-  }
-
-
-  @media  only screen and (max-width: 1200px),
-       only screen and (max-width: 900px),
-       only screen and (max-width: 760px),
-       only screen and (max-width: 480px),
-       only screen and (max-width: 379px) {
-        
-  .Opportunities-connection-growth{
-    width: 100%;
-    height:max-content;
-    /* border: 5px solid black; */
-    display: flex;
-    flex-direction: column;
-    p{
-        font-weight: bold;
-        font-size: 12px;
-         color:rgba(12, 143, 0, 1) ; 
-          padding-left: 9.5%;
-        
-    }
-    h4{
-        font-family: sans-serif;
-        font-size: 15px ;
-        padding-left: 9.5%;
-
-    }
-  }
-
-  .o-c-g-wrapper{
-    width: 100%;
-    height: auto;
-    display: grid;
-    /* border: 5px solid red; */
-    grid-template-columns: 2fr 2fr;
-  }
-
-  .o-c-g{
-    width: 100%;
-    height: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    padding-top: 20px;
-    h5{
-        font-size: 10px;
-        width: 100%;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    p{
-        font-size: 10px !important;
-         text-align: center;
-         
-    }
-  }
-       }
