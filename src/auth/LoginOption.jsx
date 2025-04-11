@@ -33,8 +33,8 @@ const LoginOption = () => {
                                 <div className="loginoption_card_img">
                                     {
                                         selectedRole === 'PLAYER' ?
-                                    <img src="/src/assets/public/white_boot.png" alt="Player Icon" />:
-                                    <img src="/src/assets/public/player_boot.jpg" alt="" />
+                                    <img src="/src/assets/white_boot.png" alt="Player Icon" />:
+                                    <img src="/src/assets/player_boot.jpg" alt="" />
                                     }
                                 </div>
                                 <p>Player</p>
@@ -44,8 +44,8 @@ const LoginOption = () => {
                                 <div className="loginoption_card_img">
                                     {
                                         selectedRole === 'SCOUT' ?
-                                    <img src="/src/assets/public/white_icon.png" alt="Scout Icon" />:
-                                    <img src="/src/assets/public/scout_icon.svg" alt="Scout Icon"/>
+                                    <img src="/src/assets/white_icon.png" alt="Scout Icon" />:
+                                    <img src="/src/assets/scout_icon.svg" alt="Scout Icon"/>
                                     }
                                 </div>
                                 <p>Scout</p>

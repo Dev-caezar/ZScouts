@@ -13,6 +13,9 @@ const ScoutRegister = () => {
       const handleRegisterSuccess =()=>{
         navigate("/email_page")
       }
+      const handleSuccess =()=>{
+        navigate("/player_profile")
+      }
   return (
     <div className='scout_register_body'>
         <div className="scout_register_card">

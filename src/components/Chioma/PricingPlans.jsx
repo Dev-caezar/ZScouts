@@ -67,7 +67,7 @@ const PricingPlans = () => {
     <div className="pricing-container">
       <div className="pricing_wrapper">
         <div className="pricing_text">
-          <h4>pricing</h4>
+          <h4>Pricing</h4>
           <h2>Find the plan that fits your goals.</h2>
         </div>
         <div className="pricing_cards_holder">

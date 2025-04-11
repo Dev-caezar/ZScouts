@@ -10,7 +10,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    background-image:url("/src//assets//public/hero.png");
+    background-image:url("/src//assets/hero.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
