@@ -11,14 +11,14 @@ import ScoutLogin from './auth/ScoutLogin';
 import RegisterPlayer from './auth/RegisterPlayer';
 import ScoutRegister from './auth/ScoutRegister';
 import EmailPage from './auth/EmailPage';
-import EmailVerify from './auth/emailVerify';
+import EmailVerify from './auth/EmailVerify';
 import EmailNotify from './auth/EmailNotify';
 import ForgotPassword from './auth/ForgotPassword';
 import ResetPassword from './auth/ResetPassword';
 import LoginOption from './auth/LoginOption';
 import SignupOption from './auth/SignupOption';
 import DashboardLayout from './components/layout/DashboardLayout';
-// import PlayerProfile from "./pages/PlayerProfile"
+import PlayerProfile from "./pages/PlayerProfile"
 import ErrorPage from './pages/ErrorPage';
 
 const App = () => {
@@ -93,10 +93,10 @@ const App = () => {
     {
       element: <DashboardLayout />,
       children: [
-        // {
-        //   path: "player_profile",
-        //   element: <PlayerProfile />,
-        // },
+        {
+          path: "player_profile",
+          element: <PlayerProfile />,
+        },
       ],
     },
     {
