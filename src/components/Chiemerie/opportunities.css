@@ -69,6 +69,8 @@
 .howItWorks-text-wrapper{
     width: 100%;
     height: 100px;
+}
+
 .Opportunities-wrapper{
     width: 100%;
     height: max-content;
@@ -153,81 +155,4 @@
     font-style: normal;
     font-weight: 500;
     line-height: 24px; /* 150% */
-}
-
-
-
-
-
-
-@media only screen and (max-width: 1200px),
-    span{
-        font-size: 22px;
-    }
-    p{
-        color: rgba(0, 0, 0, 0.66);
-    }
-}
-
-
-
-
-
-
-@media only screen and (max-width: 1440px),
-       only screen and (max-width: 1200px),
-       only screen and (max-width: 900px),
-       only screen and (max-width: 760px),
-       only screen and (max-width: 480px),
-       only screen and (max-width: 379px) {
-  
-
-  .opportunities-wrapper{
-  .Opportunities-wrapper{
-    width: 100%;
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    
-  }
-
- 
-
-
-  .HowItWorks{
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-  }
-
-
-  .HowItWorks-image{
-    width:100% ;
-    height: 300px;
-  }
-
-  .HowItWorks-text{
-    width: 100%;
-    height: 500px;
-    gap: 3%;
-    h4{
-        font-size: 15px;
-    }
-
-    p{
-        font-size: 15px;
-    }
-  }
-  .HowItWorks-text-wrapper{
-    width: 100%;
-height: 17% !important;
-span{
-    font-size: 15px;
-}
-p{
-    font-size: 11px;
-}
-  }
-
- 
 }

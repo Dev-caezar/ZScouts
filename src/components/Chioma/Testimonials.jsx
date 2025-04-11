@@ -34,7 +34,7 @@ const Testimonials = () => {
                     data.map((i,index)=>(
                         <div className="testimony_card" key={index}>
                             <div className="img_holder">
-                                <img src={i.img} alt="" />
+                                <img src={i.img} alt="image" />
                             </div>
                             <h2>{i.player}</h2>
                             <p>{i.role}</p>

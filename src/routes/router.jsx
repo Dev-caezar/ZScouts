@@ -18,7 +18,7 @@ import { HomeLayout } from "../components";
 import AboutUs from "../components/Wisdom/AboutUs";
 import ContactUs from "../components/Wisdom/ContactUs";
 import DashboardLayout from "../components/layout/DashboardLayout";
-import PlayerProfile from "../pages/playerProfile";
+import PlayerProfile from "../pages/PlayerProfile";
 
 
 
@@ -98,7 +98,8 @@ export const Element = createBrowserRouter([
             {
                 path: "player_profile",
                 element:<PlayerProfile />
-            }
+            },
+           
         ])
     },
 
