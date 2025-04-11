@@ -18,7 +18,7 @@ import ResetPassword from './auth/ResetPassword';
 import LoginOption from './auth/LoginOption';
 import SignupOption from './auth/SignupOption';
 import DashboardLayout from './components/layout/DashboardLayout';
-import PlayerProfile from "./pages/PlayerProfile"
+// import PlayerProfile from "./pages/PlayerProfile"
 import ErrorPage from './pages/ErrorPage';
 
 const App = () => {
@@ -93,10 +93,10 @@ const App = () => {
     {
       element: <DashboardLayout />,
       children: [
-        {
-          path: "player_profile",
-          element: <PlayerProfile />,
-        },
+        // {
+        //   path: "player_profile",
+        //   element: <PlayerProfile />,
+        // },
       ],
     },
     {
