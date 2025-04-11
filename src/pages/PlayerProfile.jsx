@@ -5,7 +5,7 @@ const PlayerProfile = () => {
   return (
     <div className='playerProfile_body'>
       <div className="profile_wrapper">
-        
+        player
       </div>
     </div>
   )
