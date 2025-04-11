@@ -16,9 +16,8 @@ import AboutUs from "../components/Wisdom/AboutUs";
 import ContactUs from "../components/Wisdom/ContactUs";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import PlayerProfile from "../pages/playerProfile";
-import RegisterPlayer from "../auth/RegisterPlayer";
+// import RegisterPlayer from "../auth/RegisterPlayer";
 import EmailVerify from "../auth/emailVerify";
-// import PlayerRegister from "../auth/PlayerRegister";
 
 
 
@@ -54,10 +53,10 @@ export const Element = createBrowserRouter([
                 path: "/scout_login",
                 element: <ScoutLogin />
             },
-            {
-                path: "/player_register",
-                element: <RegisterPlayer />
-            },
+            // {
+            //     path: "/player_register",
+            //     element: <RegisterPlayer />
+            // },
             {
                 path: "/scout_register",
                 element: <ScoutRegister />
