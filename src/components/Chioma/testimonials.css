@@ -63,9 +63,7 @@
 .img_holder{
     width: 50px;
     height: 50px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    border-radius: 60px;
     border: none;
     overflow: hidden;
 }
@@ -77,7 +75,7 @@
 .testimony_card h2{
     color: var(--Colors-Neutral-1000, #333);
     font-family: "Poppins",sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: 30px; /* 150% */
@@ -87,7 +85,7 @@
 .testimony_card p{
     color: var(--Colors-Neutral-300, #D2D2D2);
     font-family: "Poppins",sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 24px; /* 150% */
@@ -95,7 +93,7 @@
 .testimony_card h4{
     color: var(--Colors-Neutral-1000, #333333);
     font-family: "Poppins",sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 21px; /* 150% */

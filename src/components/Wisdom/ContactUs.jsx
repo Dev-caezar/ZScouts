@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { RiArrowDownSLine } from "react-icons/ri";
 import { MdEmail, MdPhone, MdTag } from "react-icons/md";
 import "../../styles/contact.css"
+import Nextlevel from '../Chiemerie/Nextlevel';
 
 const ContactUs = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -50,7 +51,7 @@ const ContactUs = () => {
       <div className="contact_hero">
         <div className="contact_hero_content">
           <h2>Contact us</h2>
-          <p>Bridging the Gap Between Talent and Opportunity</p>
+          <p>Need help? Reach out--we're here for you!</p>
         </div>
       </div>
       <div className="message_board">
@@ -107,6 +108,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      <Nextlevel />
       <div className="faq_container">
         <div className="faq_wrapper">
           <div className="faq_header">
