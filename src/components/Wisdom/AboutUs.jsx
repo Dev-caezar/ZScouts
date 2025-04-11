@@ -104,8 +104,6 @@ const AboutUs = () => {
         </div>
       </div>
     </div>
-    <Nextlevel />
-    {/* <div className='about-us-third-layer'>
     <div className='about-us-third-layer'>
       <div className='about-us-third-layer-wrap'>
         <div className='about-us-third-layer-wrap-inner'>
@@ -124,7 +122,6 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-    </div> */}
     </div>
     <div className='Zscout-Team'>
       <div className='Zscout-Team-wrap'>
@@ -135,7 +132,7 @@ const AboutUs = () => {
     <div className='Zscout-Team-main' >
       <div className='Zscout-Team-main-wrap'>
         {
-          Data.map((item, index)=> (
+          Data.map((item)=> (
             <div className='one-person-image'>
               <div className='one-person-image-div-main'>
                 <img src={item.image} alt="img" />
@@ -149,29 +146,15 @@ const AboutUs = () => {
         }
       </div>
     </div>
-    <div className='about-us-pricing-div'></div>
-    <PricingPlans />
-    <Nextlevel />
-    <Testimonials />
-    {/* <div className='discover-talents-build-the-future'>
-    <div className='discover-talents-build-the-future'>
-    <div className="nextLevel">
-        <div className="nextLevelImage"> 
-          <div className="nextLevelText1">
-            <h1>Take Your Career to</h1>
-            <h1>the Next Level!</h1>
-            <p>Create your profile, upload your higlights, and</p>
-            <p>attract scouts looking for talent like you.</p>
-          </div>
-          <button  onClick={()=>nav("/signup_option")} style={{cursor: "pointer"}} className="nextLevelText2"> Create Your Free Profile</button>
-        </div>
-       </
-    </div> 
+    <div className='about-us-pricing-div'>
+       <PricingPlans />
+       <Nextlevel />
     </div>
-    <div className='aboutus-testimonial-card'></div>
-    
+    <div className='aboutus-testimonial-card'>
+      <Testimonials />
+    </div>
     </div>
   )
-}
+    }
 
 export default AboutUs
