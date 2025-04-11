@@ -3,7 +3,6 @@ import Homepage from "../pages/Homepage";
 import ForgotPassword from "../auth/ForgotPassword";
 import ResetPassword from "../auth/ResetPassword";
 import ErrorPage from "../pages/ErrorPage";
-import PrivateRoutes from "./privateRoutes";
 import LoginOption from "../auth/LoginOption";
 import SignupOption from "../auth/SignupOption";
 import ScoutRegister from "../auth/ScoutRegister";
@@ -13,12 +12,12 @@ import ScoutLogin from "../auth/ScoutLogin";
 import EmailPage from "../auth/EmailPage";
 import EmailVerify from "../auth/emailVerify";
 import EmailNotify from "../auth/EmailNotify";
-import PlayerRegister from "../auth/PlayerRegister";
 import { HomeLayout } from "../components";
 import AboutUs from "../components/Wisdom/AboutUs";
 import ContactUs from "../components/Wisdom/ContactUs";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import PlayerProfile from "../pages/playerProfile";
+import PlayerRegister from "../auth/PlayerRegister";
 
 
 

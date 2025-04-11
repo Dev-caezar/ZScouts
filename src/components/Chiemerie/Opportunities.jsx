@@ -12,26 +12,21 @@ const Opportunities = () => {
   ]
   
   return (
-    <div className="opportunity_body">
-      <div className="opportunities-wrapper">
-      <div className="howItWorks">
-        <div className="howItWorks-image">
-          <div className="howitworks_img_card">
-          <img src="/src/assets/public/myfoto.jpeg" alt="" />
-          </div>
-        </div>
-        <div className="howItWorks-text">
+    <div className="Opportunities-wrapper">
+
+      <div className="HowItWorks">
+        <div className="HowItWorks-image"></div>
+        <div className="HowItWorks-text">
           <p>How it Works?</p>
           <h4>Connect. Showcase. Get <br /> Scouted.</h4><br />
          {HowItWorks.map((Howitworks, index)=>(
-         <div key={index} className="howItWorks-text-wrapper">
-          <h4>{Howitworks.id}.{Howitworks.heading}</h4>
+         <div key={index} className="HowItWorks-text-wrapper">
+          <span>{Howitworks.id}.{Howitworks.heading}</span>
           <p>{Howitworks.paragraph}</p>
          </div>
          ))}
         </div>
       </div> 
-    </div>
     </div>
   )
 }

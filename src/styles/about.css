@@ -68,6 +68,7 @@
     background-color: #e6f3e5;
     border-radius: 15px;
     overflow: hidden;
+
 }
 
 .about-us-logo-div{
@@ -346,6 +347,10 @@
     justify-content: center;
     align-items: center;
     /* background-color: orange; */
+    height: 28vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Zscout-Team-wrap{
@@ -360,6 +365,10 @@
     /* background-color: yellow; */
     display: flex;
     align-items: center;
+    height: 70%;
+    /* background-color: yellow; */
+    display: flex;
+    align-items: end;
     color: #0c8f00;
 }
 
@@ -369,6 +378,7 @@
     /* height: 30%; */
     display: flex;
     align-items: center;
+    height: 30%;
     /* background-color: magenta; */
     font-size: 18px;
 }
@@ -377,6 +387,7 @@
     width: 100%;
     height: max-content;
     /* background-color: blueviolet; */
+    /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -387,6 +398,9 @@
     height: 100%;
     /* background-color: green; */
     /* padding-top: 30px; */
+    height: auto;
+    /* background-color: green; */
+    padding-top: 30px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
