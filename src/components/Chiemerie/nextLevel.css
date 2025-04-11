@@ -67,15 +67,15 @@
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 150% */ 
-    h5{
-        color: white;
-        font-size: 35px;
-        word-spacing: 5%;
-    }
-    p{
-        color: white;
-        font-size: 17px;
-    }
+}
+.nextLevelText1  h5{
+    color: white;
+    font-size: 35px;
+    word-spacing: 5%;
+}
+.nextLevelText1  p{
+    color: white;
+    font-size: 17px;
 }
 
 .nextLevelText2{
@@ -119,14 +119,14 @@
             flex-direction: column;
             gap: 2%;
             width: 92%;
-            h5{
-                font-size: 25px;
-                text-align: center;
-            }
-            p{
-                font-size:12px ;
-            }
           }
+          .nextLevelText1 h5{
+            font-size: 25px;
+            text-align: center;
+        }
+        .nextLevelText1  p{
+            font-size:12px ;
+        }
           .nextLevelText2{
             width: 80%;
             font-size: 15px;

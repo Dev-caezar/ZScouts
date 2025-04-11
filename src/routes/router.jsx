@@ -17,7 +17,9 @@ import AboutUs from "../components/Wisdom/AboutUs";
 import ContactUs from "../components/Wisdom/ContactUs";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import PlayerProfile from "../pages/playerProfile";
-import PlayerRegister from "../auth/PlayerRegister";
+import RegisterPlayer from "../auth/RegisterPlayer";
+// import PlayerRegister from "../auth/PlayerRegister";
+
 
 
 
@@ -54,7 +56,7 @@ export const Element = createBrowserRouter([
             },
             {
                 path: "/player_register",
-                element: <PlayerRegister />
+                element: <RegisterPlayer />
             },
             {
                 path: "/scout_register",
