@@ -129,7 +129,7 @@ const AboutUs = () => {
     <div className='Zscout-Team-main' >
       <div className='Zscout-Team-main-wrap'>
         {
-          Data.map((item, index)=> (
+          Data.map((item)=> (
             <div className='one-person-image'>
               <div className='one-person-image-div-main'>
                 <img src={item.image} alt="img" />
