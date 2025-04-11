@@ -10,7 +10,6 @@ import AuthLayout from "../components/layout/AuthLayout";
 import PlayerLogin from "../auth/playerLogin";
 import ScoutLogin from "../auth/ScoutLogin";
 import EmailPage from "../auth/EmailPage";
-import EmailVerify from "../auth/emailVerify";
 import EmailNotify from "../auth/EmailNotify";
 import { HomeLayout } from "../components";
 import AboutUs from "../components/Wisdom/AboutUs";
@@ -18,6 +17,7 @@ import ContactUs from "../components/Wisdom/ContactUs";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import PlayerProfile from "../pages/playerProfile";
 import RegisterPlayer from "../auth/RegisterPlayer";
+import EmailVerify from "../auth/emailVerify";
 // import PlayerRegister from "../auth/PlayerRegister";
 
 
