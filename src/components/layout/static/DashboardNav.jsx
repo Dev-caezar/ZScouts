@@ -2,8 +2,8 @@ import React from 'react'
 import "../../../styles/dashboardNav.css"
 import { BiSolidCategory } from "react-icons/bi";
 import { MdVideoLibrary } from "react-icons/md";
-import { IoSettingsOutline } from "react-icons/io5";
-import { TbLogout2 } from "react-icons/tb";
+import { AiFillSetting } from "react-icons/ai";
+import { IoLogOut } from "react-icons/io5";
 
 const DashboardNav = () => {
   return (
@@ -26,11 +26,11 @@ const DashboardNav = () => {
         </div>
         <div className="sidebar_footer">
             <div className="d_content_card">
-                <IoSettingsOutline className='sidebar_icon'/>
+                <AiFillSetting className='sidebar_icon'/>
                 <h4>Settings</h4>
             </div>
             <div className="d_content_card">
-                <TbLogout2 className='sidebar_icon'/>
+                <IoLogOut className='sidebar_icon'/>
                 <h4>Logout</h4>
             </div>
         </div>

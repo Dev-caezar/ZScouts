@@ -35,7 +35,7 @@
 }
 
 .nextLevelText1{
-    width: 36%;
+    width: 20%;
     height: 60%;
     display: flex;
     gap: 5%;
@@ -50,7 +50,8 @@
     font-size: 34px;
     font-style: normal;
     font-weight: 700;
-    line-height: 51px; /* 150% */
+    line-height: 51px;
+    width: 70%; /* 150% */
 }
 .nextLevelText1 p{
     color: var(--Colors-Neutral-100, #FFF);
