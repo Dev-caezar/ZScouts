@@ -6,12 +6,10 @@ import AboutUs from './components/Wisdom/AboutUs';
 import ContactUs from './components/Wisdom/ContactUs';
 import ErrorPage from './pages/ErrorPage';
 import AuthLayout from './components/layout/AuthLayout';
-import PlayerLogin from './auth/PlayerLogin';
 import ScoutLogin from './auth/ScoutLogin';
 import RegisterPlayer from './auth/RegisterPlayer';
 import ScoutRegister from './auth/ScoutRegister';
 import EmailPage from './auth/EmailPage';
-import EmailVerify from "./auth/EmailVerify"
 import EmailNotify from './auth/EmailNotify';
 import ForgotPassword from './auth/ForgotPassword';
 import ResetPassword from './auth/ResetPassword';
@@ -19,10 +17,10 @@ import LoginOption from './auth/LoginOption';
 import SignupOption from './auth/SignupOption';
 import DashboardLayout from './components/layout/DashboardLayout';
 import PlayerProfile from './pages/PlayerProfile';
-import PlayerVideo from './pages/PlayerVideo'
 import PlayerSettings from './pages/PlayerSettings';
 import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
 import ScoutProfile from './pages/ScoutProfile';
+import LoginPayer from './auth/LoginPlayer';
 
 
 
@@ -51,7 +49,7 @@ const App = () => {
       children: [
         {
           path: "/player_login",
-          element: <PlayerLogin />,
+          element: <LoginPayer />,
         },
         {
           path: "/scout_login",
@@ -101,10 +99,6 @@ const App = () => {
         {
           path: "player_profile",
           element: <PlayerProfile />,
-        },
-        {
-          path: "player_video",
-          element: <PlayerVideo />,
         },
         {
           path: "player_setting",
