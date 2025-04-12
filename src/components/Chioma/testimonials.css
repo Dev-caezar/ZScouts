@@ -99,8 +99,12 @@
     line-height: 21px; /* 150% */
 }
 @media (max-width: 480px){
+    .testimonial-wrapper{
+        height: 50vh;
+    }
     .testimonial_container{
         width: 90%;
+        height: 80%;
     }
     .testimonial_text{
         display: flex;
@@ -116,6 +120,8 @@
         font-size: 16px;
     }
     .testimony_container{
+        height: fit-content;
+        /* backgound-color: red; */
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -123,7 +129,7 @@
     }
     .testimony_card{
         width: 45%;
-        height: 190px;
+        height: 150px;
     }
     .img_holder{
         width: 25px;

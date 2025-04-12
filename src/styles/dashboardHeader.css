@@ -1,14 +1,12 @@
 .dashboardHeader_body{
     width: 100%;
     height: 15vh;
-    position: sticky;
-    top: 0;
     display: flex;
     justify-content: center;
-    z-index: 2;
+    /* z-index: 2; */
 }
 .dashboard_header_wrapper{
-    width: 92%;
+    width: 97%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -74,4 +72,156 @@
     font-style: normal;
     font-weight: 400;
     line-height: 15px; 
+}
+.dashboard_logo{
+    display: none;
+}
+.dash_icon{
+    display: none;
+}
+.dashboard_header_modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: all 0.7s ease;
+  }
+  
+  .dashboardheader_modal_wrapper {
+    width: 70%;
+    height: 100%;
+    border-radius: 25px 0 0 25px;
+    background-color: #07232F;
+    animation: slideInFromRight 0.4s ease;
+  }
+  
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+ 
+  
+  
+.d_modal_header{
+    width: 100%;
+    height: 12%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.d_modal_img{
+    width: 100px;
+    height: 40px;
+}
+ .d_modal_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+ }
+ .cancel_icon{
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+ }
+ .d_modal_content{
+    width: 100%;
+    height: 65%;
+    /* background-color: red; */
+ }
+ .modal_card{
+    width: 100%;
+    height: 50px;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    gap: 10px;
+ }
+.d_sidebar_icon{
+    font-size: 25px;
+    
+    color: white;
+}
+.modal_card h4{
+    color: #FFF;
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; 
+    display: block;
+}
+.modal_card:hover{
+    background-color: #9FFF96;
+    color: black;
+    cursor: pointer;
+
+    & .d_sidebar_icon{
+        color: black;
+    }
+    & h4{
+        color: black;
+    }
+}
+.modal_footer{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: red; */
+}
+@media (max-width: 480px){
+    .dashboard_header_wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header_left{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+    }
+    .header_left p{
+        display: none;
+    }
+    .header_left h4{
+        display: none;
+    }
+    .dashboard_logo{
+        display: block;
+        width: 150px;
+        height: 30px;
+    }
+    .dashboard_logo img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .header_right_img,
+    .header_right_txt{
+        display: none;
+    }
+    .dash_icon{
+        font-size: 35px;
+        color: var(--Colors-Neutral-1000, #333);
+        cursor: pointer;
+        display: block;
+    }
 }
