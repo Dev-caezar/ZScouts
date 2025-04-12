@@ -6,7 +6,7 @@ import Homepage from './pages/Homepage';
 import AboutUs from './components/Wisdom/AboutUs';
 import ContactUs from './components/Wisdom/ContactUs';
 import AuthLayout from './components/layout/AuthLayout';
-import PlayerLogin from './auth/playerLogin';
+import PlayerLogin from './auth/PlayerLogin';
 import ScoutLogin from './auth/ScoutLogin';
 import RegisterPlayer from './auth/RegisterPlayer';
 import ScoutRegister from './auth/ScoutRegister';
@@ -22,8 +22,8 @@ import ErrorPage from './pages/ErrorPage';
 import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
 import ScoutProfile from './pages/ScoutProfile';
 import PlayerSettings from './pages/PlayerSettings';
-import PlayerVideo from './pages/playerVideo';
 import PlayerProfile from './pages/PlayerProfile';
+import PlayerVideo from './pages/PlayerVideo';
 
 const App = () => {
  const Router = createHashRouter([
