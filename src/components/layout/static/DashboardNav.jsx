@@ -21,7 +21,7 @@ const DashboardNav = () => {
     <div className='sidebar_body'>
       <div className="sidebar_wrapper">
         <div className="sidebar_header">
-            <div className="dashboard_logo">
+            <div className="sidebar_dashboard_logo">
                 <img src="/src/assets/whiteLogo.png" alt="" />
             </div>
         </div>

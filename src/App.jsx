@@ -18,12 +18,12 @@ import ResetPassword from './auth/ResetPassword';
 import LoginOption from './auth/LoginOption';
 import SignupOption from './auth/SignupOption';
 import DashboardLayout from './components/layout/DashboardLayout';
-import PlayerProfile from "./pages/PlayerProfile"
 import ErrorPage from './pages/ErrorPage';
 import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
 import ScoutProfile from './pages/ScoutProfile';
 import PlayerSettings from './pages/PlayerSettings';
 import PlayerVideo from './pages/playerVideo';
+import PlayerProfile from './pages/PlayerProfile';
 
 const App = () => {
  const Router = createHashRouter([
