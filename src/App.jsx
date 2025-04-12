@@ -5,6 +5,24 @@ import Homepage from './pages/Homepage';
 import AboutUs from './components/Wisdom/AboutUs';
 import ContactUs from './components/Wisdom/ContactUs';
 import ErrorPage from './pages/ErrorPage';
+import AuthLayout from './components/layout/AuthLayout';
+import PlayerLogin from './auth/PlayerLogin';
+import ScoutLogin from './auth/ScoutLogin';
+import RegisterPlayer from './auth/RegisterPlayer';
+import ScoutRegister from './auth/ScoutRegister';
+import EmailPage from './auth/EmailPage';
+import EmailVerify from "./auth/EmailVerify"
+import EmailNotify from './auth/EmailNotify';
+import ForgotPassword from './auth/ForgotPassword';
+import ResetPassword from './auth/ResetPassword';
+import LoginOption from './auth/LoginOption';
+import SignupOption from './auth/SignupOption';
+import DashboardLayout from './components/layout/DashboardLayout';
+import PlayerProfile from './pages/PlayerProfile';
+import PlayerVideo from './pages/PlayerVideo'
+import PlayerSettings from './pages/PlayerSettings';
+import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
+import ScoutProfile from './pages/ScoutProfile';
 
 
 
@@ -28,81 +46,81 @@ const App = () => {
         },
       ],
     },
-    // {
-    //   element: <AuthLayout />,
-    //   children: [
-    //     {
-    //       path: "/player_login",
-    //       element: <PlayerLogin />,
-    //     },
-    //     {
-    //       path: "/scout_login",
-    //       element: <ScoutLogin />,
-    //     },
-    //     {
-    //         path: "/player_register",
-    //         element: <RegisterPlayer />
-    //     },
-    //     {
-    //       path: "/scout_register",
-    //       element: <ScoutRegister />,
-    //     },
-    //     {
-    //       path: "/email_page",
-    //       element: <EmailPage />,
-    //     },
-    //     {
-    //       path: "/email_verify",
-    //       element: <EmailVerify />,
-    //     },
-    //     {
-    //       path: "/email_notify",
-    //       element: <EmailNotify />,
-    //     },
-    //     {
-    //       path: "/forgot_password",
-    //       element: <ForgotPassword />,
-    //     },
-    //     {
-    //       path: "/reset_password",
-    //       element: <ResetPassword />,
-    //     },
-    //     {
-    //       path: "/login_option",
-    //       element: <LoginOption />,
-    //     },
-    //     {
-    //       path: "/signup_option",
-    //       element: <SignupOption />,
-    //     },
-    //   ],
-    // },
-    // {
-    //   element: <DashboardLayout />,
-    //   children: [
-    //     {
-    //       path: "player_profile",
-    //       element: <PlayerProfile />,
-    //     },
-    //     {
-    //       path: "player_video",
-    //       element: <PlayerVideo />,
-    //     },
-    //     {
-    //       path: "player_setting",
-    //       element: <PlayerSettings />,
-    //     },
-    //   ],
-    // },
-    // {
-    //   element: <ScoutDashboardLayout />,
-    //   children: [
-    //     {
-    //       path: "scout_profile",
-    //       element: <ScoutProfile />,
-    //     },
-    //   ],
-    // },
+    {
+      element: <AuthLayout />,
+      children: [
+        {
+          path: "/player_login",
+          element: <PlayerLogin />,
+        },
+        {
+          path: "/scout_login",
+          element: <ScoutLogin />,
+        },
+        {
+            path: "/player_register",
+            element: <RegisterPlayer />
+        },
+        {
+          path: "/scout_register",
+          element: <ScoutRegister />,
+        },
+        {
+          path: "/email_page",
+          element: <EmailPage />,
+        },
+        {
+          path: "/email_verify",
+          element: <EmailVerify />,
+        },
+        {
+          path: "/email_notify",
+          element: <EmailNotify />,
+        },
+        {
+          path: "/forgot_password",
+          element: <ForgotPassword />,
+        },
+        {
+          path: "/reset_password",
+          element: <ResetPassword />,
+        },
+        {
+          path: "/login_option",
+          element: <LoginOption />,
+        },
+        {
+          path: "/signup_option",
+          element: <SignupOption />,
+        },
+      ],
+    },
+    {
+      element: <DashboardLayout />,
+      children: [
+        {
+          path: "player_profile",
+          element: <PlayerProfile />,
+        },
+        {
+          path: "player_video",
+          element: <PlayerVideo />,
+        },
+        {
+          path: "player_setting",
+          element: <PlayerSettings />,
+        },
+      ],
+    },
+    {
+      element: <ScoutDashboardLayout />,
+      children: [
+        {
+          path: "scout_profile",
+          element: <ScoutProfile />,
+        },
+      ],
+    },
     {
       path: "*",
       element: <ErrorPage />,
