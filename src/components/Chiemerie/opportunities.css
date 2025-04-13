@@ -71,9 +71,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 15px;
 }
 .subhead{
-    width: 85%;
+    width: 90%;
     height: 50%;
     display: flex;
     gap: 5px;
@@ -85,7 +86,6 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    /* line-height: 24px;  */
 }
 .subhead h4{
     color: var(--Colors-Neutral-1000, #333);
@@ -93,7 +93,6 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 530;
-    /* line-height: 30px; 150% */
 }
 .subBody{
     width: 85%;
@@ -105,9 +104,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    /* line-height: 20px; 150% */
 }
-/* Tablet view (max-width: 768px) */
 @media (max-width: 768px) {
     .opportunity_wrapper {
       flex-direction: column;

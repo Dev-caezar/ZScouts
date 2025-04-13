@@ -60,4 +60,4 @@ const LoginPlayer = () => {
   )
 }
 
-export default LoginPayer
+export default LoginPlayer
