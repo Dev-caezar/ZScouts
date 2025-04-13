@@ -21,6 +21,8 @@ import PlayerSettings from './pages/PlayerSettings';
 import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
 import ScoutProfile from './pages/ScoutProfile';
 import LoginPayer from './auth/LoginPlayer';
+import EmailVerify from './auth/EmailVerify';
+import EditProfile from './pages/EditProfile';
 
 
 
@@ -69,7 +71,7 @@ const App = () => {
         },
         {
           path: "/email_verify",
-          element: <EmailVerify />,
+          element: <EmailVerify/>,
         },
         {
           path: "/email_notify",
@@ -99,6 +101,10 @@ const App = () => {
         {
           path: "player_profile",
           element: <PlayerProfile />,
+        },
+        {
+          path: "edit_profile",
+          element: <EditProfile />,
         },
         {
           path: "player_setting",

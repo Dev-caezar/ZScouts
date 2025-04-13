@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../../../styles/dashboardNav.css"
 import { BiSolidCategory } from "react-icons/bi";
 import { MdVideoLibrary } from "react-icons/md";
 import { AiFillSetting } from "react-icons/ai";
 import { IoLogOut } from "react-icons/io5";
 import { useNavigate } from 'react-router';
+import { Modal } from 'antd';
 
 const DashboardNav = () => {
+    const [logout, setLogout] = useState(false)
     const nav = useNavigate()
     const handlePlayerProfile =()=>{
         nav("/player_profile")
@@ -16,6 +18,9 @@ const DashboardNav = () => {
     }
     const handlePlayerSettings =()=>{
         nav("/player_setting")
+    }
+    const handleLogout =()=>{
+        setLogout(true)
     }
   return (
     <div className='sidebar_body'>
@@ -40,9 +45,14 @@ const DashboardNav = () => {
                 <AiFillSetting className='sidebar_icon'/>
                 <h4>Settings</h4>
             </div>
-            <div className="d_content_card">
+            <div className="d_content_card" onClick={handleLogout}>
                 <IoLogOut className='sidebar_icon'/>
                 <h4>Logout</h4>
+                {
+                    logout?
+                    <Modal />:
+                    null
+                }
             </div>
         </div>
       </div>
