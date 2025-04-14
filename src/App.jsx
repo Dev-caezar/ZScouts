@@ -1,5 +1,5 @@
 import React from 'react'
-import {createHashRouter, RouterProvider} from 'react-router'
+import {createBrowserRouter, createHashRouter, RouterProvider} from 'react-router'
 import { HomeLayout } from './components';
 import Homepage from './pages/Homepage';
 import AboutUs from './components/Wisdom/AboutUs';
@@ -27,7 +27,7 @@ import EditProfile from './pages/EditProfile';
 
 
 const App = () => {
- const Router = createHashRouter([
+ const Router = createBrowserRouter([
     {
       path: "/",
       element: <HomeLayout />,
