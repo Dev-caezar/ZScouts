@@ -24,6 +24,10 @@ import LoginPayer from './auth/LoginPlayer';
 import EditProfile from './pages/EditProfile';
 import PlayerVideo from './pages/PlayerVideo'
 import EmailVerify from './auth/emailVerify';
+import EmailVerify from './auth/EmailVerify';
+import EditProfile from './pages/EditProfile';
+import PlayerVideo from './pages/PlayerVideo'
+
 
 
 
