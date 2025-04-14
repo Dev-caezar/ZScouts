@@ -5,6 +5,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: sticky;
+    top: 0px;
+    left: 0px;
 }
 .sidebar_wrapper{
     width: 100%;
@@ -18,11 +21,12 @@
     /* justify-content: center; */
     align-items: center;
 }
-.dashboard_logo{
+.sidebar_dashboard_logo{
     width:60%;
     height: 60%;
+    /* display: block; */
 }
-.dashboard_logo img{
+.sidebar_dashboard_logo img{
     width: 100%;
     height: 100%;
     object-fit: contain;
