@@ -1,5 +1,6 @@
 
 import "./opportunities.css"
+import myFoto from "../../assets/myfoto.jpeg"
 
 
 const Opportunities = () => {
@@ -16,7 +17,7 @@ const Opportunities = () => {
       <div className="opportunity_wrapper">
         <div className="oppoturnity_left">
           <div className="oppoturnity_image_holder">
-            <img src="/src/assets/myfoto.jpeg" alt="" />
+            <img src={myFoto} alt="" />
           </div>
         </div>
         <div className="oppoturnity_right">

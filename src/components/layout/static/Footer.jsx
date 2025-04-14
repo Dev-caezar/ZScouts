@@ -1,5 +1,6 @@
 import React from 'react';
 import "../../../styles/footer.css";
+import zlogo from "../../../assets/whiteLogo.png"
 import { FaFacebook, FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
@@ -7,7 +8,7 @@ const Footer = () => {
     <div className='footer-body'>
       <div className='footer-details'>
         <div className='footer-logo'>
-         <img src="/src/assets/public/Zlogo.jpg" alt="ZScouts logo" className='footer-logo-img' />
+         <img src={zlogo} alt="ZScouts logo" className='footer-logo-img' />
           <div className='social-icons'>
             <a href="#"><FaXTwitter /></a>
             <a href="#"><FaFacebook /></a>
