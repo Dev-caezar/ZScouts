@@ -1,5 +1,5 @@
 import React from 'react'
-import {createBrowserRouter, createHashRouter, RouterProvider} from 'react-router'
+import {createBrowserRouter, RouterProvider} from 'react-router'
 import { HomeLayout } from './components';
 import Homepage from './pages/Homepage';
 import AboutUs from './components/Wisdom/AboutUs';
@@ -23,6 +23,7 @@ import ScoutProfile from './pages/ScoutProfile';
 import LoginPayer from './auth/LoginPlayer';
 import EmailVerify from './auth/EmailVerify';
 import EditProfile from './pages/EditProfile';
+import PlayerVideo from './pages/PlayerVideo'
 
 
 
@@ -105,6 +106,10 @@ const App = () => {
         {
           path: "edit_profile",
           element: <EditProfile />,
+        },
+        {
+          path: "edit_video",
+          element: <PlayerVideo />,
         },
         {
           path: "player_setting",
