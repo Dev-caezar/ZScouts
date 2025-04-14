@@ -11,42 +11,42 @@ const AboutUs = () => {
 
   const Data = [
     {
-      image: "/src/assets/michaelimage.png",
+      image: "https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638057/jwwci5ttuvu3d4sawgdn.jpg",
       name: "Michael Onyekachi",
       stack: "Product Designer / TeamLead",
     },
     {
-      image: "/src/assets/chiomaimage.png",
+      image: "https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638060/mn8kwccw4vhbrgkgxll2.jpg",
       name: "Ozofor Chioma",
       stack: "Frontend Developer",
     },
     {
-      image: "/src/assets/etijoroimage.png",
+      image: "https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638062/tloa562nis3mavnakbfe.jpg",
       name: "Etijoro Emmanuel",
       stack: "Backend Developer",
     },
     {
-      image: "/src/assets/christianimage.png",
+      image: "https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638064/aehqrf8krldfgh2ynqcm.jpg",
       name: "Oko Christian",
       stack: "Frontend Developer",
     },
     {
-      image: "/src/assets/chiemerieimage.png",
+      image: "https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638066/g8iqi9nfd3tof5gbtkcl.jpg",
       name: "Chiemerie",
       stack: "Frontend Developer",
     },
     {
-      image: "/src/assets/daniellaimage.png",
+      image: "https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638069/wn9zmlyz0c3ivamcdqoz.jpg",
       name: "Sodade Daniella",
       stack: "Backend Developer",
     },
     {
-      image: "/src/assets/amadiimage.png",
+      image: "https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638070/h1rmlkonfp4xn23nwyjn.jpg",
       name: "Amadi Emmanuel",
       stack: "Backend Developer",
     },
     {
-      image: "/src/assets/wisdomimage.png",
+      image: "https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638072/wj2osvlhohu4gpz0g5fd.jpg",
       name: "Osuji Wisdom",
       stack: "Frontend Developer",
     },
@@ -70,11 +70,11 @@ const AboutUs = () => {
         <div className='about-us-all-image'>
           <div className='about-us-logo-div'>
             <div className='about-us-logo-main'>
-              <img src="/src/assets/aboutuslogo.png" alt="" />
+              <img src="https://res.cloudinary.com/dmpxlspl8/image/upload/v1744640522/m5r4gkf4coyia5bfkv6d.jpg" alt="" />
             </div>
           </div>
           <div className='about-us-all-image-div'>
-            <img src="/src/assets/aboutustogetherimage.png" alt="" />
+            <img src="https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638055/y4p1arjrgc9mbrelgvky.jpg" alt="" />
           </div>
         </div>
         <div className='about-us-text'>

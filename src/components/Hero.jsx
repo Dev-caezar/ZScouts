@@ -1,5 +1,13 @@
 import "../styles/hero.css"
 
+import ellipse2 from "../assets/Ellipse 2.jpg"
+
+import ellipse3 from "../assets/Ellipse 3.jpg"
+
+import ellipse4 from "../assets/Ellipse 4.jpg"
+
+import ellipse5 from "../assets/Ellipse 5.jpg"
+
 const Hero = () => {
   return (
     <div className="hero_body">
@@ -18,16 +26,16 @@ const Hero = () => {
         <div className="avatar_holder">
           <div className="avatar_container">
             <div class="image-item">
-              <img src="/src/assets/Ellipse 2.jpg" alt="Image 1"/>
+              <img src={ellipse2} alt="Image 1"/>
           </div>
           <div class="image-item">
-              <img src="/src/assets/Ellipse 3.jpg" alt="Image 2"/>
+              <img src={ellipse3} alt="Image 2"/>
           </div>
           <div class="image-item">
-              <img src="/src/assets/Ellipse 4.jpg" alt="Image 3"/>
+              <img src={ellipse4} alt="Image 3"/>
           </div>
           <div class="image-item">
-              <img src="/src/assets/Ellipse 5.jpg" alt="Image 4"/>
+              <img src={ellipse5} alt="Image 4"/>
           </div>
           </div>
         <div className="trust_card">

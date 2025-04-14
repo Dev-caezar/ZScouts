@@ -3,6 +3,7 @@ import '../styles/playersettings.css'
 import { TiPlus } from "react-icons/ti";
 import { FaRegEye } from "react-icons/fa6";
 import DeactivatePopup from '../components/DeactivatePopup';
+import { toast } from 'react-toastify';
 
 const PlayerSettings = () => {
 
@@ -22,7 +23,7 @@ const PlayerSettings = () => {
       };
       reader.readAsDataURL(file)
     } else {
-      alert("Please upload a valid image file.")
+      toast.warning("Please upload a valid image file.")
     }
    
   }
