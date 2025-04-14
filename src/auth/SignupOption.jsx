@@ -52,7 +52,7 @@ const SignupOption = () => {
                         <p>Scout</p>
                     </div>
                 </div>
-               <button className={`select_option ${selectedRole ? 'active' : ''}`} 
+               <button style={{cursor: "pointer"}} className={`select_option ${selectedRole ? 'active' : ''}`} 
                     disabled={!selectedRole} 
                     onClick={() => {
                     handleSelect(selectedRole); 

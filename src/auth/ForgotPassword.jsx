@@ -26,7 +26,7 @@ const ForgotPassword = () => {
           </div>
           <div className="resend_card">
                 <h4>Already have an account? <span>Login here</span></h4>
-                <button className='reset_btn'>Reset password</button>
+                <button style={{cursor: "pointer"}} className='reset_btn'>Reset password</button>
               </div>
         </div>
       </div>

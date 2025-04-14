@@ -16,6 +16,11 @@ const ScoutRegister = () => {
       const handleSuccess =()=>{
         navigate("/player_profile")
       }
+
+      const handleSignup =()=>{
+        navigate("/login_option")
+    }
+
   return (
     <div className='scout_register_body'>
         <div className="scout_register_card">
@@ -33,34 +38,34 @@ const ScoutRegister = () => {
                     <label for="email" className='scout_formLabel'>Email</label>
                 </div>
                 <div class="scout_floating-label">
-                    <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='scout_form_input'/>
+                    <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='scout_form_input'/>
                     <label for="password" className='scout_formLabel'>Password </label>
-                   {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
-                    <FaRegEye className='eye' onClick={handlePassword}/>}
+                   {showPass? <FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
+                    <FaRegEye style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
                 </div>
                 <div class="scout_floating-label">
-                    <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='scout_form_input'/>
+                    <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='scout_form_input'/>
                     <label for="password" className='scout_formLabel'>Confirm Password </label>
-                   {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
-                    <FaRegEye className='eye' onClick={handlePassword}/>}
+                   {showPass? <FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
+                    <FaRegEye  style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
                     <div className="terms_card">
                     <input type="checkbox" name="" id="" className='checkbox'/>
                     <p>I agree to <span>Terms & Conditions</span></p>
                   </div>
                 </div>
-                <button className='scout_register_button' onClick={handleRegisterSuccess}>Create Account</button>
+                <button style={{cursor: "pointer"}} className='scout_register_button' onClick={handleRegisterSuccess}>Create Account</button>
                 </form>
                 <div className="second_option">
                   <div className="line"></div>
                   <h4>OR</h4>
                   <div className="line"></div>
                 </div>
-                <button className='google_button'>
+                <button style={{cursor: "pointer"}} className='google_button'>
                   <FcGoogle/>
                   <p>Sign up with Google</p>
                 </button>
                 <div className="form_footer">
-                <h4>Already have an account? <span>login here.</span></h4>
+                <h4>Already have an account? <span onClick={handleSignup} >login here.</span></h4>
                 <h4>© 2025 ZScouts. All rights reserved</h4>
                 </div>
                </div>

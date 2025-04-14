@@ -30,29 +30,29 @@ const RegisterPlayer = () => {
             <label for="email" className='player_formLabel'>Email</label>
         </div>
         <div class="p_floating-label">
-            <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='player_form_input'/>
+            <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='player_form_input'/>
             <label for="password" className='player_formLabel'>Password </label>
-           {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
-            <FaRegEye className='eye' onClick={handlePassword}/>}
+           {showPass? <FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
+            <FaRegEye style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
         </div>
         <div class="p_floating-label">
-            <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='player_form_input'/>
+            <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='player_form_input'/>
             <label for="password" className='player_formLabel'>Confirm Password </label>
-           {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
-            <FaRegEye className='eye' onClick={handlePassword}/>}
+           {showPass? <FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
+            <FaRegEye style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
             <div className="terms_card">
             <input type="checkbox" name="" id="" className='player_checkbox'/>
             <p>I agree to <span>Terms & Conditions</span></p>
           </div>
         </div>
-        <button className='player_register_button'>Create Account</button>
+        <button style={{cursor: "pointer"}} className='player_register_button'>Create Account</button>
         </form>
         <div className="second_option">
           <div className="line"></div>
           <h4>OR</h4>
           <div className="line"></div>
         </div>
-        <button className='google_button'>
+        <button style={{cursor: "pointer"}} className='google_button'>
           <FcGoogle/>
           <p>Sign up with Google</p>
         </button>

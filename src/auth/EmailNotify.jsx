@@ -23,7 +23,7 @@ const EmailNotify = () => {
             </div>
             <div className="resend_card">
                 <h4>Didn’t receive any email? </h4>
-                <button className='resend_btn' onClick={handleResendLink}>Resend Link</button>
+                <button style={{cursor: "pointer"}} className='resend_btn' onClick={handleResendLink}>Resend Link</button>
             </div>
             </div>
           </div>

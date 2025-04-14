@@ -1,0 +1,70 @@
+.Popup-overlay{
+    width: 100%;
+    height: 100vh;
+    background-color: gray;
+    background: transparent;
+    position: fixed;
+    z-index: 999;
+    /* padding-top: 5px; */
+    padding-left: 200px;
+}
+
+       
+@keyframes zoomIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+}
+
+.pop-up-content{
+    background-color: white;
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 85%;
+}
+
+
+@media screen and (min-width: 250px) and (max-width: 320px) {
+    .Popup-overlay{
+        /* background-color: yellow; */
+        display: flex;
+        padding-left: 2px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pop-up-content{
+        width: 80%;
+        /* background-color: blue; */
+        height: 60%;
+        border: 1px solid gray;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        animation: zoomIn 2s ease-out;
+    }
+}
+
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+    .Popup-overlay{
+        /* background-color: yellow; */
+        display: flex;
+        padding-left: 2px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pop-up-content{
+        width: 85%;
+        /* background-color: blue; */
+        height: 65%;
+        border: 1px solid gray;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        animation: zoomIn 2s ease-out;
+    }
+}
