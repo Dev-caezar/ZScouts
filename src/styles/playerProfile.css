@@ -202,3 +202,68 @@
     font-weight: 400;
     line-height: 21px; /* 150% */
 }
+@media screen and (max-width: 480px) {
+    .details_bottom, 
+    .contact_details_bottom {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: max-content;
+      gap: 10px;
+    }
+  
+    .info {
+      width: 30%;
+      min-height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .player_personal_details,
+    .player_contact_details,
+    .player_video_profile {
+      padding: 12px;
+      height: max-content;
+    }
+  
+    .premium_cta {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 360px) {
+    .playerProfile_body {
+      padding: 10px;
+    }
+    .details_bottom, 
+    .contact_details_bottom {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: max-content;
+      gap: 10px;
+    }
+  
+    .info {
+      width: 30%;
+      min-height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .info h4 {
+      font-size: 12px;
+      width: 100%;
+    }
+  
+    .player_personal_details,
+    .player_contact_details,
+    .player_video_profile {
+      padding: 12px;
+      height: max-content;
+    }
+  
+    .premium_cta {
+      width: 100%;
+    }
+  }
+  
