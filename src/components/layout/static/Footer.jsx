@@ -7,7 +7,7 @@ const Footer = () => {
     <div className='footer-body'>
       <div className='footer-details'>
         <div className='footer-logo'>
-         <img src="/src/assets/public/Asset 2@2x 1 (1).png" alt="ZScouts logo" className='footer-logo-img' />
+         <img src="/src/assets/public/Zlogo.jpg" alt="ZScouts logo" className='footer-logo-img' />
           <div className='social-icons'>
             <a href="#"><FaXTwitter /></a>
             <a href="#"><FaFacebook /></a>

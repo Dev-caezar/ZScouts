@@ -33,8 +33,8 @@ const SignupOption = () => {
                     <div className="signup_card_img">
                         {
                             selectedRole === "PLAYER" ?
-                            <img src="/src/assets/public/white_boot.png" alt="Player Icon"/>:
-                            <img src="/src/assets/public/player_boot.jpg" alt="Player Icon"/>
+                            <img src="/src/assets/white_boot.png" alt="Player Icon"/>:
+                            <img src="/src/assets/player_boot.jpg" alt="Player Icon"/>
 
                         }
                     </div>
@@ -45,8 +45,8 @@ const SignupOption = () => {
                      <div className="signup_card_img">
                         {
                             selectedRole === "SCOUT" ?
-                            <img src="/src/assets/public/white_icon.png" alt="Scout Icon"/>:
-                            <img src="/src/assets/public/scout_icon.jpg" alt="Scout Icon"/>
+                            <img src="/src/assets/white_icon.png" alt="Scout Icon"/>:
+                            <img src="/src/assets/scout_icon.jpg" alt="Scout Icon"/>
                         }
                         </div>
                         <p>Scout</p>

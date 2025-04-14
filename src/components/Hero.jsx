@@ -18,16 +18,16 @@ const Hero = () => {
         <div className="avatar_holder">
           <div className="avatar_container">
             <div class="image-item">
-              <img src="/src/assets/public/Ellipse 2.jpg" alt="Image 1"/>
+              <img src="/src/assets/Ellipse 2.jpg" alt="Image 1"/>
           </div>
           <div class="image-item">
-              <img src="/src/assets/public/Ellipse 3.jpg" alt="Image 2"/>
+              <img src="/src/assets/Ellipse 3.jpg" alt="Image 2"/>
           </div>
           <div class="image-item">
-              <img src="/src/assets/public/Ellipse 4.jpg" alt="Image 3"/>
+              <img src="/src/assets/Ellipse 4.jpg" alt="Image 3"/>
           </div>
           <div class="image-item">
-              <img src="/src/assets/public/Ellipse 5.jpg" alt="Image 4"/>
+              <img src="/src/assets/Ellipse 5.jpg" alt="Image 4"/>
           </div>
           </div>
         <div className="trust_card">
