@@ -7,7 +7,8 @@
 }
 .scout_register_card{
     width: 47%;
-    height: 85%;
+    height: max-content;
+    min-height: max-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,6 +17,34 @@
     /* background-color: blue; */
 
 }
+.error_message{
+    color: red;
+    font-size: 12px;
+}
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #333;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .scout_register_button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+.scout_form_input.error {
+    border: 1.5px solid #e74c3c;
+  }
 .scout_form_head{
     width: 100%;
     height: 15%;
