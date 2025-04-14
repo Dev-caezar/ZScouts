@@ -5,8 +5,8 @@ import Nextlevel from '../Chiemerie/Nextlevel'
 import PricingPlans from '../Chioma/PricingPlans'
 import Testimonials from '../Chioma/Testimonials'
 
-import aboutuslogoimage from "../assets/aboutuslogo.png"
-import together from "../assets/aboutustogetherimage.png"
+import aboutuslogoimage from "../../assets/aboutuslogo.png"
+import together from "../../assets/aboutustogetherimage.png"
 
 const AboutUs = () => {
 
