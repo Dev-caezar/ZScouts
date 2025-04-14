@@ -31,7 +31,7 @@ const Header = () => {
       <div className="header_wrapper">
         <div className="h_logo">
           <div className="z_logo">
-            <img src="/src/assets/Zlogo.jpg" alt="" />
+            <img src="https://res.cloudinary.com/dmpxlspl8/image/upload/v1744640522/m5r4gkf4coyia5bfkv6d.jpg" alt="" />
           </div>
         </div>
         <div className="h_texts">
@@ -49,7 +49,7 @@ const Header = () => {
                 <div className="header_modal_wrapper">
                   <div className="modal_header">
                     <div className="modal_img">
-                      <img src="/src/assets/whiteLogo.png" alt="" />
+                      <img src="https://res.cloudinary.com/dmpxlspl8/image/upload/v1744640522/m5r4gkf4coyia5bfkv6d.jpg" alt="" />
                     </div>
                     <MdCancel className='cancel_icon' onClick={handleOpenNav}/>
                   </div>
