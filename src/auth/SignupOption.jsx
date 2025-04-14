@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "../styles/signupOption.css";
 import { useNavigate } from 'react-router';
+import whiteimg from "../assets/white_icon.png";
+import player_boot from "../assets/player_boot.jpg";
 
 const SignupOption = () => {
     const [selectedRole, setSelectedRole] = useState(null);
@@ -34,7 +36,7 @@ const SignupOption = () => {
                         {
                             selectedRole === "PLAYER" ?
                             <img src="/src/assets/white_boot.png" alt="Player Icon"/>:
-                            <img src="/src/assets/player_boot.jpg" alt="Player Icon"/>
+                            <img src={player_boot} alt="Player Icon"/>
 
                         }
                     </div>
@@ -45,7 +47,7 @@ const SignupOption = () => {
                      <div className="signup_card_img">
                         {
                             selectedRole === "SCOUT" ?
-                            <img src="/src/assets/white_icon.png" alt="Scout Icon"/>:
+                            <img src={whiteimg} alt="Scout Icon"/>:
                             <img src="/src/assets/scout_icon.jpg" alt="Scout Icon"/>
                         }
                         </div>

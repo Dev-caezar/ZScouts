@@ -1,0 +1,434 @@
+.scoutFormWrapper{
+    width:100%;
+    height: max-content;
+    background-color:rgb(243, 243, 243);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 3%;
+    overflow: hidden;
+}
+
+
+.scoutHeaderForm{
+    width: 98%;
+    height: 100px;
+    border-radius: 9px;
+    background-color: rgb(223,180,0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scoutHeaderForm1{
+    width: 50%;
+    height: 90%;
+    /* border: 3px solid black; */
+    display: flex;
+    /* padding: 20px; */
+    gap: 2%;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoutPercentage{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.scoutVerifyYourIdentity-wrapper{
+    width: 77%;
+    height: 100%;
+    /* border: 5px solid white; */
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5%;
+}
+
+.scoutVerifyText{
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: rgba(0, 0, 0, 0.792);
+    
+}
+
+.scoutCompleteKYCTecxt{
+    font-family: Poppins;
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+letter-spacing: 0px;
+color: rgba(0, 0, 0, 0.689);
+
+}
+.scoutHeaderForm2{
+    width: 20%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid black; */
+}
+.scoutComplete-KYC-button{
+    width: 65%;
+    height: 45%;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(14,144,3);
+    color: white;
+}
+
+
+
+
+
+
+.scoutConfirmationSectionForm{
+    width: 100%;
+    height: 630px;
+    /* background-color: brown; */
+    display: flex;
+    gap: 3%;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .scoutInformationsTitlesFormTitile{
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: rgba(0, 0, 0, 0.807);
+  }
+
+  .scoutPersonalInformationForm{
+    width: 100%;
+    height: 22%;
+    border-radius: 12px;
+    background-color: rgb(255,255,255);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.scoutInformationsTitlesForminput-holder{
+   width: 100%;
+   height: 80%;
+   /* border: 3px solid red; */
+   display: flex;
+   gap: 5%;
+   align-items: center;
+   padding: 2px;
+}
+
+.scoutInformationFormArticle{
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 3px solid blue; */
+}
+
+.scoutInformationLabel-text{
+    font-family: Poppins;
+font-weight: 700;
+font-size: 18px;
+line-height: 21px;
+letter-spacing: 0px;
+color: rgba(0, 0, 0, 0.733);
+}
+
+.scoutpersonalINformatiom-input{
+    width: 280px;
+    height: 36px;
+    border: 1px solid rgba(0, 0, 0, 0.555);
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.month-date-year{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    gap: 2%;
+    /* border: 4px solid red; */
+}
+
+.month-date-year-Select{
+    width: 110px;
+    height: 36px;
+    border: 1px solid rgba(0, 0, 0, 0.555);
+    border-radius: 7px;
+}
+
+.month-date-year-Option{
+    font-family: Poppins;
+font-weight: 500;
+font-size: 10.79px;
+line-height: 16.18px;
+letter-spacing: 0px;
+color: rgba(202, 12, 12, 0.401);
+}
+
+.scoutGenderInput{
+  width: 90px;
+  height: 36px;
+  border: 1px solid rgba(0, 0, 0, 0.555);
+  border-radius: 7px;
+
+}
+
+
+
+
+
+.scoutContactInformationForm{
+    width: 100%;
+    height: 22%;
+    background-color: rgb(255,255,255);
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.scout-phoneNumber{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    gap: 2%;
+    /* border: 4px solid red; */
+}
+
+.scout-DigitSection{
+   width: 80px;
+   height: 36px;
+   border: 1px solid rgba(0, 0, 0, 0.555);
+  border-radius: 7px;
+}
+
+.scout-DigitSection-Input{
+    width: 200px;
+    height: 36px;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+.scout-DigitSection-Input::placeholder{
+    font-family: Poppins;
+font-weight: 400;
+font-size: 11px;
+padding: 10px;
+
+}
+
+
+
+
+.scoutInformationsForm{
+    width: 100%;
+    height: 19%;
+    background-color: rgb(255,255,255);
+    border-radius: 12px;
+    padding: 10px;
+}
+.Preferred-Player-Positions-input{
+    width: 130px;
+    height: 36px;
+    border: 1px solid rgba(0, 0, 0, 0.555);
+    border-radius: 7px;
+    padding: 10px;
+}
+
+
+
+
+
+.scoutPersonalCredentialsForm{
+    width: 100%;
+    height: 30%;
+    background-color: rgb(255,255,255) ;
+    border-radius: 12px;
+    padding: 10px;
+   gap: 10%;
+   display: flex;
+   flex-direction: column;
+    /* align-items: center; */
+}
+
+
+.credentials-Certificate-Upload{
+    width: 40%;
+    height: 80%;
+    /* border: 2px solid green; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.Upload-Certificate{
+    width: 70%;
+    height: 50px;
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+    /* justify-content: space-between; */
+    border: 1px solid rgba(0, 0, 0, 0.558);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.503);
+    letter-spacing: 0px;
+
+}
+
+
+
+.scoutFile-upload {
+    display: none; 
+  }
+  
+  .custom-upload {
+    width: 82px;
+    height: 50px;
+    background: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    position: absolute;
+    right: 20%;
+  }
+  
+
+
+.ScoutSubmitFormButton{
+    width: 100px;
+    height: 53px;
+    border-radius: 15px !important;
+    background-color:rgb(12,143,0);
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1200px),
+       only screen and (max-width: 900px),
+       only screen and (max-width: 760px),
+       only screen and (max-width: 480px),
+       only screen and (max-width: 379px) {
+
+        .scoutFormWrapper{
+            width: 100%;
+            height: max-content;
+            overflow: hidden;
+        }
+
+        .scoutHeaderForm{
+            width: 100%;
+            height: 170px;
+            justify-content: space-evenly;
+            /* border: 4px solid rgb(64, 0, 255); */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scoutVerifyYourIdentity-wrapper{
+            width: 100%;
+            /* border: 4px solid rgb(126, 71, 255); */
+        }
+
+        .scoutHeaderForm1{
+            width: 100%;
+            height: 100px;
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+                /* border: 4px solid tomato; */
+            }
+
+            .scoutPercentage{
+                height: 50px;
+            }
+
+        .scoutHeaderForm2{
+            width: 100%;
+            height: 50px;
+            /* border: 3px solid green; */
+        }
+
+        .scoutComplete-KYC-button{
+            height: 40px !important;
+        }
+        br{
+            display: none;
+        }
+
+
+        .scoutVerifyText{
+            font-size: 18px !important;
+        }
+
+        .scoutCompleteKYCTecxt{
+            font-size: 15px !important;
+        }
+
+
+        .scoutConfirmationSectionForm{
+            width: 100%;
+            height: max-content;
+            gap: 10px;
+        }
+
+        .scoutPersonalInformationForm{
+            width: 100%;
+            /* border: 4px solid navy; */
+        }
+
+        .scoutInformationsTitlesForminput-holder{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            /* border: 4px solid red; */
+        }
+
+        .month-date-year{
+            width: 70%;
+            /* border: 4px solid red; */
+        }
+
+        .credentials-Certificate-Upload{
+            width: 100%;
+            /* border: 3px solid green; */
+        }
+
+        .Upload-Certificate{
+            font-size: 15px;
+        }
+       }
