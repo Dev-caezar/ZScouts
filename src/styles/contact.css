@@ -356,14 +356,12 @@
     .contact_hero_content{
         /* background-color: green; */
         width: 100%;
-
-        & h2{
-            font-size: 35px;
-        }
-
-        & p {
-            font-size: 8.5px;
-        }
+    }
+    .contact_hero_content h2{
+        font-size: 35px;
+    }
+    .contact_hero_content p {
+        font-size: 8.5px;
     }
 
     .message_board{
@@ -379,14 +377,12 @@
     .board_header{
         /* background-color: yellow; */
         padding: 10px;
-
-        & h2{
-            font-size: 10px;
-        }
-
-        & h4{
-            font-size: 12px;
-        }
+    }
+    .board_header h2{
+        font-size: 10px;
+    }
+    .board_header h4{
+        font-size: 12px;
     }
 
     .board_content{
@@ -408,10 +404,9 @@
         /* background-color: red; */
         display: flex;
         align-items: end;
-
-        & h4 {
-            font-size: 18px;
-        }
+    }
+    .board_header h4{
+        font-size: 12px;
     }
 
     .board_text{
@@ -438,15 +433,11 @@
         gap: 10px;
     }
 
-    .inner_card{
-
-        & h4{
-            font-size: 12px;
-        }
-
-        & p{
-            font-size: 10px;
-        }
+    .inner_card p{
+        font-size: 10px;
+    }
+    .board_contact h4{
+        font-size: 12px;
     }
 
     .board_icon{
@@ -457,14 +448,12 @@
         /* background-color: yellow; */
         height: 15%;
         padding-top: 20px;
-
-        & h2 {
-            font-size: 9px;
-        }
-
-        & h4 {
-            font-size: 11px;
-        }
+    }
+    .faq_header h2 {
+        font-size: 9px;
+    }
+    .faq_header h4 {
+        font-size: 11px;
     }
 
     .question_box{
@@ -472,20 +461,12 @@
         height: 5vh;
     }
 
-    .question_card{
-        /* background-color: magenta; */
-
-        & h4 {
-            font-size: 10px;
-        }
+    .question_card h4{
+        font-size: 10px;
     }
 
-    .answer_card{
-        /* background-color: green; */
-       
-        & p {
-            font-size: 9px;
-        }
+    .answer_card p{
+        font-size: 9px;
     }
 }
 
@@ -496,16 +477,13 @@
     }
 
     .contact_hero_content{
-        /* background-color: green; */
         width: 100%;
-
-        & h2{
-            font-size: 38px;
-        }
-
-        & p {
-            font-size: 10px;
-        }
+    }
+    .contact_hero_content h2{
+        font-size: 38px;
+    }
+    .contact_hero_content p {
+        font-size: 10px;
     }
 
     .message_board{
@@ -521,14 +499,12 @@
     .board_header{
         /* background-color: yellow; */
         padding: 10px;
-
-        & h2{
-            font-size: 12px;
-        }
-
-        & h4{
-            font-size: 14px;
-        }
+    }
+    .board_header h2{
+        font-size: 12px;
+    }
+    .board_header h4{
+        font-size: 14px;
     }
 
     .board_content{
@@ -550,10 +526,9 @@
         /* background-color: red; */
         display: flex;
         align-items: end;
-
-        & h4 {
-            font-size: 18px;
-        }
+    }
+    .boardinput_header h4{
+        font-size: 14px;
     }
 
     .board_text{
@@ -580,17 +555,13 @@
         gap: 10px;
     }
 
-    .inner_card{
-
-        & h4{
-            font-size: 12px;
-        }
-
-        & p{
-            font-size: 10px;
-        }
+    .inner_card h4{
+        font-size: 12px;
     }
 
+    .inner_card p{
+        font-size: 10px;
+    }
     .board_icon{
         font-size: 20px;
     }
@@ -599,14 +570,12 @@
         /* background-color: yellow; */
         height: 15%;
         padding-top: 20px;
-
-        & h2 {
-            font-size: 9px;
-        }
-
-        & h4 {
-            font-size: 11px;
-        }
+    }
+    .faq_header h2 {
+        font-size: 9px;
+    }
+    .faq_header h4 {
+        font-size: 11px;
     }
 
     .question_box{
@@ -614,20 +583,14 @@
         height: 5vh;
     }
 
-    .question_card{
+    .question_card h4{
         /* background-color: magenta; */
-
-        & h4 {
-            font-size: 14px;
-        }
+        font-size: 14px;
     }
 
-    .answer_card{
+    .answer_card p{
         /* background-color: green; */
-       
-        & p {
-            font-size: 11px;
-        }
+        font-size: 11px;
     }
 }
 

@@ -111,10 +111,115 @@
 .menu_icon{
     display: none;
 }
+.header_modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    opacity: 2;
+    transform: translateY(0);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+.header_modal_wrapper{
+    width: 70%;
+    height: 100%;
+    border-radius: 25px 0 0 25px;
+    background-color: #07232F;
+    animation: slideInFromRight 0.4s ease;
+  }
+  
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+.modal_header{
+    width: 100%;
+    height: 12%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal_img{
+    width: 100px;
+    height: 40px;
+}
+ .modal_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+ }
+ .cancel_icon{
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+ }
+ .modal_content{
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+ }
+ .content_text{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-direction: column;
+    padding-right: 15px;
+ }
+ .content_text h4{
+    color: var(--Colors-Neutral-100, #FFF);
+    font-family: "Poppins",sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    display: block;
+ }
+ .modal_login{
+    width: 90%;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: inherit;
+    color: var(--Colors-Neutral-100, #FFF);
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+ }
+ .modal_signup{
+    width: 90%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0C8F00;
+    color: var(--Colors-Neutral-100, #FFF);
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+ }
 @media screen and (max-width: 768px) {
     .header_body{
         position: static;
-        height: 13vh;
+        height: 12vh;
         background-color: white;
     }
 
@@ -139,6 +244,7 @@
     .menu_icon{
         display: block;
         font-size: 30px;
+        position: relative;
     }
   }
   
