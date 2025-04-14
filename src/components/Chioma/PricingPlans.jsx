@@ -4,7 +4,7 @@ import { RiCheckboxCircleFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 
 const PricingPlans = () => {
-  const navigate = useNavigate
+  const navigate = useNavigate()
 
   const pricingData = [
     {
