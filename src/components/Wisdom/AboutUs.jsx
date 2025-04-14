@@ -5,6 +5,9 @@ import Nextlevel from '../Chiemerie/Nextlevel'
 import PricingPlans from '../Chioma/PricingPlans'
 import Testimonials from '../Chioma/Testimonials'
 
+import aboutuslogoimage from "../assets/aboutuslogo.png"
+import together from "../assets/aboutustogetherimage.png"
+
 const AboutUs = () => {
 
   const nav = useNavigate()
@@ -70,11 +73,11 @@ const AboutUs = () => {
         <div className='about-us-all-image'>
           <div className='about-us-logo-div'>
             <div className='about-us-logo-main'>
-              <img src="https://res.cloudinary.com/dmpxlspl8/image/upload/v1744640522/m5r4gkf4coyia5bfkv6d.jpg" alt="" />
+              <img src={aboutuslogoimage} alt="" />
             </div>
           </div>
           <div className='about-us-all-image-div'>
-            <img src="https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638055/y4p1arjrgc9mbrelgvky.jpg" alt="" />
+            <img src={together} alt="" />
           </div>
         </div>
         <div className='about-us-text'>
