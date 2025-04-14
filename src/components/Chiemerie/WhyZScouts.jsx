@@ -22,7 +22,7 @@ const WhyZScouts = () => {
         <div className="whycard_wrapper">
           {
             Yzscouts.map((i,index)=>(
-              <div className="why_card">
+              <div key={index} className="why_card">
                 <div className="icon_holder">{i.icon}</div>
                 <h4>{i.title}</h4>
                 <p>{i.description}</p>

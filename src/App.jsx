@@ -1,32 +1,34 @@
 import React from 'react'
-import {createHashRouter, RouterProvider} from 'react-router'
-// import { Element } from './routes/router'
+import {createBrowserRouter, RouterProvider} from 'react-router'
 import { HomeLayout } from './components';
 import Homepage from './pages/Homepage';
 import AboutUs from './components/Wisdom/AboutUs';
 import ContactUs from './components/Wisdom/ContactUs';
+import ErrorPage from './pages/ErrorPage';
 import AuthLayout from './components/layout/AuthLayout';
-import PlayerLogin from './auth/playerLogin';
 import ScoutLogin from './auth/ScoutLogin';
 import RegisterPlayer from './auth/RegisterPlayer';
 import ScoutRegister from './auth/ScoutRegister';
 import EmailPage from './auth/EmailPage';
-import EmailVerify from './auth/EmailVerify';
 import EmailNotify from './auth/EmailNotify';
 import ForgotPassword from './auth/ForgotPassword';
 import ResetPassword from './auth/ResetPassword';
 import LoginOption from './auth/LoginOption';
 import SignupOption from './auth/SignupOption';
 import DashboardLayout from './components/layout/DashboardLayout';
-import PlayerProfile from "./pages/PlayerProfile"
-import ErrorPage from './pages/ErrorPage';
+import PlayerProfile from './pages/PlayerProfile';
+import PlayerSettings from './pages/PlayerSettings';
 import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
 import ScoutProfile from './pages/ScoutProfile';
-import PlayerSettings from './pages/PlayerSettings';
-import PlayerVideo from './pages/playerVideo';
+import LoginPayer from './auth/LoginPlayer';
+import EditProfile from './pages/EditProfile';
+import PlayerVideo from './pages/PlayerVideo'
+import EmailVerify from './auth/emailVerify';
+
+
 
 const App = () => {
- const Router = createHashRouter([
+ const Router = createBrowserRouter([
     {
       path: "/",
       element: <HomeLayout />,
@@ -50,7 +52,7 @@ const App = () => {
       children: [
         {
           path: "/player_login",
-          element: <PlayerLogin />,
+          element: <LoginPayer />,
         },
         {
           path: "/scout_login",
@@ -70,7 +72,7 @@ const App = () => {
         },
         {
           path: "/email_verify",
-          element: <EmailVerify />,
+          element: <EmailVerify/>,
         },
         {
           path: "/email_notify",
@@ -102,7 +104,11 @@ const App = () => {
           element: <PlayerProfile />,
         },
         {
-          path: "player_video",
+          path: "edit_profile",
+          element: <EditProfile />,
+        },
+        {
+          path: "edit_video",
           element: <PlayerVideo />,
         },
         {
