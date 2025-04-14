@@ -59,8 +59,8 @@ const Header = () => {
                     <h4 onClick={handleAbout}>About us</h4>
                     <h4 onClick={handleContact}>Contact us</h4>
                     </div>
-                    <button className='modal_login'>Login</button>
-                    <button className='modal_signup'>Sign up</button>
+                    <button className='modal_login'onClick={handleLogin}>Login</button>
+                    <button className='modal_signup' onClick={handleSignup}>Sign up</button>
                   </div>
                 </div>
               </div>

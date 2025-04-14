@@ -15,6 +15,9 @@ const ScoutLogin = () => {
             const handleLogin =()=>{
                 navigate("/signup_option")
             }
+            const handleSubmit =()=>{
+                navigate("/scout_profile")
+            }
 
   return (
      <div className='scout_login_body'>
@@ -35,7 +38,7 @@ const ScoutLogin = () => {
                     < FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
                     <FaRegEye style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
             </div>
-            <button style={{cursor: "pointer"}} className='register_button'>Login</button>
+            <button style={{cursor: "pointer"}} className='register_button' onClick={handleSubmit}>Login</button>
         </form>
         <div className="second_option">
             <div className="line"></div>

@@ -19,6 +19,17 @@ const LoginPlayer = () => {
   const handleSignup =()=>{
     navigate("/signup_option")
 }
+const haandleLogin = (e) => {
+  e.preventDefault();
+  navigate("/player_profile")
+}
+const handleGoogle = () => {
+  // Handle Google sign-in logic here
+  console.log("Google sign-in clicked");
+  // You can use Firebase or any other library for Google authentication
+  // For now, just navigate to the email notify page
+  navigate("/email_notify")
+}
   return (
      <div className='player_login_body'>
             <div className="player_login_card">
@@ -40,7 +51,7 @@ const LoginPlayer = () => {
                       <p onClick={handleFrgotPass}>Forgot password?</p>
                     </div>
                     </div>
-                    <button className='player_login_button' onClick={handlesubmit}>Login</button>
+                    <button className='player_login_button' onClick={haandleLogin}>Login</button>
                     </form>
                     <div className="second_option">
                       <div className="line"></div>
