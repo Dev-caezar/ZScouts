@@ -19,18 +19,18 @@ const ResetPassword = () => {
                        </div>
                        <form className='login_form_body' action="">
                        <div class="floating-label">
-                           <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='form_input'/>
+                           <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='form_input'/>
                            <label for="password" className='formLabel'>New Password </label>
-                          {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
-                           <FaRegEye className='eye' onClick={handlePassword}/>}
+                          {showPass? <FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
+                           <FaRegEye style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
                        </div>
                        <div class="floating-label">
-                           <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='form_input'/>
+                           <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='form_input'/>
                            <label for="password" className='formLabel'>Confirm Password </label>
-                          {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
-                           <FaRegEye className='eye' onClick={handlePassword}/>}
+                          {showPass? <FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
+                           <FaRegEye style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
                        </div>
-                       <button className='register_button'>Create Password</button>
+                       <button style={{cursor: "pointer"}} className='register_button'>Create Password</button>
                        </form>
                       </div>
              </div>

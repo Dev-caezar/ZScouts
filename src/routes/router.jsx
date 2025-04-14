@@ -7,7 +7,7 @@ import LoginOption from "../auth/LoginOption";
 import SignupOption from "../auth/SignupOption";
 import ScoutRegister from "../auth/ScoutRegister";
 import AuthLayout from "../components/layout/AuthLayout";
-import PlayerLogin from "../auth/playerLogin";
+import PlayerLogin from "../auth/PlayerLogin";
 import ScoutLogin from "../auth/ScoutLogin";
 import EmailPage from "../auth/EmailPage";
 import EmailNotify from "../auth/EmailNotify";
