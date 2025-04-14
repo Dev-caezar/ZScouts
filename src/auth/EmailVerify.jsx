@@ -14,7 +14,7 @@ const EmailVerify = () => {
         <PiSealCheckFill className='verify_icon'/>
         <h2>Verified!</h2>
         <h4>You have successfully verified your account</h4>
-        <button className='verify_btn' onClick={handleLogin}>Login</button>
+        <button style={{cursor: "pointer"}} className='verify_btn' onClick={handleLogin}>Login</button>
       </div>
     </div>
   )

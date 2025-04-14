@@ -51,7 +51,7 @@ const LoginOption = () => {
                                 <p>Scout</p>
                             </div>
                         </div>
-                        <button className={`login_select_option ${selectedRole ? 'active' : ''}`} 
+                        <button style={{cursor: "pointer"}} className={`login_select_option ${selectedRole ? 'active' : ''}`} 
                             disabled={!selectedRole} 
                             onClick={() => {
                                 handleSelect(selectedRole); 
