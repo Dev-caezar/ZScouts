@@ -17,14 +17,14 @@ import LoginOption from './auth/LoginOption';
 import SignupOption from './auth/SignupOption';
 import DashboardLayout from './components/layout/DashboardLayout';
 import PlayerProfile from './pages/PlayerProfile';
-import PlayerSettings from './pages/PlayerSettings';
 import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
 import ScoutProfile from './pages/ScoutProfile';
+import PlayerSettings from './pages/PlayerSettings';
+import ScoutSettings from './pages/ScoutSettings';
 import LoginPayer from './auth/LoginPlayer';
 import EmailVerify from './auth/EmailVerify';
 import EditProfile from './pages/EditProfile';
 import PlayerVideo from './pages/PlayerVideo'
-
 
 
 const App = () => {
@@ -124,6 +124,10 @@ const App = () => {
           path: "scout_profile",
           element: <ScoutProfile />,
         },
+        {
+          path: "scout_setting",
+          element: <ScoutSettings />,
+        }
       ],
     },
     {

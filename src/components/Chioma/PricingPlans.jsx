@@ -1,8 +1,10 @@
 import React from "react";
 import "../Chioma/pricingplan.css";
 import { RiCheckboxCircleFill } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 const PricingPlans = () => {
+  const navigate = useNavigate
 
   const pricingData = [
     {
@@ -67,7 +69,7 @@ const PricingPlans = () => {
     <div className="pricing-container">
       <div className="pricing_wrapper">
         <div className="pricing_text">
-          <h4>Pricing</h4>
+          <h4>pricing</h4>
           <h2>Find the plan that fits your goals.</h2>
         </div>
         <div className="pricing_cards_holder">
@@ -87,8 +89,10 @@ const PricingPlans = () => {
                   ))}
                 </div>
                 <div className="card_footer">
-                  <button className={item.btnClass}>
-                    Get Started for Free
+                  <button className={item.btnClass} 
+                   onClick={() => navigate("/signup_option")}
+                    >
+                     Get Started for Free
                   </button>
                 </div>
                 <div className={item.tagClass}>

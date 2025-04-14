@@ -4,7 +4,6 @@ import { IoReturnUpBackOutline } from "react-icons/io5";
 import Profiletracker from '../components/layout/static/Profiletracker';
 import { Select } from 'antd';
 
-// Reusable select dropdown component
 const SelectDropdown = ({ placeholder, options, width, onChange, onSearch }) => (
   <Select
     showSearch
@@ -27,7 +26,7 @@ const days = Array.from({ length: 31 }, (_, i) => ({
   label: i + 1
 }));
 
-const years = Array.from({ length: 100 }, (_, i) => {
+const years = Array.from({ length: 30 }, (_, i) => {
   const year = new Date().getFullYear() - i;
   return { value: year, label: year };
 });
