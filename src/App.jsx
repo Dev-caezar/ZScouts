@@ -108,7 +108,7 @@ const App = () => {
           element: <EditProfile />,
         },
         {
-          path: "profile_video",
+          path: "player_video",
           element: <PlayerVideo />,
         },
         {
