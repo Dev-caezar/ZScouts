@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router'
 import Nextlevel from '../Chiemerie/Nextlevel'
 import PricingPlans from '../Chioma/PricingPlans'
 import Testimonials from '../Chioma/Testimonials'
-
 import aboutuslogoimage from "../../assets/aboutuslogo.png"
 import together from "../../assets/aboutustogetherimage.png"
 
