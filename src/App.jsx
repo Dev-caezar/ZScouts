@@ -17,7 +17,6 @@ import LoginOption from './auth/LoginOption';
 import SignupOption from './auth/SignupOption';
 import DashboardLayout from './components/layout/DashboardLayout';
 import PlayerProfile from './pages/PlayerProfile';
-import PlayerSettings from './pages/PlayerSettings';
 import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
 import ScoutProfile from './pages/ScoutProfile';
 import PlayerSettings from './pages/PlayerSettings';

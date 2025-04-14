@@ -18,13 +18,11 @@
     height: 15%;
     display: flex;
     padding: 10px;
-    /* justify-content: center; */
     align-items: center;
 }
 .sidebar_dashboard_logo{
     width:60%;
     height: 60%;
-    /* display: block; */
 }
 .sidebar_dashboard_logo img{
     width: 100%;
@@ -42,7 +40,6 @@
     width: 100%;
     height: 50px;
     padding: 10px;
-    /* border-radius: 10px; */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -57,7 +54,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
 }
 .d_content_card:hover{
     background-color: #9FFF96;
@@ -71,6 +68,86 @@
         color: black;
     }
 }
+.logout_modal_overlay {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+  
+  .logout_modal_content {
+    background-color: white;
+    width: 35%;
+    height: 30%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .logout_modal_content h2{
+    color: var(--Colors-Secondary-500, #07232F);
+    text-align: center;
+    font-family: "Poppins",sans-serif;
+    font-size: 19.799px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29.699px;
+  }
+  .logout_modal_content h4{
+    color: var(--Colors-Neutral-500, #A4A4A4);
+    text-align: center;
+    font-family: "Poppins",sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; 
+  }
+  .logout_modal_actions{
+    width: 80%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .modal_cta{
+    width: 80px;
+    height: 30px;
+    border: 1.5px solid #333;
+    border-radius: 8px;
+    color: #07232F;
+    cursor: pointer;
+  }
+  .modal_accept{
+    width: 80px;
+    height: 30px;
+    border:none;
+    border-radius: 8px;
+    color: white;
+    background-color: #07232F;
+    cursor: pointer;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
 .sidebar_footer{
     width: 100%;
     height: 20%;
