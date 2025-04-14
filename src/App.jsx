@@ -24,6 +24,7 @@ import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
 import ScoutProfile from './pages/ScoutProfile';
 import PlayerSettings from './pages/PlayerSettings';
 import PlayerVideo from './pages/playerVideo';
+import ScoutFormRegister from './auth/ScoutFormRegister';
 
 const App = () => {
  const Router = createHashRouter([
@@ -117,6 +118,11 @@ const App = () => {
         {
           path: "scout_profile",
           element: <ScoutProfile />,
+        },
+
+        {
+          path: "/scout_form",
+          element: <ScoutFormRegister />,
         },
       ],
     },
