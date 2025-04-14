@@ -8,7 +8,6 @@ const ScoutSettings = () => {
   const [showDeactivateModal, setShowDeactivateModal] = useState(false);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -28,7 +27,7 @@ const ScoutSettings = () => {
   };
 
   const handleChangePassword = () => {
-    const passwordData = { oldPassword, newPassword, confirmPassword };
+    const passwordData = {newPassword, confirmPassword };
     console.log("Change Password:", passwordData);
    
   };
@@ -98,13 +97,7 @@ const ScoutSettings = () => {
         <div className="settings-section">
           <h4 className="section-title">Change password</h4>
           <div className="settings-box">
-            <label>Old password</label>
-            <input
-              type="password"
-              placeholder="Enter password"
-              value={oldPassword}
-              onChange={(e) => setOldPassword(e.target.value)}
-            />
+        
             <label>New password</label>
             <input
               type="password"
