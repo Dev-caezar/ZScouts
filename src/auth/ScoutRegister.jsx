@@ -5,71 +5,6 @@ import { FcGoogle } from 'react-icons/fc'
 import { useNavigate } from 'react-router'
 
 const ScoutRegister = () => {
-    const navigate = useNavigate()
-    const [showPass, setShowPass] = useState(false)
-      const handlePassword =()=>{
-        setShowPass((prev)=> !prev)
-      }
-      const handleRegisterSuccess =()=>{
-        navigate("/email_page")
-      }
-      const handleSuccess =()=>{
-        navigate("/player_profile")
-      }
-
-      const handleSignup =()=>{
-        navigate("/login_option")
-    }
-
-  return (
-    <div className='scout_register_body'>
-        <div className="scout_register_card">
-                <div className="scout_form_head">
-                  <h2>Create An Account</h2>
-                  <p>Create your profile and connect with Players worldwide.</p>
-                </div>
-                <form className='scout_form_body' action="">
-                <div class="scout_floating-label">
-                    <input type="text" id="fullName" placeholder=" " required  className='scout_form_input'/>
-                    <label for="fullName" className='scout_formLabel'>Enter Full Name</label>
-                </div>
-                <div class="scout_floating-label">
-                    <input type="email" id="email" placeholder=" " required  className='scout_form_input'/>
-                    <label for="email" className='scout_formLabel'>Email</label>
-                </div>
-                <div class="scout_floating-label">
-                    <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='scout_form_input'/>
-                    <label for="password" className='scout_formLabel'>Password </label>
-                   {showPass? <FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
-                    <FaRegEye style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
-                </div>
-                <div class="scout_floating-label">
-                    <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='scout_form_input'/>
-                    <label for="password" className='scout_formLabel'>Confirm Password </label>
-                   {showPass? <FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
-                    <FaRegEye  style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
-                    <div className="terms_card">
-                    <input type="checkbox" name="" id="" className='checkbox'/>
-                    <p>I agree to <span>Terms & Conditions</span></p>
-                  </div>
-                </div>
-                <button style={{cursor: "pointer"}} className='scout_register_button' onClick={handleRegisterSuccess}>Create Account</button>
-                </form>
-                <div className="second_option">
-                  <div className="line"></div>
-                  <h4>OR</h4>
-                  <div className="line"></div>
-                </div>
-                <button style={{cursor: "pointer"}} className='google_button'>
-                  <FcGoogle/>
-                  <p>Sign up with Google</p>
-                </button>
-                <div className="form_footer">
-                <h4>Already have an account? <span onClick={handleSignup} >login here.</span></h4>
-                <h4>© 2025 ZScouts. All rights reserved</h4>
-                </div>
-               </div>
-=======
   const navigate = useNavigate()
 
   const [showPassword, setShowPassword] = useState(false)
@@ -94,11 +29,14 @@ const ScoutRegister = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRegister(prev => ({ ...prev, [name]: value }));
+
+    // Clear specific error while typing
     setErrors(prev => ({ ...prev, [name]: "" }))
   }
 
   const validateForm = () => {
     let formErrors = {}
+
     if (!register.fullname) formErrors.fullname = "Full name is required"
     if (!register.email) formErrors.email = "Email is required"
     else if (!/\S+@\S+\.\S+/.test(register.email)) formErrors.email = "Invalid email format"
@@ -133,7 +71,6 @@ const ScoutRegister = () => {
               name='fullname'
               value={register.fullname}
               onChange={handleChange}
-              autoComplete='off'
             />
             <label htmlFor="fullName" className='scout_formLabel'>Enter Full Name</label>
             {errors.fullname && <p className="error_message">{errors.fullname}</p>}
@@ -145,7 +82,6 @@ const ScoutRegister = () => {
               name='email'
               value={register.email}
               onChange={handleChange}
-              autoComplete='off'
             />
             <label htmlFor="email" className='scout_formLabel'>Email</label>
             {errors.email && <p className="error_message">{errors.email}</p>}
@@ -157,7 +93,6 @@ const ScoutRegister = () => {
               name='password'
               value={register.password}
               onChange={handleChange}
-              autoComplete='off'
             />
             <label htmlFor="password" className='scout_formLabel'>Password</label>
             {showPassword
@@ -172,7 +107,6 @@ const ScoutRegister = () => {
               name='confirmPassword'
               value={register.confirmPassword}
               onChange={handleChange}
-              autoComplete='off'
             />
             <label htmlFor="confirmPassword" className='scout_formLabel'>Confirm Password</label>
             {showConfirmPassword
