@@ -1,0 +1,237 @@
+.scout_profilesetting {
+    width: 100%;
+    height: 90vh;
+    background-color: #f2f2f2;
+    padding-top: 40px;
+  }
+
+  .account_settings_header {
+    font-family: 'Poppins';
+    font-size: 40px;
+    font-weight: 700;
+    font-style: normal;
+    color: #333333;
+    line-height: 60px;
+    margin: 30px 0 10px 40px;
+   
+  }
+  
+  
+  .scout_settinginfo {
+    width: 90%;
+    height: 95px;
+    background-color:  #f2f2f2;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .scout_settingprofile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background-color: #f2f2f2;
+  }
+  
+  
+  .scoutprofilepicture {
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0;
+    position: relative;
+  }
+  
+
+  .plus-icon {
+    position: absolute;
+    bottom: -10px;
+    right: -2px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .plus-svg {
+    width: 12px;
+    height: 12px;
+    color: #333;
+  }
+  
+  
+  .scoutprofiletext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    margin-top: 12px;
+  }
+  
+  .scoutprofile_name {
+    margin: 0;
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  
+  .scoutprofile_email {
+    color: var(--Colors-Neutral-800, #606060);
+    font-family: 'Poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  
+ 
+  .scoutdeactivate {
+    color: var(--Colors-Red-100, #FB3748);
+    font-family: 'Poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 0.9px;
+    text-underline-offset: auto;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .scoutdeactivate:hover {
+    color: #d10011; 
+    text-decoration-thickness: 1.2px;
+  }
+
+  .settings-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 20px;
+    background-color: #f2f2f2;
+  }
+  
+  .settings-section {
+    width: 48%;
+  }
+  
+  .section-title {
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000;
+  }
+  
+  .settings-box {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .settings-box label {
+    display: block;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 12px;
+    margin-bottom: 5px;
+  }
+  
+  .settings-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins';
+    margin-bottom: 10px;
+  }
+  
+  .save-button {
+    margin-top: 15px;
+    background-color: #0C8F00;
+    color: #FFFFFF;
+    border: none;
+    padding: 9px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    line-height: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .save-button:hover {
+    background-color: darkgreen;
+  }
+  
+  .subscription-section {
+    padding: 20px 30px;
+    background-color: #f3f3f3; 
+  }
+  
+  .subscription-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .subscription-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .plan-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .plan-description {
+    font-size: 14px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+  }
+  
+  .upgrade-btn {
+    padding: 10px 24px;
+    background-color: #0C8F00;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+    align-self: flex-start;
+  }
+  
+  .upgrade-btn:hover {
+    background-color: #087e24;
+  }
+  
