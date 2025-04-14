@@ -21,9 +21,9 @@ import PlayerSettings from './pages/PlayerSettings';
 import ScoutDashboardLayout from './components/layout/ScoutDashboardLayout';
 import ScoutProfile from './pages/ScoutProfile';
 import LoginPayer from './auth/LoginPlayer';
+import EmailVerify from './auth/EmailVerify';
 import EditProfile from './pages/EditProfile';
 import PlayerVideo from './pages/PlayerVideo'
-import EmailVerify from './auth/emailVerify';
 
 
 
