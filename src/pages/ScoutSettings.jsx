@@ -5,22 +5,12 @@ import DeactivateModal from "./DeactivateModal";
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showDeactivateModal, setShowDeactivateModal] = useState(false);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleDeactivate = () => {
-    setShowDeactivateModal(true);
-  };
-
-  const confirmDeactivate = () => {
-    setShowDeactivateModal(false);
-    alert("Your account has been deactivated");
-  };
-
-  const handleSavePersonalData = () => {
+   const handleSavePersonalData = () => {
     const personalData = { fullName, email };
     console.log("Save Personal Data:", personalData);
    
@@ -60,13 +50,7 @@ const ScoutSettings = () => {
           <div className="scoutprofiletext">
             <h4 className="scoutprofile_name">Ozofor Chioma</h4>
             <p className="scoutprofile_email">cynthiaozofor@gmail.com</p>
-            <p
-              className="scoutdeactivate"
-              onClick={handleDeactivate}
-              style={{ color: "red", cursor: "pointer" }}
-            >
-              Deactivate account
-            </p>
+           
           </div>
         </div>
       </div>
@@ -137,12 +121,7 @@ const ScoutSettings = () => {
 
     
       {showModal && <PaymentModal onClose={() => setShowModal(false)} />}
-      {showDeactivateModal && (
-        <DeactivateModal
-          onClose={() => setShowDeactivateModal(false)}
-          onConfirm={confirmDeactivate}
-        />
-      )}
+    
     </div>
   );
 };
