@@ -100,20 +100,20 @@
 }
 @media (max-width: 480px){
     .testimonial-wrapper{
-        height: 50vh;
+        height: 95vh;
     }
     .testimonial_container{
         width: 90%;
-        height: 80%;
+        height: 25%;
     }
     .testimonial_text{
         display: flex;
         justify-content: center;
-        /* gap: 10px; */
+        /* gap: 2px; */
     }
     .testimonial_text h4{
         line-height: normal;
-        font-size: 12px;
+        font-size: 10px;
     }
     .testimonial_text h2{
         line-height: normal;

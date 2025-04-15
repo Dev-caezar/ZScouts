@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/scoutsettings.css";
 import PaymentModal from "./PaymentModal";
-import DeactivateModal from "./DeactivateModal";
+
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
