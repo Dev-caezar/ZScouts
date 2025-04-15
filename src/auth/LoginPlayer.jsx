@@ -19,6 +19,15 @@ const LoginPlayer = () => {
   const handleSignup =()=>{
     navigate("/signup_option")
 }
+const haandleLogin = (e) => {
+  e.preventDefault();
+  navigate("/player_profile")
+}
+const handleGoogle = () => {
+  console.log("Google sign-in clicked");
+
+  navigate("/email_notify")
+}
   return (
      <div className='player_login_body'>
             <div className="player_login_card">
@@ -40,7 +49,7 @@ const LoginPlayer = () => {
                       <p onClick={handleFrgotPass}>Forgot password?</p>
                     </div>
                     </div>
-                    <button className='player_login_button' onClick={handlesubmit}>Login</button>
+                    <button className='player_login_button' onClick={haandleLogin}>Login</button>
                     </form>
                     <div className="second_option">
                       <div className="line"></div>

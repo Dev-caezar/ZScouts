@@ -156,7 +156,7 @@ const PlayerProfile = () => {
          }
           <div className="player_video_profile">
             {
-              !authenticated? 
+              authenticated? 
              <div className="video_top">
               <h4>You’re on the Free Plan</h4>
             </div>:
@@ -169,6 +169,7 @@ const PlayerProfile = () => {
               <div className="bottom_video_card"></div>
             </div>
           </div>
+          <button className='complete_cta'>Submit</button>
         </div>
       </div>
     </div>

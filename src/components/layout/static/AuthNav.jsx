@@ -1,5 +1,6 @@
 import React from 'react'
 import "../../../styles/auth_nav.css"
+import authLogo from "../../../assets/auth_logo.png"
 
 const AuthNav = () => {
   return (
@@ -7,7 +8,7 @@ const AuthNav = () => {
                 <div className="image_header">
                    <div className="img_headerwrapper">
                    <div className="auth_image_holder">
-                        <img src="/src/assets/public/auth_logo.png" alt="" />
+                        <img src={authLogo} alt="" />
                     </div>
                    </div>
                 </div>

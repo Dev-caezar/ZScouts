@@ -172,3 +172,91 @@
     color: white;
     background-color: #0C8F00;
 }
+
+/* Existing styles remain as-is */
+
+/* Responsive Adjustments */
+
+/* Medium screens */
+@media screen and (max-width: 768px) {
+    .edit_input_container,
+    .date_input_container,
+    .contact_input_container,
+    .height_input_container,
+    .gender_input_container {
+      width: 45%;
+      min-width: unset;
+    }
+  
+    .edit_card {
+      padding: 8px;
+    }
+  
+    .edit_card_top h4 {
+      font-size: 14px;
+    }
+  
+    .edit_input,
+    .contact_input,
+    .height_input {
+      width: 100%;
+      height: 32px;
+    }
+  
+    .complete_cta {
+      width: 120px;
+      height: 38px;
+      font-size: 13px;
+    }
+  }
+  
+  /* Small screens (mobile) */
+  @media screen and (max-width: 480px) {
+    .player_kyc_wrapper {
+        height: max-content;
+      gap: 15px;
+    }
+  
+    .back_card {
+      height: auto;
+    }
+  
+    .edit_card {
+      height: auto;
+      padding: 10px;
+    }
+  
+    .edit_card_top h4 {
+      font-size: 13px;
+      line-height: 20px;
+    }
+  
+    .edit_card_bottom,
+    .contact_card_bottom {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .edit_input_container,
+    .date_input_container,
+    .contact_input_container,
+    .height_input_container,
+    .gender_input_container {
+      width: 100%;
+      height: max-content;
+    }
+  
+    .edit_input,
+    .contact_input,
+    .height_input {
+      width: 100%;
+      height: 34px;
+    }
+  
+    .complete_cta {
+      width: 30%;
+      height: 38px;
+      font-size: 14px;
+    }
+  }
+  
