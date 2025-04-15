@@ -3,7 +3,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import "../styles/scoutRegister.css"
+import "../styles/scoutregister.css"
 
 const ScoutRegister = () => {
   const navigate = useNavigate()
