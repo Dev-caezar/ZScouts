@@ -68,6 +68,21 @@
     background: transparent;
     position:relative;
 }
+.scout_login_input.error {
+    border: 1.5px solid #e74c3c;
+    animation: shake 0.3s 2;
+  }
+  @keyframes shake {
+    25% {
+        translate:  6px 0;
+    }
+    50% {
+       translate:  -6px 0
+    }
+    75% {
+       translate:  6px 0
+    }
+  }
 
 .slformLabel {
     position: absolute;
@@ -91,10 +106,10 @@
 .scout_login_input:focus {
     border-color: #0C8F00;
 }
-.eye{
+.login_eye{
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 15px;
 }
 .terms_card{
     width: 100%;

@@ -1,4 +1,3 @@
-/* Base Layout */
 .profile_tracker_body {
     width: 100%;
     background-color: #DFB400;
@@ -72,10 +71,6 @@
   .progress_cta:hover {
     background-color: #0c5605;
   }
-  
-  /* Responsive Adjustments */
-  
-  /* Medium screens */
   @media screen and (max-width: 768px) {
     .tracker_text {
       width: 65%;
@@ -99,14 +94,11 @@
     }
   }
   
-  /* Small screens (mobile) */
   @media screen and (max-width: 480px) {
-    /* .profile_tracker_body{
-        padding: 0;
-    } */
     .profile_tracker_wrapper {
       flex-direction: column;
       align-items: flex-start;
+      justify-content: center;
       gap: 15px;
       height: max-content;
     }
@@ -120,8 +112,11 @@
   
     .progress {
       width: 20%;
-      height: 100%;
+      height: 200%;
       padding: 0;
+      display: flex;
+      align-self: center;
+      justify-self: center;
     }
   
     .text_head h4 {
@@ -130,7 +125,7 @@
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
-        line-height: 24px; /* 171.429% */
+        line-height: 24px;
     }
   
     .text_head p {
@@ -147,7 +142,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      /* justify-content: flex-start; */
     }
   
     .progress_cta {
