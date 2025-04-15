@@ -24,10 +24,8 @@ const haandleLogin = (e) => {
   navigate("/player_profile")
 }
 const handleGoogle = () => {
-  // Handle Google sign-in logic here
   console.log("Google sign-in clicked");
-  // You can use Firebase or any other library for Google authentication
-  // For now, just navigate to the email notify page
+
   navigate("/email_notify")
 }
   return (

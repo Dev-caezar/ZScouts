@@ -26,6 +26,8 @@ import LoginPayer from './auth/LoginPlayer';
 import EmailVerify from './auth/EmailVerify';
 import EditProfile from './pages/EditProfile';
 import PlayerVideo from './pages/PlayerVideo'
+import PasswordUpdate from './auth/PasswordUpdate';
+import EmailSuccess from './auth/EmailSuccess';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -93,6 +95,14 @@ const App = () => {
         {
           path: "/signup_option",
           element: <SignupOption />,
+        },
+        {
+          path: "/password_update",
+          element: <PasswordUpdate />,
+        },
+        {
+          path: "/email_success",
+          element: <EmailSuccess />,
         },
       ],
     },
