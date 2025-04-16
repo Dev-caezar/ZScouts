@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "../styles/scoutregister.css"
+import { Flex, Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons"
 
 const ScoutRegister = () => {
   const navigate = useNavigate()
@@ -20,15 +22,6 @@ const ScoutRegister = () => {
   })
 
   const [errors, setErrors] = useState({})
-
-  useEffect(() => {
-    setRegister({
-      fullname: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    })
-  }, [])
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev)
@@ -71,16 +64,17 @@ const ScoutRegister = () => {
     return Object.keys(formErrors).length === 0
   }
 
-  const BASE_URL = "https://zscouts.onrender.com/"
+  const BASE_URL = "https://zscouts.onrender.com"
+  console.log(`${BASE_URL}/api/scouts/register`)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (validateForm()) {
       setLoading(true)
       try {
-        const response = await axios.post(`${BASE_URL}/scouts/register`, register)
+        const response = await axios.post(`${BASE_URL}/api/scouts/register`, register)
         console.log("Registration successful:", response.data)
-        navigate("/email_notify")
+        navigate("/email_page")
       } catch (error) {
         console.error("Registration failed:", error.response?.data || error.message)
         if (error.response && error.response.data) {
@@ -105,6 +99,8 @@ const ScoutRegister = () => {
   const navigateToLogin = () => {
     navigate("/scout_login")
   }
+  const loadingIcon = <LoadingOutlined style={{ fontSize: 25, color: "white" }} spin />
+
 
   return (
     <div className='scout_register_body'>
@@ -187,7 +183,12 @@ const ScoutRegister = () => {
           </div>
 
           <button type='submit' className='scout_register_button' disabled={loading}>
-            {loading ? 'Creating Account...' : 'Create Account'}
+            {loading ? 
+                <Flex align="center" justify="center" style={{ height: "100%" }}>
+                <Spin indicator={loadingIcon} />
+              </Flex>:
+             'Create Account'
+             }
           </button>
         </form>
 
