@@ -219,7 +219,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: red;
     }
     .player_register_card{
         width: 85%;
