@@ -85,7 +85,7 @@ const App = () => {
           element: <ForgotPassword />,
         },
         {
-          path: "/reset_password/${token}",
+          path: "/reset_password/:{token}",
           element: <ResetPassword />,
         },
         {
