@@ -7,8 +7,13 @@ import ellipse3 from "../assets/Ellipse 3.jpg"
 import ellipse4 from "../assets/Ellipse 4.jpg"
 
 import ellipse5 from "../assets/Ellipse 5.jpg"
+import { useNavigate } from "react-router"
 
 const Hero = () => {
+  const nav = useNavigate()
+  const handleGetStarted =()=>{
+    nav("/signup_option")
+  }
   return (
     <div className="hero_body">
       <div className="hero_wrapper">
@@ -22,7 +27,7 @@ const Hero = () => {
           Play at the Next Level.
         </h1>
         <h4>Create your profile, showcase your talent, and connect with scouts worldwide.</h4>
-        <button className="get_started">Get started now</button>
+        <button className="get_started" onClick={handleGetStarted}>Get started now</button>
         <div className="avatar_holder">
           <div className="avatar_container">
             <div class="image-item">
