@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import '../styles/playersettings.css'
 import { TiPlus } from "react-icons/ti";
 import { FaRegEye } from "react-icons/fa6";
-import DeactivatePopup from '../components/DeactivatePopup';
 import { toast } from 'react-toastify';
 
 const PlayerSettings = () => {
@@ -32,9 +31,6 @@ const PlayerSettings = () => {
   return (
     <div className='player-settings-main' >
       <div className='player-settings-main-wrap'>
-        <DeactivatePopup isopen={isPopUpOpen} onclose={()=>setIsPopupOpen(false)} >
-          <div className='deactivate-pop-up-inner'></div>
-        </DeactivatePopup>
         <div className='player-settings-main-wrap-header'>
           <h1>Account settings</h1>
         </div>
@@ -50,7 +46,6 @@ const PlayerSettings = () => {
             <div className='player-settings-main-inner-2'>
               <p style={{fontWeight: "600", color: "#333333"}}>Osuji Wisdom</p>
               <p style={{fontSize: "11px", fontWeight: "600", color: "gray"}}>wisdomosuji26@gmail.com</p>
-              <p onClick={()=>setIsPopupOpen(true)} style={{textDecoration: "underline", color: "red", fontSize: "13px", cursor: "pointer", fontWeight: "500"}}>Deactivate account</p>
             </div>
           </div>
         </div>
