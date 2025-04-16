@@ -61,13 +61,11 @@ const ScoutLogin = () => {
       try {
         const response = await axios.post(`${BASE_URL}/api/scouts/login`, login)
         console.log("Login successful:", response.data)
-
-        // Save user data to Redux
         dispatch(setUser(response.data))
-
         navigate("/scout_profile")
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message)
+        toast.error("Login failed. Please try again later.")
         if (error.response && error.response.data) {
           const apiErrors = error.response.data.errors
           setErrors((prev) => ({ ...prev, ...apiErrors }))

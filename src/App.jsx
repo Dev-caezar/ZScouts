@@ -30,6 +30,10 @@ import PasswordUpdate from './auth/PasswordUpdate';
 import EmailSuccess from './auth/EmailSuccess';
 import ForgotPasswordPlayer from './auth/ForgotPasswordPlayer';
 import ResetPasswordPlayers from './auth/ResetPasswordPlayer';
+import AdminDashboard from './components/Chiemerie/AdminDashboard';
+import AdminPlayersManagement from './components/Chiemerie/AdminPlayersManagement';
+import AdminScoutDashboard from './components/Chiemerie/AdminScoutDashboard';
+import AdmindashboardOverview from './components/Chiemerie/AdmindashboardOverview';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -92,6 +96,7 @@ const App = () => {
         },
         {
           path: "/reset_password",
+          path: "/reset_password/:token",
           element: <ResetPassword />,
         },
         {
@@ -159,6 +164,23 @@ const App = () => {
       path: "*",
       element: <ErrorPage />,
     },
+
+    {
+      path:"/admin_dashboard", element:<AdminDashboard/>,
+      children:[
+        {
+          path:"",element:<AdmindashboardOverview/>
+        },
+        {
+          path:"players_admindashboard",element:<AdminPlayersManagement/>
+        },
+        {
+          path:"scout_admindashboard",element:<AdminScoutDashboard/>
+        },
+       
+      ]
+
+    }
   ]);
   return (
     <div>
