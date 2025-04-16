@@ -22,7 +22,7 @@ const EmailPage = () => {
       toast.success(res?.data?.message)
       setIsVerified(true)
       setTimeout(() => {
-        navigate("/loginpage")
+        navigate("/login_option")
       }, 4000)
     } catch (err) {
       console.log(err)

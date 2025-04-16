@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router"
 import axios from "axios"
 import { toast } from "react-toastify"
 
-const EmailPage = () => {
+const EmailPagePlayer = () => {
   const { token } = useParams()
   const navigate = useNavigate()
 
@@ -22,7 +22,7 @@ const EmailPage = () => {
       toast.success(res?.data?.message)
       setIsVerified(true)
       setTimeout(() => {
-        navigate("/loginpage")
+        navigate("/login_option")
       }, 4000)
     } catch (err) {
       console.log(err)
@@ -38,7 +38,7 @@ const EmailPage = () => {
     }
     try {
       setResending(true)
-      const res = await axios.post(`${BASE_URL}/api/scouts/resend-verification`, {
+      const res = await axios.post(`${BASE_URL}/api/players/resend-verification`, {
         email: resendEmail,
       })
       toast.success(res?.data?.message || "Verification link resent")
@@ -100,4 +100,4 @@ const EmailPage = () => {
   )
 }
 
-export default EmailPage
+export default EmailPagePlayer
