@@ -1,14 +1,18 @@
-"use client"
-
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import "../styles/scoutLogin.css"
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
 import { useNavigate } from "react-router"
 import axios from "axios"
+import { useDispatch } from "react-redux"
+import { setUser } from "../global/Fearures"
+import { Flex, Spin } from "antd"
+import { LoadingOutlined } from "@ant-design/icons"
 
 const ScoutLogin = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+
   const [showPass, setShowPass] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -19,27 +23,15 @@ const ScoutLogin = () => {
 
   const [errors, setErrors] = useState({})
 
-  // Reset form on mount
-  useEffect(() => {
-    setLogin({
-      email: "",
-      password: "",
-    })
-    setErrors({})
-  }, [])
-
   const togglePasswordVisibility = () => {
     setShowPass((prev) => !prev)
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target
-
-    // Map the field names back to the state property names
     const stateKey = name.replace("scout_", "")
-
     setLogin((prev) => ({ ...prev, [stateKey]: value }))
-    setErrors((prev) => ({ ...prev, [stateKey]: "" })) // Clear error when user starts typing
+    setErrors((prev) => ({ ...prev, [stateKey]: "" }))
   }
 
   const validateForm = () => {
@@ -59,7 +51,7 @@ const ScoutLogin = () => {
     return Object.keys(formErrors).length === 0
   }
 
-  const BASE_URL = "https://zscouts.onrender.com/"
+  const BASE_URL = "https://zscouts.onrender.com"
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -67,11 +59,11 @@ const ScoutLogin = () => {
     if (validateForm()) {
       setLoading(true)
       try {
-        const response = await axios.post(`${BASE_URL}/scouts/login`, login)
+        const response = await axios.post(`${BASE_URL}/api/scouts/login`, login)
         console.log("Login successful:", response.data)
 
-        // Clear form data from sessionStorage and localStorage
-        sessionStorage.clear()
+        // Save user data to Redux
+        dispatch(setUser(response.data))
 
         navigate("/scout_profile")
       } catch (error) {
@@ -98,9 +90,12 @@ const ScoutLogin = () => {
   const handleLoginRedirect = () => {
     navigate("/scout_register")
   }
-  const handleFrgotPass =()=>{
+
+  const handleFrgotPass = () => {
     navigate("/forgot_password")
-}
+  }
+
+  const loadingIcon = <LoadingOutlined style={{ fontSize: 25, color: "white" }} spin />
 
   return (
     <div className="scout_login_body">
@@ -150,22 +145,29 @@ const ScoutLogin = () => {
             )}
             {errors.password && <p className="error_message">{errors.password}</p>}
             <div className="player_forgot_password">
-                <p onClick={handleFrgotPass}>Forgot password?</p>
+              <p onClick={handleFrgotPass}>Forgot password?</p>
             </div>
           </div>
           <button type="submit" className="register_button" style={{ cursor: "pointer" }}>
-            {loading ? "Logging in..." : "Login"}
+            {loading ? 
+            <Flex align="center" justify="center" style={{ height: "100%" }}>
+            <Spin indicator={loadingIcon} />
+          </Flex>
+             : "Login"}
           </button>
         </form>
+
         <div className="second_option">
           <div className="line"></div>
           <h4>OR</h4>
           <div className="line"></div>
         </div>
+
         <button style={{ cursor: "pointer" }} className="google_button" onClick={handleGoogleSignup}>
           <FcGoogle />
           <p>Sign up with Google</p>
         </button>
+
         <div className="form_footer">
           <h4>
             Don't have an account? <span onClick={handleLoginRedirect}>Sign up here.</span>

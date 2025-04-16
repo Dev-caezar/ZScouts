@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import "../styles/forgotPassword.css"
 import { IoMdLock } from "react-icons/io"
 import { useNavigate } from "react-router"
+import axios from "axios"
 
 const ForgotPassword = () => {
   const navigate = useNavigate()
@@ -9,6 +10,7 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+  const [message, setMessage] = useState("")
 
   useEffect(() => {
     setEmail("")
@@ -20,15 +22,13 @@ const ForgotPassword = () => {
     setError("") 
   }
 
-  const handleSignup = () => {
-    navigate("/login_option")
-  }
-
   const handleLogin = () => {
     navigate("/login_option")
   }
 
-  const handleSubmit = (e) => {
+  const BASE_URL = "https://zscouts.onrender.com"
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (!email.trim()) {
@@ -40,10 +40,21 @@ const ForgotPassword = () => {
     }
 
     setLoading(true)
-    setTimeout(() => {
+    setError("")
+    setMessage("")
+
+    try {
+      const res = await axios.post(`${BASE_URL}/api/scouts/forgot-password`, { email })
+      setMessage(res.data.message)
+      setTimeout(() => {
+        navigate("/email_notify")
+      }, 2000)
+    } catch (err) {
+      console.error(err)
+      setError(err.response?.data?.message || "Something went wrong. Please try again.")
+    } finally {
       setLoading(false)
-      navigate("/email_notify")
-    }, 1500)
+    }
   }
 
   return (
@@ -71,6 +82,7 @@ const ForgotPassword = () => {
               Email
             </label>
             {error && <p className="error_message">{error}</p>}
+            {message && <p className="success_message">{message}</p>}
           </div>
 
           <div className="resend_card">
