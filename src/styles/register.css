@@ -23,6 +23,10 @@
     align-items: center;
     flex-direction: column;
 }
+.error_msg {
+  color: red;
+  font-size: 12px;
+}
 
 .player_form_head h2{
     color: #07232F;
@@ -94,6 +98,11 @@
 .player_form_input:focus {
     border-color: #0C8F00;
 }
+
+.input-error {
+    border: 1px solid red;
+  }
+
 .eye{
     position: absolute;
     right: 10px;

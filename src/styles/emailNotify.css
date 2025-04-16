@@ -15,6 +15,19 @@
     justify-content: center;
     gap: 20px;
 }
+
+.error-border {
+    border: 1px solid red !important;
+  }
+  
+  .error_msg {
+    color: red;
+    font-size: 0.75rem;
+    margin-top: 4px;
+    display: block;
+  }
+
+  
 .emailNotify_icon_holder{
     width: 60px;
     height: 60px;

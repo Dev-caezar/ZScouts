@@ -6,7 +6,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 const ResetPassword = () => {
-  const { token } = useParams()
+  const token = useParams().token
   const BASE_URL = "https://zscouts.onrender.com"
 
   const navigate = useNavigate()
@@ -15,39 +15,36 @@ const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
 
   const handleResetPassword = async (e) => {
     e.preventDefault()
 
     if (newPassword !== confirmPassword) {
-      toast.error("Passwords do not match.")
-      return
-    }
-
-    if (newPassword.length < 8) {
-      toast.error("Password must be at least 8 characters.")
+      setError("Passwords do not match.")
       return
     }
 
     try {
       setLoading(true)
-
-      await axios.post(`${BASE_URL}/api/scouts/reset-password/${token}`, {
+      setError('')
+      const response = await axios.post(`${BASE_URL}/api/scouts/reset-password/${token}`, {
         password: newPassword
       })
 
-      toast.success("Password reset successful!")
+      setSuccess("Password reset successful!")
+      toast.success(success)
+      setLoading(false)
 
-      const timeout = setTimeout(() => {
+      setTimeout(() => {
         navigate("/login")
       }, 2000)
 
-      return () => clearTimeout(timeout)
-
     } catch (err) {
-      toast.error(err.response?.data?.message || "Something went wrong.")
+      setError(err.response?.data?.message || "Something went wrong.")
       console.log(err.response?.data?.message)
-    } finally {
+      toast.error(err.response?.data?.message)
       setLoading(false)
     }
   }
@@ -95,16 +92,7 @@ const ResetPassword = () => {
             }
           </div>
 
-          {newPassword && confirmPassword && newPassword !== confirmPassword && (
-            <p className="error_message">Passwords do not match.</p>
-          )}
-
-          <button 
-            type="submit" 
-            className='register_button' 
-            style={{cursor: "pointer"}} 
-            disabled={loading || newPassword !== confirmPassword || newPassword.length < 8}
-          >
+          <button type="submit" className='register_button' style={{cursor: "pointer"}} disabled={loading}>
             {loading ? "Creating..." : "Create Password"}
           </button>
         </form>
