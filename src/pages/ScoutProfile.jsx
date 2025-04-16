@@ -3,10 +3,12 @@ import { HiPlusCircle } from "react-icons/hi";
 import { CiStar } from "react-icons/ci";
 import { BiSolidFileImage } from "react-icons/bi";
 import { FiDownload } from "react-icons/fi";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 const ScoutProfile = () => {
   const navigate = useNavigate();
+  const {id} = useParams()
+  console.log(id)
 
   const scoutInformation = [
     { id: 1, club: "Organisation/Club Name", role: "Scouting Role", league: "Leagues/Region Covered", position: "Preferred Player Positions" }
@@ -34,7 +36,7 @@ const ScoutProfile = () => {
           </div>
         </div>
         <div className="scoutHeader2">
-          <button onClick={() => navigate("/scout_form")} className="scoutComplete-KYC-button">Complete KYC</button>
+          <button onClick={() => navigate(`/scout_form/${id}`)} className="scoutComplete-KYC-button">Complete KYC</button>
         </div>
       </div>
 

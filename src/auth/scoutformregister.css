@@ -20,6 +20,13 @@
     align-items: center;
     justify-content: space-between;
 }
+.error-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+  }
+  
 
 .scoutHeaderForm1{
     width: 50%;
