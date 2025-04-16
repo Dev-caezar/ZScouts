@@ -44,7 +44,7 @@ const EmailPage = () => {
       toast.success(res?.data?.message || "Verification link resent")
     } catch (err) {
       console.log(err)
-      // toast.error(err?.response?.data?.message || "Failed to resend link")
+      toast.error(err?.response?.data?.message || "Failed to resend link")
     } finally {
       setResending(false)
     }
