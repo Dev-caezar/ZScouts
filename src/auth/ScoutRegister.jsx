@@ -6,6 +6,7 @@ import axios from "axios"
 import "../styles/scoutregister.css"
 import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons"
+import { toast } from "react-toastify"
 
 const ScoutRegister = () => {
   const navigate = useNavigate()
@@ -51,7 +52,7 @@ const ScoutRegister = () => {
     if (!register.password) {
       formErrors.password = "Password is required"
     } else if (register.password.length < 8) {
-      formErrors.password = "Password must be at least 8 characters"
+      formErrors.password = "Password must be at least 8 charactersand must include a number and special character"
     }
 
     if (!register.confirmPassword) {
