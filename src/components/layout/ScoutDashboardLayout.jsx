@@ -1,14 +1,14 @@
 import React from 'react'
-import DashboardNav from './static/DashboardNav'
-import DashboardHeader from './static/DashboardHeader'
 import { Outlet } from 'react-router'
+import ScoutDashboardNav from './static/ScoutDashboardNav'
+import ScoutDashboardHeader from './static/ScoutDashboardHeader'
 
 const ScoutDashboardLayout = () => {
   return (
     <div className="dashboardLayout_body">
-          <DashboardNav />
+          <ScoutDashboardNav />
           <div className="mainContent">
-            <DashboardHeader />
+            <ScoutDashboardHeader />
             <div className="content">
               <Outlet />
             </div>

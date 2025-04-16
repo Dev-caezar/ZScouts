@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import "../styles/signupOption.css";
 import { useNavigate } from 'react-router';
+import whiteimg from "../assets/white_icon.png";
+import player_boot from "../assets/player_boot.jpg";
+import whiteBoot from "../assets/white_boot.png";
+import scoutIcon from "../assets/scout_icon.jpg";
 
 const SignupOption = () => {
     const [selectedRole, setSelectedRole] = useState(null);
@@ -33,8 +37,8 @@ const SignupOption = () => {
                     <div className="signup_card_img">
                         {
                             selectedRole === "PLAYER" ?
-                            <img src="/src/assets/white_boot.png" alt="Player Icon"/>:
-                            <img src="/src/assets/player_boot.jpg" alt="Player Icon"/>
+                            <img src={whiteBoot} alt="Player Icon"/>:
+                            <img src={player_boot} alt="Player Icon"/>
 
                         }
                     </div>
@@ -45,14 +49,14 @@ const SignupOption = () => {
                      <div className="signup_card_img">
                         {
                             selectedRole === "SCOUT" ?
-                            <img src="/src/assets/white_icon.png" alt="Scout Icon"/>:
-                            <img src="/src/assets/scout_icon.jpg" alt="Scout Icon"/>
+                            <img src={whiteimg} alt="Scout Icon"/>:
+                            <img src={scoutIcon} alt="Scout Icon"/>
                         }
                         </div>
                         <p>Scout</p>
                     </div>
                 </div>
-               <button className={`select_option ${selectedRole ? 'active' : ''}`} 
+               <button style={{cursor: "pointer"}} className={`select_option ${selectedRole ? 'active' : ''}`} 
                     disabled={!selectedRole} 
                     onClick={() => {
                     handleSelect(selectedRole); 

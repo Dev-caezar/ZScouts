@@ -7,16 +7,9 @@
     /* background-color: gold; */
   }
   
-  .pricing_wrapper {
-    width: 82%;
-    height: 80%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-  }
   
   .pricing_wrapper {
-    width: 80%;
+    width: 82%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -59,7 +52,7 @@
   .pricing_card,
   .pricing_card2 {
     width: 25%;
-    height: 97%;
+    height: 80%;
     border-radius: 16px;
     background-color: rgba(51, 51, 51, 0.05);
     border: 1px solid #333;

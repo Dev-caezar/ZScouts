@@ -1,0 +1,262 @@
+.scoutbody {
+    width: 100%;
+    height: 90vh;
+    min-height: max-content;
+    background-color: #d8d5d5;
+    padding-top: 40px;
+  }
+  
+  .scoutprofileicon {
+    width: 90%;
+    background-color: #d6d1d1;
+    margin-left: 40px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .scoutinfo {
+    display: flex;
+    align-items: flex-start; 
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .scoutprofilepicture {
+    width: 80px;
+    height: 80px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 10px;
+    position: relative;
+  }
+  
+  .plus-icon {
+    position: absolute;
+    bottom: -5px;
+    right: -2px;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none; 
+    cursor: pointer;
+  }
+  
+  .plus-svg {
+    width: 12px;
+    height: 12px;
+    color: #333; 
+  }
+  
+  .scoutprofiledetails {
+    color: #3333337f;
+    margin-top: 10px;
+  }
+  
+  .scoutprofiledetails h4 {
+    margin: 0;
+    color: var(--Colors-Neutral-1000, #07232F);
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; 
+  }
+  
+  .scoutprofiledetails .role {
+    color: var(--Colors-Secondary-500, #07232F);
+    font-family: 'Poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; 
+  }
+  
+  .scoutprofiledetails .status {
+    font-size: 14px;
+    color: #8E8E8E;
+    margin-left: 8px;
+  }
+  
+  .scoutprofiledetails p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: var(--Colors-Secondary-500, #07232F);
+    font-family: 'Poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+
+  .scoutprofileyear {
+    color: var(--Colors-Neutral-800, #606060);
+    font-family: 'Poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  
+  .star-rating {
+    display: flex;
+    gap: 3px;
+    margin-top: 3px;
+
+  }
+  
+  .star-wrapper {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .star-wrapper:hover {
+    transform: scale(1.2);
+  }
+  
+  .star-wrapper.filled img {
+    filter: brightness(1.8);
+    
+  }
+  
+  .star-wrapper img {
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    transition: filter 0.3s ease;
+    
+  }
+  
+  .star-wrapper.filled img {
+    filter: brightness(6) saturate(1.5) contrast(1.2);
+  }
+  
+  .star-wrapper img:hover {
+    filter: brightness(1.5);
+  }
+
+
+  .scoutinfobox {
+    width: 90%;
+    height: 100px;
+    background-color: #FFFFFF;
+    margin-left: 40px;
+    margin-top: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 16px;
+  }
+  
+  .scoutinfobox h5 {
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    
+  }
+  
+  .scoutinfoform {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .scoutdetails {
+    width: 23%;
+    background-color: white;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  .scoutdetails h6 {
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    margin: 0;
+  }
+  
+  .scoutdetailtext {
+    color: var(--Colors-Neutral-800, #606060);
+    font-family: 'Poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    margin: 4px 0 0;
+  }
+
+  .scoutcredentialsbox {
+    width: 90%;
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 10px 20px;
+    margin-left: 40px;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  }
+  .scoutcredentialsbox h5 {
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+  }
+  
+  .credentialcard {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    padding: 10px;
+    background-color: #fff;
+    max-width: 500px;
+  }
+  
+  .credential-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .file-icon img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .credential-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #a0a0a0;
+  }
+  
+  .download-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .download-icon img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  

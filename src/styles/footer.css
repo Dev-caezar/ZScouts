@@ -146,6 +146,9 @@
     .footer-contact{
         /* background-color: green; */
         width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
         & h3 {
             font-size: 14px;
@@ -159,7 +162,9 @@
     .footer-address{
         width: 100%;
         /* background-color: orange; */
-        padding-left: 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
         & h3 {
             font-size: 15px;
@@ -207,6 +212,9 @@
     .footer-contact{
         /* background-color: green; */
         width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
         & h3 {
             font-size: 18px;
@@ -220,7 +228,9 @@
     .footer-address{
         width: 100%;
         /* background-color: orange; */
-        padding-left: 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
         & h3 {
             font-size: 18px;
@@ -268,6 +278,9 @@
     .footer-contact{
         /* background-color: green; */
         width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
         & h3 {
             font-size: 22px;
@@ -281,7 +294,9 @@
     .footer-address{
         width: 100%;
         /* background-color: orange; */
-        padding-left: 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
         & h3 {
             font-size: 20px;
@@ -329,6 +344,9 @@
     .footer-contact{
         /* background-color: green; */
         width: 100%;
+         display: flex;
+        align-items: center;
+        flex-direction: column;
 
         & h3 {
             font-size: 25px;
@@ -342,7 +360,9 @@
     .footer-address{
         width: 100%;
         /* background-color: orange; */
-        padding-left: 15px;
+         display: flex;
+        align-items: center;
+        flex-direction: column;
 
         & h3 {
             font-size: 23px;

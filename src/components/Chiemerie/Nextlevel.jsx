@@ -1,18 +1,24 @@
+import { useNavigate } from "react-router"
 import "./nextLevel.css"
 
 const Nextlevel = () => {
+  const nav = useNavigate()
+  const handleCreateProfile = ()=>{
+    nav("/signup_option")
+  }
   return (
-    <div className="nextLevel-wrapper">
-        <div className="nextLevel">
-        <div className="nextLevelImage"> 
-          <div className="nextLevelText1">
-            <h1>Take Your Career to the Next Level!</h1>
-            <p>Create your profile, upload your higlights, and attract scouts looking for talent like you.</p>
+    <div className="nextLevel-body">
+      <div className="nextLevel_wrapper">
+        <div className="inner_wrapper">
+          <div className="left_inner">
+            <h2>Take Your Career to the Next Level!</h2>
+            <h4>Create your profile, upload your highlights, and attract scouts looking for talent like you.</h4>
           </div>
-          <button style={{cursor: "pointer"}} className="nextLevelText2"> Create Your Free Profile</button>
+          <div className="right_inner">
+            <button className="inner_button" onClick={handleCreateProfile}>Create Your Free Profile</button>
+          </div>
         </div>
-
-       </div>
+      </div>
     </div>
   )
 }

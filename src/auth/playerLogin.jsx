@@ -32,22 +32,22 @@ const PlayerLogin = () => {
                         <label for="email" className='plogin_Label'>Email</label>
                     </div>
                     <div class="playerlogin_floating-label">
-                        <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='plogin_input'/>
+                        <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='plogin_input'/>
                         <label for="password" className='plogin_Label'>Password </label>
-                       {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
-                        <FaRegEye className='eye' onClick={handlePassword}/>}
+                       {showPass? <FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
+                        <FaRegEye style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
                     <div className="player_forgot_password">
                       <p onClick={handleFrgotPass}>Forgot password?</p>
                     </div>
                     </div>
-                    <button className='player_login_button' onClick={handlesubmit}>Login</button>
+                    <button style={{cursor: "pointer"}} className='player_login_button' onClick={()=>navigate("/player_profile")}>Login</button>
                     </form>
                     <div className="second_option">
                       <div className="line"></div>
                       <h4>OR</h4>
                       <div className="line"></div>
                     </div>
-                    <button className='google_button'>
+                    <button style={{cursor: "pointer"}} className='google_button'>
                       <FcGoogle/>
                       <p>Sign up with Google</p>
                     </button>
