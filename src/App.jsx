@@ -28,6 +28,10 @@ import EditProfile from './pages/EditProfile';
 import PlayerVideo from './pages/PlayerVideo'
 import PasswordUpdate from './auth/PasswordUpdate';
 import EmailSuccess from './auth/EmailSuccess';
+import AdminDashboard from './components/Chiemerie/AdminDashboard';
+import AdminPlayersManagement from './components/Chiemerie/AdminPlayersManagement';
+import AdminScoutDashboard from './components/Chiemerie/AdminScoutDashboard';
+import AdmindashboardOverview from './components/Chiemerie/AdmindashboardOverview';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -149,6 +153,23 @@ const App = () => {
       path: "*",
       element: <ErrorPage />,
     },
+
+    {
+      path:"/admin_dashboard", element:<AdminDashboard/>,
+      children:[
+        {
+          path:"",element:<AdmindashboardOverview/>
+        },
+        {
+          path:"players_admindashboard",element:<AdminPlayersManagement/>
+        },
+        {
+          path:"scout_admindashboard",element:<AdminScoutDashboard/>
+        },
+       
+      ]
+
+    }
   ]);
   return (
     <div>

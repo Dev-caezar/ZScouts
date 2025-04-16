@@ -1,3 +1,4 @@
+import { useParams } from "react-router"
 import "./scoutformregister.css"
 import { useState } from "react"
 const ScoutFormRegister = () => {
@@ -5,19 +6,37 @@ const ScoutFormRegister = () => {
       fullname:"",
       nationality:"",
       email:"",
-      phonenumber:"",
+      phoneNumber:"",
       homeaddress:"",
-      organisation:"",
+      clubname:"",
       scoutingrole:"",
       leagues:"",
       playerposition:"",
       age:""
     })
+    console.log(scoutForm)
+const {id} = useParams();
+    
+    // const [ ]
     const [scoutfile,setScoutFile]=useState(null);
     const handlscoutFile = (e) => {
       const selectedFile = e.target.files[0];
       setScoutFile(selectedFile);
     }
+
+    // const formData = new formData();
+    // formData.append("fullname", fullname )
+    // formData.append("nationality",  nationality )
+    // formData.append("phoneNumber",   phoneNumber)
+    // formData.append("clubName", clubname )
+    // formData.append("scoutingRole",   scoutingrole )
+    // formData.append("league", leagues )
+    // formData.append("preferredPosition",  playerposition )
+    // formData.append("preferredAge", age )
+    // formData.append("socialMediaProfile", fullname )
+    // formData.append("verificationDocument", fullname )
+  
+    
   return (
     <div className='scoutFormWrapper'>
          <div className="scoutHeaderForm">
@@ -72,6 +91,8 @@ const ScoutFormRegister = () => {
            <p className="scoutInformationLabel-text">Gender*</p>
            <select className="scoutGenderInput">
          <option className="month-date-year-Option">Gender</option>
+         <option value="">Male</option>
+         <option value="">Female</option>
            </select>
            </article>
          </div>
@@ -94,7 +115,7 @@ const ScoutFormRegister = () => {
          <option className="scout-DigitSection-Option">+234</option>
            </select>
            <input className="scout-DigitSection-Input" type="Phonenumber" placeholder="Phone number (E.g 905 9461 351)"
-           value={scoutForm.phonenumber} onChange={(e)=>setScoutform({...scoutForm, phonenumber:e.target.value})}/>
+           value={scoutForm.phoneNumber} onChange={(e)=>setScoutform({...scoutForm, phoneNumber:e.target.value})}/>
         </div>
         </article>
         <article className="scoutInformationFormArticle">
@@ -114,7 +135,7 @@ const ScoutFormRegister = () => {
           <article className="scoutInformationFormArticle">
           <p className="scoutInformationLabel-text">Organization/Club Name*</p>
           <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Position"
-          value={scoutForm.organisation} onChange={(e)=>setScoutform({...scoutForm, homeaddress:e.target.value})}/>
+          value={scoutForm.clubname} onChange={(e)=>setScoutform({...scoutForm, clubname:e.target.value})}/>
           </article >
           <article className="scoutInformationFormArticle">
           <p className="scoutInformationLabel-text">Scouting Role*</p>
@@ -141,7 +162,7 @@ const ScoutFormRegister = () => {
       <p className="scoutInformationLabel-text">Scouting License/Certification*</p>
       <div className="credentials-Certificate-Upload">
         <article className="Upload-Certificate">
-          Certificate Upload
+         {scoutfile} Certificate Upload
       <label className="custom-upload">
       Upload
       <input type="file" class="scoutFile-upload" onChange={handlscoutFile}/>
