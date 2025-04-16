@@ -6,7 +6,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 const ResetPassword = () => {
-  const token = useParams().token
+  const token = useParams()
   const BASE_URL = "https://zscouts.onrender.com"
 
   const navigate = useNavigate()
