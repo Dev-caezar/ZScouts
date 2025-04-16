@@ -13,10 +13,60 @@ const ScoutFormRegister = () => {
       playerposition:"",
       age:""
     })
+    console.log(scoutForm)
     const [scoutfile,setScoutFile]=useState(null);
     const handlscoutFile = (e) => {
       const selectedFile = e.target.files[0];
       setScoutFile(selectedFile);
+    }
+    const validateForm = () => {
+      const formErrors = {}
+
+      if (!scoutForm.fullname.trim()) formErrors.fullname = "Full name is required"
+
+      if (!scoutForm.email.trim()) {
+        formErrors.email = "Email is required"
+      } else if (!/\S+@\S+\.\S+/.test(scoutForm.email)) {
+        formErrors.email = "Invalid email format"
+      }
+
+      if (!scoutForm.phonenumber) {
+        formErrors.phonenumber = "Phone number is required"
+      } else if (scoutForm.phonenumber.length < 10) {
+        formErrors.phonenumber = "Phone number must be at least 10 digits"
+      }
+
+      if (!scoutForm.homeaddress) {
+        formErrors.homeaddress = "Home address is required"
+      }
+
+      if (!scoutForm.organisation) {
+        formErrors.organisation = "Organization/Club Name is required"
+      }
+
+      if (!scoutForm.scoutingrole) {
+        formErrors.scoutingrole = "Scouting Role is required"
+      }
+
+      if (!scoutForm.leagues) {
+        formErrors.leagues = "Leagues/Regions Covered is required"
+      }
+
+      if (!scoutForm.playerposition) {
+        formErrors.playerposition = "Preferred Player Positions is required"
+      }
+
+      setScoutform(formErrors)
+      return Object.keys(formErrors).length === 0
+    }
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      if (validateForm()) {
+        toast.success("Form submitted successfully!")
+        console.log("Form data:", scoutForm)
+      } else {
+        console.log("Form validation failed")
+      }
     }
   return (
     <div className='scoutFormWrapper'>
@@ -49,17 +99,6 @@ const ScoutFormRegister = () => {
            </article>
            <article className="scoutInformationFormArticle">
             <p className="scoutInformationLabel-text">Age*</p>
-            {/* <section className="month-date-year">
-            <select className="month-date-year-Select">
-              <option className="month-date-year-Option">Month</option>
-            </select>
-            <select className="month-date-year-Select">
-            <option className="month-date-year-Option">Day</option>
-            </select>
-            <select className="month-date-year-Select">
-            <option className="month-date-year-Option">Year</option>
-            </select>
-            </section> */}
             <input className="scoutpersonalINformatiom-input"  type="text" placeholder="Age"
             value={scoutForm.age} onChange={(e)=>setScoutform({...scoutForm, age:e.target.value})}/>
            </article>
@@ -114,7 +153,7 @@ const ScoutFormRegister = () => {
           <article className="scoutInformationFormArticle">
           <p className="scoutInformationLabel-text">Organization/Club Name*</p>
           <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Position"
-          value={scoutForm.organisation} onChange={(e)=>setScoutform({...scoutForm, homeaddress:e.target.value})}/>
+          value={scoutForm.organisation} onChange={(e)=>setScoutform({...scoutForm, organisation:e.target.value})}/>
           </article >
           <article className="scoutInformationFormArticle">
           <p className="scoutInformationLabel-text">Scouting Role*</p>
@@ -152,7 +191,7 @@ const ScoutFormRegister = () => {
     </div>
 
 
-     <button className="ScoutSubmitFormButton">Submit</button>
+     <button className="ScoutSubmitFormButton" onClick={handleSubmit}>Submit</button>
 
     </div>
   )

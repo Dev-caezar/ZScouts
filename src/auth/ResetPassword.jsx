@@ -4,6 +4,8 @@ import { useNavigate, useParams } from 'react-router'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { Flex, Spin } from 'antd'
+import { LoadingOutlined } from '@ant-design/icons'
 
 const ResetPassword = () => {
   const token = useParams()
@@ -48,6 +50,8 @@ const ResetPassword = () => {
       setLoading(false)
     }
   }
+  const loadingIcon = <LoadingOutlined style={{ fontSize: 25, color: "white" }} spin />
+
 
   return (
     <div className='reset_password_body'>
@@ -93,7 +97,11 @@ const ResetPassword = () => {
           </div>
 
           <button type="submit" className='register_button' style={{cursor: "pointer"}} disabled={loading}>
-            {loading ? "Creating..." : "Create Password"}
+            {loading ? 
+            <Flex align="center" justify="center" style={{ height: "100%" }}>
+              <Spin indicator={loadingIcon} />
+            </Flex> : 
+             "Create Password"}
           </button>
         </form>
       </div>

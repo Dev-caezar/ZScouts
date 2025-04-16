@@ -149,8 +149,8 @@ const ScoutLogin = () => {
           <button type="submit" className="register_button" style={{ cursor: "pointer" }}>
             {loading ? 
             <Flex align="center" justify="center" style={{ height: "100%" }}>
-            <Spin indicator={loadingIcon} />
-          </Flex>
+              <Spin indicator={loadingIcon} />
+            </Flex>
              : "Login"}
           </button>
         </form>
