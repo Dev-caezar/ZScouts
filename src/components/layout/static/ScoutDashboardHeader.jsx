@@ -4,10 +4,12 @@ import { BiSolidCategory } from 'react-icons/bi'
 import { HiMenuAlt3 } from 'react-icons/hi'
 import { IoLogOut } from 'react-icons/io5'
 import { MdCancel, MdVideoLibrary } from 'react-icons/md'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
 
 const ScoutDashboardHeader = () => {
     const nav = useNavigate()
+    const user = useSelector(state => state.user.user)
 
   const [openNav, setOpenNav] = useState(false)
   const [logout, setLogout] = useState(false)
@@ -41,8 +43,8 @@ const ScoutDashboardHeader = () => {
             <div className="header_right">
               <div className="header_right_img"></div>
               <div className="header_right_txt">
-                <h4>Scott Michall</h4>
-                <p>Beaconhills@gmail.com</p>
+                <h4>{user?.data?.fullname}</h4>
+                <p>{user?.data?.email}</p>
               </div>
               <HiMenuAlt3 className='dash_icon' onClick={handleOpenNav} />
     

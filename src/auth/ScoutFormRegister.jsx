@@ -1,180 +1,184 @@
-import { useParams } from "react-router"
 import "./scoutformregister.css"
 import { useState } from "react"
-const ScoutFormRegister = () => {
-    const [scoutForm, setScoutform]=useState({
-      fullname:"",
-      nationality:"",
-      email:"",
-      phoneNumber:"",
-      homeaddress:"",
-      clubname:"",
-      scoutingrole:"",
-      leagues:"",
-      playerposition:"",
-      age:""
-    })
-    console.log(scoutForm)
-const {id} = useParams();
-    
-    // const [ ]
-    const [scoutfile,setScoutFile]=useState(null);
-    const handlscoutFile = (e) => {
-      const selectedFile = e.target.files[0];
-      setScoutFile(selectedFile);
-    }
+import axios from "axios"
+import { toast } from "react-toastify"
+import { useNavigate, useParams } from "react-router-dom"
 
-    // const formData = new formData();
-    // formData.append("fullname", fullname )
-    // formData.append("nationality",  nationality )
-    // formData.append("phoneNumber",   phoneNumber)
-    // formData.append("clubName", clubname )
-    // formData.append("scoutingRole",   scoutingrole )
-    // formData.append("league", leagues )
-    // formData.append("preferredPosition",  playerposition )
-    // formData.append("preferredAge", age )
-    // formData.append("socialMediaProfile", fullname )
-    // formData.append("verificationDocument", fullname )
-  
-    
+const ScoutFormRegister = () => {
+  const id = useParams()
+  const [scoutForm, setScoutform] = useState({
+    nationality: "",
+    clubName: "",
+    scoutingRole: "",
+    league: "",
+    preferredPosition: "",
+    preferredAge: "",
+    socialMediaProfile: "",
+    verificationDocument: "",
+  })
+
+  const [formErrors, setFormErrors] = useState({})
+  const [scoutfile, setScoutFile] = useState(null)
+  const navigate = useNavigate()
+
+  const handlscoutFile = (e) => {
+    const selectedFile = e.target.files[0]
+    setScoutFile(selectedFile)
+  }
+
+  const validateForm = () => {
+    const errors = {}
+
+    if (!scoutForm.nationality.trim()) errors.nationality = "Nationality is required"
+    if (!scoutForm.clubName.trim()) errors.clubName = "Club Name is required"
+    if (!scoutForm.scoutingRole.trim()) errors.scoutingRole = "Scouting Role is required"
+    if (!scoutForm.league.trim()) errors.league = "League is required"
+    if (!scoutForm.preferredPosition.trim()) errors.preferredPosition = "Preferred Position is required"
+    if (!scoutForm.preferredAge.trim()) errors.preferredAge = "Preferred Age is required"
+    if (!scoutForm.socialMediaProfile.trim()) errors.socialMediaProfile = "Social Media Profile is required"
+
+    setFormErrors(errors)
+    return Object.keys(errors).length === 0
+  }
+
+  const BASE_URL = "https://zscouts.onrender.com"
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    if (validateForm()) {
+      try {
+        const formData = new FormData()
+        formData.append("nationality", scoutForm.nationality)
+        formData.append("clubName", scoutForm.clubName)
+        formData.append("scoutingRole", scoutForm.scoutingRole)
+        formData.append("league", scoutForm.league)
+        formData.append("preferredPosition", scoutForm.preferredPosition)
+        formData.append("preferredAge", scoutForm.preferredAge)
+        formData.append("socialMediaProfile", scoutForm.socialMediaProfile)
+        formData.append("verificationDocument", scoutfile)
+
+        const response = await axios.post(`${BASE_URL}/api/v1/playerkyc/${id}`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        })
+
+        toast.success("Form submitted successfully!")
+        console.log("Form data sent:", response.data)
+      } catch (error) {
+        console.error("Error submitting form", error)
+        toast.error("Failed to submit form. Try again.")
+      }
+    } else {
+      console.log("Form validation failed")
+    }
+  }
+
   return (
     <div className='scoutFormWrapper'>
-         <div className="scoutHeaderForm">
-      <div className="scoutHeaderForm1">
-        <div className="scoutPercentage">0%</div>
-        <div className="scoutVerifyYourIdentity-wrapper">
-        <span className="scoutVerifyText">Verify your identity to start scouting.</span>
-        <p className="scoutCompleteKYCTecxt">Complete your KYC to connect with verified talent. It only takes a <br />
-         few minutes.</p>
+      <div className="scoutHeaderForm">
+        <div className="scoutHeaderForm1">
+          <div className="scoutPercentage">0%</div>
+          <div className="scoutVerifyYourIdentity-wrapper">
+            <span className="scoutVerifyText">Verify your identity to start scouting.</span>
+            <p className="scoutCompleteKYCTecxt">Complete your KYC to connect with verified talent. It only takes a few minutes.</p>
+          </div>
+        </div>
+
+        <div className="scoutHeaderForm2">
+          <button onClick={() => navigate("/scout_form")} className="scoutComplete-KYC-button">Complete KYC</button>
         </div>
       </div>
 
-      <div className="scoutHeaderForm2">
-        <button onClick={()=>navigate("/scout_form")} className="scoutComplete-KYC-button">Complete KYC</button>
-      </div>
-    </div>
-
-
-    <div className="scoutConfirmationSectionForm">
-
-      <div className="scoutPersonalInformationForm">
-      <span className="scoutInformationsTitlesFormTitile">Personal Information</span>
-      <div className="scoutInformationsTitlesForminput-holder">
-           <article className="scoutInformationFormArticle">
-            <p className="scoutInformationLabel-text">Full name*</p>
-            <input className="scoutpersonalINformatiom-input" type="text" placeholder="Full name" 
-            value={scoutForm.fullname} onChange={(e)=>setScoutform({...scoutForm, fullname:e.target.value})}
-            />
-           </article>
-           <article className="scoutInformationFormArticle">
-            <p className="scoutInformationLabel-text">Age*</p>
-            {/* <section className="month-date-year">
-            <select className="month-date-year-Select">
-              <option className="month-date-year-Option">Month</option>
-            </select>
-            <select className="month-date-year-Select">
-            <option className="month-date-year-Option">Day</option>
-            </select>
-            <select className="month-date-year-Select">
-            <option className="month-date-year-Option">Year</option>
-            </select>
-            </section> */}
-            <input className="scoutpersonalINformatiom-input"  type="text" placeholder="Age"
-            value={scoutForm.age} onChange={(e)=>setScoutform({...scoutForm, age:e.target.value})}/>
-           </article>
-           <article className="scoutInformationFormArticle">
-           <p className="scoutInformationLabel-text">Nationality*</p>
-           <input className="scoutpersonalINformatiom-input" type="text" placeholder="Enter Nationality"
-           value={scoutForm.nationality} onChange={(e)=>setScoutform({...scoutForm, nationality:e.target.value })}/>
-           </article>
-           <article className="scoutInformationFormArticle">
-           <p className="scoutInformationLabel-text">Gender*</p>
-           <select className="scoutGenderInput">
-         <option className="month-date-year-Option">Gender</option>
-         <option value="">Male</option>
-         <option value="">Female</option>
-           </select>
-           </article>
-         </div>
-         </div>
-
-
-
-      <div className="scoutContactInformationForm">
-      <span className="scoutInformationsTitlesFormTitile">Contact Information</span>
-      <div className="scoutInformationsTitlesForminput-holder">
-        <article className="scoutInformationFormArticle">
-        <p className="scoutInformationLabel-text">Email address*</p>
-        <input className="scoutpersonalINformatiom-input" type="email" placeholder="Enter email"
-        value={scoutForm.email} onChange={(e)=>setScoutform({...scoutForm, email:e.target.value})}/>
-        </article>
-        <article className="scoutInformationFormArticle">
-        <p className="scoutInformationLabel-text">Phone number*</p>
-        <div className="scout-phoneNumber">
-        <select className="scout-DigitSection">
-         <option className="scout-DigitSection-Option">+234</option>
-           </select>
-           <input className="scout-DigitSection-Input" type="Phonenumber" placeholder="Phone number (E.g 905 9461 351)"
-           value={scoutForm.phoneNumber} onChange={(e)=>setScoutform({...scoutForm, phoneNumber:e.target.value})}/>
+      <div className="scoutConfirmationSectionForm">
+        <div className="scoutPersonalInformationForm">
+          <span className="scoutInformationsTitlesFormTitile">Personal Information</span>
+          <div className="scoutInformationsTitlesForminput-holder">
+            <article className="scoutInformationFormArticle">
+              <p className="scoutInformationLabel-text">Nationality*</p>
+              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Enter Nationality"
+                value={scoutForm.nationality} onChange={(e) => setScoutform({ ...scoutForm, nationality: e.target.value })}
+              />
+              {formErrors.nationality && <small className="error-text">{formErrors.nationality}</small>}
+            </article>
+          </div>
         </div>
-        </article>
-        <article className="scoutInformationFormArticle">
-        <p className="scoutInformationLabel-text">Home address*</p>
-        <input className="scoutpersonalINformatiom-input" type="text" placeholder="Enter Nationality" 
-        value={scoutForm.homeaddress} onChange={(e)=>setScoutform({...scoutForm, homeaddress:e.target.value})}/>
-        </article>
-      </div>
-      </div>
 
+        <div className="scoutContactInformationForm">
+          <span className="scoutInformationsTitlesFormTitile">Contact Information</span>
+          <div className="scoutInformationsTitlesForminput-holder">
+            <article className="scoutInformationFormArticle">
+              <p className="scoutInformationLabel-text">Club Name*</p>
+              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Club Name"
+                value={scoutForm.clubName} onChange={(e) => setScoutform({ ...scoutForm, clubName: e.target.value })}
+              />
+              {formErrors.clubName && <small className="error-text">{formErrors.clubName}</small>}
+            </article>
 
+            <article className="scoutInformationFormArticle">
+              <p className="scoutInformationLabel-text">Scouting Role*</p>
+              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Role"
+                value={scoutForm.scoutingRole} onChange={(e) => setScoutform({ ...scoutForm, scoutingRole: e.target.value })}
+              />
+              {formErrors.scoutingRole && <small className="error-text">{formErrors.scoutingRole}</small>}
+            </article>
 
+            <article className="scoutInformationFormArticle">
+              <p className="scoutInformationLabel-text">League/Region*</p>
+              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input League"
+                value={scoutForm.league} onChange={(e) => setScoutform({ ...scoutForm, league: e.target.value })}
+              />
+              {formErrors.league && <small className="error-text">{formErrors.league}</small>}
+            </article>
+          </div>
+        </div>
 
-      <div className="scoutInformationsForm">
-      <span className="scoutInformationsTitlesFormTitile">Scouting Information</span>
-        <div className="scoutInformationsTitlesForminput-holder">
-          <article className="scoutInformationFormArticle">
-          <p className="scoutInformationLabel-text">Organization/Club Name*</p>
-          <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Position"
-          value={scoutForm.clubname} onChange={(e)=>setScoutform({...scoutForm, clubname:e.target.value})}/>
-          </article >
-          <article className="scoutInformationFormArticle">
-          <p className="scoutInformationLabel-text">Scouting Role*</p>
-          <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Role"
-          value={scoutForm.scoutingrole} onChange={(e)=>setScoutform({...scoutForm, scoutingrole:e.target.value})}/>
-          </article>
-          <article className="scoutInformationFormArticle">
-          <p className="scoutInformationLabel-text">Leagues/Regions Covered*</p>
-          <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Number"
-          value={scoutForm.leagues} onChange={(e)=>setScoutform({...scoutForm, leagues:e.target.value})}/>
-          </article>
-          <article className="scoutInformationFormArticle">
-          <p className="scoutInformationLabel-text">Preferred Player Positions*</p>
-          <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Position"
-          value={scoutForm.playerposition} onChange={(e)=>setScoutform({...scoutForm, playerposition:e.target.value })}/>
-          </article>
+        <div className="scoutInformationsForm">
+          <span className="scoutInformationsTitlesFormTitile">Scouting Details</span>
+          <div className="scoutInformationsTitlesForminput-holder">
+            <article className="scoutInformationFormArticle">
+              <p className="scoutInformationLabel-text">Preferred Position*</p>
+              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Positions"
+                value={scoutForm.preferredPosition} onChange={(e) => setScoutform({ ...scoutForm, preferredPosition: e.target.value })}
+              />
+              {formErrors.preferredPosition && <small className="error-text">{formErrors.preferredPosition}</small>}
+            </article>
+
+            <article className="scoutInformationFormArticle">
+              <p className="scoutInformationLabel-text">Preferred Age*</p>
+              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Preferred Age"
+                value={scoutForm.preferredAge} onChange={(e) => setScoutform({ ...scoutForm, preferredAge: e.target.value })}
+              />
+              {formErrors.preferredAge && <small className="error-text">{formErrors.preferredAge}</small>}
+            </article>
+
+            <article className="scoutInformationFormArticle">
+              <p className="scoutInformationLabel-text">Social Media Profile*</p>
+              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Profile link"
+                value={scoutForm.socialMediaProfile} onChange={(e) => setScoutform({ ...scoutForm, socialMediaProfile: e.target.value })}
+              />
+              {formErrors.socialMediaProfile && <small className="error-text">{formErrors.socialMediaProfile}</small>}
+            </article>
+          </div>
+        </div>
+
+        <div className="scoutPersonalCredentialsForm">
+          <span className="scoutInformationsTitlesFormTitile">Credentials</span>
+          <p className="scoutInformationLabel-text">Upload Verification Document*</p>
+          <div className="credentials-Certificate-Upload">
+            <article className="Upload-Certificate">
+              Verification Document Upload
+              <label className="custom-upload">
+                Upload
+                <input type="file" className="scoutFile-upload" onChange={handlscoutFile} />
+              </label>
+            </article>
+          </div>
         </div>
       </div>
 
-
-
-      <div className="scoutPersonalCredentialsForm">
-      <span className="scoutInformationsTitlesFormTitile">Professional Credentials</span>
-      <p className="scoutInformationLabel-text">Scouting License/Certification*</p>
-      <div className="credentials-Certificate-Upload">
-        <article className="Upload-Certificate">
-         {scoutfile} Certificate Upload
-      <label className="custom-upload">
-      Upload
-      <input type="file" class="scoutFile-upload" onChange={handlscoutFile}/>
-      </label>
-        </article>
-      </div>
-      </div>
-    </div>
-
-
-     <button className="ScoutSubmitFormButton">Submit</button>
-
+      <button className="ScoutSubmitFormButton" onClick={handleSubmit}>Submit</button>
     </div>
   )
 }
