@@ -1,0 +1,105 @@
+.email_body{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.email_card{
+    width: 45%;
+    height: 55%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.email_icon_holder{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #9FFF96;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.email_icon{
+    color: #0C8F00;
+    font-size: 30px;
+}
+.email_card h2{
+    color: var(--Colors-Secondary-500, #07232F);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 19.799px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29.699px;
+}
+.email_card h4{
+    color: var(--Colors-Neutral-500, #A4A4A4);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14.849px;
+}
+.email_form{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    /* background-color: red; */
+}
+
+.resend_card{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.resend_card h4{
+    color: var(--Colors-Neutral-800, #606060);
+    font-family: "Poppins",sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+}
+.resend_btn{
+    width: 90px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0C8F00;
+    color: white;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+@media (max-width: 480px){
+    .email_body{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        align-items: center;
+    }
+    .email_card{
+        width: 85%;
+        height: 60%;
+    }
+    .email_icon_holder{
+        width: 60px;
+        height: 60px;
+
+    }
+}

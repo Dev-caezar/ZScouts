@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { MdEmail } from "react-icons/md"
-import "../styles/emailPage.css"
+import "../styles/emailpageplayer.css"
 import { useNavigate, useParams } from "react-router"
 import axios from "axios"
 import { toast } from "react-toastify"
 
-const EmailPage = () => {
+const EmailPagePlayer = () => {
   const { token } = useParams()
   const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ const EmailPage = () => {
   const handleSubmit = async () => {
     try {
       setLoading(true)
-      const res = await axios.get(`${BASE_URL}/api/scouts/verify-email/${token}`)
+      const res = await axios.get(`${BASE_URL}/api/players/verify-email/${token}`)
       toast.success(res?.data?.message)
       setIsVerified(true)
       setTimeout(() => {
@@ -38,7 +38,7 @@ const EmailPage = () => {
     }
     try {
       setResending(true)
-      const res = await axios.post(`${BASE_URL}/api/scouts/resend-verification`, {
+      const res = await axios.post(`${BASE_URL}/api/players/resend-verification`, {
         email: resendEmail,
       })
       toast.success(res?.data?.message || "Verification link resent")
@@ -100,4 +100,4 @@ const EmailPage = () => {
   )
 }
 
-export default EmailPage
+export default EmailPagePlayer
