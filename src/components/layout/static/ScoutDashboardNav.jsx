@@ -9,8 +9,8 @@ const ScoutDashboardNav = () => {
      const [logout, setLogout] = useState(false);
       const nav = useNavigate();
     
-      const handlePlayerProfile = () => nav("/scout_profile");
-      const handlePlayerVideo = () => nav("/scout_form");
+      const handlePlayerProfile = () => nav("/scout_profile/:id");
+      const handlePlayerVideo = () => nav("//scout_form/:id");
       const handlePlayerSettings = () => nav("/scout_setting");
       const handleLogout = () => setLogout(true);
     
