@@ -35,6 +35,7 @@ import AdminPlayersManagement from './components/Chiemerie/AdminPlayersManagemen
 import AdminScoutDashboard from './components/Chiemerie/AdminScoutDashboard';
 import AdmindashboardOverview from './components/Chiemerie/AdmindashboardOverview';
 import EmailPagePlayer from './auth/EmailPagePlayer';
+import EmailVerifyPlayer from './auth/EmailVerifyPlayer';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -88,6 +89,10 @@ const App = () => {
           element: <EmailVerify/>,
         },
         {
+          path: "/email_verify_player/:token",
+          element: <EmailVerifyPlayer/>,
+        },
+        {
           path: "/email_notify",
           element: <EmailNotify />,
         },
@@ -104,7 +109,7 @@ const App = () => {
           element: <ResetPassword />,
         },
         {
-          path: "/reset_password_players",
+          path: "/reset_password_players/:token",
           element: < ResetPasswordPlayers />,
         },
         {

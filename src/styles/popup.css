@@ -5,8 +5,7 @@
     background: transparent;
     position: fixed;
     z-index: 999;
-    /* padding-top: 5px; */
-    padding-left: 200px;
+    padding-left: 100px;
 }
 
        
@@ -23,10 +22,11 @@
 
 .pop-up-content{
     background-color: white;
-    width: 50%;
+    width: 72%;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    height: 85%;
+    height: 73%;
+    animation: zoomIn 1s ease-out;
 }
 
 
