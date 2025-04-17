@@ -64,7 +64,7 @@ const ScoutLogin = () => {
         console.log("Login successful:", response.data)
         dispatch(setUser(response.data))
 
-        navigate("/scout_profile")
+        navigate(`/scout_profile/${response.data.data.id}`)
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message)
         toast.error("Login failed. Please try again later.")
