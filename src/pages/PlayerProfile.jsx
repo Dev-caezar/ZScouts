@@ -44,11 +44,11 @@ const PlayerProfile = () => {
             <div className="user_image">
               {user?.profilePicture 
                 ? <img src={user.profilePicture} alt="Profile" />
-                : <div className="placeholder_image"></div>}
+                : <div className="placeholder_image">No Image</div>}
             </div>
             <div className="user_details">
-              <h4>{player?.data?.fullname || ""}</h4>
-              <h5>{user?.primaryPosition || ""}</h5>
+              <h4>{user?.fullname || "N/A"}</h4>
+              <h5>{user?.primaryPosition || "Position N/A"}</h5>
               <p>{user?.age ? `${user.age} years` : "-"}</p>
               <Box>
                 <Rating name="legend" value={user?.rating || 0} disabled />
