@@ -1,6 +1,7 @@
 .pricing-container {
     width: 100%;
     height: 90vh;
+    min-height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,87 +189,74 @@
 .get_started_btn2:hover {
     background-color: #0a6201;
 }
+@media (max-width: 768px) {
+  .pricing_cards_holder {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .pricing_card, .pricing_card2 {
+    width: 45%;
+    height: 60%;
+  }
+
+  .pricing_wrapper {
+    width: 90%;
+  }
+
+  .pricing_text {
+    height: auto;
+    gap: 5px;
+  }
+
+  .pricing_text h4 {
+    font-size: 12px;
+    line-height: normal;
+  }
+
+  .pricing_text h2 {
+    font-size: 20px;
+    line-height: normal;
+  }
+
+  .price_tag, .price_tag2 {
+    width: 50px;
+    height: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .card_top h4 {
+    font-size: 14px;
+  }
+
+  .card_top p {
+    font-size: 12px;
+  }
+
+  .check_icon {
+    font-size: 15px;
+  }
+
+  .check p {
+    font-size: 10px;
+  }
+
+  .get_started_btn, .get_started_btn2 {
+    width: 90%;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 480px) {
-    .pricing_cards_holder{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-    .pricing_card,
-    .pricing_card2
-    {
-        width: 47%;
-        height: 300px;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .pricing_text {
-        width: 100%;
-        height: 10vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-    }
-    .pricing_text h4{
-        font-size: 12px;
-        line-height:normal;
-    }
-    .pricing_text h2{
-        font-size: 18px;
-        line-height: normal;
-    }
-    .check_icon{
-        font-size: 15px;
-    }
-    .price_tag, .price_tag2{
-        width: 50px;
-        height: 25px;
-        left: 50px;
-    }
-    .card_top{
-        height: 10%;
-    }
-    .card_top h4{
-        font-size: 14px;
-        line-height: normal;
-    }
-    .card_top p{
-        font-size: 12px;
-        line-height: normal;
-    }
-    .card_center{
-        height: 50%;
-        gap: 10px;
-    }
-    .check{
-        height: 20px;
-        width: 100%;
-    }
-    .check p{
-        font-size: 10px;
-    }
-    .pricing_wrapper{
-        width: 90%;
-    }   
-    .pricing_card_wrapper{
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .card_footer{
-        height: 20%;
-        width: 100%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-    }
-    .get_started_btn,.get_started_btn2{
-        width: 90%;
-        height: 30px;
-        font-size: 10px;
-    }
+  .pricing_card, .pricing_card2 {
+    width: 48%;
+    height: 220px;
+  }
+
+  .pricing_text h2 {
+    font-size: 18px;
+  }
 }

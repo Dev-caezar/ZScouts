@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux"
 import { setUser } from "../global/Fearures"
 import { Flex, Spin } from "antd"
 import { LoadingOutlined } from "@ant-design/icons"
+import { toast } from "react-toastify"
 
 const ScoutLogin = () => {
   const navigate = useNavigate()
@@ -62,10 +63,12 @@ const ScoutLogin = () => {
         const response = await axios.post(`${BASE_URL}/api/scouts/login`, login)
         console.log("Login successful:", response.data)
         dispatch(setUser(response.data))
+
         navigate("/scout_profile")
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message)
         toast.error("Login failed. Please try again later.")
+
         if (error.response && error.response.data) {
           const apiErrors = error.response.data.errors
           setErrors((prev) => ({ ...prev, ...apiErrors }))
@@ -117,11 +120,10 @@ const ScoutLogin = () => {
               onChange={handleChange}
               autoComplete="new-email"
             />
-            <label htmlFor="email" className="slformLabel">
-              Email
-            </label>
+            <label htmlFor="email" className="slformLabel">Email</label>
             {errors.email && <p className="error_message">{errors.email}</p>}
           </div>
+
           <div className="sl_floating-label">
             <input
               type={!showPass ? "password" : "text"}
@@ -133,9 +135,7 @@ const ScoutLogin = () => {
               onChange={handleChange}
               autoComplete="new-password"
             />
-            <label htmlFor="password" className="slformLabel">
-              Password
-            </label>
+            <label htmlFor="password" className="slformLabel">Password</label>
             {showPass ? (
               <FaRegEyeSlash style={{ cursor: "pointer" }} className="eye" onClick={togglePasswordVisibility} />
             ) : (
@@ -146,12 +146,13 @@ const ScoutLogin = () => {
               <p onClick={handleFrgotPass}>Forgot password?</p>
             </div>
           </div>
+
           <button type="submit" className="register_button" style={{ cursor: "pointer" }}>
-            {loading ? 
-            <Flex align="center" justify="center" style={{ height: "100%" }}>
-            <Spin indicator={loadingIcon} />
-          </Flex>
-             : "Login"}
+            {loading ? (
+              <Flex align="center" justify="center" style={{ height: "100%" }}>
+                <Spin indicator={loadingIcon} />
+              </Flex>
+            ) : "Login"}
           </button>
         </form>
 

@@ -6,7 +6,6 @@ import axios from "axios"
 import "../styles/scoutregister.css"
 import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons"
-import { toast } from "react-toastify"
 
 const ScoutRegister = () => {
   const navigate = useNavigate()

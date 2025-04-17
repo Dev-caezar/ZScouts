@@ -100,7 +100,6 @@ const App = () => {
           element: <ForgotPasswordPlayer />,
         },
         {
-          path: "/reset_password",
           path: "/reset_password/:token",
           element: <ResetPassword />,
         },
@@ -156,7 +155,7 @@ const App = () => {
         },
 
         {
-          path: "/scout_form",
+          path: "/scout_form/:id",
           element: <ScoutFormRegister />,
         },
         {
@@ -171,10 +170,10 @@ const App = () => {
     },
 
     {
-      path:"/admin_dashboard", element:<AdminDashboard/>,
+      element:<AdminDashboard/>,
       children:[
         {
-          path:"",element:<AdmindashboardOverview/>
+          path:"admin_dashboard",element:<AdmindashboardOverview/>
         },
         {
           path:"players_admindashboard",element:<AdminPlayersManagement/>

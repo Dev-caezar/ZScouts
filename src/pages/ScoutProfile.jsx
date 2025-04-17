@@ -3,10 +3,47 @@ import { HiPlusCircle } from "react-icons/hi";
 import { CiStar } from "react-icons/ci";
 import { BiSolidFileImage } from "react-icons/bi";
 import { FiDownload } from "react-icons/fi";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const ScoutProfile = () => {
   const navigate = useNavigate();
+  const userdata = useSelector((state) => state.user.user);
+
+  const [user, setUser] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+
+  const BASE_URL = "https://zscouts.onrender.com";
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/scouts/getscout/${id}`);
+        setUser(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchUser();
+  }, [id]);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+      uploadImage(file);
+    }
+  };
+
 
   const scoutInformation = [
     { id: 1, club: "Organisation/Club Name", role: "Scouting Role", league: "Leagues/Region Covered", position: "Preferred Player Positions" }
@@ -34,113 +71,41 @@ const ScoutProfile = () => {
           </div>
         </div>
         <div className="scoutHeader2">
-          <button onClick={() => navigate("/scout_form")} className="scoutComplete-KYC-button">Complete KYC</button>
+          <button onClick={() => navigate(`/scout_form/${user?.data?.id}`)} className="scoutComplete-KYC-button">Complete KYC</button>
         </div>
       </div>
 
       <div className="scoutProfileImage-scoutText-wrappper">
-        <div className="scoutProfileImage">
-          <HiPlusCircle className="HiPlusCircle" size={30} style={{ color: "white" }} />
-        </div>
+      <div className="scoutProfileImage">
+        <img
+          src={imagePreview || user?.data?.profileImage || "/placeholder.png"}
+          alt="Scout Profile"
+          className="profileImage"
+        />
+        
+        <label htmlFor="profileImageUpload" className="uploadIcon">
+          <HiPlusCircle className="HiPlusCircle" size={30} style={{ color: "white", cursor: "pointer" }} />
+        </label>
+
+        <input
+          type="file"
+          id="profileImageUpload"
+          accept="image/*"
+          onChange={handleImageChange}
+          style={{ display: "none" }}
+        />
+      </div>
+
+
         <div className="scoutText">
-          <span className="scoutName">Ozofor Chioma</span>
-          <p className="ScoutTilte">Scout</p>
+          <span className="scoutName">{userdata?.data?.fullname}</span>
+          <p className="ScoutTilte">{userdata?.data?.role}</p>
           <p className="scoutAge">0 years</p>
           <div className="starRating">
             <CiStar size={20} /><CiStar size={20} /><CiStar size={20} /><CiStar size={20} /><CiStar size={20} />
           </div>
         </div>
       </div>
-
-      <div className="scoutConfirmationSection">
-
-        <div className="scoutPersonalInformation">
-          <span className="scoutInformationsTitles">Personal information</span>
-          <div className="scoutPersonalInformation-wrap">
-            {personalInformation.map(info => (
-              <div key={info.id} className="name-age-nationality-gender">
-                <article className="name-age-nationality-genderArticle">
-                  <p className="name-age-nationality-gender-text">{info.name}</p>
-                  <p className="PersonalInformationText">-</p>
-                </article>
-                <article className="name-age-nationality-genderArticle">
-                  <p className="name-age-nationality-gender-text">{info.age}</p>
-                  <p className="PersonalInformationText">-</p>
-                </article>
-                <article className="name-age-nationality-genderArticle">
-                  <p className="name-age-nationality-gender-text">{info.nation}</p>
-                  <p className="PersonalInformationText">-</p>
-                </article>
-                <article className="name-age-nationality-genderArticle">
-                  <p className="name-age-nationality-gender-text">{info.gender}</p>
-                  <p className="PersonalInformationText">-</p>
-                </article>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="scoutContactInformation">
-          <span className="scoutInformationsTitles">Contact information</span>
-          <div className="contactInformation-wrap">
-            {contactInformation.map(info => (
-              <div key={info.id} className="email-phone-address">
-                <article className="email-phone-addressArticle">
-                  <p className="email-phone-address-text">{info.email}</p>
-                  <p className="email-phone-addressResult">-</p>
-                </article>
-                <article>
-                  <p className="email-phone-address-text">{info.phone}</p>
-                  <p className="email-phone-addressResult">-</p>
-                </article>
-                <article>
-                  <p className="email-phone-address-text">{info.home}</p>
-                  <p className="email-phone-addressResult">-</p>
-                </article>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="scoutInformations">
-          <span className="scoutInformationsTitles">Scouting information</span>
-          <div className="scoutInformations-wrap">
-            {scoutInformation.map(info => (
-              <div key={info.id} className="informations3">
-                <article className="informations3Article">
-                  <p className="informations3-text">{info.club}</p>
-                  <p className="informations3Result">-</p>
-                </article>
-                <article>
-                  <p className="informations3-text">{info.role}</p>
-                  <p className="informations3Result">-</p>
-                </article>
-                <article>
-                  <p className="informations3-text">{info.league}</p>
-                  <p className="informations3Result">-</p>
-                </article>
-                <article>
-                  <p className="informations3-text">{info.position}</p>
-                  <p className="informations3Result">-</p>
-                </article>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="scoutPersonalCredentials">
-          <span className="scoutInformationsTitles">Professional Credentials</span>
-          <div className="credentials-CV-div">
-            <section className="scoutCertificate">
-              <BiSolidFileImage size={80} />
-              <p className="scoutCertificate-text">Scout Certificate</p>
-            </section>
-            <FiDownload size={30} />
-          </div>
-        </div>
-
-      </div>
-
       <div className="scout-privacy-reserved">
         <p className="scoutReserved">2025 Zscout | All rights reserved</p>
         <p className="scoutReserved">Privacy Terms</p>

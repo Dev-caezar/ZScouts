@@ -34,6 +34,7 @@ const ResetPasswordPlayers = () => {
       })
 
       setSuccess("Password reset successful!")
+      console.log("PlayerDat:",response.data)    
       toast.success(success)
       setLoading(false)
 

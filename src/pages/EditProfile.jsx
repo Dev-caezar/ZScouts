@@ -53,6 +53,7 @@ const EditProfile = () => {
     openToTrials: "",
     willingToRelocate: ""
   });
+  console.log(player)
 
   const handleChange = (key, value) => {
     setPlayer(prev => ({ ...prev, [key]: value }));
@@ -60,7 +61,6 @@ const EditProfile = () => {
 
   const handleSubmit = () => {
     console.log("Submitted player profile:", player);
-    // Send player object to API here if needed
   };
 
   return (
@@ -174,8 +174,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Contact Information */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Contact Information</h4>
@@ -213,8 +211,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Football Profile */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Football Profile</h4>
@@ -252,8 +248,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Medical & Fitness */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Medical & Fitness Information</h4>
@@ -276,8 +270,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Coach Info */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Coach Information</h4>
@@ -295,8 +287,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Other Information */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Other Information</h4>
