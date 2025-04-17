@@ -28,10 +28,13 @@ import EditProfile from './pages/EditProfile';
 import PlayerVideo from './pages/PlayerVideo'
 import PasswordUpdate from './auth/PasswordUpdate';
 import EmailSuccess from './auth/EmailSuccess';
+import ForgotPasswordPlayer from './auth/ForgotPasswordPlayer';
+import ResetPasswordPlayers from './auth/ResetPasswordPlayer';
 import AdminDashboard from './components/Chiemerie/AdminDashboard';
 import AdminPlayersManagement from './components/Chiemerie/AdminPlayersManagement';
 import AdminScoutDashboard from './components/Chiemerie/AdminScoutDashboard';
 import AdmindashboardOverview from './components/Chiemerie/AdmindashboardOverview';
+import EmailPagePlayer from './auth/EmailPagePlayer';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -77,7 +80,11 @@ const App = () => {
           element: <EmailPage />,
         },
         {
-          path: "/email_verify",
+          path: "/email_page_player",
+          element: <EmailPagePlayer />,
+        },
+        {
+          path: "/email_verify/:token",
           element: <EmailVerify/>,
         },
         {
@@ -89,8 +96,16 @@ const App = () => {
           element: <ForgotPassword />,
         },
         {
-          path: "/reset_password/:{token}",
+          path: "/forgot_password_player",
+          element: <ForgotPasswordPlayer />,
+        },
+        {
+          path: "/reset_password/:token",
           element: <ResetPassword />,
+        },
+        {
+          path: "/reset_password_players/:token",
+          element: < ResetPasswordPlayers />,
         },
         {
           path: "/login_option",
@@ -140,7 +155,7 @@ const App = () => {
         },
 
         {
-          path: "/scout_form",
+          path: "/scout_form/:id",
           element: <ScoutFormRegister />,
         },
         {
@@ -155,10 +170,10 @@ const App = () => {
     },
 
     {
-      path:"/admin_dashboard", element:<AdminDashboard/>,
+      element:<AdminDashboard/>,
       children:[
         {
-          path:"",element:<AdmindashboardOverview/>
+          path:"admin_dashboard",element:<AdmindashboardOverview/>
         },
         {
           path:"players_admindashboard",element:<AdminPlayersManagement/>

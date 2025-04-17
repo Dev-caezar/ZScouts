@@ -3,10 +3,13 @@ import "../styles/login.css"
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { useNavigate } from 'react-router'
+import axios from 'axios'
+import { toast } from 'react-toastify';
 
 const LoginPlayer = () => {
   const navigate = useNavigate()
   const [showPass, setShowPass] = useState(false)
+   const [loading, setLoading] = useState(false);
         const handlePassword =()=>{
           setShowPass((prev)=> !prev)
         }
@@ -17,10 +20,7 @@ const LoginPlayer = () => {
   const handleSignup =()=>{
     navigate("/signup_option")
 }
-const haandleLogin = (e) => {
-  e.preventDefault();
-  navigate("/player_profile")
-}
+
 const handleGoogle = () => {
   console.log("Google sign-in clicked");
 
@@ -36,11 +36,6 @@ const [isDisabled, setIsDisabled] = useState(true)
 const validateEmail = (input) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(input)
-}
-
-const handleSubmit = (e) => {
-  e.preventDefault()
-  navigate("/player_profile")
 }
 
 const handleChangeEmail = (e) => {
@@ -74,6 +69,38 @@ useEffect(() => {
 }, [email, password, emailErr, passwordErr])
 
 
+ const BASE_URL = "https://zscouts.onrender.com"
+
+ const loginPlayer = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  try {
+    const res = await axios.post(`${BASE_URL}/api/players/login`, { email, password });
+    console.log(res);
+    toast.success('Login successful');
+    setLoading(false)
+    setTimeout(() => {
+      navigate("/player_profile");
+      setIsDisabled(false)
+    }, 5000);
+  } catch (error) {
+    console.log(error);
+    if (error.response) {
+      const status = error.response.status;
+      const message = error.response.data?.message || "Login failed";
+  
+      if (status === 401 || status === 400) {
+        toast.error("Invalid email or password");
+      } else {
+        toast.error(message);
+      }
+    } else {
+      toast.error("Oops! Network error. Please try again.");
+    }
+    setIsDisabled(false)
+    setLoading(false)
+  }
+  }
 
   return (
      <div className='player_login_body'>
@@ -82,7 +109,7 @@ useEffect(() => {
                       <h2>Welcome Back</h2>
                       <p>We are so delighted to have you back.</p>
                     </div>
-                    <form className='login_form_body' action="" onSubmit={handleSubmit} >
+                    <form className='login_form_body' action=""onSubmit={loginPlayer}  >
                       <div class="playerlogin_floating-label">
                         <input type="email" id="email" placeholder=" " required  className='plogin_input'  value={email} onChange={handleChangeEmail} style={{ borderColor: emailErr ? 'red' : 'gray' }}/>
                         <label for="email" className='plogin_Label'>Email</label>
@@ -91,14 +118,14 @@ useEffect(() => {
                     <div class="playerlogin_floating-label">
                         <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='plogin_input' value={password} onChange={handleChangePassword} style={{ borderColor: passwordErr ? 'red' : 'gray' }}/>
                         <label for="password" className='plogin_Label'>Password </label>
-                       {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
+                       {!showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
                         <FaRegEye className='eye' onClick={handlePassword}/>}
                     <div className="player_forgot_password">
                       <p onClick={handleFrgotPass}>Forgot password?</p>
                     </div>
                     <small style={{ color: 'red' }}>{passwordErr}</small>
                     </div>
-                    <button type="submit" disabled={isDisabled} style={{backgroundColor: isDisabled ? '#ddd' : '#0C8F00', cursor: isDisabled ? 'not-allowed' : 'pointer',  }} className='player_login_button' onClick={haandleLogin}>Login</button>
+                    <button type="submit" disabled={isDisabled} style={{ backgroundColor: isDisabled || loading ? '#ddd' : '#0C8F00', cursor: isDisabled || loading ?  'not-allowed' : 'pointer',  }} className='player_login_button'>{loading ? "Logging in..." : "Login"}</button>
                     </form>
                     <div className="second_option">
                       <div className="line"></div>

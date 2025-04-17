@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
-import "../styles/resetPassword.css"
+import "../styles/resetpasswordplayers.css"
 import { useNavigate, useParams } from 'react-router'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import { Flex, Spin } from 'antd'
-import { LoadingOutlined } from '@ant-design/icons'
 
-const ResetPassword = () => {
-  const token = useParams()
+const ResetPasswordPlayers = () => {
+  const token = useParams().token
   const BASE_URL = "https://zscouts.onrender.com"
 
   const navigate = useNavigate()
@@ -31,11 +29,12 @@ const ResetPassword = () => {
     try {
       setLoading(true)
       setError('')
-      const response = await axios.post(`${BASE_URL}/api/scouts/reset-password/${token}`, {
+      const response = await axios.post(`${BASE_URL}/api/players/reset-password/${token}`, {
         password: newPassword
       })
 
       setSuccess("Password reset successful!")
+      console.log("PlayerDat:",response.data)    
       toast.success(success)
       setLoading(false)
 
@@ -50,8 +49,6 @@ const ResetPassword = () => {
       setLoading(false)
     }
   }
-  const loadingIcon = <LoadingOutlined style={{ fontSize: 25, color: "white" }} spin />
-
 
   return (
     <div className='reset_password_body'>
@@ -97,11 +94,7 @@ const ResetPassword = () => {
           </div>
 
           <button type="submit" className='register_button' style={{cursor: "pointer"}} disabled={loading}>
-            {loading ? 
-            <Flex align="center" justify="center" style={{ height: "100%" }}>
-              <Spin indicator={loadingIcon} />
-            </Flex> : 
-             "Create Password"}
+            {loading ? "Creating..." : "Create Password"}
           </button>
         </form>
       </div>
@@ -109,4 +102,4 @@ const ResetPassword = () => {
   )
 }
 
-export default ResetPassword
+export default ResetPasswordPlayers

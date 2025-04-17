@@ -28,6 +28,8 @@ const PlayerSettings = () => {
    
   }
 
+  
+
 
   return (
     <div className='player-settings-main' >

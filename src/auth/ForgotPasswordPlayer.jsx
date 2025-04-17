@@ -1,13 +1,10 @@
 import { useState, useEffect } from "react"
-import "../styles/forgotPassword.css"
+import "../styles/forgotpasswordplayer.css"
 import { IoMdLock } from "react-icons/io"
 import { useNavigate } from "react-router"
 import axios from "axios"
-import { Flex, Spin } from "antd"
-import { LoadingOutlined } from "@ant-design/icons"
-import { toast } from "react-toastify"
 
-const ForgotPassword = () => {
+const ForgotPasswordPlayer = () => {
   const navigate = useNavigate()
 
   const [email, setEmail] = useState("")
@@ -47,12 +44,10 @@ const ForgotPassword = () => {
     setMessage("")
 
     try {
-      const res = await axios.post(`${BASE_URL}/api/scouts/forgot-password`, { email })
+      const res = await axios.post(`${BASE_URL}/api/players/forgot-password`, { email })
       setMessage(res.data.message)
-      toast.success(res.data.message)
-      setEmail("")
       setTimeout(() => {
-        // navigate("/email_notify")
+        navigate("/email_notify")
       }, 2000)
     } catch (err) {
       console.error(err)
@@ -61,7 +56,6 @@ const ForgotPassword = () => {
       setLoading(false)
     }
   }
-  const loadingIcon = <LoadingOutlined style={{ fontSize: 25, color: "white" }} spin />
 
   return (
     <div className="forgot_body">
@@ -87,8 +81,8 @@ const ForgotPassword = () => {
             <label htmlFor="email" className="plogin_Label">
               Email
             </label>
-            {/* {error && <p className="error_message">{error}</p>}
-            {message && <p className="success_message">{message}</p>} */}
+            {error && <p className="error_message">{error}</p>}
+            {message && <p className="success_message">{message}</p>}
           </div>
 
           <div className="resend_card">
@@ -99,11 +93,7 @@ const ForgotPassword = () => {
               </span>
             </h4>
             <button type="submit" className="reset_btn" style={{ cursor: "pointer" }} disabled={loading}>
-              {loading ? 
-              <Flex align="center" justify="center" style={{ height: "100%" }}>
-                <Spin indicator={loadingIcon} />
-              </Flex> : 
-            "Reset password"}
+              {loading ? "Sending..." : "Reset password"}
             </button>
           </div>
         </form>
@@ -112,4 +102,4 @@ const ForgotPassword = () => {
   )
 }
 
-export default ForgotPassword
+export default ForgotPasswordPlayer
