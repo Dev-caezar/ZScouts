@@ -104,7 +104,7 @@ const App = () => {
           element: <ResetPassword />,
         },
         {
-          path: "/reset_password_players",
+          path: "/reset_password_players/:token",
           element: < ResetPasswordPlayers />,
         },
         {
