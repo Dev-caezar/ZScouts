@@ -100,12 +100,11 @@ const App = () => {
           element: <ForgotPasswordPlayer />,
         },
         {
-          path: "/reset_password",
           path: "/reset_password/:token",
           element: <ResetPassword />,
         },
         {
-          path: "/reset_password_players",
+          path: "/reset_password_players/:token",
           element: < ResetPasswordPlayers />,
         },
         {
