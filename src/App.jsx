@@ -84,7 +84,7 @@ const App = () => {
           element: <EmailPagePlayer />,
         },
         {
-          path: "/email_verify",
+          path: "/email_verify/:token",
           element: <EmailVerify/>,
         },
         {
