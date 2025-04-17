@@ -3,6 +3,9 @@ import "../styles/editProfile.css";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import Profiletracker from '../components/layout/static/Profiletracker';
 import { Select } from 'antd';
+import axios from 'axios';
+
+
 
 const SelectDropdown = ({ placeholder, options, width, onChange, value }) => (
   <Select

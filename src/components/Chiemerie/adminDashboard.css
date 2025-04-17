@@ -85,3 +85,7 @@ height: 29%;
     justify-content: center;
     flex-direction: column;
 }
+
+.adminLogoutModal{
+    height: 70%;
+}
