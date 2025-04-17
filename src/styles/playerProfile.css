@@ -1,6 +1,7 @@
 .playerProfile_body{
     width: 100%;
-    height: max-content;
+    height: 100vh;
+    min-height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;

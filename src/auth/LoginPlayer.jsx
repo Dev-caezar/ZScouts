@@ -5,9 +5,12 @@ import { FcGoogle } from 'react-icons/fc'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux'
+import { setPlayer } from '../global/Player'
 
 const LoginPlayer = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [showPass, setShowPass] = useState(false)
    const [loading, setLoading] = useState(false);
         const handlePassword =()=>{
@@ -76,6 +79,7 @@ useEffect(() => {
   setLoading(true);
   try {
     const res = await axios.post(`${BASE_URL}/api/players/login`, { email, password });
+    dispatch(setPlayer(res.data))
     console.log(res);
     toast.success('Login successful');
     setLoading(false)
