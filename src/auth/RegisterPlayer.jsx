@@ -4,10 +4,14 @@ import { FcGoogle } from "react-icons/fc";
 import "../styles/register.css"
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const RegisterPlayer = () => {
   const [showPass, setShowPass] = useState(false)
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   const handlePassword =()=>{
     setShowPass((prev)=> !prev)
   }
@@ -15,7 +19,7 @@ const RegisterPlayer = () => {
     navigate("/login_option")
   }
   const [formData, setFormData] = useState({
-    fullName: '',
+    fullname: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -23,7 +27,7 @@ const RegisterPlayer = () => {
   });
   
   const [errors, setErrors] = useState({
-    fullName: '',
+    fullname: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -31,22 +35,31 @@ const RegisterPlayer = () => {
   });
   
   const [isDisabled, setIsDisabled] = useState(true);
+  const passwordRegex = /^[A-Z](?=.*[\W_]).{5,}$/;
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const handleChange = (field, value) => {
     let error = '';
   
     switch (field) {
-      case 'fullName':
+      case 'fullname':
         if (!value.trim()) error = 'Full name is required';
         break;
       case 'email':
         if (!value.trim()) error = 'Please tenter your email';
         else if (!validateEmail(value)) error = 'please enter a valid email address';
         break;
-      case 'password':
-        if (!value) error = 'Please enter your password';
-        else if (value.length < 6) error = 'Password must be at least 6 characters';
-        break;
+        case 'password':
+  if (!value) {
+    error = 'Please enter your password';
+  } else if (!/^[A-Z]/.test(value)) {
+    error = 'Password must start with an uppercase letter';
+  } else if (!/[\W_]/.test(value)) {
+    error = 'Password must contain at least one special character';
+  } else if (value.length < 6) {
+    error = 'Password must be at least 6 characters long';
+  }
+
+          break;        
       case 'confirmPassword':
         if (!value) error = 'Please confirm your password';
         else if (value !== formData.password) error = 'Passwords do not match';
@@ -78,10 +91,40 @@ const RegisterPlayer = () => {
     setIsDisabled(!(allFilled && allValid));
   }, [formData, errors]);
   
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Account created! You can now send this data to your backend.");
-  };
+
+   const BASE_URL = "https://zscouts.onrender.com"
+   
+   const handleSubmit = async (e) => {
+    e.preventDefault()
+    setLoading(true);
+    const { termsAgreed, ...data} = formData
+    try {
+      const res = await axios.post(`${BASE_URL}/api/players/register`, data)
+      toast.success('Sign up successful. please check your Email to verify')
+      setLoading(false)
+      setTimeout(() => {
+        navigate('/email_page')
+      }, 5000);
+      setIsDisabled(false)
+      
+    } catch (error) {
+      console.log(error)
+
+      if (error.response) {
+        const message = error.response.data?.message || 'An error occurred during registration.';
+        toast.error(message);
+      } else if (error.request) {
+        toast.error('Oops Network error. Please check your internet connection.');
+      } else {
+        toast.error('An unexpected error occurred. Please try again.');
+      }
+      
+    } finally {
+      setLoading(false);
+    }
+   }
+
+
   return (
     <div className='player_register_body'>
        <div className="player_register_card">
@@ -91,9 +134,9 @@ const RegisterPlayer = () => {
         </div>
         <form className='player_form_body' action=""onSubmit={handleSubmit} >
         <div class="p_floating-label">
-            <input type="text" id="fullName" placeholder=" " required  className={`player_form_input ${errors.fullName ? 'input-error' : ''}`} value={formData.fullName} onChange={(e) => handleChange('fullName', e.target.value)} />
+            <input type="text" id="fullName" placeholder=" " required  className={`player_form_input ${errors.fullName ? 'input-error' : ''}`} value={formData.fullname} onChange={(e) => handleChange('fullname', e.target.value)} />
             <label for="fullName" className='player_formLabel'>Enter Full Name</label>
-            {errors.fullName && <small className='error_msg'>{errors.fullName}</small>}
+            {errors.fullname && <small className='error_msg'>{errors.fullname}</small>}
         </div>
         <div class="p_floating-label">
             <input type="email" id="email" placeholder=" " required className={`player_form_input ${errors.email ? 'input-error' : ''}`}  value={formData.email} onChange={(e) => handleChange('email', e.target.value)}/>
@@ -108,7 +151,7 @@ const RegisterPlayer = () => {
             {errors.password && <small className='error_msg'>{errors.password}</small>}
         </div>
         <div class="p_floating-label">
-            <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className={`player_form_input ${errors.confirmPassword ? 'input-error' : ''}`}  value={formData.confirmPassword} onChange={(e) => handleChange('confirmPassword', e.target.value)} />
+            <input type={!showPass? "password" : "text"} id="comfirmPassword" placeholder=" " required  className={`player_form_input ${errors.confirmPassword ? 'input-error' : ''}`}  value={formData.confirmPassword} onChange={(e) => handleChange('confirmPassword', e.target.value)} />
             <label for="password" className='player_formLabel'>Confirm Password </label>
            {showPass? <FaRegEyeSlash style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/> :
             <FaRegEye style={{cursor: "pointer"}} className='eye' onClick={handlePassword}/>}
@@ -118,7 +161,7 @@ const RegisterPlayer = () => {
             <p>I agree to <span>Terms & Conditions</span></p>
           </div>
         </div>
-        <button  type="submit" style={{cursor: isDisabled ? 'not-allowed' : 'pointer',backgroundColor: isDisabled ? '#ccc' : '#0C8F00',color: isDisabled ? '#666' : '#fff'}}  disabled={isDisabled} className='player_register_button'>Create Account</button>
+        <button  type="submit" style={{cursor: isDisabled || loading ? 'not-allowed' : 'pointer',backgroundColor: isDisabled || loading ? '#ccc' : '#0C8F00',color: isDisabled || loading ? '#666' : '#fff'}}  disabled={isDisabled || loading } className='player_register_button'> {loading ? 'Creating...' : 'Create Account'}</button>
         </form>
         <div className="second_option">
           <div className="line"></div>

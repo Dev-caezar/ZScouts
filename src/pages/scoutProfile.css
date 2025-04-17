@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3%;
+    padding: 15px;
     
 }
 
@@ -22,9 +22,7 @@
 .scoutHeader1{
     width: 50%;
     height: 90%;
-    /* border: 3px solid black; */
     display: flex;
-    /* padding: 20px; */
     gap: 2%;
     justify-content: center;
     align-items: center;
@@ -42,6 +40,13 @@
     justify-content: center;
     
 }
+.profileImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
 
 .scoutVerifyYourIdentity-wrapper{
     width: 77%;
@@ -116,6 +121,7 @@ position: relative;
     position: absolute;
     left: 77%;
     bottom: 12%;
+    z-index: 3;
 }
 
 .scoutText{

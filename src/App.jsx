@@ -28,6 +28,8 @@ import EditProfile from './pages/EditProfile';
 import PlayerVideo from './pages/PlayerVideo'
 import PasswordUpdate from './auth/PasswordUpdate';
 import EmailSuccess from './auth/EmailSuccess';
+import ForgotPasswordPlayer from './auth/ForgotPasswordPlayer';
+import ResetPasswordPlayers from './auth/ResetPasswordPlayer';
 import AdminDashboard from './components/Chiemerie/AdminDashboard';
 import AdminPlayersManagement from './components/Chiemerie/AdminPlayersManagement';
 import AdminScoutDashboard from './components/Chiemerie/AdminScoutDashboard';
@@ -89,8 +91,16 @@ const App = () => {
           element: <ForgotPassword />,
         },
         {
+          path: "/forgot_password_player",
+          element: <ForgotPasswordPlayer />,
+        },
+        {
           path: "/reset_password/:token",
           element: <ResetPassword />,
+        },
+        {
+          path: "/reset_password_players",
+          element: < ResetPasswordPlayers />,
         },
         {
           path: "/login_option",
