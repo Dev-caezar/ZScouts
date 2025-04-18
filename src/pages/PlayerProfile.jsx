@@ -9,8 +9,10 @@ const PlayerProfile = () => {
   const [authenticated, setAuthenticated] = useState(null);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedFile, setSelectedFile] = useState(null);
   const BASE_URL = "https://zscouts.onrender.com";
-  const { id } = useParams();
+  const { id } = useParams()
+  console.log(id)
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -29,6 +31,8 @@ const PlayerProfile = () => {
     fetchUser();
   }, [id]);
 
+ 
+
   if (loading) {
     return <div className='playerProfile_body'>Loading profile...</div>;
   }
@@ -38,15 +42,16 @@ const PlayerProfile = () => {
   return (
     <div className='playerProfile_body'>
       <div className="profile_wrapper">
-        {authenticated?.data?.profileCompletion ?  <div className="completed_profile"></div>:<Profiletracker />}
+        {authenticated?.data?.profileCompletion ? <div className="completed_profile"></div> : <Profiletracker />}
 
         <div className="profile_wrapper_card">
           <div className="user_card">
             <div className="user_image">
-              {user?.profilePicture 
+              {user?.profilePicture
                 ? <img src={user.profilePicture} alt="Profile" />
                 : <div className="placeholder_image"></div>}
             </div>
+
             <div className="user_details">
               <h4>{user?.fullname || "N/A"}</h4>
               <h5>{playerKyc?.primaryPosition || "Position N/A"}</h5>
@@ -132,13 +137,12 @@ const PlayerProfile = () => {
                 <h4>Videos</h4>
               </div>
               <div className="bottom_video_card">
-                {playerKyc?.media 
+                {playerKyc?.media
                   ? <video src={playerKyc.media} controls width="100%" />
                   : <p>No videos uploaded</p>}
               </div>
             </div>
           </div>
-
           <button className='complete_cta'>Submit</button>
         </div>
       </div>
