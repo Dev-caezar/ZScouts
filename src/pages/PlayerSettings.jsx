@@ -4,6 +4,7 @@ import { TiPlus } from "react-icons/ti";
 import { FaRegEye } from "react-icons/fa6";
 import DeactivatePopup from '../components/DeactivatePopup';
 import { toast } from 'react-toastify';
+import PaymentModal from './PaymentModal';
 
 const PlayerSettings = () => {
 

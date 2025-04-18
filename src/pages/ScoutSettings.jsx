@@ -33,6 +33,8 @@ const ScoutSettings = () => {
    
   };
 
+ 
+
   return (
     <div className="scout_profilesetting">
       <h2 className="account_settings_header">Account setting</h2>
