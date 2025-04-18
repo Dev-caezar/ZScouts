@@ -147,7 +147,7 @@ const App = () => {
           element: <PlayerVideo />,
         },
         {
-          path: "player_setting",
+          path: "player_setting/:id",
           element: <PlayerSettings />,
         },
       ],

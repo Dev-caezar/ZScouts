@@ -103,6 +103,8 @@ const PlayerVideo = () => {
     }
   };
 
+  // console.log("This is whatv am lookig for",videos.map((vid) => vid.media));
+
   return (
     <div className="player-video-main">
       <div className="player-video-main-wrap">
@@ -193,61 +195,21 @@ const PlayerVideo = () => {
             <button onClick={() => setIsPopUpOpen(true)} className="upload-new-video-btn">Upload New Video</button>
           </div>
         </div>
-
-        {/* Local Videos */}
         <div className="all-my-mapped-videos">
-          {post.length === 0 ? (
-            <h5 style={{ color: "red" }}>No videos posted yet</h5>
-          ) : (
-            post.map((post) => (
-              <div className="One-posted-video" key={post.id}>
-                <div className="video-div-top">
-                  <video controls width="100%">
-                    <source src={post.image} type="video/mp4" />
-                  </video>
-                </div>
-                <div className="video-text-div-buttom">
-                  <div className="video-text-div-buttom-wrap">
-                    <div className="match-highlight-text"><h1>Match Highlights - April 2025</h1></div>
-                    <div className="time-of-video-posted"><p>{getTimeAgo(post.timestamp)}</p></div>
-                    <div className="rating-and-delete">
-                      <div className="video-rating-div">
-                        <IoIosStar /><IoIosStar /><IoIosStar /><IoIosStar /><IoIosStar />
-                      </div>
-                      <div className="video-delete-div">
-                        <button
-                          onClick={() => {
-                            setPostToDelete(post.id);
-                            setIsDeletePopup(true);
-                          }}
-                          className="my-video-delete-btn"
-                        >
-                          <RiDeleteBin6Fill style={{ fontSize: "17px" }} /> Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))
-          )}
-        </div>
-
-        <div className="all-my-mapped-videos">
-        {Array.isArray(videos) && videos.length > 0 ? (
-          videos.map((vid, index) => (
+        { videos?.length > 0 ? (
+          videos?.map((vid, index) => (
             <div key={index} className="One-posted-video">
-              <div className="video-div-top">
-                <video controls width="100%">
-                  <source src={vid.media} type="video/mp4" />
-                </video>
-              </div>
-              <div className="video-text-div-buttom">
-                <div className="video-text-div-buttom-wrap">
-                  <div className="match-highlight-text"><h1>Match Highlight</h1></div>
-                </div>
+            <div className="video-div-top">
+              <video controls width="100%">
+                <source src={vid.media} type="video/mp4" />
+              </video>
+            </div>
+            <div className="video-text-div-buttom">
+              <div className="video-text-div-buttom-wrap">
+                <div className="match-highlight-text"><h1>Match Highlight</h1></div>
               </div>
             </div>
+          </div>
           ))
         ) : (
           <h5 style={{ color: "red" }}>No videos posted yet</h5>
