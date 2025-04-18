@@ -6,7 +6,7 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 
 const PlayerProfile = () => {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(null);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const BASE_URL = "https://zscouts.onrender.com";
@@ -18,7 +18,7 @@ const PlayerProfile = () => {
         const response = await axios.get(`${BASE_URL}/api/players/getplayer/${id}`);
         console.log(response.data)
         setUser(response.data.data);
-        setAuthenticated(true);
+        setAuthenticated(response.data.data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching user:", error);
@@ -38,7 +38,7 @@ const PlayerProfile = () => {
   return (
     <div className='playerProfile_body'>
       <div className="profile_wrapper">
-        {authenticated ? <Profiletracker /> : <div className="completed_profile"></div>}
+        {authenticated?.data?.profileCompletion ?  <div className="completed_profile"></div>:<Profiletracker />}
 
         <div className="profile_wrapper_card">
           <div className="user_card">
