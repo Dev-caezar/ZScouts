@@ -7,12 +7,15 @@
     /* justify-content: end; */
     /* padding-top: 30px; */
     padding: 15px;
+    overflow-y: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
 }
 
 .scoutdiscoveryform {
     width: 100%;
-    height: 25%;
-   padding: 12px;
+    height: 30%;
+   padding: 10px;
     background-color: #FFFFFF;
     border-radius: 16px;
        
@@ -21,7 +24,7 @@
     position: relative;
     width: 95%;
     margin-left: 15px;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   
   .selectoption {
@@ -30,6 +33,7 @@
     padding-left: 10px;
     padding-right: 35px; 
     border-radius: 8px;
+    /* background-color: red; */
     border: 1px solid var(--Colors-Neutral-500, #A4A4A4);
   }
   
@@ -40,7 +44,6 @@
     transform: translateY(-50%);
     width: 16px;
     height: 16px;
-    /* pointer-events: none; */
     cursor: pointer;
   }
 
@@ -81,17 +84,13 @@
 .player_discoverylist {
     width: 100%;
     height: 550px;
-    background-color:  #FBFBFB;
+    /* background-color:  #c31e1e; */
     display: flex;
     padding: 5px;
-    gap: 3%;
+    /* gap: 3%; */
     margin-top: 10px;
-}
-
-.discoveryList-div{
-    width: 50%;
-    height: 100%;
-    background-color: white;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
 }
 
 .dropdown-menu {
@@ -99,7 +98,7 @@
     top: 100%;
     left: 0;
     width: 20%;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     /* border: 1px solid #A4A4A4; */
     border-radius: 8px;
     margin-top: 5px;
@@ -123,23 +122,35 @@
     padding: 7px;
     cursor: pointer;
     font-size: 12px;
-    /* border-bottom: 1px solid #f0f0f0; */
     font-family: 'poppins';
   }
   
   .dropdown-menu li:hover {
-    background-color: #f2f2f2;
+    background-color: #4CAF50;
+    color: #FFF;
+  }
+
+  .discoveryList-div{
+    width: 100%;
+    height: 100%;
+    /* background-color: magenta; */
+    overflow-y: auto;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
   }
   
   .player-card {
+    width: 49%;
+    height: 15vh;
     display: flex;
     align-items: center;
     background-color: #FFFFFF;
-    padding: 10px;
+    padding: 5px;
     border-radius: 8px;
     margin-bottom: 12px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    gap: 12px;
+    gap: 10px;
   }
   
   .player-img {
@@ -194,6 +205,7 @@
   }
 
 
+
    @media screen and (min-width: 768px) {
     .scoutdiscovery {
       padding: 20px 40px;
@@ -205,7 +217,7 @@
     }
   
     .discoveryList-div {
-      width: 48%;
+      width: 100%;
     }
   }
   
