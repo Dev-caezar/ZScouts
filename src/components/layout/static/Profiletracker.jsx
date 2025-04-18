@@ -2,9 +2,12 @@ import React from 'react'
 import "../../../styles/profileTracker.css"
 import { Flex, Progress } from 'antd'
 import { useNavigate } from 'react-router'
+import { useSelector } from 'react-redux'
 
 const Profiletracker = () => {
   const navigate = useNavigate()
+  // const {player}= useSelector((state)=> state.player.player)
+  // console.log("this is my id", id)
   const handleEditProfile =()=>{
     navigate("/edit_profile")
   }

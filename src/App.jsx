@@ -134,7 +134,7 @@ const App = () => {
       element: <DashboardLayout />,
       children: [
         {
-          path: "player_profile",
+          path: "player_profile/:id",
           element: <PlayerProfile />,
         },
         {
@@ -155,7 +155,7 @@ const App = () => {
       element: <ScoutDashboardLayout />,
       children: [
         {
-          path: "scout_profile",
+          path: "scout_profile/:id",
           element: <ScoutProfile />,
         },
 
