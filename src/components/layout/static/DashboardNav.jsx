@@ -4,14 +4,17 @@ import { BiSolidCategory } from "react-icons/bi";
 import { MdVideoLibrary } from "react-icons/md";
 import { AiFillSetting } from "react-icons/ai";
 import { IoClose, IoLogOut } from "react-icons/io5";
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
+import { useSelector } from 'react-redux';
 
 const DashboardNav = () => {
   const [logout, setLogout] = useState(false);
+  const player = useSelector((state)=> state.player.player)
+  console.log("this is my id", player?.data?.id)
   const nav = useNavigate();
 
-  const handlePlayerProfile = () => nav("/player_profile");
-  const handlePlayerVideo = () => nav("/player_video");
+  const handlePlayerProfile = () => nav(`/player_profile/${player?.data?.id}`);
+  const handlePlayerVideo = () => nav(`/player_video/${player?.data?.id}`);
   const handlePlayerSettings = () => nav("/player_setting");
   const handleLogout = () => setLogout(true);
 

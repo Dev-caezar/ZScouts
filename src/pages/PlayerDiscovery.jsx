@@ -1,8 +1,9 @@
-import React, {  useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "../styles/playerdiscovery.css";
 
 const PlayerDiscovery = () => {
-  // const [athlete, setAthlete] = useState ([]);
+  const [players, setPlayers] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [nestedOptions, setNestedOptions] = useState([]);
@@ -17,37 +18,19 @@ const PlayerDiscovery = () => {
 
   const BASE_URL = "https://zscouts.onrender.com";
 
-// const handleApply = async () => {
-//   try {
-//     const response = await axios.post(`${}`)
-//   }
-// };
+  useEffect(() => {
+    const fetchPlayers = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/players/allplayers`);
+        console.log("Fetched players:", response.data.data);
+        setPlayers(response.data.data);
+      } catch (error) {
+        console.error("Error fetching players:", error);
+      }
+    };
 
-
-  const players = [
-    {
-      name: "Michael Onyekachi",
-      age: 27,
-      foot: "Both foot",
-      position: "ST",
-      image: "public/WhatsApp Image 2025-03-27 at 5.33.36 PM 1.png",
-    },
-    {
-      name: "John Doe",
-      age: 24,
-      foot: "Right foot",
-      position: "MF",
-      image: "public/WhatsApp Image 2025-03-27 at 5.33.36 PM 1.png",
-    },
-    {
-      name: "Samuel Smith",
-      age: 29,
-      foot: "Left foot",
-      position: "DEF",
-      image: "public/WhatsApp Image 2025-03-27 at 5.33.36 PM 1.png",
-    },
-
-  ];
+    fetchPlayers();
+  }, []);
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
@@ -122,9 +105,7 @@ const PlayerDiscovery = () => {
                 <option key={index} value={val}>
                   {val}
                 </option>
-              
               ))}
-             
             </select>
           </div>
         )}
@@ -141,31 +122,35 @@ const PlayerDiscovery = () => {
 
       <div className="player_discoverylist">
         <div className="discoveryList-div">
-          {filteredPlayers.map((player, index) => (
-            <div className="player-card" key={index}>
-              <img
-                src={player.image}
-                alt={player.name}
-                className="player-img"
-              />
-              <div className="player-details">
-                <h4>{player.name}</h4>
-                <p>
-                  {player.age} years | {player.foot}
-                </p>
-                <p>
-                  <strong>{player.position}</strong>
-                </p>
+          {filteredPlayers.length > 0 ? (
+            filteredPlayers.map((player, index) => (
+              <div className="player-card" key={index}>
+                <img
+                  src={player.profileImage || "public/placeholder-player.png"}
+                  alt={player.fullname}
+                  className="player-img"
+                />
+                <div className="player-details">
+                  <h4>{player.fullname}</h4>
+                  <p>
+                    {player.age} years | {player.foot}
+                  </p>
+                  <p>
+                    <strong>{player.position}</strong>
+                  </p>
+                </div>
+                <div className="player-rating">
+                  {"★★★★★".split("").map((_, i) => (
+                    <span key={i} className="star">
+                      ★
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="player-rating">
-                {"★★★★★".split("").map((_, i) => (
-                  <span key={i} className="star">
-                    ★
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <h5 style={{ color: "red" }}>No players found</h5>
+          )}
         </div>
       </div>
     </div>

@@ -139,11 +139,11 @@ const App = () => {
           element: <PlayerProfile />,
         },
         {
-          path: "edit_profile",
+          path: "edit_profile/:id",
           element: <EditProfile />,
         },
         {
-          path: "player_video",
+          path: "player_video/:id",
           element: <PlayerVideo />,
         },
         {
