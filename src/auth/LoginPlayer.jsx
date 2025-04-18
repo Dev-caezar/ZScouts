@@ -7,6 +7,8 @@ import axios from 'axios'
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux'
 import { setPlayer } from '../global/Player'
+import { LoadingOutlined } from '@ant-design/icons'
+import { Flex, Spin } from 'antd'
 
 
 const LoginPlayer = () => {
@@ -108,6 +110,7 @@ useEffect(() => {
     setLoading(false)
   }
   }
+  const loadingIcon = <LoadingOutlined style={{ fontSize: 25, color: "white" }} spin />
 
   return (
      <div className='player_login_body'>
@@ -132,7 +135,11 @@ useEffect(() => {
                     </div>
                     <small style={{ color: 'red' }}>{passwordErr}</small>
                     </div>
-                    <button type="submit" disabled={isDisabled} style={{ backgroundColor: isDisabled || loading ? '#ddd' : '#0C8F00', cursor: isDisabled || loading ?  'not-allowed' : 'pointer',  }} className='player_login_button'>{loading ? "Logging in..." : "Login"}</button>
+                    <button type="submit" disabled={isDisabled} style={{cursor: isDisabled || loading ?  'not-allowed' : 'pointer',  }} className='player_login_button'>{loading ? 
+                    <Flex align="center" justify="center" style={{ height: "100%" }}>
+                    <Spin indicator={loadingIcon} />
+                  </Flex>
+                     : "Login"}</button>
                     </form>
                     <div className="second_option">
                       <div className="line"></div>

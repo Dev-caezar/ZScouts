@@ -6,10 +6,10 @@ import { useSelector } from 'react-redux'
 
 const Profiletracker = () => {
   const navigate = useNavigate()
-  // const {player}= useSelector((state)=> state.player.player)
-  // console.log("this is my id", id)
+  const player= useSelector((state)=> state.player.player)
+  console.log("this is my id", player?.data)
   const handleEditProfile =()=>{
-    navigate("/edit_profile")
+    navigate(`/edit_profile/${player?.data?.id}`)
   }
   return (
     <div className='profile_tracker_body'>
