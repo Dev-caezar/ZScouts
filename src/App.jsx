@@ -37,6 +37,7 @@ import AdmindashboardOverview from './components/Chiemerie/AdmindashboardOvervie
 import EmailPagePlayer from './auth/EmailPagePlayer';
 import EmailVerifyPlayer from './auth/EmailVerifyPlayer';
 import PlayerDiscovery from './pages/PlayerDiscovery';
+import GetPlayersDetails from './pages/GetPlayersDetails';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -171,6 +172,10 @@ const App = () => {
         {
           path: "player_discovery",
           element: <PlayerDiscovery />,
+        },
+        {
+          path: "/player_details_personal",
+          element: <GetPlayersDetails />,
         },
       ],
     },
