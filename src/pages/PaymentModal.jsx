@@ -1,12 +1,16 @@
 import React from "react";
-import "../styles/paymentmodal.css"; // Create this for styles
+import "../styles/paymentmodal.css";
+
+import koraImage from "/public/korapay-icon-512x142-nn4g9i7b 1.png"
+
+import CancelIcon from "../../public/material-symbols_close.svg"
 
 const PaymentModal = ({ onClose }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="modal-close" onClick={onClose}>
-            <img src="public/material-symbols_close.svg" alt="close"/>
+            <img src={CancelIcon} alt="close"/>
         </button>
         <h2 className="modal-title1">Payment Overview</h2>
 
@@ -35,7 +39,7 @@ const PaymentModal = ({ onClose }) => {
 
         <div className="modal-section">
           <p><strong>Payment Gateway</strong></p>
-          <img src="public/korapay-icon-512x142-nn4g9i7b 1.png" alt="Korapay" style={{ width: "100px" }} />
+          <img src={koraImage} alt="Korapay" style={{ width: "100px" }} />
         </div>
 
         <button className="modal-upgrade-btn">Upgrade Now</button>

@@ -74,7 +74,7 @@ const PlayerSettings = () => {
             <div className='player-settings-main-inner-1'>
               <img 
                 src={imageValue ? URL.createObjectURL(imageValue) : "https://via.placeholder.com/150"} 
-                alt="profile preview" 
+                alt="" 
               />
               <div className='player-setting-upload-icon'>
                 <input type="file" id='l' hidden onChange={getImageUrl} />
@@ -83,13 +83,8 @@ const PlayerSettings = () => {
             </div>
 
             <div className='player-settings-main-inner-2'>
-              <p style={{ fontWeight: "600", color: "#333333" }}>Osuji Wisdom</p>
-              <p style={{ fontSize: "11px", fontWeight: "600", color: "gray" }}>wisdomosuji26@gmail.com</p>
-              <p 
-                onClick={() => setIsPopupOpen(true)} 
-                style={{ textDecoration: "underline", color: "red", fontSize: "13px", cursor: "pointer", fontWeight: "500" }}>
-                Deactivate account
-              </p>
+              <p style={{ fontWeight: "600", color: "#333333" }}>Unknown User</p>
+              <p style={{ fontSize: "11px", fontWeight: "600", color: "gray" }}>user@gmail.com</p>
             </div>
           </div>
         </div>
@@ -164,7 +159,7 @@ const PlayerSettings = () => {
                   </div>
 
                   <div className='change-pasword-btn'>
-                    <button type="button" className='change-password-btn-main' onClick={handleImageUpload}>Change</button>
+                    <button type="button" className='change-password-btn-main'>Change</button>
                   </div>
                 </div>
               </form>
@@ -181,15 +176,6 @@ const PlayerSettings = () => {
                 <div className='youre-on-a-fee-plan-middle'>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</div>
                 <div className='youre-on-a-fee-plan-bottom'>
                   <button className='upgrade-to-premium-btn'>Upgrade to premium</button>
-                </div>
-              </div>
-            </div>
-            <div className='subscription-div-plan-bottom3-footer'>
-              <div className='all-right-reserved-and-privacy-and-terms'>
-                <div className='all-right-reserved'>©2025 Zcout | All rights reserved</div>
-                <div className='privacy-and-terms'>
-                  <p>Privacy</p>
-                  <p>Terms</p>
                 </div>
               </div>
             </div>

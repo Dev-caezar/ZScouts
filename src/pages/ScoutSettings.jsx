@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/scoutsettings.css";
 import PaymentModal from "./PaymentModal";
 import DeactivateModal from "./DeactivateModal";
+import { useParams } from "react-router";
+import axios from "axios";
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
@@ -11,10 +13,28 @@ const ScoutSettings = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const API_KEY = "YOUR_API_KEY_HERE"; // Replace with your actual API key
 
-  const handleDeactivate = () => {
-    setShowDeactivateModal(true);
-  };
+ 
+
+
+  const BASE_URL = "https://zscouts.onrender.com";
+  const { id } = useParams();
+  const [authenticated, setAuthenticated] = useState(null);
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/scouts/getscout/${id}`);
+        setAuthenticated(response.data);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchUser();
+  }, [id]);
+
+
 
   const confirmDeactivate = () => {
     setShowDeactivateModal(false);
@@ -61,15 +81,8 @@ const ScoutSettings = () => {
           </div>
 
           <div className="scoutprofiletext">
-            <h4 className="scoutprofile_name">Ozofor Chioma</h4>
-            <p className="scoutprofile_email">cynthiaozofor@gmail.com</p>
-            <p
-              className="scoutdeactivate"
-              onClick={handleDeactivate}
-              style={{ color: "red", cursor: "pointer" }}
-            >
-              Deactivate account
-            </p>
+            <h4 className="scoutprofile_name">{authenticated?.data?.fullname}</h4>
+            <p className="scoutprofile_email">{authenticated?.data?.email}</p>
           </div>
         </div>
       </div>
@@ -81,14 +94,14 @@ const ScoutSettings = () => {
             <label>Full name</label>
             <input
               type="text"
-              placeholder="Michael Onyekachi"
+              placeholder=""
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
             />
             <label>Email</label>
             <input
               type="email"
-              placeholder="michaelonyekachi16@gmail.com"
+              placeholder=""
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />

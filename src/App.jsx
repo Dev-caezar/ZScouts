@@ -165,7 +165,7 @@ const App = () => {
           element: <ScoutFormRegister />,
         },
         {
-          path: "scout_setting",
+          path: "scout_setting/:id",
           element: <ScoutSettings />,
         },
         {

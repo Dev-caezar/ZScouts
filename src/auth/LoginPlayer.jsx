@@ -135,7 +135,7 @@ useEffect(() => {
                     </div>
                     <small style={{ color: 'red' }}>{passwordErr}</small>
                     </div>
-                    <button type="submit" disabled={isDisabled} style={{cursor: isDisabled || loading ?  'not-allowed' : 'pointer',  }} className='player_login_button'>{loading ? 
+                    <button type="submit" disabled={isDisabled} style={{cursor: isDisabled || loading ?  'not-allowed' : 'pointer', backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00"   }} className='player_login_button'>{loading ? 
                     <Flex align="center" justify="center" style={{ height: "100%" }}>
                     <Spin indicator={loadingIcon} />
                   </Flex>

@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/paymentmodal.css"; // Create this for styles
+import "../styles/paymemtPopupPlayer.css"; // Create this for styles
 
-const PaymentModal = ({isOpen, onClose }) => {
+const PaymentPopupModal = ({isOpen, onClose }) => {
     if(!isOpen) return null;
   return (
     <div className="modal-overlay">
@@ -45,4 +45,4 @@ const PaymentModal = ({isOpen, onClose }) => {
   );
 };
 
-export default PaymentModal;
+export default PaymentPopupModal;

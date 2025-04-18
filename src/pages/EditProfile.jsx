@@ -7,6 +7,7 @@ import { Select } from 'antd';
 import { useNavigate, useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { setPlayer } from '../global/Player';
+import { toast } from 'react-toastify';
 
 const EditProfile = () => {
   const { id } = useParams();
@@ -58,10 +59,10 @@ const EditProfile = () => {
 
       console.log("Player profile submitted:", response.data);
       dispatch(setPlayer(response.data));
-      alert("Profile submitted successfully!");
+      toast.success("KYC submitted successfully!");
     } catch (error) {
       console.error("Error submitting profile:", error);
-      alert("Failed to submit profile.");
+      toast.error("Failed to submit profile.");
     }
   };
   const handleBack =()=>{
@@ -72,7 +73,7 @@ const EditProfile = () => {
     <div className='player_kyc_body'>
       <div className="player_kyc_wrapper">
         <div className="back_card">
-          <IoReturnUpBackOutline className='back_icon' onClick={handleBack}/>
+          <IoReturnUpBackOutline style={{cursor: "pointer"}} className='back_icon' onClick={handleBack}/>
         </div>
         <Profiletracker />
 

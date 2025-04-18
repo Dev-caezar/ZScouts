@@ -103,8 +103,6 @@ const PlayerVideo = () => {
     }
   };
 
-  // console.log("This is whatv am lookig for",videos.map((vid) => vid.media));
-
   return (
     <div className="player-video-main">
       <div className="player-video-main-wrap">
@@ -206,13 +204,20 @@ const PlayerVideo = () => {
             </div>
             <div className="video-text-div-buttom">
               <div className="video-text-div-buttom-wrap">
-                <div className="match-highlight-text"><h1>Match Highlight</h1></div>
+                <div className="match-highlight-text"><h1>Match Highlight 2025</h1></div>
+                <div className='time-of-video-posted'></div>
+                <div className='rating-and-delete'>
+                  <div className='video-rating-div'><IoIosStar/><IoIosStar/><IoIosStar/><IoIosStar/><IoIosStar/></div>
+                  <div className='video-delete-div'>
+                    <button className='my-video-delete-btn'><RiDeleteBin6Fill style={{fontSize: "20px"}}/></button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           ))
         ) : (
-          <h5 style={{ color: "red" }}>No videos posted yet</h5>
+          <h4 style={{ color: "red" }}>Retrieving from database....</h4>
         )}
 
         </div>

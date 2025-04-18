@@ -15,7 +15,7 @@ const Nextlevel = () => {
             <h4>Create your profile, upload your highlights, and attract scouts looking for talent like you.</h4>
           </div>
           <div className="right_inner">
-            <button className="inner_button" onClick={handleCreateProfile}>Create Your Free Profile</button>
+            <button style={{cursor: "pointer"}} className="inner_button" onClick={handleCreateProfile}>Create Your Free Profile</button>
           </div>
         </div>
       </div>
