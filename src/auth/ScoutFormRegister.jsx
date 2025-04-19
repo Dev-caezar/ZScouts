@@ -165,10 +165,7 @@ const ScoutFormRegister = () => {
           </div>
         </div>
       </div>
-
-<<<<<<< HEAD
       <button style={{cursor: "pointer"}} className="ScoutSubmitFormButton" onClick={handleSubmit}>Submit</button>
-=======
       <button
         className="ScoutSubmitFormButton"
         onClick={handleSubmit}
@@ -176,7 +173,6 @@ const ScoutFormRegister = () => {
       >
         Submit
       </button>
->>>>>>> d89a50cc9e428ec91eeefe6d94c9aa147b85cc3c
     </div>
   )
 }

@@ -84,14 +84,11 @@ const ScoutProfile = () => {
             <button onClick={() => navigate(`/scout_form/${id}`)} className="scoutComplete-KYC-button">Complete KYC</button>
           </div>
         </div>
-<<<<<<< HEAD
         <div className="scoutHeader2">
           <button style={{cursor: "pointer"}} onClick={() => navigate("/scout_form/:id")} className="scoutComplete-KYC-button">Complete KYC</button>
         </div>
       </div>
-=======
       )}
->>>>>>> d89a50cc9e428ec91eeefe6d94c9aa147b85cc3c
 
       <div className="scoutProfileImage-scoutText-wrappper">
         <div className="scoutProfileImage">
