@@ -10,8 +10,10 @@ import { setPlayer } from '../global/Player';
 
 const EditProfile = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
 
 
   const [player, setPlayerState] = useState({
@@ -46,24 +48,31 @@ const EditProfile = () => {
   const BASE_URL = "https://zscouts.onrender.com";
 
   const handleSubmit = async () => {
+    setLoading(true);
     try {
       const formData = new FormData();
       for (const key in player) {
         formData.append(key, player[key]);
       }
-
+  
       const response = await axios.post(`${BASE_URL}/api/v1/playerkyc/${id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
-
+  
       console.log("Player profile submitted:", response.data);
       dispatch(setPlayer(response.data));
-      alert("Profile submitted successfully!");
+      toast.success("Player KYC submitted successfully!");
+      setTimeout(() => {
+        navigate("/player_profile/:id");
+      }, 2000);
     } catch (error) {
-      console.error("Error submitting profile:", error);
-      alert("Failed to submit profile.");
+      toast.error("Error submitting profile:", error);
+      toast.error("Failed to submit profile.");
+    } finally {
+      setLoading(false);
     }
   };
+  
   const handleBack =()=>{
     navigate(-1)
   }
@@ -340,7 +349,8 @@ const EditProfile = () => {
           </div>
         </div>
 
-        <button className='complete_cta' onClick={handleSubmit}>Submit</button>
+       <button className='complete_cta' onClick={handleSubmit} disabled={loading} style={{ cursor: loading ? "not-allowed" : "pointer", opacity: loading ? 0.6 : 1 }}>{loading ? "Submitting..." : "Submit"}</button>
+
       </div>
     </div>
   );

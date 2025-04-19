@@ -13,80 +13,34 @@ const PlayerVideo = () => {
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
   const [imageValue, setImageValue] = useState();
   const [post, setPost] = useState([]);
-  const [isPosting, setIsposting] = useState(false);
-  const [isVideo, setIsVideo] = useState(false);
   const [isDeletePopUp, setIsDeletePopup] = useState(false);
-  const [postToDelete, setPostToDelete] = useState(null);
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
+  const [isPosting, setIsPosting] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [isVideo, setIsVideo] = useState(false);
   const { id } = useParams();
   const [videos, setVideos] = useState([]);
-  const BASE_URL = "https://zscouts.onrender.com";
 
-  const handleDelete = (id) => {
-    const updatedPost = post.filter((post) => post.id !== id);
-    setPost(updatedPost);
-    localStorage.setItem("post", JSON.stringify(updatedPost));
-  };
+  const BASE_URL = "https://zscouts.onrender.com";
 
   const handleCloseAllPopups = () => {
     setIsPreviewVisible(false);
     setIsPopUpOpen(false);
   };
 
-  const getTimeAgo = (timestamp) => {
-    const now = new Date();
-    const past = new Date(timestamp);
-    const diffInSeconds = Math.floor((now - past) / 1000);
-
-    if (diffInSeconds < 60) return "Uploaded Just now";
-    const diffInMinutes = Math.floor(diffInSeconds / 60);
-    if (diffInMinutes === 1) return "Uploaded 1 minute ago";
-    if (diffInMinutes < 60) return `Uploaded ${diffInMinutes} minutes ago`;
-    const diffInHours = Math.floor(diffInMinutes / 60);
-    if (diffInHours === 1) return "Uploaded 1 hour ago";
-    if (diffInHours < 24) return `Uploaded ${diffInHours} hours ago`;
-    const diffInDays = Math.floor(diffInHours / 24);
-    if (diffInDays === 1) return "Uploaded 1 day ago";
-    return `Uploaded ${diffInDays} days ago`;
-  };
-
-  const handlePost = () => {
-    if (!imageValue) return;
-    setIsposting(true);
-
-    setTimeout(() => {
-      const newPost = {
-        id: Date.now(),
-        image: imageValue,
-        timestamp: new Date().toISOString(),
-        isVideo,
-      };
-      const updatedPost = [newPost, ...post];
-      setPost(updatedPost);
-      localStorage.setItem("post", JSON.stringify(updatedPost));
-      setImageValue("");
-      setTimeout(() => {
-        setIsPopUpOpen(false);
-        setIsPreviewVisible(false);
-      });
-      setIsposting(false);
-    }, 2000);
+  const fetchVideos = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/api/players/player-vids/${id}`);
+      console.log("Fetched videos:", response.data.data);
+      setVideos(response.data.data);
+    } catch (error) {
+      console.error("Error fetching video:", error);
+    }
   };
 
   useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/api/players/player-vids/${id}`);
-        console.log("Fetched videos:", response.data.data); 
-        setVideos(response.data.data);
-      } catch (error) {
-        console.error("Error fetching video:", error);
-      }
-    };
-  
     fetchVideos();
   }, [id]);
-  
 
   const getImageUrl = (e) => {
     const file = e.target.files[0];
@@ -95,6 +49,7 @@ const PlayerVideo = () => {
     const fileType = file.type.split('/')[0];
     if (fileType === 'video') {
       setIsVideo(true);
+      setSelectedFile(file);
       setImageValue(URL.createObjectURL(file));
       setIsPreviewVisible(true);
     } else {
@@ -103,7 +58,38 @@ const PlayerVideo = () => {
     }
   };
 
-  // console.log("This is whatv am lookig for",videos.map((vid) => vid.media));
+  const uploadPlayerVideo = async () => {
+    if (!selectedFile) return;
+
+    const formData = new FormData();
+    formData.append("media", selectedFile);
+    formData.append("description", "My highlight video");
+
+    try {
+      setIsPosting(true);
+      const res = await axios.post(
+        `${BASE_URL}/api/v1/videoupload/${id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Upload response:", res.data);
+      toast.success("Video uploaded successfully!");
+      fetchVideos();
+      setIsPreviewVisible(false);
+      setIsPopUpOpen(false);
+    } catch (error) {
+      console.error("Upload failed:", error);
+      toast.error("Upload failed!");
+      setIsPreviewVisible(false);
+      setIsPopUpOpen(false);
+    } finally {
+      setIsPosting(false);
+    }
+  };
 
   return (
     <div className="player-video-main">
@@ -152,12 +138,11 @@ const PlayerVideo = () => {
                   </div>
                   <div className='text-area-div-2'>
                     <button
-                      onClick={handlePost}
+                      onClick={uploadPlayerVideo}
                       disabled={!imageValue}
                       style={{
                         backgroundColor: !imageValue ? "#ccc" : "#0c8f00",
                         cursor: !imageValue ? "not-allowed" : "pointer",
-                        opacity: isPosting ? 0.6 : 1
                       }}
                       className='post-video-div'
                     >
@@ -195,26 +180,25 @@ const PlayerVideo = () => {
             <button onClick={() => setIsPopUpOpen(true)} className="upload-new-video-btn">Upload New Video</button>
           </div>
         </div>
-        <div className="all-my-mapped-videos">
-        { videos?.length > 0 ? (
-          videos?.map((vid, index) => (
-            <div key={index} className="One-posted-video">
-            <div className="video-div-top">
-              <video controls width="100%">
-                <source src={vid.media} type="video/mp4" />
-              </video>
-            </div>
-            <div className="video-text-div-buttom">
-              <div className="video-text-div-buttom-wrap">
-                <div className="match-highlight-text"><h1>Match Highlight</h1></div>
-              </div>
-            </div>
-          </div>
-          ))
-        ) : (
-          <h5 style={{ color: "red" }}>No videos posted yet</h5>
-        )}
 
+        <div className="all-my-mapped-videos">
+          {videos?.length > 0 ? (
+            videos?.map((vid, index) => (
+              <div key={index} className="One-posted-video">
+                <div className="video-div-top">
+                  <video controls width="100%">
+                    <source src={vid.media} type="video/mp4" />
+                  </video>
+                </div>
+                <div className="video-text-div-buttom">
+                  <div className="video-text-div-buttom-wrap">
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <h5 style={{ color: "red" }}>No videos posted yet</h5>
+          )}
         </div>
 
         <div className="down-div-footer"></div>
