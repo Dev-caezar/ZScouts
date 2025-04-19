@@ -8,11 +8,14 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Flex, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+import { setPlayerDetails} from '../global/Player';
 
 const RegisterPlayer = () => {
   const [showPass, setShowPass] = useState(false)
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const handlePassword =()=>{
     setShowPass((prev)=> !prev)
@@ -102,6 +105,7 @@ const RegisterPlayer = () => {
     const { termsAgreed, ...data} = formData
     try {
       const res = await axios.post(`${BASE_URL}/api/players/register`, data)
+      dispatch(setPlayerDetails(res.data.data))
       toast.success('Sign up successful. please check your Email to verify')
       setLoading(false)
       setTimeout(() => {

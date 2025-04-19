@@ -175,6 +175,14 @@
         height: 100%;
     }
 }
+
+.loader{
+    width: 100%;
+    height: 72vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .plan_top{
     width: 100%;
     height: 50%;

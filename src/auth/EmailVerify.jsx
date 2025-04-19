@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 const EmailVerify = () => {
   const BASE_URL = "https://zscouts.onrender.com"
-  const token = useParams().token
+  const {token} = useParams()
   const [isVerified, setIsVerified] = useState(false)
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()

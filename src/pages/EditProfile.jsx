@@ -62,12 +62,13 @@ const EditProfile = () => {
       console.log("Player profile submitted:", response.data);
       dispatch(setPlayer(response.data));
       toast.success("Player KYC submitted successfully!");
+      console.log(response)
       setTimeout(() => {
         navigate("/player_profile/:id");
       }, 2000);
     } catch (error) {
       toast.error("Error submitting profile:", error);
-      toast.error("Failed to submit profile.");
+      console.log("Failed to submit profile.");
     } finally {
       setLoading(false);
     }
