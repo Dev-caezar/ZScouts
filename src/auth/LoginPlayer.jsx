@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux'
-import { setPlayer } from '../global/Player'
+import { setPlayerDetails,setPlayerToken } from '../global/Player'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Flex, Spin } from 'antd'
 
@@ -84,14 +84,16 @@ useEffect(() => {
   setLoading(true);
   try {
     const res = await axios.post(`${BASE_URL}/api/players/login`, { email, password });
-    dispatch(setPlayer(res.data))
+    dispatch(setPlayerDetails(res.data.data))
+    dispatch(setPlayerToken(res.data.token))
+    console.log("i don login :",res.data.data)
     console.log(res);
     toast.success('Login successful');
     setLoading(false)
     setTimeout(() => {
       navigate(`/player_profile/${res.data.data.id}`);
       setIsDisabled(false)
-    }, 2000);
+    }, 1000);
   } catch (error) {
     console.log(error);
     if (error.response) {
