@@ -165,14 +165,7 @@ const ScoutFormRegister = () => {
           </div>
         </div>
       </div>
-      <button style={{cursor: "pointer"}} className="ScoutSubmitFormButton" onClick={handleSubmit}>Submit</button>
-      <button
-        className="ScoutSubmitFormButton"
-        onClick={handleSubmit}
-        disabled={!scoutForm.verificationDocument}
-      >
-        Submit
-      </button>
+      <button className="ScoutSubmitFormButton" onClick={handleSubmit} disabled={!scoutForm.verificationDocument}>Submit</button>
     </div>
   )
 }
