@@ -5,73 +5,54 @@ import { toast } from "react-toastify"
 import { useNavigate, useParams } from "react-router-dom"
 
 const ScoutFormRegister = () => {
-  const id = useParams()
+  const { id } = useParams()
   const [scoutForm, setScoutform] = useState({
     nationality: "",
+    phoneNumber: "",
     clubName: "",
     scoutingRole: "",
     league: "",
     preferredPosition: "",
-    preferredAge: "",
+    age: "",
     socialMediaProfile: "",
-    verificationDocument: "",
+    verificationDocument: null
   })
 
-  const [formErrors, setFormErrors] = useState({})
-  const [scoutfile, setScoutFile] = useState(null)
   const navigate = useNavigate()
-
-  const handlscoutFile = (e) => {
-    const selectedFile = e.target.files[0]
-    setScoutFile(selectedFile)
-  }
-
-  const validateForm = () => {
-    const errors = {}
-
-    if (!scoutForm.nationality.trim()) errors.nationality = "Nationality is required"
-    if (!scoutForm.clubName.trim()) errors.clubName = "Club Name is required"
-    if (!scoutForm.scoutingRole.trim()) errors.scoutingRole = "Scouting Role is required"
-    if (!scoutForm.league.trim()) errors.league = "League is required"
-    if (!scoutForm.preferredPosition.trim()) errors.preferredPosition = "Preferred Position is required"
-    if (!scoutForm.preferredAge.trim()) errors.preferredAge = "Preferred Age is required"
-    if (!scoutForm.socialMediaProfile.trim()) errors.socialMediaProfile = "Social Media Profile is required"
-
-    setFormErrors(errors)
-    return Object.keys(errors).length === 0
-  }
-
   const BASE_URL = "https://zscouts.onrender.com"
+
+  const handleScoutFile = (e) => {
+    const selectedFile = e.target.files[0]
+    setScoutform({ ...scoutForm, verificationDocument: selectedFile })
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (validateForm()) {
-      try {
-        const formData = new FormData()
-        formData.append("nationality", scoutForm.nationality)
-        formData.append("clubName", scoutForm.clubName)
-        formData.append("scoutingRole", scoutForm.scoutingRole)
-        formData.append("league", scoutForm.league)
-        formData.append("preferredPosition", scoutForm.preferredPosition)
-        formData.append("preferredAge", scoutForm.preferredAge)
-        formData.append("socialMediaProfile", scoutForm.socialMediaProfile)
-        formData.append("verificationDocument", scoutfile)
+    try {
+      const formData = new FormData()
+      formData.append("nationality", scoutForm.nationality)
+      formData.append("phoneNumber", scoutForm.phoneNumber)
+      formData.append("clubName", scoutForm.clubName)
+      formData.append("scoutingRole", scoutForm.scoutingRole)
+      formData.append("league", scoutForm.league)
+      formData.append("preferredPosition", scoutForm.preferredPosition)
+      formData.append("age", scoutForm.age)
+      formData.append("socialMediaProfile", scoutForm.socialMediaProfile)
+      formData.append("verificationDocument", scoutForm.verificationDocument)
 
-        const response = await axios.post(`${BASE_URL}/api/v1/playerkyc/${id}`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data"
-          }
-        })
+      const response = await axios.post(`${BASE_URL}/api/v1/scoutkyc/${id}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
 
-        toast.success("Form submitted successfully!")
-        console.log("Form data sent:", response.data)
-      } catch (error) {
-        console.error("Error submitting form", error)
-        toast.error("Failed to submit form. Try again.")
-      }
-    } else {
-      console.log("Form validation failed")
+      toast.success("Form submitted successfully!")
+      console.log("Form data sent:", response.data)
+      navigate(-1)
+    } catch (error) {
+      console.error("Error submitting form", error)
+      toast.error("Failed to submit form. Try again.")
     }
   }
 
@@ -97,9 +78,17 @@ const ScoutFormRegister = () => {
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Nationality*</p>
               <input className="scoutpersonalINformatiom-input" type="text" placeholder="Enter Nationality"
-                value={scoutForm.nationality} onChange={(e) => setScoutform({ ...scoutForm, nationality: e.target.value })}
+                value={scoutForm.nationality}
+                onChange={(e) => setScoutform({ ...scoutForm, nationality: e.target.value })}
               />
-              {formErrors.nationality && <small className="error-text">{formErrors.nationality}</small>}
+            </article>
+
+            <article className="scoutInformationFormArticle">
+              <p className="scoutInformationLabel-text">Phone Number*</p>
+              <input className="scoutpersonalINformatiom-input" type="tel" placeholder="Enter Phone Number"
+                value={scoutForm.phoneNumber}
+                onChange={(e) => setScoutform({ ...scoutForm, phoneNumber: e.target.value })}
+              />
             </article>
           </div>
         </div>
@@ -110,25 +99,25 @@ const ScoutFormRegister = () => {
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Club Name*</p>
               <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Club Name"
-                value={scoutForm.clubName} onChange={(e) => setScoutform({ ...scoutForm, clubName: e.target.value })}
+                value={scoutForm.clubName}
+                onChange={(e) => setScoutform({ ...scoutForm, clubName: e.target.value })}
               />
-              {formErrors.clubName && <small className="error-text">{formErrors.clubName}</small>}
             </article>
 
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Scouting Role*</p>
               <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Role"
-                value={scoutForm.scoutingRole} onChange={(e) => setScoutform({ ...scoutForm, scoutingRole: e.target.value })}
+                value={scoutForm.scoutingRole}
+                onChange={(e) => setScoutform({ ...scoutForm, scoutingRole: e.target.value })}
               />
-              {formErrors.scoutingRole && <small className="error-text">{formErrors.scoutingRole}</small>}
             </article>
 
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">League/Region*</p>
               <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input League"
-                value={scoutForm.league} onChange={(e) => setScoutform({ ...scoutForm, league: e.target.value })}
+                value={scoutForm.league}
+                onChange={(e) => setScoutform({ ...scoutForm, league: e.target.value })}
               />
-              {formErrors.league && <small className="error-text">{formErrors.league}</small>}
             </article>
           </div>
         </div>
@@ -139,25 +128,25 @@ const ScoutFormRegister = () => {
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Preferred Position*</p>
               <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Positions"
-                value={scoutForm.preferredPosition} onChange={(e) => setScoutform({ ...scoutForm, preferredPosition: e.target.value })}
+                value={scoutForm.preferredPosition}
+                onChange={(e) => setScoutform({ ...scoutForm, preferredPosition: e.target.value })}
               />
-              {formErrors.preferredPosition && <small className="error-text">{formErrors.preferredPosition}</small>}
             </article>
 
             <article className="scoutInformationFormArticle">
-              <p className="scoutInformationLabel-text">Preferred Age*</p>
-              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Preferred Age"
-                value={scoutForm.preferredAge} onChange={(e) => setScoutform({ ...scoutForm, preferredAge: e.target.value })}
+              <p className="scoutInformationLabel-text"> Age*</p>
+              <input className="scoutpersonalINformatiom-input" type="text" placeholder=" Age"
+                value={scoutForm.age}
+                onChange={(e) => setScoutform({ ...scoutForm, age: e.target.value })}
               />
-              {formErrors.preferredAge && <small className="error-text">{formErrors.preferredAge}</small>}
             </article>
 
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Social Media Profile*</p>
               <input className="scoutpersonalINformatiom-input" type="text" placeholder="Profile link"
-                value={scoutForm.socialMediaProfile} onChange={(e) => setScoutform({ ...scoutForm, socialMediaProfile: e.target.value })}
+                value={scoutForm.socialMediaProfile}
+                onChange={(e) => setScoutform({ ...scoutForm, socialMediaProfile: e.target.value })}
               />
-              {formErrors.socialMediaProfile && <small className="error-text">{formErrors.socialMediaProfile}</small>}
             </article>
           </div>
         </div>
@@ -170,14 +159,24 @@ const ScoutFormRegister = () => {
               Verification Document Upload
               <label className="custom-upload">
                 Upload
-                <input type="file" className="scoutFile-upload" onChange={handlscoutFile} />
+                <input type="file" className="scoutFile-upload" onChange={handleScoutFile} />
               </label>
             </article>
           </div>
         </div>
       </div>
 
+<<<<<<< HEAD
       <button style={{cursor: "pointer"}} className="ScoutSubmitFormButton" onClick={handleSubmit}>Submit</button>
+=======
+      <button
+        className="ScoutSubmitFormButton"
+        onClick={handleSubmit}
+        disabled={!scoutForm.verificationDocument}
+      >
+        Submit
+      </button>
+>>>>>>> d89a50cc9e428ec91eeefe6d94c9aa147b85cc3c
     </div>
   )
 }

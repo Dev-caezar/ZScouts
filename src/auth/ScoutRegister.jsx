@@ -100,8 +100,6 @@ const ScoutRegister = () => {
     navigate("/scout_login")
   }
   const loadingIcon = <LoadingOutlined style={{ fontSize: 25, color: "white" }} spin />
-
-
   return (
     <div className='scout_register_body'>
       <div className="scout_register_card">

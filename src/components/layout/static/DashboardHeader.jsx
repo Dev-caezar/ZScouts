@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router'
 import { BiSolidCategory } from 'react-icons/bi'
 import { AiFillSetting } from 'react-icons/ai'
 import { IoLogOut } from 'react-icons/io5'
+import { useSelector } from 'react-redux'
 
 const DashboardHeader = () => {
   const nav = useNavigate()
@@ -14,10 +15,11 @@ const DashboardHeader = () => {
   const [logout, setLogout] = useState(false)
 
   const handleOpenNav = () => setOpenNav(prev => !prev)
+      const player = useSelector(state => state.player.player)
+  
 
   const handleLogout = () => {
     setLogout(true)
-    // setOpenNav(false)
     console.log("Logout clicked")
   }
 
@@ -39,15 +41,13 @@ const DashboardHeader = () => {
             <img src="/src/assets/Zlogo.jpg" alt="Dashboard Logo" />
           </div>
         </div>
-
         <div className="header_right">
           <div className="header_right_img"></div>
           <div className="header_right_txt">
-            <h4>Scott Michall</h4>
-            <p>Beaconhills@gmail.com</p>
+            <h4>{player?.data?.fullname}</h4>
+            <p>{player?.data?.email}</p>
           </div>
           <HiMenuAlt3 className='dash_icon' onClick={handleOpenNav} />
-
           {openNav && (
             <div className="dashboard_header_modal">
               <div className="dashboardheader_modal_wrapper">
@@ -95,7 +95,6 @@ const DashboardHeader = () => {
               </div>
             </div>
           )}
-
         </div>
       </div>
     </div>

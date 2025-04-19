@@ -27,6 +27,27 @@
     justify-content: center;
     align-items: center;
 }
+.profileUploadInput {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .scoutProfilePic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+.scoutProfileImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
 
 
 
@@ -110,11 +131,11 @@ color: rgba(0, 0, 0, 0.689);
     gap: 1%;
 }
 .scoutProfileImage{
-width: 100px;
-height: 100px;
-border-radius: 50px;
-background-color: black;
-position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: black;
+    position: relative;
 }
 
 .HiPlusCircle{
@@ -333,14 +354,26 @@ letter-spacing: 0px;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    overflow: hidden;
 }
 
 .scoutCertificate{
- width: 60%;
+ width: 100%;
  height: 100%; 
- /* border: 4px solid navy;   */
  display: flex;
  align-items: center;
+}
+.scoutCertificateImage{
+    width: 100%;
+    height: 100%;
+
+}
+.scoutCertificateImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* border-radius: 10px; */
+    /* border: 4px solid red; */
 }
 
 

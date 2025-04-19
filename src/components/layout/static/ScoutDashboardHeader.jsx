@@ -18,7 +18,6 @@ const ScoutDashboardHeader = () => {
 
   const handleLogout = () => {
     setLogout(true)
-    // setOpenNav(false)
     console.log("Logout clicked")
   }
 
