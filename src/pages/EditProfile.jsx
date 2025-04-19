@@ -6,14 +6,12 @@ import Profiletracker from '../components/layout/static/Profiletracker';
 import { Select } from 'antd';
 import { useNavigate, useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { setPlayer } from '../global/Player';
+import { setPlayerKyc } from '../global/Player';
 
 const EditProfile = () => {
   const { id } = useParams();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-
 
 
   const [player, setPlayerState] = useState({
@@ -48,32 +46,24 @@ const EditProfile = () => {
   const BASE_URL = "https://zscouts.onrender.com";
 
   const handleSubmit = async () => {
-    setLoading(true);
     try {
       const formData = new FormData();
       for (const key in player) {
         formData.append(key, player[key]);
       }
-  
+
       const response = await axios.post(`${BASE_URL}/api/v1/playerkyc/${id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
-  
+
       console.log("Player profile submitted:", response.data);
-      dispatch(setPlayer(response.data));
-      toast.success("Player KYC submitted successfully!");
-      console.log(response)
-      setTimeout(() => {
-        navigate("/player_profile/:id");
-      }, 2000);
+      dispatch(setPlayerKyc(response.data));
+      alert("Profile submitted successfully!");
     } catch (error) {
-      toast.error("Error submitting profile:", error);
-      console.log("Failed to submit profile.");
-    } finally {
-      setLoading(false);
+      console.error("Error submitting profile:", error);
+      alert("Failed to submit profile.");
     }
   };
-  
   const handleBack =()=>{
     navigate(-1)
   }
@@ -350,8 +340,7 @@ const EditProfile = () => {
           </div>
         </div>
 
-       <button className='complete_cta' onClick={handleSubmit} disabled={loading} style={{ cursor: loading ? "not-allowed" : "pointer", opacity: loading ? 0.6 : 1 }}>{loading ? "Submitting..." : "Submit"}</button>
-
+        <button className='complete_cta' onClick={handleSubmit}>Submit</button>
       </div>
     </div>
   );
