@@ -1,118 +1,106 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import "../styles/editProfile.css";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import Profiletracker from '../components/layout/static/Profiletracker';
 import { Select } from 'antd';
-import axios from 'axios';
-
-
-
-const SelectDropdown = ({ placeholder, options, width, onChange, value }) => (
-  <Select
-    showSearch
-    placeholder={placeholder}
-    optionFilterProp="label"
-    onChange={onChange}
-    style={{ width }}
-    options={options}
-    value={value}
-  />
-);
-
-const months = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
-].map(month => ({ value: month, label: month }));
-
-const days = Array.from({ length: 31 }, (_, i) => ({
-  value: i + 1,
-  label: i + 1
-}));
-
-const years = Array.from({ length: 30 }, (_, i) => {
-  const year = new Date().getFullYear() - i;
-  return { value: year, label: year };
-});
+import { useNavigate, useParams } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { setPlayer } from '../global/Player';
 
 const EditProfile = () => {
-  const [player, setPlayer] = useState({
-    fullName: "",
-    birthMonth: "",
-    birthDay: "",
-    birthYear: "",
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+
+  const [player, setPlayerState] = useState({
+    age: "",
     nationality: "",
     gender: "",
     height: "",
     weight: "",
     preferredFoot: "",
-    email: "",
-    phone: "",
-    address: "",
+    phoneNumber: "",
+    homeAddress: "",
     primaryPosition: "",
     secondaryPosition: "",
     currentClub: "",
-    dietPlan: "",
-    coachContact: "",
+    strengths: "",
+    followDiet: "",
+    contactInfoOfCoaches: "",
     openToTrials: "",
-    willingToRelocate: ""
+    willingToRelocate: "",
+    media: null,
   });
-  console.log(player)
 
   const handleChange = (key, value) => {
-    setPlayer(prev => ({ ...prev, [key]: value }));
+    setPlayerState(prev => ({ ...prev, [key]: value }));
   };
 
-  const handleSubmit = () => {
-    console.log("Submitted player profile:", player);
+  const handleMediaUpload = (e) => {
+    const file = e.target.files[0];
+    handleChange("media", file);
   };
+
+  const BASE_URL = "https://zscouts.onrender.com";
+
+  const handleSubmit = async () => {
+    try {
+      const formData = new FormData();
+      for (const key in player) {
+        formData.append(key, player[key]);
+      }
+
+      const response = await axios.post(`${BASE_URL}/api/v1/playerkyc/${id}`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+
+      console.log("Player profile submitted:", response.data);
+      dispatch(setPlayer(response.data));
+      alert("Profile submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting profile:", error);
+      alert("Failed to submit profile.");
+    }
+  };
+  const handleBack =()=>{
+    navigate(-1)
+  }
 
   return (
     <div className='player_kyc_body'>
       <div className="player_kyc_wrapper">
         <div className="back_card">
-          <IoReturnUpBackOutline className='back_icon' />
+          <IoReturnUpBackOutline className='back_icon' onClick={handleBack}/>
         </div>
         <Profiletracker />
+
+        {/* Personal Data */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Personal Data</h4>
           </div>
           <div className="edit_card_bottom">
             <div className="edit_input_container">
-              <h4>Full name*</h4>
+              <h4>Strengths*</h4>
               <input 
+                value={player.strengths}
+                onChange={e => handleChange("strengths", e.target.value)}
                 type="text"
-                value={player.fullName}
-                onChange={e => handleChange("fullName", e.target.value)}
-                placeholder='Michael Onyekachi'
+                placeholder='Strengths'
                 className='edit_input'
               />
             </div>
             <div className="date_input_container">
-              <h4>Date of birth*</h4>
-              <div className="dob_card">
-                <SelectDropdown 
-                  placeholder="Month" 
-                  options={months} 
-                  width={110}
-                  value={player.birthMonth}
-                  onChange={value => handleChange("birthMonth", value)}
-                />
-                <SelectDropdown 
-                  placeholder="Day" 
-                  options={days} 
-                  width={70}
-                  value={player.birthDay}
-                  onChange={value => handleChange("birthDay", value)}
-                />
-                <SelectDropdown 
-                  placeholder="Year" 
-                  options={years} 
-                  width={90}
-                  value={player.birthYear}
-                  onChange={value => handleChange("birthYear", value)}
-                />
-              </div>
+              <h4>Age*</h4>
+              <input 
+                type="text"
+                value={player.age}
+                onChange={e => handleChange("age", e.target.value)}
+                placeholder='Enter Age'
+                className='edit_input'
+              />
             </div>
             <div className="edit_input_container">
               <h4>Nationality*</h4>
@@ -130,9 +118,9 @@ const EditProfile = () => {
                 showSearch
                 placeholder="Gender"
                 optionFilterProp="label"
-                value={player.gender}
                 onChange={value => handleChange("gender", value)}
                 style={{ width: '80%' }}
+                value={player.gender}
                 options={[
                   { value: 'Male', label: 'Male' },
                   { value: 'Female', label: 'Female' },
@@ -177,27 +165,19 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
+
+        {/* Contact Information */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Contact Information</h4>
           </div>
           <div className="contact_card_bottom">
             <div className="contact_input_container">
-              <h4>Email address*</h4>
-              <input 
-                type="text"
-                value={player.email}
-                onChange={e => handleChange("email", e.target.value)}
-                placeholder='Enter email address'
-                className='contact_input'
-              />
-            </div>
-            <div className="contact_input_container">
               <h4>Phone number*</h4>
               <input 
                 type="text"
-                value={player.phone}
-                onChange={e => handleChange("phone", e.target.value)}
+                value={player.phoneNumber}
+                onChange={e => handleChange("phoneNumber", e.target.value)}
                 placeholder='Enter phone number'
                 className='contact_input'
               />
@@ -206,14 +186,16 @@ const EditProfile = () => {
               <h4>Home Address*</h4>
               <input 
                 type="text"
-                value={player.address}
-                onChange={e => handleChange("address", e.target.value)}
+                value={player.homeAddress}
+                onChange={e => handleChange("homeAddress", e.target.value)}
                 placeholder='Enter house address'
                 className='contact_input'
               />
             </div>
           </div>
         </div>
+
+        {/* Football Profile */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Football Profile</h4>
@@ -225,7 +207,7 @@ const EditProfile = () => {
                 type="text"
                 value={player.primaryPosition}
                 onChange={e => handleChange("primaryPosition", e.target.value)}
-                placeholder='Input position'
+                placeholder='Primary position'
                 className='contact_input'
               />
             </div>
@@ -235,7 +217,7 @@ const EditProfile = () => {
                 type="text"
                 value={player.secondaryPosition}
                 onChange={e => handleChange("secondaryPosition", e.target.value)}
-                placeholder='Input position'
+                placeholder='Secondary position'
                 className='contact_input'
               />
             </div>
@@ -245,12 +227,14 @@ const EditProfile = () => {
                 type="text"
                 value={player.currentClub}
                 onChange={e => handleChange("currentClub", e.target.value)}
-                placeholder='Enter club/academy'
+                placeholder='Current club/academy'
                 className='contact_input'
               />
             </div>
           </div>
         </div>
+
+        {/* Medical & Fitness */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Medical & Fitness Information</h4>
@@ -262,8 +246,8 @@ const EditProfile = () => {
                 showSearch
                 placeholder="Option"
                 optionFilterProp="label"
-                value={player.dietPlan}
-                onChange={value => handleChange("dietPlan", value)}
+                value={player.followDiet}
+                onChange={value => handleChange("followDiet", value)}
                 style={{ width: '80%' }}
                 options={[
                   { value: 'Yes', label: 'Yes' },
@@ -273,6 +257,8 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
+
+        {/* Coach Information */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Coach Information</h4>
@@ -282,14 +268,16 @@ const EditProfile = () => {
               <h4>Contact Info.*</h4>
               <input 
                 type="text"
-                value={player.coachContact}
-                onChange={e => handleChange("coachContact", e.target.value)}
-                placeholder='Enter contact info'
+                value={player.contactInfoOfCoaches}
+                onChange={e => handleChange("contactInfoOfCoaches", e.target.value)}
+                placeholder='Contact info'
                 className='contact_input'
               />
             </div>
           </div>
         </div>
+
+        {/* Other Information */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Other Information</h4>
@@ -311,7 +299,7 @@ const EditProfile = () => {
               />
             </div>
             <div className="contact_input_container">
-              <h4>Are you willing to relocate for opportunities?*</h4>
+              <h4>Are you willing to relocate?*</h4>
               <Select
                 showSearch
                 placeholder="Option"
@@ -324,6 +312,30 @@ const EditProfile = () => {
                   { value: 'No', label: 'No' },
                 ]}
               />
+            </div>
+          </div>
+        </div>
+
+        {/* Media Upload */}
+        <div className="edit_card">
+          <div className="edit_card_top">
+            <h4>Upload Media</h4>
+          </div>
+          <div className="contact_card_bottom">
+            <div className="contact_input_container">
+              <input 
+                type="file"
+                accept="video/*,image/*"
+                onChange={handleMediaUpload}
+                className='contact_input'
+              />
+              {player.media && (
+                <video 
+                  controls 
+                  src={URL.createObjectURL(player.media)} 
+                  style={{ marginTop: '10px', maxWidth: '20%' }}
+                />
+              )}
             </div>
           </div>
         </div>

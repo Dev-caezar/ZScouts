@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/playervideo.css";
-import { IoIosStar, IoMdVideocam } from 'react-icons/io';
+import { IoIosStar } from 'react-icons/io';
 import { RiDeleteBin6Fill } from 'react-icons/ri';
 import Popup from '../components/Popup';
 import DeleteVideoPopup from '../components/DeleteVideoPopUp';
 import { toast } from 'react-toastify';
 import { FaVideo } from "react-icons/fa";
+import { useParams } from 'react-router';
+import axios from 'axios';
 
 const PlayerVideo = () => {
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
@@ -16,18 +18,20 @@ const PlayerVideo = () => {
   const [isDeletePopUp, setIsDeletePopup] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
+  const { id } = useParams();
+  const [videos, setVideos] = useState([]);
+  const BASE_URL = "https://zscouts.onrender.com";
 
   const handleDelete = (id) => {
-    const upDatedPost = post.filter((post) => post.id !== id);
-    setPost(upDatedPost);
-    localStorage.setItem("post", JSON.stringify(upDatedPost));
+    const updatedPost = post.filter((post) => post.id !== id);
+    setPost(updatedPost);
+    localStorage.setItem("post", JSON.stringify(updatedPost));
   };
 
   const handleCloseAllPopups = () => {
-  setIsPreviewVisible(false);
-  setIsPopUpOpen(false);
-};
-
+    setIsPreviewVisible(false);
+    setIsPopUpOpen(false);
+  };
 
   const getTimeAgo = (timestamp) => {
     const now = new Date();
@@ -54,40 +58,45 @@ const PlayerVideo = () => {
       const newPost = {
         id: Date.now(),
         image: imageValue,
-        timestamp: new Date().toLocaleString(),
+        timestamp: new Date().toISOString(),
         isVideo,
       };
-      const upDatedPost = [newPost, ...post];
-      setPost(upDatedPost);
-      localStorage.setItem("post", JSON.stringify(upDatedPost));
+      const updatedPost = [newPost, ...post];
+      setPost(updatedPost);
+      localStorage.setItem("post", JSON.stringify(updatedPost));
       setImageValue("");
-
       setTimeout(() => {
         setIsPopUpOpen(false);
         setIsPreviewVisible(false);
       });
-
       setIsposting(false);
     }, 2000);
   };
 
   useEffect(() => {
-    const savedPost = JSON.parse(localStorage.getItem("post"));
-    if (savedPost) {
-      setPost(savedPost);
-    }
-  }, []);
+    const fetchVideos = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/players/player-vids/${id}`);
+        console.log("Fetched videos:", response.data.data); 
+        setVideos(response.data.data);
+      } catch (error) {
+        console.error("Error fetching video:", error);
+      }
+    };
+  
+    fetchVideos();
+  }, [id]);
+  
 
   const getImageUrl = (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
     const fileType = file.type.split('/')[0];
-
     if (fileType === 'video') {
       setIsVideo(true);
       setImageValue(URL.createObjectURL(file));
-      setIsPreviewVisible(true); 
+      setIsPreviewVisible(true);
     } else {
       toast.warning('Only video files are allowed!');
       e.target.value = '';
@@ -97,12 +106,13 @@ const PlayerVideo = () => {
   return (
     <div className="player-video-main">
       <div className="player-video-main-wrap">
-
         <Popup isopen={isPopUpOpen} onclose={() => setIsPopUpOpen(false)}>
           <div className="pop-up-inner-content">
             <div className="popup-header">
               <div className="create-post-div"><h1>Editor</h1></div>
-              <div className="cancel-btn-div"><button onClick={() => setIsPopUpOpen(false)} className="pop-up-cancel-btn">X</button></div>
+              <div className="cancel-btn-div">
+                <button onClick={() => setIsPopUpOpen(false)} className="pop-up-cancel-btn">X</button>
+              </div>
             </div>
             <div className="popup-bottom">
               <div className="pop-up-bottom-inner">
@@ -127,18 +137,30 @@ const PlayerVideo = () => {
               <div className='mini-preview-inner-content-bottom'>
                 <div className='my-image-value-div'>
                   {imageValue && isVideo ? (
-                    <video controls width="100%" >
-                      <source src={imageValue} type='video/mp4'/>
-                    </video> 
+                    <video controls width="100%">
+                      <source src={imageValue} type='video/mp4' />
+                    </video>
                   ) : (
-                     <img src={imageValue} alt="preview" />
-                  )
-                  }
+                    <img src={imageValue} alt="preview" />
+                  )}
                 </div>
                 <div className='text-area-div'>
-                  <div className='text-area-div-1'><textarea name="" id="" className='my-text-area-main-main' placeholder='Add description...'></textarea></div>
+                  <div className='text-area-div-1'>
+                    <textarea className='my-text-area-main-main' placeholder='Add description...'></textarea>
+                  </div>
                   <div className='text-area-div-2'>
-                    <button onClick={handlePost} disabled={!imageValue} style={{backgroundColor: !imageValue ? "#ccc" : "#0c8f00", cursor: !imageValue ? "not-allowed" : "pointer", opacity: isPosting ? 0.6 : 1  }} className='post-video-div'>{isPosting ? ( <div className="spinner"></div>) : "Post"}</button>
+                    <button
+                      onClick={handlePost}
+                      disabled={!imageValue}
+                      style={{
+                        backgroundColor: !imageValue ? "#ccc" : "#0c8f00",
+                        cursor: !imageValue ? "not-allowed" : "pointer",
+                        opacity: isPosting ? 0.6 : 1
+                      }}
+                      className='post-video-div'
+                    >
+                      {isPosting ? (<div className="spinner"></div>) : "Post"}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -152,7 +174,15 @@ const PlayerVideo = () => {
             <div className="are-you-sure-you-want-text"><p>Are you sure you want to delete this video?</p></div>
             <div className="delete-popup-btn-div">
               <button onClick={() => setIsDeletePopup(false)} className="delete-popup-btn-div-cancel">Cancel</button>
-              <button onClick={() => { handleDelete(postToDelete); setIsDeletePopup(false); }} className="delete-popup-btn-div-yes">Yes</button>
+              <button
+                onClick={() => {
+                  handleDelete(postToDelete);
+                  setIsDeletePopup(false);
+                }}
+                className="delete-popup-btn-div-yes"
+              >
+                Yes
+              </button>
             </div>
           </div>
         </DeleteVideoPopup>
@@ -164,32 +194,65 @@ const PlayerVideo = () => {
           </div>
         </div>
 
+        {/* Local Videos */}
         <div className="all-my-mapped-videos">
-          {post.length === 0 ? <h5 style={{ color: "red" }}>No videos posted yet</h5> : (
+          {post.length === 0 ? (
+            <h5 style={{ color: "red" }}>No videos posted yet</h5>
+          ) : (
             post.map((post) => (
               <div className="One-posted-video" key={post.id}>
                 <div className="video-div-top">
-                  {post.isVideo ? (
-                    <video controls width="100%">
-                      <source src={post.image} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={post.image} alt="uploaded" />
-                  )}
+                  <video controls width="100%">
+                    <source src={post.image} type="video/mp4" />
+                  </video>
                 </div>
                 <div className="video-text-div-buttom">
                   <div className="video-text-div-buttom-wrap">
                     <div className="match-highlight-text"><h1>Match Highlights - April 2025</h1></div>
                     <div className="time-of-video-posted"><p>{getTimeAgo(post.timestamp)}</p></div>
                     <div className="rating-and-delete">
-                      <div className="video-rating-div"><IoIosStar /><IoIosStar /><IoIosStar /><IoIosStar /><IoIosStar /></div>
-                      <div className="video-delete-div"><button onClick={() => { setPostToDelete(post.id); setIsDeletePopup(true); }} className="my-video-delete-btn"><RiDeleteBin6Fill style={{ fontSize: "17px" }} /> Delete</button></div>
+                      <div className="video-rating-div">
+                        <IoIosStar /><IoIosStar /><IoIosStar /><IoIosStar /><IoIosStar />
+                      </div>
+                      <div className="video-delete-div">
+                        <button
+                          onClick={() => {
+                            setPostToDelete(post.id);
+                            setIsDeletePopup(true);
+                          }}
+                          className="my-video-delete-btn"
+                        >
+                          <RiDeleteBin6Fill style={{ fontSize: "17px" }} /> Delete
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             ))
           )}
+        </div>
+
+        <div className="all-my-mapped-videos">
+        {Array.isArray(videos) && videos.length > 0 ? (
+          videos.map((vid, index) => (
+            <div key={index} className="One-posted-video">
+              <div className="video-div-top">
+                <video controls width="100%">
+                  <source src={vid.media} type="video/mp4" />
+                </video>
+              </div>
+              <div className="video-text-div-buttom">
+                <div className="video-text-div-buttom-wrap">
+                  <div className="match-highlight-text"><h1>Match Highlight</h1></div>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <h5 style={{ color: "red" }}>No videos posted yet</h5>
+        )}
+
         </div>
 
         <div className="down-div-footer"></div>

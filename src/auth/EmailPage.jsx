@@ -26,7 +26,7 @@ const EmailPage = () => {
       }, 4000)
     } catch (err) {
       console.log(err)
-      toast.error(err?.response?.data?.message || "Verification failed")
+      // toast.error(err?.response?.data?.message || "Verification failed")
     } finally {
       setLoading(false)
     }

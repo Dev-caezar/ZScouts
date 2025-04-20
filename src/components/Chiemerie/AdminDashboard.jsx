@@ -8,9 +8,12 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { IoMdPeople } from "react-icons/io";
 import Modal from "antd/es/modal/Modal";
 import { useState } from "react";
+import axios from "axios";
 
 
 const AdminDashboard = () => {
+
+
   const [adminLogoutModal,setAdminLogoutModal] = useState(false);
 
   const handleLogout = () => {
@@ -23,7 +26,7 @@ const AdminDashboard = () => {
         <section className="adminSection">
         <div className="admindashboardlogo"></div>
         <div className="overview-players-scout">
-          <p className="admin-dashboardOverview" onClick={()=>navigate("")}><CgMenuGridR size={26}/> Dashboard Overview</p>
+          <p className="admin-dashboardOverview"><CgMenuGridR size={26}/> Dashboard Overview</p>
         <p className="admin-dashboardOverview" onClick={()=>navigate("players_admindashboard")}><RiSearchFill size={26}/> Players Management</p>
         <p className="admin-dashboardOverview" onClick={()=>navigate("scout_admindashboard")}><IoMdPeople size={26}/> Scout Management</p>
         </div>

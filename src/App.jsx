@@ -36,6 +36,7 @@ import AdminScoutDashboard from './components/Chiemerie/AdminScoutDashboard';
 import AdmindashboardOverview from './components/Chiemerie/AdmindashboardOverview';
 import EmailPagePlayer from './auth/EmailPagePlayer';
 import EmailVerifyPlayer from './auth/EmailVerifyPlayer';
+import PlayerDiscovery from './pages/PlayerDiscovery';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -138,11 +139,11 @@ const App = () => {
           element: <PlayerProfile />,
         },
         {
-          path: "edit_profile",
+          path: "edit_profile/:id",
           element: <EditProfile />,
         },
         {
-          path: "player_video",
+          path: "player_video/:id",
           element: <PlayerVideo />,
         },
         {
@@ -166,7 +167,11 @@ const App = () => {
         {
           path: "scout_setting",
           element: <ScoutSettings />,
-        }
+        },
+        {
+          path: "player_discovery",
+          element: <PlayerDiscovery />,
+        },
       ],
     },
     {

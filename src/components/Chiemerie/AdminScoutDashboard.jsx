@@ -1,5 +1,6 @@
 import "./adminScoutDashboard.css"
 import { MdDeleteForever } from "react-icons/md";
+import axios from "axios";
 const AdminScoutDashboard = () => {
   const playerManagement=[
     {id:1, name:"Micheal Onyekachi", position:"mildfielder", sub:"free", date:"25/04/2025"},
@@ -12,6 +13,15 @@ const AdminScoutDashboard = () => {
     {id:1, name:"Micheal Onyekachi", position:"mildfielder", sub:"free", date:"25/04/2025"},
     {id:1, name:"Micheal Onyekachi", position:"mildfielder", sub:"free", date:"25/04/2025"},
   ]
+  const BASE_URL2 = "https://zscouts.onrender.com";
+   const handleDeleteScout = async (id) => {
+      try {
+        const res = await axios.delete(`${BASE_URL2}/scouts/${id}`);
+        console.log("Scout account deleted successfully", res.data);
+      } catch (err) {
+        console.error("Failed to delete scout", err);
+      }
+    };
   return (
     <div className="AdminscoutsManagement-wrapper">
        <div className="playersManagement-div">

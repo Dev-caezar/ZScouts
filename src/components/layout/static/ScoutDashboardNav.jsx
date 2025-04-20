@@ -10,7 +10,7 @@ const ScoutDashboardNav = () => {
       const nav = useNavigate();
     
       const handlePlayerProfile = () => nav("/scout_profile");
-      const handlePlayerVideo = () => nav("/scout_form");
+      const handlePlayerVideo = () => nav("/player_discovery");
       const handlePlayerSettings = () => nav("/scout_setting");
       const handleLogout = () => setLogout(true);
     
