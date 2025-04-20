@@ -132,11 +132,8 @@ const PlayerVideo = () => {
                     <img src={imageValue} alt="preview" />
                   )}
                 </div>
-                <div className='text-area-div'>
-                  <div className='text-area-div-1'>
-                    <textarea className='my-text-area-main-main' placeholder='Add description...'></textarea>
-                  </div>
-                  <div className='text-area-div-2'>
+              </div>
+              <div className='post-btn-div-buttom'>
                     <button
                       onClick={uploadPlayerVideo}
                       disabled={!imageValue}
@@ -148,9 +145,7 @@ const PlayerVideo = () => {
                     >
                       {isPosting ? (<div className="spinner"></div>) : "Post"}
                     </button>
-                  </div>
-                </div>
-              </div>
+                    </div>
             </div>
           </div>
         )}
@@ -192,6 +187,12 @@ const PlayerVideo = () => {
                 </div>
                 <div className="video-text-div-buttom">
                   <div className="video-text-div-buttom-wrap">
+                    <div className='rating-and-delete'>
+                      <div className='video-rating-div'><IoIosStar/><IoIosStar/><IoIosStar/><IoIosStar/><IoIosStar/></div>
+                      <div className='video-delete-div'>
+                        <button className='my-video-delete-btn'><RiDeleteBin6Fill/></button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
