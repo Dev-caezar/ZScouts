@@ -2,8 +2,11 @@ import React from 'react'
 import "../styles/getoneplayervideo.css"
 import { IoIosStar } from 'react-icons/io';
 import { TbArrowBackUp } from "react-icons/tb";
+import { useNavigate } from 'react-router';
 
 const GetOnePlayerVideo = () => {
+    const nav = useNavigate()
+
     const players = [
         {
             image: "",
@@ -61,7 +64,7 @@ const GetOnePlayerVideo = () => {
         <div className='get-one-player-video-main-wrap'>
             <div className='get-one-div-top'>
                 <div className='get-one-div-top-top'>
-                    <button className='my-go-back-button'><TbArrowBackUp /></button>
+                    <button onClick={()=>nav(-1)} className='my-go-back-button'><TbArrowBackUp /></button>
                 </div>
                 <div className='get-one-video-div'>
                 <video controls width="100%">
