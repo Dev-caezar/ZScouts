@@ -15,7 +15,8 @@ const DashboardHeader = () => {
   const [logout, setLogout] = useState(false)
 
   const handleOpenNav = () => setOpenNav(prev => !prev)
-      const player = useSelector(state => state.player.player)
+      const player = useSelector(state => state.player.playerDetails)
+      console.log("object", player)
   
 
   const handleLogout = () => {
@@ -44,8 +45,8 @@ const DashboardHeader = () => {
         <div className="header_right">
           <div className="header_right_img"></div>
           <div className="header_right_txt">
-            <h4>{player?.data?.fullname}</h4>
-            <p>{player?.data?.email}</p>
+            <h4>{player?.fullname}</h4>
+            <p>{player?.email}</p>
           </div>
           <HiMenuAlt3 className='dash_icon' onClick={handleOpenNav} />
           {openNav && (

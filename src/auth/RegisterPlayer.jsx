@@ -6,11 +6,16 @@ import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { Flex, Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+import { setPlayerDetails} from '../global/Player';
 
 const RegisterPlayer = () => {
   const [showPass, setShowPass] = useState(false)
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const handlePassword =()=>{
     setShowPass((prev)=> !prev)
@@ -100,6 +105,7 @@ const RegisterPlayer = () => {
     const { termsAgreed, ...data} = formData
     try {
       const res = await axios.post(`${BASE_URL}/api/players/register`, data)
+      dispatch(setPlayerDetails(res.data.data))
       toast.success('Sign up successful. please check your Email to verify')
       setLoading(false)
       setTimeout(() => {
@@ -124,7 +130,7 @@ const RegisterPlayer = () => {
     }
    }
 
-
+  const loadingIcon = <LoadingOutlined style={{ fontSize: 25, color: "white" }} spin />
   return (
     <div className='player_register_body'>
        <div className="player_register_card">
@@ -161,7 +167,11 @@ const RegisterPlayer = () => {
             <p>I agree to <span>Terms & Conditions</span></p>
           </div>
         </div>
-        <button  type="submit" style={{cursor: isDisabled || loading ? 'not-allowed' : 'pointer',backgroundColor: isDisabled || loading ? '#ccc' : '#0C8F00',color: isDisabled || loading ? '#666' : '#fff'}}  disabled={isDisabled || loading } className='player_register_button'> {loading ? 'Creating...' : 'Create Account'}</button>
+        <button  type="submit" style={{cursor: isDisabled || loading ? 'not-allowed' : 'pointer'}}  disabled={isDisabled || loading } className='player_register_button'> {loading ?
+        <Flex align="center" justify="center" style={{ height: "100%" }}>
+          <Spin indicator={loadingIcon} />
+      </Flex>
+         : 'Create Account'}</button>
         </form>
         <div className="second_option">
           <div className="line"></div>
