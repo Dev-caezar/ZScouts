@@ -19,6 +19,7 @@ import RegisterPlayer from "../auth/RegisterPlayer";
 import EmailVerify from "../auth/emailVerify";
 import PlayerProfile from "../pages/PlayerProfile";
 
+
 export const Element = createBrowserRouter([
   {
     path: "/",
@@ -94,6 +95,8 @@ export const Element = createBrowserRouter([
         path: "player_profile",
         element: <PlayerProfile />,
       },
+
+     
     ],
   },
   {

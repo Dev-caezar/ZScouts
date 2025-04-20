@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/playerdiscovery.css";
-
+import 'animate.css';
+import LogoCycle2 from "../assets/LogoCycle2.png"
+import { RxReload } from "react-icons/rx";
 const PlayerDiscovery = () => {
   const [players, setPlayers] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -149,7 +151,13 @@ const PlayerDiscovery = () => {
               </div>
             ))
           ) : (
-            <h5 style={{ color: "red" }}>No players found</h5>
+            <div className="loadingPage">
+              <div className="loading-cycle">
+            <img src={LogoCycle2} alt="" className="LogoCycle2" />
+              </div>
+              <div className="favicondiv"></div>
+            </div>
+    
           )}
         </div>
       </div>

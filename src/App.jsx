@@ -36,6 +36,7 @@ import AdminScoutDashboard from './components/Chiemerie/AdminScoutDashboard';
 import AdmindashboardOverview from './components/Chiemerie/AdmindashboardOverview';
 import EmailPagePlayer from './auth/EmailPagePlayer';
 import EmailVerifyPlayer from './auth/EmailVerifyPlayer';
+import PlayerDetails from './components/Chiemerie/PlayerDetails';
 import GetOnePlayerVideo from './pages/GetOnePlayerVideo';
 
 const App = () => {
@@ -150,6 +151,8 @@ const App = () => {
           path: "player_setting/:id",
           element: <PlayerSettings />,
         },
+
+       
       ],
     },
     {
@@ -168,7 +171,10 @@ const App = () => {
           path: "scout_setting",
           element: <ScoutSettings />,
         },
-
+         
+        {
+          path:"player_details",
+          element:<PlayerDetails/>
         {
           path: "get_one_player_video",
           element: < GetOnePlayerVideo />,
