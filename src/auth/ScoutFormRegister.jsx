@@ -5,10 +5,12 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { setPlayerKyc } from "../global/Player"
+import { Select } from "antd"
 
 const ScoutFormRegister = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.user.scoutDetails.data.id)
+  console.log(user)
   const [scoutForm, setScoutform] = useState({
     nationality: "",
     phoneNumber: "",
@@ -69,9 +71,8 @@ const ScoutFormRegister = () => {
             <p className="scoutCompleteKYCTecxt">Complete your KYC to connect with verified talent. It only takes a few minutes.</p>
           </div>
         </div>
-
         <div className="scoutHeaderForm2">
-          <button onClick={() => navigate("/scout_form")} className="scoutComplete-KYC-button">Complete KYC</button>
+          <button style={{cursor: "not-allowed", background: "gray"}} className="scoutComplete-KYC-button">Complete KYC</button>
         </div>
       </div>
 
@@ -110,10 +111,22 @@ const ScoutFormRegister = () => {
 
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Scouting Role*</p>
-              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Role"
+              <Select
+                showSearch
+                placeholder="Scouting role"
+                optionFilterProp="label"
+                onChange={(value) => setScoutform({ ...scoutForm, scoutingRole: value })}
                 value={scoutForm.scoutingRole}
-                onChange={(e) => setScoutform({ ...scoutForm, scoutingRole: e.target.value })}
+                style={{ width: '100%' }}
+                options={[
+                  { value: 'Video scout', label: 'Video scout' },
+                  { value: 'Talent scout', label: 'Talent scout' },
+                  { value: 'Technical scout', label: 'Technical scout' },
+                  { value: 'International scout', label: 'International scout' },
+                  { value: 'First team scout', label: 'First team scout' },
+                ]}
               />
+
             </article>
 
             <article className="scoutInformationFormArticle">
@@ -131,9 +144,19 @@ const ScoutFormRegister = () => {
           <div className="scoutInformationsTitlesForminput-holder">
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Preferred Position*</p>
-              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Positions"
+              <Select
+                showSearch
+                placeholder="preferred position"
+                optionFilterProp="label"
+                onChange={(value) => setScoutform({ ...scoutForm, preferredPosition: value })}
                 value={scoutForm.preferredPosition}
-                onChange={(e) => setScoutform({ ...scoutForm, preferredPosition: e.target.value })}
+                style={{ width: '100%' }}
+                options={[
+                  { value: 'GK', label: 'GK' },
+                  { value: 'DEF', label: 'DEF' },
+                  { value: 'MF', label: 'MF' },
+                  { value: 'ST', label: 'ST' },
+                ]}
               />
             </article>
 
@@ -159,7 +182,7 @@ const ScoutFormRegister = () => {
           <span className="scoutInformationsTitlesFormTitile">Credentials</span>
           <p className="scoutInformationLabel-text">Upload Verification Document*</p>
           <div className="credentials-Certificate-Upload">
-            <article className="Upload-Certificate">
+            <article style={{fontSize: "15px"}} className="Upload-Certificate">
               Verification Document Upload
               <label className="custom-upload">
                 Upload
@@ -169,14 +192,7 @@ const ScoutFormRegister = () => {
           </div>
         </div>
       </div>
-
-      <button
-        className="ScoutSubmitFormButton"
-        onClick={handleSubmit}
-        disabled={!scoutForm.verificationDocument}
-      >
-        Submit
-      </button>
+      <button className="ScoutSubmitFormButton" onClick={handleSubmit} disabled={!scoutForm.verificationDocument}>Submit</button>
     </div>
   )
 }

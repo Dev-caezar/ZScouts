@@ -22,8 +22,11 @@ const PlayerVideo = () => {
   const [loading, setLoading] = useState(false);
   const [videos, setVideos] = useState([]);
 
+  console.log(video)
+
   const BASE_URL = "https://zscouts.onrender.com";
   const playerId = useSelector((state) => state.player.playerKyc);
+  console.log(playerId.id)
 
   const handleCloseAllPopups = () => {
     setIsPreviewVisible(false);
@@ -46,7 +49,7 @@ const PlayerVideo = () => {
   };
 
   const handlePost = async () => {
-    if (!video) return;
+    if (!imageValue) return;
 
     setIsPosting(true);
 
@@ -55,10 +58,10 @@ const PlayerVideo = () => {
       const file = fileInput.files[0];
 
       const formData = new FormData();
-      formData.append('playerId', playerId.id);
+      formData.append('playerId', playerId);
       formData.append('video', file);
 
-      await axios.post(`${BASE_URL}/api/v1/videoupload/${playerId.id}`, formData, {
+      const response = await axios.post(`${BASE_URL}/api/v1/videoupload/${playerId.id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -68,7 +71,7 @@ const PlayerVideo = () => {
       setIsPopUpOpen(false);
       setIsPreviewVisible(false);
       setVideo("");
-      fetchVideos();
+      fetchVideos();  // Refresh video list
 
     } catch (error) {
       console.error("Error uploading video:", error);

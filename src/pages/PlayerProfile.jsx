@@ -83,7 +83,7 @@ const PlayerProfile = () => {
               <h4>Personal Information</h4>
             </div>
             <div className="details_bottom">
-              <div className="info"><h4>Full Name</h4><p>{player?.fullname || "-"}</p></div>
+              {/* <div className="info"><h4>Full Name</h4><p>{player?.fullname || "-"}</p></div> */}
               <div className="info"><h4>Age</h4><p>{playerKyc?.age || "-"}</p></div>
               <div className="info"><h4>Nationality</h4><p>{playerKyc?.nationality || "-"}</p></div>
               <div className="info"><h4>Height (CM)</h4><p>{playerKyc?.height || "-"}</p></div>

@@ -4,10 +4,9 @@ import "../styles/editProfile.css";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import Profiletracker from '../components/layout/static/Profiletracker';
 import { Flex, Select, Spin } from 'antd';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import {setPlayerKyc } from '../global/Player';
-import { toast } from 'react-toastify';
+import { setPlayerKyc } from '../global/Player';
 import { LoadingOutlined } from '@ant-design/icons';
 
 const EditProfile = () => {
@@ -59,13 +58,11 @@ const EditProfile = () => {
       const response = await axios.post(`${BASE_URL}/api/v1/playerkyc/${players}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
+
+      console.log("Player profile submitted:", response.data);
       setLoading(false)
-      console.log("Player profile submitted:", response);
-      dispatch(setPlayerKyc(response?.data?.data));
-      toast.success("Profile submitted successfully!");
-      setTimeout(()=>{
-        navigate(-1)
-      },2000)
+      dispatch(setPlayerKyc(response.data));
+      alert("Profile submitted successfully!");
     } catch (error) {
       console.error("Error submitting profile:", error);
       setLoading(false)

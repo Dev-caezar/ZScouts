@@ -5,7 +5,7 @@
     background: transparent;
     position: fixed;
     z-index: 999;
-    padding-left: 100px;
+    padding-left: 150px;
 }
 
        
@@ -22,10 +22,10 @@
 
 .pop-up-content{
     background-color: white;
-    width: 72%;
+    width: 50%;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    height: 73%;
+    height: 76%;
     animation: zoomIn 1s ease-out;
 }
 
@@ -40,7 +40,7 @@
     }
 
     .pop-up-content{
-        width: 80%;
+        width: 90%;
         /* background-color: blue; */
         height: 60%;
         border: 1px solid gray;
@@ -60,7 +60,7 @@
     }
 
     .pop-up-content{
-        width: 85%;
+        width: 90%;
         /* background-color: blue; */
         height: 65%;
         border: 1px solid gray;

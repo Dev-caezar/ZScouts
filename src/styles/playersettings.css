@@ -50,7 +50,7 @@
     justify-content: center;
     font-weight: bold;
     font-size: 20px;
-    overflow: hidden;
+    /* overflow: hidden;? */
 }
 .player-settings-main-inner-1 img {
     width: 100%;
@@ -76,7 +76,7 @@
     font-size: 20px;
     cursor: pointer;
     color: gray;
-    right: 5px;
+    right: 9px;
 }
 
 .player-settings-main-inner-2{

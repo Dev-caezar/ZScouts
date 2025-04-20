@@ -12,7 +12,7 @@ const PlayerSettings = () => {
   const [isPopUpOpen, setIsPopupOpen] = useState(false);
   const player = useSelector((state)=> state.player.playerKyc)
   const profile = useSelector((state)=> state.player.playerDetails)
-  console.log(player.profilePic)
+  console.log(player?.profilePic)
   const dispatch = useDispatch()
 
   const BASE_URL = "https://zscouts.onrender.com";
@@ -76,9 +76,9 @@ const PlayerSettings = () => {
           <div className='player-settings-main-inner'>
             <div className='player-settings-main-inner-1'>
               {
-                player.profilePic? 
+                player?.profilePic? 
                 <img 
-                src={imageValue ? URL.createObjectURL(imageValue) :player.profilePic} 
+                src={imageValue ? URL.createObjectURL(imageValue) :player?.profilePic} 
                 alt="profile preview" 
               />:
               <span className="sprofile_initial">{firstInitial}</span>

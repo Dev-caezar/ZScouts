@@ -9,7 +9,7 @@ import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 const ScoutProfile = () => {
-  const [profilepic, setProfilePic] = useState(null);
+  const [profilepic, setProfilePic] = useState();
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
   const BASE_URL = "https://zscouts.onrender.com";
@@ -109,9 +109,10 @@ const ScoutProfile = () => {
         </div>
       )}
 
+
       <div className="scoutProfileImage-scoutText-wrappper">
         <div className="scoutProfileImage">
-          <img src={profilepic?.url || authenticated?.data?.profilepic} alt="Profile" />
+          <img src={profilepic?.url || authenticated?.data?.profilepic} alt="" />
          <label htmlFor="l">
          <HiPlusCircle className="HiPlusCircle"  size={30} style={{ color: "white" }} />
          <input type="file" id="l" onChange={getImageUrl} hidden />

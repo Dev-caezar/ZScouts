@@ -126,9 +126,9 @@ useEffect(() => {
                         <small style={{ paddingInline: 10, color: 'red' }}>{emailErr}</small>
                     </div>
                     <div class="playerlogin_floating-label">
-                        <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='plogin_input' value={password} onChange={handleChangePassword} style={{ borderColor: passwordErr ? 'red' : 'gray' }}/>
+                        <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='plogin_input' value={password} onChange={handleChangePassword} style={{ borderColor: passwordErr ? 'red' : 'gray' }}/>
                         <label for="password" className='plogin_Label'>Password </label>
-                       {!showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
+                       {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
                         <FaRegEye className='eye' onClick={handlePassword}/>}
                     <div className="player_forgot_password">
                       <p onClick={handleFrgotPass}>Forgot password?</p>

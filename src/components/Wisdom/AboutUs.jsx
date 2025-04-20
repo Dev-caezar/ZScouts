@@ -34,7 +34,7 @@ const AboutUs = () => {
     },
     {
       image: "https://res.cloudinary.com/dmpxlspl8/image/upload/v1744638066/g8iqi9nfd3tof5gbtkcl.jpg",
-      name: "Chiemerie",
+      name: "Chiemerie Egbujor",
       stack: "Frontend Developer",
     },
     {
