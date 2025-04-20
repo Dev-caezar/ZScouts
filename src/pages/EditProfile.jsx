@@ -6,7 +6,7 @@ import Profiletracker from '../components/layout/static/Profiletracker';
 import { Select } from 'antd';
 import { useNavigate, useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { setPlayerDetails } from '../global/Player';
+import { setPlayerKyc } from '../global/Player';
 
 const EditProfile = () => {
   const { id } = useParams();
@@ -56,8 +56,8 @@ const EditProfile = () => {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 
-      console.log("Player profile submitted:", response);
-      dispatch(setPlayerKyc(response?.data?.data));
+      console.log("Player profile submitted:", response.data);
+      dispatch(setPlayerKyc(response.data));
       alert("Profile submitted successfully!");
     } catch (error) {
       console.error("Error submitting profile:", error);

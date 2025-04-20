@@ -28,7 +28,6 @@ const DashboardNav = () => {
     closeModal();
     nav("/")
   };
-
   return (
     <div className='sidebar_body'>
       <div className="sidebar_wrapper">

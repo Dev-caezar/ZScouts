@@ -66,9 +66,8 @@ const ScoutFormRegister = () => {
             <p className="scoutCompleteKYCTecxt">Complete your KYC to connect with verified talent. It only takes a few minutes.</p>
           </div>
         </div>
-
         <div className="scoutHeaderForm2">
-          <button onClick={() => navigate("/scout_form")} className="scoutComplete-KYC-button">Complete KYC</button>
+          <button style={{cursor: "not-allowed", background: "gray"}} className="scoutComplete-KYC-button">Complete KYC</button>
         </div>
       </div>
 
@@ -156,7 +155,7 @@ const ScoutFormRegister = () => {
           <span className="scoutInformationsTitlesFormTitile">Credentials</span>
           <p className="scoutInformationLabel-text">Upload Verification Document*</p>
           <div className="credentials-Certificate-Upload">
-            <article className="Upload-Certificate">
+            <article style={{fontSize: "15px"}} className="Upload-Certificate">
               Verification Document Upload
               <label className="custom-upload">
                 Upload
@@ -166,14 +165,7 @@ const ScoutFormRegister = () => {
           </div>
         </div>
       </div>
-
-      <button
-        className="ScoutSubmitFormButton"
-        onClick={handleSubmit}
-        disabled={!scoutForm.verificationDocument}
-      >
-        Submit
-      </button>
+      <button className="ScoutSubmitFormButton" onClick={handleSubmit} disabled={!scoutForm.verificationDocument}>Submit</button>
     </div>
   )
 }
