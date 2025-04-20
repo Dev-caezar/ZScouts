@@ -5,12 +5,15 @@ import { FaRegEye } from "react-icons/fa6";
 import DeactivatePopup from '../components/DeactivatePopup';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 const PlayerSettings = () => {
   const [imageValue, setImageValue] = useState(null);
   const [isPopUpOpen, setIsPopupOpen] = useState(false);
-  const {id} = useParams();
+  const player = useSelector((state)=> state.player.playerKyc)
+  const profile = useSelector((state)=> state.player.playerDetails)
+  console.log(player.profilePic)
+  const dispatch = useDispatch()
 
   const BASE_URL = "https://zscouts.onrender.com";
 
@@ -45,17 +48,18 @@ const PlayerSettings = () => {
 
     const formData = new FormData();
     formData.append("profilepic", imageValue);
-    formData.append("id", id);
+    formData.append("id", player);
 
     try {
-      const response = await axios.post(`${BASE_URL}/api/v1/profilepic/${id}`, formData);
+      const response = await axios.post(`${BASE_URL}/api/v1/profilepic/${player.id}`, formData);
+      console.log("profile pics:", response.data.data)
       toast.success("Profile picture uploaded successfully!");
     } catch (error) {
       console.error(error);
       toast.error("Failed to upload image. Please try again.");
     }
   };
-
+  const firstInitial = profile?.fullname ? profile.fullname.charAt(0).toUpperCase() : '';
   return (
     <div className='player-settings-main'>
       <div className='player-settings-main-wrap'>
@@ -71,10 +75,14 @@ const PlayerSettings = () => {
         <div className='setting-profile-picture-div'>
           <div className='player-settings-main-inner'>
             <div className='player-settings-main-inner-1'>
-              <img 
-                src={imageValue ? URL.createObjectURL(imageValue) : "https://via.placeholder.com/150"} 
+              {
+                player.profilePic? 
+                <img 
+                src={imageValue ? URL.createObjectURL(imageValue) :player.profilePic} 
                 alt="profile preview" 
-              />
+              />:
+              <span className="sprofile_initial">{firstInitial}</span>
+              }
               <div className='player-setting-upload-icon'>
                 <input type="file" id='l' hidden onChange={getImageUrl} />
                 <label htmlFor="l"><TiPlus style={{ cursor: "pointer" }} /></label>
@@ -82,13 +90,8 @@ const PlayerSettings = () => {
             </div>
 
             <div className='player-settings-main-inner-2'>
-              <p style={{ fontWeight: "600", color: "#333333" }}>Osuji Wisdom</p>
-              <p style={{ fontSize: "11px", fontWeight: "600", color: "gray" }}>wisdomosuji26@gmail.com</p>
-              <p 
-                onClick={() => setIsPopupOpen(true)} 
-                style={{ textDecoration: "underline", color: "red", fontSize: "13px", cursor: "pointer", fontWeight: "500" }}>
-                Deactivate account
-              </p>
+              <p style={{ fontWeight: "600", color: "#333333" }}>{profile.fullname}</p>
+              <p style={{ fontSize: "11px", fontWeight: "600", color: "gray" }}>{profile.email}</p>
             </div>
           </div>
         </div>
@@ -180,15 +183,6 @@ const PlayerSettings = () => {
                 <div className='youre-on-a-fee-plan-middle'>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</div>
                 <div className='youre-on-a-fee-plan-bottom'>
                   <button className='upgrade-to-premium-btn'>Upgrade to premium</button>
-                </div>
-              </div>
-            </div>
-            <div className='subscription-div-plan-bottom3-footer'>
-              <div className='all-right-reserved-and-privacy-and-terms'>
-                <div className='all-right-reserved'>©2025 Zcout | All rights reserved</div>
-                <div className='privacy-and-terms'>
-                  <p>Privacy</p>
-                  <p>Terms</p>
                 </div>
               </div>
             </div>

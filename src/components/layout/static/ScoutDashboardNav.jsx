@@ -3,20 +3,25 @@ import { AiFillSetting } from 'react-icons/ai';
 import { BiSolidCategory } from 'react-icons/bi';
 import { IoLogOut } from 'react-icons/io5';
 import { MdVideoLibrary } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { logout } from '../../../global/Fearures';
+
 
 const ScoutDashboardNav = () => {
-     const [logout, setLogout] = useState(false);
+     const [logoutState, setLogoutState] = useState(false);
       const nav = useNavigate();
+      const dispatch = useDispatch()
     
       const handlePlayerProfile = () => nav("/scout_profile");
       const handlePlayerVideo = () => nav("/player_discovery");
       const handlePlayerSettings = () => nav("/scout_setting");
-      const handleLogout = () => setLogout(true);
+      const handleLogout = () => setLogoutState(true);
     
-      const closeModal = () => setLogout(false);
+      const closeModal = () => setLogoutState(false);
     
       const confirmLogout = () => {
+        dispatch(logout())
         console.log("Logged out");
         nav("/")
         closeModal();
@@ -53,13 +58,13 @@ const ScoutDashboardNav = () => {
               </div>
             </div>
           </div>
-          {logout && (
+          {logoutState && (
             <div className="logout_modal_overlay">
               <div className="logout_modal_content">
                 <h2>Log out</h2>
                 <h4>Are you sure you want to log out?</h4>
                 <div className="logout_modal_actions">
-                    <button className='modal_cta' onClick={()=> setLogout(false)}>Cancel</button>
+                    <button className='modal_cta' onClick={()=> setLogoutState(false)}>Cancel</button>
                     <button className='modal_accept' onClick={confirmLogout}>Yes</button>
                 </div>
               </div>

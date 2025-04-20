@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc"
 import { useNavigate } from "react-router"
 import axios from "axios"
 import { useDispatch } from "react-redux"
-import { setUser } from "../global/Fearures"
+import { setScoutDetails, setScoutToken } from "../global/Fearures"
 import { Flex, Spin } from "antd"
 import { LoadingOutlined } from "@ant-design/icons"
 import { toast } from "react-toastify"
@@ -62,9 +62,10 @@ const ScoutLogin = () => {
       try {
         const response = await axios.post(`${BASE_URL}/api/scouts/login`, login)
         console.log("Login successful:", response.data)
-        dispatch(setUser(response.data))
+        dispatch(setScoutDetails(response.data))
+        dispatch(setScoutToken(response.data))
 
-        navigate(`/scout_profile/${response.data.data.id}`)
+        navigate("/scout_profile")
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message)
         toast.error("Login failed. Please try again later.")

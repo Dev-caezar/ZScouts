@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-  user: null,
+  scoutDetails: {},
+  scoutToken: "",
+  scoutKyc: {},
   isAuthenticated: false,
 }
 
@@ -9,17 +11,26 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUser: (state, action) => {
-      state.user = action.payload
+    setScoutDetails: (state, action) => {
+      state.scoutDetails = action.payload
+      state.isAuthenticated = true
+    },
+    setScoutToken: (state, action) => {
+      state.scoutToken = action.payload
+      state.isAuthenticated = true
+    },
+    setScoutKyc: (state, action) => {
+      state.scoutKyc = action.payload
       state.isAuthenticated = true
     },
     logout: (state) => {
-      state.user = null
-      state.player = null
+      state.scoutDetails = {}
+      state.scoutToken = "";
+      state.scoutKyc= {}
       state.isAuthenticated = false
     },
   },
 })
 
-export const { setUser, setPlayer, logout } = userSlice.actions
+export const { setScoutDetails, setScoutKyc,setScoutToken, logout } = userSlice.actions
 export default userSlice.reducer

@@ -2,10 +2,13 @@ import "./scoutformregister.css"
 import { useState } from "react"
 import axios from "axios"
 import { toast } from "react-toastify"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { setPlayerKyc } from "../global/Player"
 
 const ScoutFormRegister = () => {
-  const { id } = useParams()
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.user.scoutDetails.data.id)
   const [scoutForm, setScoutform] = useState({
     nationality: "",
     phoneNumber: "",
@@ -41,12 +44,12 @@ const ScoutFormRegister = () => {
       formData.append("socialMediaProfile", scoutForm.socialMediaProfile)
       formData.append("verificationDocument", scoutForm.verificationDocument)
 
-      const response = await axios.post(`${BASE_URL}/api/v1/scoutkyc/${id}`, formData, {
+      const response = await axios.post(`${BASE_URL}/api/v1/scoutkyc/${user}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
       })
-
+      dispatch(setPlayerKyc(response.data))
       toast.success("Form submitted successfully!")
       console.log("Form data sent:", response.data)
       navigate(-1)

@@ -8,9 +8,9 @@ const Profiletracker = () => {
   const navigate = useNavigate()
 
   const player= useSelector((state)=> state.player.playerDetails.id)
-  console.log("this is my id", player)
+  // console.log("this is my id", player)
   const handleEditProfile =()=>{
-    navigate(`/edit_profile/${player}`)
+    navigate("/edit_profile")
   }
   return (
     <div className='profile_tracker_body'>
