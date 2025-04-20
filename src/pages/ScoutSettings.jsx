@@ -61,13 +61,6 @@ const ScoutSettings = () => {
           <div className="scoutprofiletext">
             <h4 className="scoutprofile_name">Ozofor Chioma</h4>
             <p className="scoutprofile_email">cynthiaozofor@gmail.com</p>
-            <p
-              className="scoutdeactivate"
-              onClick={handleDeactivate}
-              style={{ color: "red", cursor: "pointer" }}
-            >
-              Deactivate account
-            </p>
           </div>
         </div>
       </div>
@@ -79,14 +72,14 @@ const ScoutSettings = () => {
             <label>Full name</label>
             <input
               type="text"
-              placeholder="Michael Onyekachi"
+              placeholder="Enter fullname"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
             />
             <label>Email</label>
             <input
               type="email"
-              placeholder="michaelonyekachi16@gmail.com"
+              placeholder="Enter Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
