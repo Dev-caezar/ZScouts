@@ -36,6 +36,7 @@ import AdminScoutDashboard from './components/Chiemerie/AdminScoutDashboard';
 import AdmindashboardOverview from './components/Chiemerie/AdmindashboardOverview';
 import EmailPagePlayer from './auth/EmailPagePlayer';
 import EmailVerifyPlayer from './auth/EmailVerifyPlayer';
+import GetOnePlayerVideo from './pages/GetOnePlayerVideo';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -166,6 +167,11 @@ const App = () => {
         {
           path: "scout_setting",
           element: <ScoutSettings />,
+        },
+
+        {
+          path: "get_one_player_video",
+          element: < GetOnePlayerVideo />,
         }
       ],
     },
