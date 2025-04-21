@@ -1,0 +1,288 @@
+.get-one-player-video-main{
+    width: 100%;
+    height: max-content;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.get-one-player-video-main-wrap{
+    width: 98%;
+    height: auto;
+    /* background-color: yellow; */
+}
+
+.get-one-div-top{
+    width: 100%;
+    height: 72vh;
+    /* background-color: blue; */
+}
+
+.get-one-div-top-top{
+    width: 100%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+.my-go-back-button{
+    width: 5%;
+    height: 80%;
+    /* background-color: green; */
+    font-size: 35px;
+    font-weight: 600;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.get-one-video-div{
+    width: 100%;
+    height: 87%;
+    /* background-color: magenta; */
+
+    & video {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.get-one-profile{
+    width: 100%;
+    height: 28vh;
+    /* background-color: red; */
+}
+
+.get-one-div-top-text{
+    width: 100%;
+    height: 35%;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    /* background-color: yellow; */
+}
+
+.get-one-profile-main{
+    width: 100%;
+    height: 65%;
+    /* background-color: blanchedalmond; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.get-one-profile-main-iner-1{
+    width: 29%;
+    height: 90%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+}
+
+.get-one-profile-main-iner-1-circle{
+    width: 95px;
+    height: 95px;
+    border-radius: 95px;
+    /* background-color: green; */
+
+    & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+    }
+}
+
+.get-one-profile-main-iner-1-profile-text{
+    width: 67%;
+    height: 100%;
+    /* background-color: yellow; */
+}
+
+.get-one-player-name{
+    width: 100%;
+    height: 30%;
+    font-size: 18px;
+    /* background-color: green; */
+    font-weight: 600;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.get-one-player-position{
+    width: 100%;
+    height: 20%;
+    /* background-color: red; */
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    font-weight: 500;
+}
+
+.get-one-player-years{
+    width: 100%;
+    height: 20%;
+    /* background-color: magenta; */
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    font-weight: 500;
+}
+
+.get-one-player-rating-div{
+    width: 100%;
+    height: 30%;
+    /* background-color: orange; */
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    color: gray;
+    gap: 3px;
+    font-weight: 500;
+}
+
+.get-one-profile-main-iner-2{
+    width: 25%;
+    height: 100%;
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating-inner-div{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
+}
+
+.rating-inner-div-1{
+    width: 50%;
+    height: 100%;
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+.rating-inner-div-2{
+    width: 50%;
+    height: 100%;
+    /* background-color: magenta; */
+    display: flex;
+    align-items: center;
+    color: gray;
+    gap: 3px;
+    font-weight: 500;
+}
+
+.get-one-recommendations{
+    width: 100%;
+    height: max-content;
+    /* background-color: blue; */
+}
+
+.get-one-recommendation-top{
+    width: 100%;
+    height: 15vh;
+    /* background-color: red; */
+    display: flex;
+    padding-top: 30px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.get-one-recommendation-video{
+    width: 100%;
+    height: max-content;
+    /* background-color: green; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 43px;
+    /* overflow-y: auto; */
+}
+
+.one-player-profile-recommendation{
+    width: 48%;
+    height: 17%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.one-player-profile-recommendation-div-1{
+    width: 60%;
+    height: 100%;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: row;
+}
+
+
+.one-player-profile-recommendation-div-1-image{
+    width: 40%;
+    height: 100%;
+    /* background-color: yellow; */
+
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.one-player-profile-recommendation-div-1-text{
+    width: 60%;
+    height: 100%;
+    /* background-color: red; */
+}
+
+.one-player-profile-recommendation-div-1-name{
+    width: 100%;
+    height: 30%;
+    /* background-color: magenta; */
+    font-weight: 600;
+    display: flex;
+    padding-left: 15px;
+    align-items: center;
+}
+
+.one-player-profile-recommendation-div-1-position{
+    width: 100%;
+    height: 30%;
+    /* background-color: green; */
+    display: flex;
+    padding-left: 15px;
+    font-weight: 500;
+    align-items: center;
+}
+
+.one-player-profile-recommendation-div-1-years{
+    width: 100%;
+    height: 30%;
+    /* background-color: yellow; */
+    display: flex;
+    padding-left: 15px;
+    font-weight: 500;
+    align-items: center;
+}
+
+.one-player-profile-recommendation-div-2{
+    width: 40%;
+    height: 100%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    padding-left: 30px;
+    align-items: center;
+    color: gray;
+    gap: 5px;
+}

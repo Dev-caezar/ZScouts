@@ -6,9 +6,12 @@ import axios from "axios"
 import "../styles/scoutregister.css"
 import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons"
+import { useDispatch } from "react-redux"
+import { setScoutDetails } from "../global/Fearures"
 
 const ScoutRegister = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -65,18 +68,17 @@ const ScoutRegister = () => {
   }
 
   const BASE_URL = "https://zscouts.onrender.com"
-  console.log(`${BASE_URL}/api/scouts/register`)
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (validateForm()) {
       setLoading(true)
       try {
         const response = await axios.post(`${BASE_URL}/api/scouts/register`, register)
-        console.log("Registration successful:", response.data)
+        console.log("Registration successful:", response)
+        dispatch(setScoutDetails(response.data.data))
         navigate("/email_page")
       } catch (error) {
-        console.error("Registration failed:", error.response?.data || error.message)
+        console.log("Registration failed:", error.response?.data || error.message)
         if (error.response && error.response.data) {
           const apiErrors = error.response.data.errors
           setErrors((prev) => ({ ...prev, ...apiErrors }))

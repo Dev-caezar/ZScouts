@@ -1,32 +1,25 @@
 .scoutdiscovery {
     width: 100%;
-    height: 90vh;
+    height: 100%;
     background-color: #FBFBFB;
     display: flex;
     flex-direction: column;
     /* justify-content: end; */
     /* padding-top: 30px; */
-    padding: 15px;
-    overflow-y: auto;
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
+    /* padding: 15px;  */
 }
 
-
-.scoutdiscovery::-webkit-scrollbar {
-  display: none;
-}
 .scoutdiscoveryform {
     width: 100%;
     height: 30%;
-   padding: 10px;
+   /* padding: 10px; */
     background-color: #FFFFFF;
     border-radius: 16px;
        
 }
 .input-wrapper {
     position: relative;
-    width: 95%;
+    width: 97%;
     margin-left: 15px;
     margin-top: 10px;
   }
@@ -37,7 +30,6 @@
     padding-left: 10px;
     padding-right: 35px; 
     border-radius: 8px;
-    /* background-color: red; */
     border: 1px solid var(--Colors-Neutral-500, #A4A4A4);
   }
   
@@ -87,14 +79,12 @@
  
 .player_discoverylist {
     width: 100%;
-    height: 550px;
+    height: max-content;
     /* background-color:  #c31e1e; */
     display: flex;
     padding: 5px;
     /* gap: 3%; */
     margin-top: 10px;
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
 }
 
 .dropdown-menu {
@@ -214,7 +204,6 @@
 .loadingPage{
   width: 100%;
   height: 100%;
-  /* background-color: black; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,7 +214,6 @@
  .loading-cycle{
   width: 25%;
   height: 50%;
-  /* background-color: white; */
   background-repeat: no-repeat;
   background-position: center;
   object-fit: contain;
@@ -267,7 +255,6 @@
 .favicondiv{
   width: 25%;
   height: 55%;
-  /* border: 3px solid black; */
   background-image: url("../assets/favicon.png");
   background-repeat: no-repeat;
   background-position: center;
