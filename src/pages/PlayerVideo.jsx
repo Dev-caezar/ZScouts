@@ -127,7 +127,7 @@ const PlayerVideo = () => {
                 <div className="share-single-video"><p>Share a single video in your upload.</p></div>
                 <div className="upload-from-computer-btn">
                   <input type="file" id="fileUpload" hidden onChange={getImageUrl} />
-                  <label className="my-label-input" htmlFor="fileUpload">Upload from computer</label>
+                  <label className="my-label-input-button" htmlFor="fileUpload">Upload from computer</label>
                 </div>
               </div>
             </div>
