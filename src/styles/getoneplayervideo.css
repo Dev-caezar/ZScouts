@@ -286,3 +286,183 @@
     color: gray;
     gap: 5px;
 }
+
+@media screen and (min-width: 250px) and (max-width: 320px){
+    .get-one-div-top-text{
+        /* background-color: red; */
+        font-size: 17px;
+    }
+
+    .get-one-profile-main{
+        /* background-color: magenta; */
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .get-one-profile-main-iner-1{
+        /* background-color: red; */
+        width: 100%;
+    }
+
+    .get-one-profile-main-iner-1-circle{
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+    }
+
+    
+    .get-one-profile-main-iner-2{
+        width: 100%;
+        /* background-color: magenta; */
+    }
+
+    .rating-inner-div-1{
+        /* background-color: green; */
+        height: 100%;
+        font-size: 12px;
+        padding: 10px;
+        align-items: end;
+    }
+
+    .get-one-player-name{
+        font-size: 12px;
+    }
+
+    
+    .get-one-player-position{
+        font-size: 12px;
+}
+
+.get-one-player-years{
+    font-size: 12px;
+}
+
+.get-one-player-rating-div{
+    font-size: 12px;
+}
+
+    .rating-inner-div-2{
+        /* background-color: blue; */
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        font-size: 12px;
+        padding: 10px;
+        align-items: end;
+    }
+
+    .get-one-recommendation-top{
+        font-size: 16px;
+    }
+
+    .one-player-profile-recommendation{
+        width: 100%;
+    }
+
+    .one-player-profile-recommendation{
+        height: 12vh;
+    }
+
+    .one-player-profile-recommendation-div-1-name{
+        font-size: 8px;
+    }
+
+    .one-player-profile-recommendation-div-1-position{
+        font-size: 8px;
+    }
+
+    .one-player-profile-recommendation-div-1-years{
+        font-size: 8px;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 475px){
+    .get-one-div-top-text{
+        /* background-color: red; */
+        font-size: 18px;
+    }
+
+    .get-one-profile-main{
+        /* background-color: magenta; */
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .get-one-profile-main-iner-1{
+        /* background-color: red; */
+        width: 100%;
+    }
+
+    .get-one-profile-main-iner-1-circle{
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+    }
+
+    
+    .get-one-profile-main-iner-2{
+        width: 100%;
+        /* background-color: magenta; */
+    }
+
+    .rating-inner-div-1{
+        /* background-color: green; */
+        height: 100%;
+        font-size: 13px;
+        padding: 10px;
+        align-items: end;
+    }
+
+    .get-one-player-name{
+        font-size: 13px;
+    }
+
+    
+    .get-one-player-position{
+        font-size: 13px;
+}
+
+.get-one-player-years{
+    font-size: 13px;
+}
+
+.get-one-player-rating-div{
+    font-size: 12px;
+}
+
+    .rating-inner-div-2{
+        /* background-color: blue; */
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        font-size: 15px;
+        padding: 10px;
+        align-items: end;
+    }
+
+    .get-one-recommendation-top{
+        font-size: 17px;
+    }
+
+    .one-player-profile-recommendation{
+        width: 100%;
+    }
+
+    .one-player-profile-recommendation{
+        height: 13vh;
+    }
+
+    .one-player-profile-recommendation-div-1-name{
+        font-size: 11px;
+    }
+
+    .one-player-profile-recommendation-div-1-position{
+        font-size: 11px;
+    }
+
+    .one-player-profile-recommendation-div-1-years{
+        font-size: 11px;
+    }
+}
