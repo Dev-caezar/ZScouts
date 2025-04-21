@@ -151,17 +151,9 @@ const PlayerVideo = () => {
                     <img src={Video} alt="preview" />
                   )}
                 </div>
-                <div className='text-area-div'>
-                  <div className='text-area-div-1'>
-                    <textarea
-                      value={description}
-                      onChange={(e) => setDescription(e.target.value)}
-                      className='my-text-area-main-main'
-                      placeholder='Add description...'
-                    ></textarea>
-                  </div>
-                  <div className='text-area-div-2'>
-                    <button
+                </div>
+              <div className='post-btn-div-buttom'>
+              <button
                       onClick={handlePost}
                       disabled={!Video}
                       style={{
@@ -171,10 +163,8 @@ const PlayerVideo = () => {
                       }}
                       className='post-video-div'
                     >
-                      {isPosting ? (<div className="spinner"></div>) : "Post"}
+                      {isPosting ? (<div className="spinner"></div>) : "Post video"}
                     </button>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
