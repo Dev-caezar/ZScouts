@@ -80,14 +80,15 @@ const ScoutRegister = () => {
         setTimeout(() => {
           navigate("/email_page");
         }, 2000);
+        
       } catch (error) {
-        console.log("Registration failed:", error.response?.data || error.message);
+        console.log("Registration failed:", error.response?.data || error.message)
         if (error.message === "Network Error") {
           toast.error("Oops Network error! Please check your connection and try again.");
         } else {
           toast.error("Registration failed. Please try again later.");
         }
-        
+
         if (error.response && error.response.data) {
           const apiErrors = error.response.data.errors
           setErrors((prev) => ({ ...prev, ...apiErrors }))

@@ -52,9 +52,11 @@ const ScoutFormRegister = () => {
         }
       })
       dispatch(setPlayerKyc(response.data))
-      toast.success("Form submitted successfully!")
+      toast.success("Form submitted successfully! You can now start scouting for players!")
       console.log("Form data sent:", response.data)
-      navigate(-1)
+      setTimeout(() => {
+        navigate(-1)
+      }, 2000);
     } catch (error) {
       console.error("Error submitting form", error)
       toast.error("Failed to submit form. Try again.")
