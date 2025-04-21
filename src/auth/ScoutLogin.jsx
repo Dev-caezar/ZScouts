@@ -64,11 +64,18 @@ const ScoutLogin = () => {
         console.log("Login successful:", response.data)
         dispatch(setScoutDetails(response.data))
         dispatch(setScoutToken(response.data))
+        toast.success("Login successful!");
+        setTimeout(() => {
+          navigate("/scout_profile");
+        }, 2000);
 
-        navigate("/scout_profile")
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message)
-        toast.error("Login failed. Please try again later.")
+       if (error.message === "Network Error") {
+        toast.error("Oops Network error! Please check your connection and try again.");
+      } else {
+        toast.error("Login failed. Please try again later.");
+      }
 
         if (error.response && error.response.data) {
           const apiErrors = error.response.data.errors
