@@ -37,7 +37,8 @@ import AdmindashboardOverview from './components/Chiemerie/AdmindashboardOvervie
 import EmailPagePlayer from './auth/EmailPagePlayer';
 import EmailVerifyPlayer from './auth/EmailVerifyPlayer';
 import PlayerDiscovery from './pages/PlayerDiscovery';
-import GetPlayersDetails from './pages/GetPlayersDetails';
+import Terms from './pages/Terms';
+import PlayerPersonalProfile from './pages/PlayerPersonalProfile';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -147,10 +148,15 @@ const App = () => {
           path: "player_video/:id",
           element: <PlayerVideo />,
         },
+       
         {
           path: "player_setting/:id",
           element: <PlayerSettings />,
         },
+        {
+          path: "/terms_condition",
+          element: <Terms />,
+        }
       ],
     },
     {
@@ -166,6 +172,10 @@ const App = () => {
           element: <ScoutFormRegister />,
         },
         {
+          path: "playerpersonal_profile/:id",
+          element: <PlayerPersonalProfile />,
+        },
+        {
           path: "scout_setting/:id",
           element: <ScoutSettings />,
         },
@@ -174,9 +184,9 @@ const App = () => {
           element: <PlayerDiscovery />,
         },
         {
-          path: "/player_details_personal",
-          element: <GetPlayersDetails />,
-        },
+          path: "/terms_condition",
+          element: <Terms />,
+        }
       ],
     },
     {

@@ -179,7 +179,7 @@ const ScoutRegister = () => {
 
           <div className="terms_card">
             <input type="checkbox" id="terms" className='checkbox' required />
-            <p>I agree to <span>Terms & Conditions</span></p>
+            <p>I agree to  <span>Terms & Conditions</span></p>
           </div>
 
           <button type='submit' className='scout_register_button' style={{ cursor: isDisabled || loading ? 'not-allowed' : 'pointer',  backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00"}}>

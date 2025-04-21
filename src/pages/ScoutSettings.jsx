@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "../styles/scoutsettings.css";
 import PaymentModal from "./PaymentModal";
-import DeactivateModal from "./DeactivateModal";
 import { useParams } from "react-router";
 import axios from "axios";
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showDeactivateModal, setShowDeactivateModal] = useState(false);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const API_KEY = "YOUR_API_KEY_HERE"; // Replace with your actual API key
+  const API_KEY = "YOUR_API_KEY_HERE"; 
 
  
 
@@ -36,10 +34,7 @@ const ScoutSettings = () => {
 
 
 
-  const confirmDeactivate = () => {
-    setShowDeactivateModal(false);
-    alert("Your account has been deactivated");
-  };
+
 
   const handleSavePersonalData = () => {
     const personalData = { fullName, email };
@@ -143,15 +138,14 @@ const ScoutSettings = () => {
       <div className="subscription-section">
         <h3 className="subscription-title">Subscription</h3>
         <div className="subscription-box">
-          <h4 className="plan-title">You’re on the Free Plan</h4>
+          <h4 className="plan-title">You're on the Free Plan</h4>
           <p className="plan-description">
             Unlock premium features and maximize your visibility to scouts.
             Upgrade now to optimize your account!
           </p>
           <button
             className="upgrade-btn"
-            onClick={() => setShowModal(true)}
-          >
+            onClick={() => setShowModal(true)}>
             Upgrade to premium
           </button>
         </div>
@@ -159,12 +153,7 @@ const ScoutSettings = () => {
 
     
       {showModal && <PaymentModal onClose={() => setShowModal(false)} />}
-      {showDeactivateModal && (
-        <DeactivateModal
-          onClose={() => setShowDeactivateModal(false)}
-          onConfirm={confirmDeactivate}
-        />
-      )}
+     
     </div>
   );
 };

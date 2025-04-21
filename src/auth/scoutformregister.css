@@ -113,12 +113,12 @@ color: rgba(0, 0, 0, 0.689);
   }
 
   .scoutInformationsTitlesFormTitile{
-    font-family: Poppins;
-    font-weight: 600;
-    font-size: 19px;
-    line-height: 24px;
-    letter-spacing: 0px;
-    color: rgba(0, 0, 0, 0.807);
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; 
   }
 
   .scoutPersonalInformationForm{
@@ -153,12 +153,13 @@ color: rgba(0, 0, 0, 0.689);
 }
 
 .scoutInformationLabel-text{
-    font-family: Poppins;
-font-weight: 700;
-font-size: 18px;
-line-height: 21px;
-letter-spacing: 0px;
-color: rgba(0, 0, 0, 0.733);
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px; 
+    margin-top: 10px;
 }
 
 .scoutpersonalINformatiom-input{
@@ -288,7 +289,7 @@ padding: 10px;
 }
 
 .Upload-Certificate{
-    width: 70%;
+    width: 80%;
     height: 50px;
     border-bottom-left-radius: 7px;
     border-top-left-radius: 7px;
@@ -297,9 +298,9 @@ padding: 10px;
     display: flex;
     align-items: center;
     padding: 10px;
-    font-family: Poppins;
+    font-family: 'Poppins';
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
     color: rgba(0, 0, 0, 0.503);
     letter-spacing: 0px;
@@ -313,15 +314,15 @@ padding: 10px;
   }
   
   .custom-upload {
-    width: 82px;
+    width: 80px;
     height: 50px;
-    background: #000;
+    background: #07232F;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-weight: bold;
+    font-size: 16px;
     border-radius: 5px;
     position: absolute;
     right: 20%;
@@ -337,6 +338,10 @@ padding: 10px;
     border: none;
     color: white;
     font-size: 16px;
+    cursor: pointer;
+}
+.ScoutSubmitFormButton:hover {
+    background-color: rgb(6, 113, 6);
 }
 
 

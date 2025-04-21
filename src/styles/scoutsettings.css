@@ -97,26 +97,7 @@
   }
   
  
-  .scoutdeactivate {
-    color: var(--Colors-Red-100, #FB3748);
-    font-family: 'Poppins';
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 18px;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-thickness: 0.9px;
-    text-underline-offset: auto;
-    cursor: pointer;
-    transition: color 0.2s ease;
-  }
-
-  .scoutdeactivate:hover {
-    color: #d10011; 
-    text-decoration-thickness: 1.2px;
-  }
-
+ 
   .settings-wrapper {
     display: flex;
     justify-content: space-between;

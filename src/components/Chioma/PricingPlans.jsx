@@ -36,7 +36,7 @@ const PricingPlans = () => {
     },
     {
       plan: "Premium",
-      price: "₦1000",
+      price: "₦3000",
       features: [
         "Create a player profile",
         "Video Uploads",
@@ -51,7 +51,7 @@ const PricingPlans = () => {
     },
     {
       plan: "Premium",
-      price: "₦1000",
+      price: "₦15000",
       features: [
         "Create a Scout profile",
         "Search for players",
