@@ -2,11 +2,17 @@ import "./scoutformregister.css"
 import { useState } from "react"
 import axios from "axios"
 import { toast } from "react-toastify"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { setPlayerKyc } from "../global/Player"
+import { Select } from "antd"
 
 const ScoutFormRegister = () => {
-  const { id } = useParams()
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.user.scoutDetails.data.id)
+  console.log(user)
   const [scoutForm, setScoutform] = useState({
+    gender: "",
     nationality: "",
     phoneNumber: "",
     clubName: "",
@@ -14,7 +20,6 @@ const ScoutFormRegister = () => {
     league: "",
     preferredPosition: "",
     age: "",
-    socialMediaProfile: "",
     verificationDocument: null
   })
 
@@ -31,6 +36,7 @@ const ScoutFormRegister = () => {
 
     try {
       const formData = new FormData()
+      formData.append("gender", scoutForm.gender)
       formData.append("nationality", scoutForm.nationality)
       formData.append("phoneNumber", scoutForm.phoneNumber)
       formData.append("clubName", scoutForm.clubName)
@@ -38,15 +44,14 @@ const ScoutFormRegister = () => {
       formData.append("league", scoutForm.league)
       formData.append("preferredPosition", scoutForm.preferredPosition)
       formData.append("age", scoutForm.age)
-      formData.append("socialMediaProfile", scoutForm.socialMediaProfile)
       formData.append("verificationDocument", scoutForm.verificationDocument)
 
-      const response = await axios.post(`${BASE_URL}/api/v1/scoutkyc/${id}`, formData, {
+      const response = await axios.post(`${BASE_URL}/api/v1/scoutkyc/${user}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
       })
-
+      dispatch(setPlayerKyc(response.data))
       toast.success("Form submitted successfully!")
       console.log("Form data sent:", response.data)
       navigate(-1)
@@ -84,6 +89,21 @@ const ScoutFormRegister = () => {
             </article>
 
             <article className="scoutInformationFormArticle">
+              <p className="scoutInformationLabel-text">Gender*</p>
+               <Select
+                showSearch
+                placeholder="gender"
+                optionFilterProp="label"
+                onChange={(value) => setScoutform({ ...scoutForm, gender: value })}
+                value={scoutForm.gender}
+                style={{ width: '100%' }}
+                options={[
+                  { value: 'Male', label: 'Male' },
+                  { value: 'Female', label: 'Female' },
+                ]}
+              />
+            </article>
+            <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Phone Number*</p>
               <input className="scoutpersonalINformatiom-input" type="tel" placeholder="Enter Phone Number"
                 value={scoutForm.phoneNumber}
@@ -106,10 +126,22 @@ const ScoutFormRegister = () => {
 
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Scouting Role*</p>
-              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Role"
+              <Select
+                showSearch
+                placeholder="Scouting role"
+                optionFilterProp="label"
+                onChange={(value) => setScoutform({ ...scoutForm, scoutingRole: value })}
                 value={scoutForm.scoutingRole}
-                onChange={(e) => setScoutform({ ...scoutForm, scoutingRole: e.target.value })}
+                style={{ width: '100%' }}
+                options={[
+                  { value: 'Video scout', label: 'Video scout' },
+                  { value: 'Talent scout', label: 'Talent scout' },
+                  { value: 'Technical scout', label: 'Technical scout' },
+                  { value: 'International scout', label: 'International scout' },
+                  { value: 'First team scout', label: 'First team scout' },
+                ]}
               />
+
             </article>
 
             <article className="scoutInformationFormArticle">
@@ -127,9 +159,19 @@ const ScoutFormRegister = () => {
           <div className="scoutInformationsTitlesForminput-holder">
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Preferred Position*</p>
-              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Input Positions"
+              <Select
+                showSearch
+                placeholder="preferred position"
+                optionFilterProp="label"
+                onChange={(value) => setScoutform({ ...scoutForm, preferredPosition: value })}
                 value={scoutForm.preferredPosition}
-                onChange={(e) => setScoutform({ ...scoutForm, preferredPosition: e.target.value })}
+                style={{ width: '100%' }}
+                options={[
+                  { value: 'GK', label: 'GK' },
+                  { value: 'DEF', label: 'DEF' },
+                  { value: 'MF', label: 'MF' },
+                  { value: 'ST', label: 'ST' },
+                ]}
               />
             </article>
 
@@ -138,14 +180,6 @@ const ScoutFormRegister = () => {
               <input className="scoutpersonalINformatiom-input" type="text" placeholder=" Age"
                 value={scoutForm.age}
                 onChange={(e) => setScoutform({ ...scoutForm, age: e.target.value })}
-              />
-            </article>
-
-            <article className="scoutInformationFormArticle">
-              <p className="scoutInformationLabel-text">Social Media Profile*</p>
-              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Profile link"
-                value={scoutForm.socialMediaProfile}
-                onChange={(e) => setScoutform({ ...scoutForm, socialMediaProfile: e.target.value })}
               />
             </article>
           </div>

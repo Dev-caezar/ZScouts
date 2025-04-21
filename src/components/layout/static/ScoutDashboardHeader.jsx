@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router'
 
 const ScoutDashboardHeader = () => {
     const nav = useNavigate()
-    const user = useSelector(state => state.user.user)
+    const user = useSelector(state => state.user.scoutDetails.data)
 
   const [openNav, setOpenNav] = useState(false)
   const [logout, setLogout] = useState(false)
@@ -42,8 +42,8 @@ const ScoutDashboardHeader = () => {
             <div className="header_right">
               <div className="header_right_img"></div>
               <div className="header_right_txt">
-                <h4>{user?.data?.fullname}</h4>
-                <p>{user?.data?.email}</p>
+                <h4>{user?.fullname}</h4>
+                <p>{user?.email}</p>
               </div>
               <HiMenuAlt3 className='dash_icon' onClick={handleOpenNav} />
     

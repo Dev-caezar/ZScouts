@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/playerdiscovery.css";
-import 'animate.css';
-import LogoCycle2 from "../assets/LogoCycle2.png"
-import { RxReload } from "react-icons/rx";
+import { Flex, Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router";
+
 const PlayerDiscovery = () => {
+  const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [nestedOptions, setNestedOptions] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [selectedNestedOption, setSelectedNestedOption] = useState("");
 
   const options = ["Position", "foot"];
@@ -22,17 +25,23 @@ const PlayerDiscovery = () => {
 
   useEffect(() => {
     const fetchPlayers = async () => {
+      setLoading(true);
       try {
         const response = await axios.get(`${BASE_URL}/api/players/allplayers`);
-        console.log("Fetched players:", response.data.data);
+        setLoading(false);
         setPlayers(response.data.data);
       } catch (error) {
         console.error("Error fetching players:", error);
+        setLoading(false);
       }
     };
 
     fetchPlayers();
   }, []);
+
+  const handleGetOne = (id) => {
+    navigate(`/player_details/${id}`);
+  };
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
@@ -65,6 +74,20 @@ const PlayerDiscovery = () => {
     }
     return true;
   });
+
+  const loadingIcon = (
+    <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />
+  );
+
+  if (loading) {
+    return (
+      <div className="loader">
+        <Flex>
+          <Spin indicator={loadingIcon} />
+        </Flex>
+      </div>
+    );
+  }
 
   return (
     <div className="scoutdiscovery">
@@ -126,7 +149,11 @@ const PlayerDiscovery = () => {
         <div className="discoveryList-div">
           {filteredPlayers.length > 0 ? (
             filteredPlayers.map((player, index) => (
-              <div className="player-card" key={index}>
+              <div
+                className="player-card"
+                key={index}
+                onClick={() => handleGetOne(player.id)} 
+              >
                 <img
                   src={player.profileImage || "public/placeholder-player.png"}
                   alt={player.fullname}
@@ -151,13 +178,7 @@ const PlayerDiscovery = () => {
               </div>
             ))
           ) : (
-            <div className="loadingPage">
-              <div className="loading-cycle">
-            <img src={LogoCycle2} alt="" className="LogoCycle2" />
-              </div>
-              <div className="favicondiv"></div>
-            </div>
-    
+            <h5 style={{ color: "red" }}>No players found</h5>
           )}
         </div>
       </div>

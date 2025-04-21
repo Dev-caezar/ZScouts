@@ -38,6 +38,7 @@ import EmailPagePlayer from './auth/EmailPagePlayer';
 import EmailVerifyPlayer from './auth/EmailVerifyPlayer';
 import PlayerDetails from './components/Chiemerie/PlayerDetails';
 import GetOnePlayerVideo from './pages/GetOnePlayerVideo';
+import PlayerDiscovery from './pages/PlayerDiscovery';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -136,19 +137,19 @@ const App = () => {
       element: <DashboardLayout />,
       children: [
         {
-          path: "player_profile/:id",
+          path: "player_profile",
           element: <PlayerProfile />,
         },
         {
-          path: "edit_profile/:id",
+          path: "edit_profile",
           element: <EditProfile />,
         },
         {
-          path: "player_video/:id",
+          path: "player_video",
           element: <PlayerVideo />,
         },
         {
-          path: "player_setting/:id",
+          path: "player_setting",
           element: <PlayerSettings />,
         },
 
@@ -159,22 +160,26 @@ const App = () => {
       element: <ScoutDashboardLayout />,
       children: [
         {
-          path: "scout_profile/:id",
+          path: "scout_profile",
           element: <ScoutProfile />,
         },
 
         {
-          path: "/scout_form/:id",
+          path: "/scout_form",
           element: <ScoutFormRegister />,
+        },
+        {
+          path: "/player_discovery",
+          element: <PlayerDiscovery />,
         },
         {
           path: "scout_setting",
           element: <ScoutSettings />,
         },
-         
         {
-          path:"player_details",
+          path:"player_details/:id",
           element:<PlayerDetails/>
+        },
         {
           path: "get_one_player_video",
           element: < GetOnePlayerVideo />,
