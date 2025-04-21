@@ -1,6 +1,6 @@
 .player_details_body{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     min-height: max-content;
     display: flex;
     align-items: center;
@@ -10,7 +10,11 @@
 .detais_body_wrapper{
     width: 97%;
     height: 95%;
-
+    min-height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 .profile_data{
     width: 100%;
@@ -50,3 +54,104 @@
     justify-content: center;
     /* background-color: red; */
 }
+
+.details_video{
+    width: 100%;
+    height: 50%;
+    min-height: max-content;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+.video_header{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.video_header h4{
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: "Poppins",sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; 
+}
+.video_header h4:last-child{
+    color: #0C8F00;
+    font-family: "Poppins",sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; 
+    cursor: pointer;
+}
+.detail_video_container{
+    width: 100%;
+    height: 70%;
+    min-height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.details_video_card{
+    width: 32%;
+    height: 285px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: red; */
+}
+.video_data{
+    width: 90%;
+    height: 30%;
+    /* background-color: red; */
+    /* padding: 20px; */
+}
+.video_data h4{
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: "Poppins",sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; 
+}
+.video_data p{
+    color: var(--Colors-Neutral-700, #777);
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+.video_player{
+    width: 100%;
+    height: 65%;
+    background-color: gold;
+    position: relative;
+
+}
+.video_player video{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.custom_play_button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    opacity: 0.9;
+    /* pointer-events: none; */
+    transition: 0.3s ease;
+    cursor: pointer;
+  }

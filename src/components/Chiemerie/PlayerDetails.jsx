@@ -30,20 +30,23 @@ const PlayerDetails = () => {
   }, [id]);
 
   const firstInitial = player?.fullname ? player.fullname.charAt(0).toUpperCase() : '';
-  console.log(firstInitial)
-   const loadingIcon = (
-      <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />
-    );
+  const loadingIcon = (
+    <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />
+  );
 
   if (!player) {
-    return(
+    return (
       <div className="loader">
-          <Flex>
-            <Spin indicator={loadingIcon} />
-          </Flex>
+        <Flex>
+          <Spin indicator={loadingIcon} />
+        </Flex>
       </div>
-    )
+    );
   }
+
+  const handleGetPlayer = (videoUrl) => {
+    navigate(`/get_one_player_video/${id}`, { state: { videoUrl } });
+  };
 
   return (
     <div className='player_details_body'>
@@ -55,9 +58,9 @@ const PlayerDetails = () => {
         <div className="profile_data">
           <div className="details_image">
             {player?.playerKyc?.profilePic ? (
-              <img 
-                src={player.playerKyc.profilePic} 
-                alt={player.fullname} 
+              <img
+                src={player.playerKyc.profilePic}
+                alt={player.fullname}
                 className="player-img"
               />
             ) : (
@@ -69,6 +72,60 @@ const PlayerDetails = () => {
             <h4>{player.fullname}</h4>
             <p>{player.playerKyc?.secondaryPosition || "N/A"}</p>
             <p>{player.playerKyc?.age ? `${player.playerKyc.age} years` : "Age N/A"}</p>
+          </div>
+        </div>
+
+        <div className="details_video">
+          <div className="video_header">
+            <h4>Videos</h4>
+            <h4>View profile details</h4>
+          </div>
+          <div className="detail_video_container">
+            {player?.playerKyc?.media ? (
+              Array.isArray(player.playerKyc.media) && player.playerKyc.media.length > 0 ? (
+                player.playerKyc.media.map((videoUrl, index) => (
+                  <div className="details_video_card" key={index}>
+                    <div className="video_player" onClick={() => handleGetPlayer(videoUrl)}>
+                      <video
+                        src={videoUrl}
+                        controls
+                        style={{ width: "100%", borderRadius: "10px" }}
+                      ></video>
+                      <div className="video_info">
+                        <p>
+                          Uploaded on: {new Date(player.playerKyc.createdAt).toLocaleDateString('en-GB', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric',
+                          })}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="details_video_card">
+                  <div className="video_player" onClick={() => handleGetPlayer(player.playerKyc.videoUpload)}>
+                    <video
+                      src={player.playerKyc.videoUpload}
+                      controls
+                      style={{ width: "100%", borderRadius: "10px" }}
+                    ></video>
+                    <div className="video_info">
+                      <p>
+                        Uploaded on: {new Date(player.playerKyc.createdAt).toLocaleDateString('en-GB', {
+                          day: 'numeric',
+                          month: 'long',
+                          year: 'numeric',
+                        })}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )
+            ) : (
+              <p>No videos uploaded yet.</p>
+            )}
           </div>
         </div>
       </div>
