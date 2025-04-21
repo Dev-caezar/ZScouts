@@ -48,7 +48,7 @@ const [showModal, setShowModal] = useState(false);
 
       <div className='personal-info'>
       
-  {/* Personal Information */}
+
   <div className="section_card">
     <h3 className="section_title">Personal Information</h3>
     <div className="grid_container">
@@ -61,7 +61,7 @@ const [showModal, setShowModal] = useState(false);
     </div>
   </div>
 
-  {/* Football Profile */}
+
   <div className="section_card">
     <h3 className="section_title">Football Profile</h3>
     <div className="grid_container">
@@ -72,7 +72,6 @@ const [showModal, setShowModal] = useState(false);
     </div>
   </div>
 
-  {/* Club & Coach History */}
   <div className="section_card">
     <h3 className="section_title">Club & Coach History</h3>
     <div className="grid_container">
@@ -82,7 +81,7 @@ const [showModal, setShowModal] = useState(false);
     </div>
   </div>
 
-  {/* Medical & Fitness Information */}
+
   <div className="section_card">
     <h3 className="section_title">Medical & Fitness Information</h3>
     <div className="grid_container">
@@ -90,7 +89,6 @@ const [showModal, setShowModal] = useState(false);
     </div>
   </div>
 
-  {/* Other Information */}
   <div className="section_card">
     <h3 className="section_title">Other Information</h3>
     <div className="grid_container">
