@@ -11,8 +11,8 @@ import { logoutPlayer } from '../../../global/Player';
 const DashboardNav = () => {
   const [logout, setLogout] = useState(false);
   const dispatch = useDispatch();
-  // const player = useSelector((state)=> state.player.playerDetails.id)
-  // console.log("this is my id", player)
+  const player = useSelector((state)=> state.player.playerDetails.id)
+  console.log("this is my id", player)
   const nav = useNavigate();
 
   const handlePlayerProfile = () => nav("/player_profile");
