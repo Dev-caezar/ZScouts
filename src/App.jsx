@@ -37,6 +37,7 @@ import AdmindashboardOverview from './components/Chiemerie/AdmindashboardOvervie
 import EmailPagePlayer from './auth/EmailPagePlayer';
 import EmailVerifyPlayer from './auth/EmailVerifyPlayer';
 import GetOnePlayerVideo from './pages/GetOnePlayerVideo';
+import OnePlayerProfile from './pages/OnePlayerProfile';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -172,7 +173,11 @@ const App = () => {
         {
           path: "get_one_player_video",
           element: < GetOnePlayerVideo />,
-        }
+        },
+        {
+          path: "one_player_profile",
+          element: < OnePlayerProfile />,
+        },
       ],
     },
     {

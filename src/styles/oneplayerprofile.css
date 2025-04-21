@@ -1,0 +1,176 @@
+.OnePlayerProfile{
+    width: 100%;
+    height: max-content;
+    background-color: rgba(128, 128, 128, 0.379);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.OnePlayerProfile-wrap{
+    width: 97%;
+    height: 100%;
+    background-color: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    gap: 20px;
+}
+
+.OnePlayerProfile-top{
+    width: 100%;
+    height: 35vh;
+    /* background-color: red; */
+}
+
+.OnePlayerProfile-top-button{
+    width: 8%;
+    height: 80%;
+    cursor: pointer;
+    /* background-color: yellow; */
+    border: none;
+    font-size: 30px;
+    background: none;
+}
+
+.OnePlayerProfile-top-1{
+    width: 100%;
+    height: 28%;
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+}
+
+.OnePlayerProfile-top-2{
+    width: 100%;
+    height: 72%;
+    /* background-color: magenta; */
+}
+
+.OnePlayerProfile-top-2-inner{
+    width: 30%;
+    height: 80%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.OnePlayerProfile-top-2-inner-1{
+    width: 100px;
+    height: 100px;
+    /* background-color: yellow; */
+    border-radius: 100px;
+
+    & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+    }
+}
+
+.OnePlayerProfile-top-2-inner-2{
+    width: 66%;
+    height: 80%;
+    /* background-color: red; */
+}
+
+.OnePlayerProfile-top-2-inner-2-top{
+    width: 100%;
+    height: 30%;
+    /* background-color: magenta; */
+    font-weight: 600;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.OnePlayerProfile-top-2-inner-2-position{
+    width: 100%;
+    height: 20%;
+    /* background-color: blue; */
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: 550;
+}
+
+.OnePlayerProfile-top-2-inner-2-years{
+    width: 100%;
+    height: 20%;
+    /* background-color: yellow; */
+    padding-left: 15px;
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+}
+
+.OnePlayerProfile-top-2-inner-2-rating{
+    width: 100%;
+    height: 20%;
+    /* background-color: aqua; */
+    padding-left: 15px;
+    display: flex;
+    color: gray;
+    font-weight: 600;
+    align-items: center;
+}
+
+.upgrade-to-premium-div{
+    width: 100%;
+    height: 23vh;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding-left: 18px;
+}
+
+.upgrade-to-premium-div-wrap{
+    width: 60%;
+    height: 80%;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+}
+
+.upgrade-to-premium-div-wrap-1{
+    width: 100%;
+    height: 25%;
+    /* background-color: magenta; */
+    font-weight: 600;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+}
+
+
+.upgrade-to-premium-div-wrap-2{
+    width: 100%;
+    height: 25%;
+    /* background-color: orange; */
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+
+.upgrade-to-premium-div-wrap-3{
+    width: 100%;
+    height: 50%;
+    /* background-color: maroon; */
+    display: flex;
+    align-items: end;
+}
+
+.upgrade-to-premium-div-wrap-button{
+    width: 27%;
+    height: 70%;
+    background-color: #0c8f00;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
