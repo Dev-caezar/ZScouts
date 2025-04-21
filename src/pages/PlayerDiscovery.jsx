@@ -3,19 +3,16 @@ import axios from "axios";
 import "../styles/playerdiscovery.css";
 import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const PlayerDiscovery = () => {
+  const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [nestedOptions, setNestedOptions] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [selectedNestedOption, setSelectedNestedOption] = useState("");
-
-  const player = useSelector((state)=> state.player.playerDetails.id)
-  console.log("get one player:", player)
-  console.log(players.id)
 
   const options = ["Position", "foot"];
 
@@ -28,34 +25,23 @@ const PlayerDiscovery = () => {
 
   useEffect(() => {
     const fetchPlayers = async () => {
-      setLoading(true)
+      setLoading(true);
       try {
         const response = await axios.get(`${BASE_URL}/api/players/allplayers`);
-        setLoading(false)
-        console.log("Fetched players:", response.data);
+        setLoading(false);
         setPlayers(response.data.data);
-        // console.log(players.data.data.id)
-
       } catch (error) {
         console.error("Error fetching players:", error);
-        setLoading(false)
+        setLoading(false);
       }
     };
 
     fetchPlayers();
   }, []);
 
-
-  const handleGetOne = async (id) => {
-    try {
-      const response = await axios.get(`${BASE_URL}/api/players/getplayer/${id}`);
-      console.log("Player data:", response.data.data);
-    } catch (error) {
-      console.error("Failed to fetch player:", error.response?.data || error.message);
-    }
+  const handleGetOne = (id) => {
+    navigate(`/player_details/${id}`);
   };
-  
-  
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
@@ -88,17 +74,21 @@ const PlayerDiscovery = () => {
     }
     return true;
   });
-    const loadingIcon = <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />
 
-  if(loading){
-    return(
+  const loadingIcon = (
+    <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />
+  );
+
+  if (loading) {
+    return (
       <div className="loader">
         <Flex>
           <Spin indicator={loadingIcon} />
         </Flex>
       </div>
-    )
+    );
   }
+
   return (
     <div className="scoutdiscovery">
       <div className="scoutdiscoveryform">
@@ -159,7 +149,11 @@ const PlayerDiscovery = () => {
         <div className="discoveryList-div">
           {filteredPlayers.length > 0 ? (
             filteredPlayers.map((player, index) => (
-              <div className="player-card" key={index}  onClick={() => handleGetOne(player.id)}>
+              <div
+                className="player-card"
+                key={index}
+                onClick={() => handleGetOne(player.id)} 
+              >
                 <img
                   src={player.profileImage || "public/placeholder-player.png"}
                   alt={player.fullname}

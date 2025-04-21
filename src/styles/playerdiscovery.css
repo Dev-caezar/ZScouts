@@ -30,7 +30,6 @@
     padding-left: 10px;
     padding-right: 35px; 
     border-radius: 8px;
-    /* background-color: red; */
     border: 1px solid var(--Colors-Neutral-500, #A4A4A4);
   }
   
@@ -107,6 +106,8 @@
     -ms-overflow-style: none; 
 
   }
+
+ 
 
   .dropdown-menu::-webkit-scrollbar {
     display: none; 
@@ -200,6 +201,67 @@
   }
 
 
+.loadingPage{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+}
+
+ .loading-cycle{
+  width: 25%;
+  height: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  
+ }
+
+ @keyframes rollIn {
+  from {
+      transform: translatex(100%)
+     rotate(360deg);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0)
+      rotate(0deg);
+      opacity: 1;
+  }
+}
+
+@keyframes rotateInfinite{
+  from{
+      transform: rotate(0deg);
+  }
+  to{
+      transform: rotate(360deg);
+  }
+}
+
+.LogoCycle2{
+  animation: rollIn 1s ease-in-out forwards, rotateInfinite 1.5s linear infinite;
+}
+
+.LogoCycle2{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.favicondiv{
+  width: 25%;
+  height: 55%;
+  background-image: url("../assets/favicon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  position: absolute;
+}
+
 
    @media screen and (min-width: 768px) {
     .scoutdiscovery {
@@ -214,6 +276,23 @@
     .discoveryList-div {
       width: 100%;
     }
+     
+    .loadingPage{
+      width: 100%;
+    }
+
+    .loading-cycle{
+      width: 40%;
+      height: 40%;
+      /* background-color: red; */
+    }
+
+    .favicondiv{
+      width: 100%;
+      /* height: ; */
+      /* border: 2px solid red; */
+    }
+  
   }
   
   @media screen and (max-width: 767px) {
@@ -251,6 +330,20 @@
     .clear_btn, .apply_btn {
       font-size: 13px;
       padding: 3px 15px;
+    }
+    .loadingPage{
+      width: 100%;
+    }
+
+    .loading-cycle{
+      width: 70%;
+      height: 40%;
+      /* background-color: red; */
+    }
+
+    .favicondiv{
+      width: 100%;
+      /* border: 2px solid red; */
     }
   }
   
@@ -309,6 +402,7 @@
     }
   
     .player-card {
+      width: 100%;
       padding: 10px;
       flex-direction: row;
       align-items: center;
@@ -335,5 +429,124 @@
   
     .star {
       margin-left: 2px;
+    }
+
+    .loadingPage{
+      width: 100%;
+    }
+
+    .loading-cycle{
+      width: 70%;
+      height: 40%;
+      /* background-color: red; */
+    } 
+
+    .favicondiv{
+      width: 100%;
+      /* border: 2px solid red; */
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .scoutdiscovery {
+      padding: 10px;
+      height: auto;
+    }
+  
+    .scoutdiscoveryform {
+      padding: 10px;
+      border-radius: 12px;
+    }
+  
+    .input-wrapper {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 15px;
+    }
+  
+    .selectoption {
+      height: 40px;
+      font-size: 14px;
+    }
+  
+    .filterbuttons {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+      margin-top: 10px;
+      align-items: stretch;
+    }
+  
+    .clear_btn,
+    .apply_btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 14px;
+    }
+  
+    .dropdown-menu {
+      width: 100%;
+    }
+  
+    .player_discoverylist {
+      flex-direction: column;
+      gap: 10px;
+      height: auto;
+      padding: 0;
+    }
+  
+    .discoveryList-div {
+      width: 100%;
+      height: auto;
+    }
+  
+    .player-card {
+      width: 100%;
+      /* display: flex;
+      justify-content: ; */
+      padding: 10px;
+      flex-direction: row;
+      align-items: center;
+      /* gap: 10px; */
+    }
+  
+    .player-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+    }
+  
+    .player-details h4 {
+      font-size: 14px;
+    }
+  
+    .player-details p {
+      
+      /* border: 4px solid red; */
+      font-size: 12px;
+    }
+  
+    .player-rating {
+      font-size: 22px;
+    }
+  
+    .star {
+      margin-left: 2px;
+    }
+
+    .loadingPage{
+      width: 100%;
+    }
+
+    .loading-cycle{
+      width: 70%;
+      height: 40%;
+      /* background-color: red; */
+    } 
+
+    .favicondiv{
+      width: 100%;
+      /* border: 2px solid red; */
     }
   }

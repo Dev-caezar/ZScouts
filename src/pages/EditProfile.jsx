@@ -8,6 +8,7 @@ import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPlayerKyc } from '../global/Player';
 import { LoadingOutlined } from '@ant-design/icons';
+import { toast } from 'react-toastify';
 
 const EditProfile = () => {
   const players = useSelector((state)=> state.player.playerDetails.id)
@@ -28,7 +29,7 @@ const EditProfile = () => {
     primaryPosition: "",
     secondaryPosition: "",
     currentClub: "",
-    strengths: "",
+    ability: "",
     followDiet: "",
     contactInfoOfCoaches: "",
     openToTrials: "",
@@ -62,7 +63,8 @@ const EditProfile = () => {
       console.log("Player profile submitted:", response.data);
       setLoading(false)
       dispatch(setPlayerKyc(response.data));
-      alert("Profile submitted successfully!");
+      navigate(-1)
+      toast.success("Profile submitted successfully!");
     } catch (error) {
       console.error("Error submitting profile:", error);
       setLoading(false)
@@ -88,13 +90,22 @@ const EditProfile = () => {
           </div>
           <div className="edit_card_bottom">
             <div className="edit_input_container">
-              <h4>Strengths*</h4>
-              <input 
-                value={player.strengths}
-                onChange={e => handleChange("strengths", e.target.value)}
-                type="text"
-                placeholder='Strengths'
-                className='edit_input'
+              <h4>Ability*</h4>
+               <Select
+                showSearch
+                placeholder="ability"
+                optionFilterProp="label"
+                onChange={value => handleChange("ability", value)}
+                style={{ width: '80%' }}
+                value={player.ability}
+                options={[
+                  { value: 'dribbling', label: 'dribbling' },
+                  { value: 'passing', label: 'passing' },
+                  { value: 'shooting', label: 'shooting' },
+                  { value: 'defending', label: 'defending' },
+                  { value: 'speed', label: 'speed' },
+                  { value: 'stamina', label: 'stamina' },
+                ]}
               />
             </div>
             <div className="date_input_container">
@@ -204,22 +215,36 @@ const EditProfile = () => {
           <div className="contact_card_bottom">
             <div className="contact_input_container">
               <h4>Primary position*</h4>
-              <input 
-                type="text"
+                <Select
+                showSearch
+                placeholder="Primary position"
+                optionFilterProp="label"
+                onChange={value => handleChange("primaryPosition", value)}
+                style={{ width: '80%' }}
                 value={player.primaryPosition}
-                onChange={e => handleChange("primaryPosition", e.target.value)}
-                placeholder='Primary position'
-                className='contact_input'
+                options={[
+                  { value: 'GK', label: 'GK' },
+                  { value: 'DEF', label: 'DEF' },
+                  { value: 'MF', label: 'MF' },
+                  { value: 'ST', label: 'ST' },
+                ]}
               />
             </div>
             <div className="contact_input_container">
               <h4>Secondary position*</h4>
-              <input 
-                type="text"
+              <Select
+                showSearch
+                placeholder="secondary position"
+                optionFilterProp="label"
+                onChange={value => handleChange("secondaryPosition", value)}
+                style={{ width: '80%' }}
                 value={player.secondaryPosition}
-                onChange={e => handleChange("secondaryPosition", e.target.value)}
-                placeholder='Secondary position'
-                className='contact_input'
+                options={[
+                  { value: 'GK', label: 'GK' },
+                  { value: 'DEF', label: 'DEF' },
+                  { value: 'MF', label: 'MF' },
+                  { value: 'ST', label: 'ST' },
+                ]}
               />
             </div>
             <div className="contact_input_container">

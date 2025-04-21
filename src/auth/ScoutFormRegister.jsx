@@ -12,6 +12,7 @@ const ScoutFormRegister = () => {
   const user = useSelector(state => state.user.scoutDetails.data.id)
   console.log(user)
   const [scoutForm, setScoutform] = useState({
+    gender: "",
     nationality: "",
     phoneNumber: "",
     clubName: "",
@@ -19,7 +20,6 @@ const ScoutFormRegister = () => {
     league: "",
     preferredPosition: "",
     age: "",
-    socialMediaProfile: "",
     verificationDocument: null
   })
 
@@ -36,6 +36,7 @@ const ScoutFormRegister = () => {
 
     try {
       const formData = new FormData()
+      formData.append("gender", scoutForm.gender)
       formData.append("nationality", scoutForm.nationality)
       formData.append("phoneNumber", scoutForm.phoneNumber)
       formData.append("clubName", scoutForm.clubName)
@@ -43,7 +44,6 @@ const ScoutFormRegister = () => {
       formData.append("league", scoutForm.league)
       formData.append("preferredPosition", scoutForm.preferredPosition)
       formData.append("age", scoutForm.age)
-      formData.append("socialMediaProfile", scoutForm.socialMediaProfile)
       formData.append("verificationDocument", scoutForm.verificationDocument)
 
       const response = await axios.post(`${BASE_URL}/api/v1/scoutkyc/${user}`, formData, {
@@ -88,6 +88,21 @@ const ScoutFormRegister = () => {
               />
             </article>
 
+            <article className="scoutInformationFormArticle">
+              <p className="scoutInformationLabel-text">Gender*</p>
+               <Select
+                showSearch
+                placeholder="gender"
+                optionFilterProp="label"
+                onChange={(value) => setScoutform({ ...scoutForm, gender: value })}
+                value={scoutForm.gender}
+                style={{ width: '100%' }}
+                options={[
+                  { value: 'Male', label: 'Male' },
+                  { value: 'Female', label: 'Female' },
+                ]}
+              />
+            </article>
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Phone Number*</p>
               <input className="scoutpersonalINformatiom-input" type="tel" placeholder="Enter Phone Number"
@@ -165,14 +180,6 @@ const ScoutFormRegister = () => {
               <input className="scoutpersonalINformatiom-input" type="text" placeholder=" Age"
                 value={scoutForm.age}
                 onChange={(e) => setScoutform({ ...scoutForm, age: e.target.value })}
-              />
-            </article>
-
-            <article className="scoutInformationFormArticle">
-              <p className="scoutInformationLabel-text">Social Media Profile*</p>
-              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Profile link"
-                value={scoutForm.socialMediaProfile}
-                onChange={(e) => setScoutform({ ...scoutForm, socialMediaProfile: e.target.value })}
               />
             </article>
           </div>

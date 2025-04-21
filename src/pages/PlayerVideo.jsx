@@ -1,32 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/playervideo.css";
 import { FaVideo } from "react-icons/fa";
-import { IoIosStar } from 'react-icons/io';
-import { RiDeleteBin6Fill } from 'react-icons/ri';
-import Popup from '../components/Popup';
-import DeleteVideoPopup from '../components/DeleteVideoPopUp';
-import { toast } from 'react-toastify';
-import axios from 'axios';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Flex, Spin } from 'antd';
+import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
+import Popup from '../components/Popup';
 
 const PlayerVideo = () => {
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
-  const [video, setVideo] = useState();
+  const [Video, setVideo] = useState();
+  const [description, setDescription] = useState("");
   const [isPosting, setIsPosting] = useState(false);
   const [isVideo, setIsVideo] = useState(false);
-  const [isDeletePopUp, setIsDeletePopup] = useState(false);
-  const [postToDelete, setPostToDelete] = useState(null);
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [videos, setVideos] = useState([]);
 
-  console.log(video)
-
   const BASE_URL = "https://zscouts.onrender.com";
   const playerId = useSelector((state) => state.player.playerKyc);
-  console.log(playerId.id)
 
   const handleCloseAllPopups = () => {
     setIsPreviewVisible(false);
@@ -49,7 +42,7 @@ const PlayerVideo = () => {
   };
 
   const handlePost = async () => {
-    if (!imageValue) return;
+    if (!Video) return;
 
     setIsPosting(true);
 
@@ -58,8 +51,9 @@ const PlayerVideo = () => {
       const file = fileInput.files[0];
 
       const formData = new FormData();
-      formData.append('playerId', playerId);
+      formData.append('playerId', playerId.id);
       formData.append('video', file);
+      formData.append('description', description);
 
       const response = await axios.post(`${BASE_URL}/api/v1/videoupload/${playerId.id}`, formData, {
         headers: {
@@ -71,7 +65,9 @@ const PlayerVideo = () => {
       setIsPopUpOpen(false);
       setIsPreviewVisible(false);
       setVideo("");
-      fetchVideos();  // Refresh video list
+      setDescription("");
+      fileInput.value = '';
+      fetchVideos();
 
     } catch (error) {
       console.error("Error uploading video:", error);
@@ -114,6 +110,7 @@ const PlayerVideo = () => {
   return (
     <div className="player-video-main">
       <div className="player-video-main-wrap">
+
         {/* Upload Video Popup */}
         <Popup isopen={isPopUpOpen} onclose={() => setIsPopUpOpen(false)}>
           <div className="pop-up-inner-content">
@@ -146,25 +143,30 @@ const PlayerVideo = () => {
               </div>
               <div className='mini-preview-inner-content-bottom'>
                 <div className='my-image-value-div'>
-                  {video && isVideo ? (
+                  {Video && isVideo ? (
                     <video controls width="100%">
-                      <source src={video} type='video/mp4' />
+                      <source src={Video} type='video/mp4' />
                     </video>
                   ) : (
-                    <img src={video} alt="preview" />
+                    <img src={Video} alt="preview" />
                   )}
                 </div>
                 <div className='text-area-div'>
                   <div className='text-area-div-1'>
-                    <textarea className='my-text-area-main-main' placeholder='Add description...'></textarea>
+                    <textarea
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                      className='my-text-area-main-main'
+                      placeholder='Add description...'
+                    ></textarea>
                   </div>
                   <div className='text-area-div-2'>
                     <button
                       onClick={handlePost}
-                      disabled={!video}
+                      disabled={!Video}
                       style={{
-                        backgroundColor: !video ? "#ccc" : "#0c8f00",
-                        cursor: !video ? "not-allowed" : "pointer",
+                        backgroundColor: !Video ? "#ccc" : "#0c8f00",
+                        cursor: !Video ? "not-allowed" : "pointer",
                         opacity: isPosting ? 0.6 : 1
                       }}
                       className='post-video-div'
@@ -188,8 +190,8 @@ const PlayerVideo = () => {
 
         <div className="all-my-mapped-videos">
           {videos.length > 0 ? (
-            videos.map((vid, index) => (
-              <div key={index} className="One-posted-video">
+            videos.map((vid) => (
+              <div key={vid._id || vid.media} className="One-posted-video">
                 <div className="video-div-top">
                   <video controls width="100%">
                     <source src={vid.media} type="video/mp4" />
@@ -197,7 +199,10 @@ const PlayerVideo = () => {
                 </div>
                 <div className="video-text-div-buttom">
                   <div className="video-text-div-buttom-wrap">
-                    <div className="match-highlight-text"><h1>Match Highlight</h1></div>
+                    <div className="match-highlight-text">
+                      <h1>Match Highlight</h1>
+                      <p>{vid.description}</p>
+                    </div>
                   </div>
                 </div>
               </div>
