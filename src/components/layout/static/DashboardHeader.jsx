@@ -50,7 +50,7 @@ const DashboardHeader = () => {
             {profile?.profilePic ? (
               <img src={profile.profilePic} alt="Profile" />
             ) : (
-              <span className="profile_initial">{firstInitial}</span>
+              <span className="file_initiaprol">{firstInitial}</span>
             )}
           </div>
           <div className="header_right_txt">

@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router'
 const ScoutDashboardHeader = () => {
     const nav = useNavigate()
     const user = useSelector(state => state.user.scoutDetails.data)
+    console.log(user)
 
   const [openNav, setOpenNav] = useState(false)
   const [logout, setLogout] = useState(false)
@@ -26,6 +27,9 @@ const ScoutDashboardHeader = () => {
     nav("/")
     closeModal()
   }
+  const initial = user?.fullname ? user.fullname.charAt(0).toUpperCase() : '';
+  console.log(initial)
+
 
   const closeModal = () => setLogout(false)
   return (
@@ -40,7 +44,13 @@ const ScoutDashboardHeader = () => {
             </div>
     
             <div className="header_right">
-              <div className="header_right_img"></div>
+              <div className="header_right_img">
+                {
+                  user?.profilePic ?
+                  <img src={user?.profilePic} alt="Dashboard Logo" />:
+                  <span className='profile_initial'>{initial}</span>
+                }
+              </div>
               <div className="header_right_txt">
                 <h4>{user?.fullname}</h4>
                 <p>{user?.email}</p>

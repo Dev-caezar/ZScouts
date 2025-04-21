@@ -4,8 +4,8 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { setPlayerKyc } from "../global/Player"
 import { Select } from "antd"
+import { setScoutKyc } from "../global/Fearures"
 
 const ScoutFormRegister = () => {
   const dispatch = useDispatch()
@@ -51,7 +51,7 @@ const ScoutFormRegister = () => {
           "Content-Type": "multipart/form-data"
         }
       })
-      dispatch(setPlayerKyc(response.data))
+      dispatch(setScoutKyc(response.data.data))
       toast.success("Form submitted successfully!")
       console.log("Form data sent:", response.data)
       navigate(-1)

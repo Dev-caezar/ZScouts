@@ -154,19 +154,19 @@ const PlayerDiscovery = () => {
                 key={index}
                 onClick={() => handleGetOne(player.id)} 
               >
-                <img
-                  src={player.profileImage || "public/placeholder-player.png"}
-                  alt={player.fullname}
-                  className="player-img"
-                />
+                 {player.profileImage ? (
+                    <img
+                      src={player.profileImage}
+                      alt={player.fullname}
+                      className="player-img"
+                    />
+                  ) : (
+                    <div className="player-img-placeholder">
+                      {player.fullname?.charAt(0).toUpperCase()}
+                    </div>
+                  )}
                 <div className="player-details">
                   <h4>{player.fullname}</h4>
-                  <p>
-                    {player.age} years | {player.foot}
-                  </p>
-                  <p>
-                    <strong>{player.position}</strong>
-                  </p>
                 </div>
                 <div className="player-rating">
                   {"★★★★★".split("").map((_, i) => (

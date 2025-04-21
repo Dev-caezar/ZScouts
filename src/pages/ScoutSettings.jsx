@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "../styles/scoutsettings.css";
 import PaymentModal from "./PaymentModal";
 import DeactivateModal from "./DeactivateModal";
+import { IoCameraOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
@@ -11,6 +14,10 @@ const ScoutSettings = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [profileImage, setProfileImage] = useState(null);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
+  const scout = useSelector((state)=> state?.user.scoutKyc.scoutId)
+  console.log(scout)
 
   const handleDeactivate = () => {
     setShowDeactivateModal(true);
@@ -24,13 +31,34 @@ const ScoutSettings = () => {
   const handleSavePersonalData = () => {
     const personalData = { fullName, email };
     console.log("Save Personal Data:", personalData);
-   
   };
 
   const handleChangePassword = () => {
     const passwordData = { oldPassword, newPassword, confirmPassword };
     console.log("Change Password:", passwordData);
-   
+  };
+  const BASE_URL = "https://zscouts.onrender.com"
+  const handleUploadProfileImage = async (file) => {
+    const formData = new FormData();
+    formData.append("profileImage", file);
+
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/v1/scoutprofile-pic/${scout}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Image uploaded:", response.data);
+      setUploadedImageUrl(response.data.imageUrl); // Assuming your API returns the image URL here
+      alert("Profile image updated successfully!");
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      alert("Failed to upload image.");
+    }
   };
 
   return (
@@ -40,23 +68,28 @@ const ScoutSettings = () => {
       <div className="scout_settinginfo">
         <div className="scout_settingprofile">
           <div className="scoutprofilepicture">
+            {uploadedImageUrl ? (
+              <img
+                src={uploadedImageUrl}
+                alt="Profile"
+                className="profile-img-preview"
+              />
+            ) : null}
+
             <div className="plus-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 20 24"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg>
+              <IoCameraOutline size={30} />
+              <input
+                type="file"
+                accept="image/*"
+                className="profile-upload-input"
+                onChange={(e) => {
+                  setProfileImage(e.target.files[0]);
+                  handleUploadProfileImage(e.target.files[0]);
+                }}
+              />
             </div>
           </div>
+
 
           <div className="scoutprofiletext">
             <h4 className="scoutprofile_name">Ozofor Chioma</h4>
@@ -118,6 +151,7 @@ const ScoutSettings = () => {
           </div>
         </div>
       </div>
+
       <div className="subscription-section">
         <h3 className="subscription-title">Subscription</h3>
         <div className="subscription-box">
@@ -135,7 +169,6 @@ const ScoutSettings = () => {
         </div>
       </div>
 
-    
       {showModal && <PaymentModal onClose={() => setShowModal(false)} />}
       {showDeactivateModal && (
         <DeactivateModal

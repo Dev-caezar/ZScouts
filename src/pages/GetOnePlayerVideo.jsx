@@ -8,8 +8,6 @@ import axios from 'axios';
 const GetOnePlayerVideo = () => {
   const nav = useNavigate();
   const { state } = useLocation();
-  const videoUrl = state?.videoUrl;
-
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState(false);
   const BASE_URL = "https://zscouts.onrender.com";
@@ -22,9 +20,8 @@ const GetOnePlayerVideo = () => {
         setPlayers(response.data.data);
       } catch (error) {
         console.error("Error fetching players:", error);
-      } finally {
-        setLoading(false);
       }
+      setLoading(false);
     };
 
     fetchPlayers();
@@ -41,7 +38,8 @@ const GetOnePlayerVideo = () => {
           </div>
           <div className='get-one-video-div'>
             <video controls width="100%">
-              <source src={videoUrl} type='video/mp4' />
+              <source src={state?.videoUrl} type='video/mp4' />
+              Your browser does not support the video tag.
             </video>
           </div>
         </div>
@@ -64,7 +62,6 @@ const GetOnePlayerVideo = () => {
                 </div>
               </div>
             </div>
-
             <div className='get-one-profile-main-iner-2'>
               <div className='rating-inner-div'>
                 <div className='rating-inner-div-1'>Rate this video</div>
@@ -84,17 +81,24 @@ const GetOnePlayerVideo = () => {
             {loading ? (
               <p>Loading recommendations...</p>
             ) : (
-              players.map((player, idx) => (
-                <div key={idx} className='one-player-profile-recommendation'>
+              players.map((player, index) => (
+                <div key={index} className='one-player-profile-recommendation'>
                   <div className='one-player-profile-recommendation-div-1'>
                     <div className='one-player-profile-recommendation-div-1-image'>
-                      <img src={player.playerKyc?.profilePic || "/src/assets/wisdomimage.png"} alt="img" />
+                            {player.profileImage ? (
+                            <img
+                            src={player.profileImage}
+                            alt={player.fullname}
+                            className="player-img"
+                            />
+                        ) : (
+                            <div className="player-img-card">
+                            {player.fullname?.charAt(0).toUpperCase()}
+                            </div>
+                        )}
+                      {/* <img src={player.playerKyc?.profilePic || "/src/assets/wisdomimage.png"} alt="img" /> */}
                     </div>
-                    <div className='one-player-profile-recommendation-div-1-text'>
-                      <div className='one-player-profile-recommendation-div-1-name'>{player.fullname}</div>
-                      <div className='one-player-profile-recommendation-div-1-position'>{player.playerKyc?.secondaryPosition}</div>
-                      <div className='one-player-profile-recommendation-div-1-years'>{player.playerKyc?.age} years</div>
-                    </div>
+                    <h4>{player.fullname}</h4>
                   </div>
                   <div className='one-player-profile-recommendation-div-2'>
                     {[...Array(5)].map((_, i) => (
@@ -106,6 +110,7 @@ const GetOnePlayerVideo = () => {
             )}
           </div>
         </div>
+
       </div>
     </div>
   );

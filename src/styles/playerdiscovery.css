@@ -1,7 +1,7 @@
 .scoutdiscovery {
     width: 100%;
-    height: 100%;
-    background-color: #FBFBFB;
+    height: 100vh;
+    background-color: #F3F3F3;
     display: flex;
     flex-direction: column;
     /* justify-content: end; */
@@ -17,6 +17,19 @@
     border-radius: 16px;
        
 }
+.player-img-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ddd;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
 .input-wrapper {
     position: relative;
     width: 97%;
