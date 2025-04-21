@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   playerDetails: {},
   playerToken: "",
-  playerKyc:"",
+  playerKyc: {},
   isAuthenticated: false,
 };
 
@@ -25,7 +25,8 @@ const playerSlice = createSlice({
     },
     logoutPlayer: (state) => {
       state.playerDetails ={};
-      state.playerToken = "",
+      state.playerToken = "";
+      state.playerKyc = {}
       state.isAuthenticated = false
     },
   },

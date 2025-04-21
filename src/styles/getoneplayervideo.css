@@ -201,12 +201,12 @@
 
 .get-one-recommendation-video{
     width: 100%;
-    height: 100vh;
+    height: max-content;
     /* background-color: green; */
     display: flex;
     flex-wrap: wrap;
     gap: 43px;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 .one-player-profile-recommendation{

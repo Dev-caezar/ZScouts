@@ -14,8 +14,6 @@ import { Flex, Spin } from 'antd'
 const LoginPlayer = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const player = useSelector((state) => state.player.player)
-  console.log(player)
   const [showPass, setShowPass] = useState(false)
    const [loading, setLoading] = useState(false);
         const handlePassword =()=>{
@@ -91,7 +89,7 @@ useEffect(() => {
     toast.success('Login successful');
     setLoading(false)
     setTimeout(() => {
-      navigate(`/player_profile/${res.data.data.id}`);
+      navigate("/player_profile");
       setIsDisabled(false)
     }, 1000);
   } catch (error) {
@@ -139,8 +137,8 @@ useEffect(() => {
                     </div>
                     <button type="submit" disabled={isDisabled} style={{cursor: isDisabled || loading ?  'not-allowed' : 'pointer',  }} className='player_login_button'>{loading ? 
                     <Flex align="center" justify="center" style={{ height: "100%" }}>
-                    <Spin indicator={loadingIcon} />
-                  </Flex>
+                      <Spin indicator={loadingIcon} />
+                    </Flex>
                      : "Login"}</button>
                     </form>
                     <div className="second_option">
