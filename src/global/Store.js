@@ -2,8 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; 
 import { combineReducers } from 'redux';
-import authSlice from './Fearures'; 
 import playerSlice from './Player';
+import userSlice from "./Fearures"
 
 
 const persistConfig = {
@@ -12,8 +12,8 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  user: authSlice,
-  player: playerSlice
+  user: userSlice,
+  player: playerSlice,
   
 });
 

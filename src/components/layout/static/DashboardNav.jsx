@@ -15,9 +15,9 @@ const DashboardNav = () => {
   console.log("this is my id", player)
   const nav = useNavigate();
 
-  const handlePlayerProfile = () => nav(`/player_profile/${player}`);
-  const handlePlayerVideo = () => nav(`/player_video/${player}`);
-  const handlePlayerSettings = () => nav(`/player_setting/${player}`);
+  const handlePlayerProfile = () => nav("/player_profile");
+  const handlePlayerVideo = () => nav("/player_video");
+  const handlePlayerSettings = () => nav("/player_setting");
   const handleLogout = () => setLogout(true);
 
   const closeModal = () => setLogout(false);
