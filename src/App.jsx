@@ -38,6 +38,7 @@ import EmailPagePlayer from './auth/EmailPagePlayer';
 import EmailVerifyPlayer from './auth/EmailVerifyPlayer';
 import PlayerDetails from './components/Chiemerie/PlayerDetails';
 import GetOnePlayerVideo from './pages/GetOnePlayerVideo';
+import OnePlayerProfile from './pages/OnePlayerProfile';
 import PlayerDiscovery from './pages/PlayerDiscovery';
 
 const App = () => {
@@ -183,7 +184,11 @@ const App = () => {
         {
           path: "get_one_player_video",
           element: < GetOnePlayerVideo />,
-        }
+        },
+        {
+          path: "one_player_profile",
+          element: < OnePlayerProfile />,
+        },
       ],
     },
     {
