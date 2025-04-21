@@ -16,7 +16,7 @@ import AboutUs from "../components/Wisdom/AboutUs";
 import ContactUs from "../components/Wisdom/ContactUs";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import RegisterPlayer from "../auth/RegisterPlayer";
-import EmailVerify from "../auth/emailVerify";
+import EmailVerify from "../auth/EmailVerify";
 import PlayerProfile from "../pages/PlayerProfile";
 
 
@@ -40,7 +40,7 @@ export const Element = createBrowserRouter([
     ],
   },
   {
-    element: <AuthLayout />,
+    element: <AuthLayout/>,
     children: [
       {
         path: "/player_login",

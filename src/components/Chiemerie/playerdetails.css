@@ -55,10 +55,27 @@ gap: 2%;
 }
 
 .playerDetails-rating{
-    width: 90%;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
     /* border: 3px solid black; */
     display: flex;
-    gap: 2%;
+}
+
+.ratingStar-wrap{
+    width: 60%;
+    height: 100%;
+    /* border: 4px solid green; */
+    display: flex;
+    gap:4% ;
+}
+
+.ratingStar-wrap2{
+    width: 60%;
+    height: 100%;
+    /* border: 4px solid green; */
+    display: flex;
+    gap:4% ;
 }
 
 
@@ -130,7 +147,8 @@ text-decoration-skip-ink: auto;
     /* border: solid navy; */
     padding: 10px;
     display: flex;
-    justify-content: space-evenly;
+    gap: 4%;
+    
     flex-direction: column;
 }
 
@@ -139,7 +157,7 @@ text-decoration-skip-ink: auto;
     height: 200px;
     border-top-left-radius: 23px;
     border-top-right-radius: 23px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.626);
 }
 
 
@@ -192,4 +210,118 @@ text-decoration-skip-ink: auto;
     border: none;
      font-size: 16px;
     background-color: green;
+}
+
+.playerDetails-h4{
+    display: none;
+}
+
+
+.playerDetails-footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    
+}
+
+.playerDetails-footer-p{
+    font-size: 15px;
+    color: #115471;
+}
+
+
+
+
+@media (max-width: 820px) {
+    .playerDetails-wrapper{
+        width: 100%;
+    }
+
+    .playerDetails-second-nameImagge-wrap{
+        display: none;
+    }
+
+    .playerDetails-videos-wrap{
+        width: 100%;
+        /* background-color: black; */
+    }
+
+    .playerDetails-videos{
+       width: 100%; 
+    }
+
+    .playerDetails-h6-h5-div{
+        width: 100%;
+        display: flex;
+        padding: 1px;
+        justify-content: space-between;
+    }
+
+    .playerDetails-h2{
+        font-size: 15px;
+    }
+
+    .playerDetails-h6{
+        font-size: 16px;
+    }
+
+    .playerDetails-h5{
+        display: none;
+    }
+
+    .playerDetails-h4{
+        width: 40%;
+        height: 35px;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        background-color: green;
+        border-radius: 8px;
+    }
+
+
+    .theVideos-wrap{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .thevideo{
+        width: 100%;
+        /* border: 4px solid blue; */
+    }
+
+    .upgrageSection-wrap{
+        display: none;
+    }
+
+    .playerDetails-footer-p{
+        font-size: 10px;
+        color: #115471;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .playerDetails-wrapper{
+        width: 100%;
+    }
+
+    .playerDetails-second-nameImagge-wrap{
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .playerDetails-wrapper{
+        width: 100%;
+    }
+
+    .playerDetails-second-nameImagge-wrap{
+        display: none;
+    }
 }
