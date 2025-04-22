@@ -1,36 +1,47 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/playerdiscovery.css";
+import { Flex, Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router";
 
 const PlayerDiscovery = () => {
+  const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [nestedOptions, setNestedOptions] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [selectedNestedOption, setSelectedNestedOption] = useState("");
 
-  const options = ["Position", "foot"];
+  const options = ["Position", "preferredFoot"];
 
   const optionValues = {
     Position: ["ST", "MF", "DEF", "GK"],
-    foot: ["Left", "Right", "Both"],
+    preferredFoot: ["Left", "Right", "Both"],
   };
 
   const BASE_URL = "https://zscouts.onrender.com";
 
   useEffect(() => {
     const fetchPlayers = async () => {
+      setLoading(true);
       try {
         const response = await axios.get(`${BASE_URL}/api/players/allplayers`);
-        console.log("Fetched players:", response.data.data);
+        setLoading(false);
         setPlayers(response.data.data);
       } catch (error) {
         console.error("Error fetching players:", error);
+        setLoading(false);
       }
     };
 
     fetchPlayers();
   }, []);
+
+  const handleGetOne = (id) => {
+    navigate(`/player_details/${id}`);
+  };
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
@@ -56,13 +67,27 @@ const PlayerDiscovery = () => {
   const filteredPlayers = players.filter((player) => {
     if (!selectedOption || !selectedNestedOption) return true;
     if (selectedOption === "Position") {
-      return player.position === selectedNestedOption;
+      return player.playerKyc?.secondaryPosition === selectedNestedOption;
     }
-    if (selectedOption === "foot") {
-      return player.foot === selectedNestedOption;
+    if (selectedOption === "preferredFoot") {
+      return player.playerKyc?.preferredFoot === selectedNestedOption;
     }
     return true;
   });
+
+  const loadingIcon = (
+    <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />
+  );
+
+  if (loading) {
+    return (
+      <div className="loader">
+        <Flex>
+          <Spin indicator={loadingIcon} />
+        </Flex>
+      </div>
+    );
+  }
 
   return (
     <div className="scoutdiscovery">
@@ -124,20 +149,29 @@ const PlayerDiscovery = () => {
         <div className="discoveryList-div">
           {filteredPlayers.length > 0 ? (
             filteredPlayers.map((player, index) => (
-              <div className="player-card" key={index}>
-                <img
-                  src={player.profileImage || "public/placeholder-player.png"}
-                  alt={player.fullname}
-                  className="player-img"
-                />
+              <div
+                className="player-card"
+                key={index}
+                onClick={() => handleGetOne(player.id)} 
+              >
+                 {player?.playerKyc?.profilePic ? (
+                   <div className="player-img-placeholder">
+                  <img
+                    src={player.playerKyc.profilePic}
+                    alt={player.fullname}
+                  />
+                 </div>
+                  
+                ) : (
+                  <div className="player-img-placeholder">
+                    {player.fullname?.charAt(0).toUpperCase()}
+                  </div>
+                )}
                 <div className="player-details">
-                  <h4>{player.fullname}</h4>
-                  <p>
-                    {player.age} years | {player.foot}
-                  </p>
-                  <p>
-                    <strong>{player.position}</strong>
-                  </p>
+                  <h4>{player?.fullname}</h4>
+                  {/* <h4>{player.playerKyc?.age ? `${player.playerKyc.preferredFoot} Years` : '-'}</h4> */}
+                  <h4>{player?.playerKyc?.preferredFoot} Foot</h4>
+                  <h4>{player?.playerKyc?.secondaryPosition}</h4>
                 </div>
                 <div className="player-rating">
                   {"★★★★★".split("").map((_, i) => (

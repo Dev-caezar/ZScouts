@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "../styles/scoutsettings.css";
 import PaymentModal from "./PaymentModal";
-import { useParams } from "react-router";
-import axios from "axios";
+import DeactivateModal from "./DeactivateModal";
+import { IoCameraOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
@@ -11,44 +13,55 @@ const ScoutSettings = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const API_KEY = "YOUR_API_KEY_HERE"; 
+  const [profileImage, setProfileImage] = useState(null);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
+  const scout = useSelector((state) => state?.user.scoutKyc.scoutId);
+  const scoutDetails = useSelector((state) => state?.user.scoutDetails.data);
+  console.log(scoutDetails.id);
 
- 
+  const handleDeactivate = () => {
+    setShowDeactivateModal(true);
+  };
 
-
-  const BASE_URL = "https://zscouts.onrender.com";
-  const { id } = useParams();
-  const [authenticated, setAuthenticated] = useState(null);
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/api/scouts/getscout/${id}`);
-        setAuthenticated(response.data);
-      } catch (error) {
-        console.error("Error fetching user:", error);
-      }
-    };
-
-    fetchUser();
-  }, [id]);
-
-
-
-
+  const confirmDeactivate = () => {
+    setShowDeactivateModal(false);
+    alert("Your account has been deactivated");
+  };
 
   const handleSavePersonalData = () => {
     const personalData = { fullName, email };
     console.log("Save Personal Data:", personalData);
-   
   };
 
   const handleChangePassword = () => {
     const passwordData = { oldPassword, newPassword, confirmPassword };
     console.log("Change Password:", passwordData);
-   
   };
 
- 
+  const BASE_URL = "https://zscouts.onrender.com";
+
+  const handleUploadProfileImage = async (file) => {
+    const formData = new FormData();
+    formData.append("profilepic", file);  // Updated field name
+
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/v1/scoutprofile-pic/${scout}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Image uploaded:", response.data);
+      setUploadedImageUrl(response.data.imageUrl);
+      alert("Profile image updated successfully!");
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      alert("Failed to upload image.");
+    }
+  };
 
   return (
     <div className="scout_profilesetting">
@@ -57,27 +70,31 @@ const ScoutSettings = () => {
       <div className="scout_settinginfo">
         <div className="scout_settingprofile">
           <div className="scoutprofilepicture">
+            {uploadedImageUrl ? (
+              <img
+                src={uploadedImageUrl}
+                alt="Profile"
+                className="profile-img-preview"
+              />
+            ) : null}
+
             <div className="plus-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 20 24"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg>
+              <IoCameraOutline size={30} />
+              <input
+                type="file"
+                accept="image/*"
+                className="profile-upload-input"
+                onChange={(e) => {
+                  setProfileImage(e.target.files[0]);
+                  handleUploadProfileImage(e.target.files[0]);
+                }}
+              />
             </div>
           </div>
 
           <div className="scoutprofiletext">
-            <h4 className="scoutprofile_name">{authenticated?.data?.fullname}</h4>
-            <p className="scoutprofile_email">{authenticated?.data?.email}</p>
+            <h4 className="scoutprofile_name">{scoutDetails.fullname}</h4>
+            <p className="scoutprofile_email">{scoutDetails.email}</p>
           </div>
         </div>
       </div>
@@ -89,14 +106,14 @@ const ScoutSettings = () => {
             <label>Full name</label>
             <input
               type="text"
-              placeholder=""
+              placeholder="Enter fullname"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
             />
             <label>Email</label>
             <input
               type="email"
-              placeholder=""
+              placeholder="Enter Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -135,6 +152,7 @@ const ScoutSettings = () => {
           </div>
         </div>
       </div>
+
       <div className="subscription-section">
         <h3 className="subscription-title">Subscription</h3>
         <div className="subscription-box">
@@ -151,7 +169,6 @@ const ScoutSettings = () => {
         </div>
       </div>
 
-    
       {showModal && <PaymentModal onClose={() => setShowModal(false)} />}
      
     </div>

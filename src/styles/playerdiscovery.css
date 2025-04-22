@@ -1,28 +1,45 @@
 .scoutdiscovery {
     width: 100%;
-    height: 90vh;
-    background-color: #FBFBFB;
+    height: 100vh;
+    min-height: max-content;
+    background-color: #F3F3F3;
     display: flex;
     flex-direction: column;
     /* justify-content: end; */
     /* padding-top: 30px; */
-    padding: 15px;
-    overflow-y: auto;
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
+    /* padding: 15px;  */
 }
 
 .scoutdiscoveryform {
     width: 100%;
     height: 30%;
-   padding: 10px;
+   /* padding: 10px; */
     background-color: #FFFFFF;
     border-radius: 16px;
        
 }
+.player-img-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ddd;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  overflow: hidden;
+}
+.player-img-placeholder img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .input-wrapper {
     position: relative;
-    width: 95%;
+    width: 97%;
     margin-left: 15px;
     margin-top: 10px;
   }
@@ -33,7 +50,6 @@
     padding-left: 10px;
     padding-right: 35px; 
     border-radius: 8px;
-    /* background-color: red; */
     border: 1px solid var(--Colors-Neutral-500, #A4A4A4);
   }
   
@@ -83,14 +99,12 @@
  
 .player_discoverylist {
     width: 100%;
-    height: 550px;
+    height: max-content;
     /* background-color:  #c31e1e; */
     display: flex;
     padding: 5px;
     /* gap: 3%; */
     margin-top: 10px;
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
 }
 
 .dropdown-menu {
@@ -113,6 +127,8 @@
 
   }
 
+ 
+
   .dropdown-menu::-webkit-scrollbar {
     display: none; 
   }
@@ -134,9 +150,9 @@
     width: 100%;
     height: 100%;
     /* background-color: magenta; */
-    overflow-y: auto;
+    /* overflow-y: auto; */
     display: flex;
-    gap: 20px;
+    gap: 10px;
     flex-wrap: wrap;
   }
   
@@ -206,6 +222,67 @@
   }
 
 
+.loadingPage{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+}
+
+ .loading-cycle{
+  width: 25%;
+  height: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  
+ }
+
+ @keyframes rollIn {
+  from {
+      transform: translatex(100%)
+     rotate(360deg);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0)
+      rotate(0deg);
+      opacity: 1;
+  }
+}
+
+@keyframes rotateInfinite{
+  from{
+      transform: rotate(0deg);
+  }
+  to{
+      transform: rotate(360deg);
+  }
+}
+
+.LogoCycle2{
+  animation: rollIn 1s ease-in-out forwards, rotateInfinite 1.5s linear infinite;
+}
+
+.LogoCycle2{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.favicondiv{
+  width: 25%;
+  height: 55%;
+  background-image: url("../assets/favicon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  position: absolute;
+}
+
 
    @media screen and (min-width: 768px) {
     .scoutdiscovery {
@@ -220,6 +297,23 @@
     .discoveryList-div {
       width: 100%;
     }
+     
+    .loadingPage{
+      width: 100%;
+    }
+
+    .loading-cycle{
+      width: 40%;
+      height: 40%;
+      /* background-color: red; */
+    }
+
+    .favicondiv{
+      width: 100%;
+      /* height: ; */
+      /* border: 2px solid red; */
+    }
+  
   }
   
   @media screen and (max-width: 767px) {
@@ -257,6 +351,20 @@
     .clear_btn, .apply_btn {
       font-size: 13px;
       padding: 3px 15px;
+    }
+    .loadingPage{
+      width: 100%;
+    }
+
+    .loading-cycle{
+      width: 70%;
+      height: 40%;
+      /* background-color: red; */
+    }
+
+    .favicondiv{
+      width: 100%;
+      /* border: 2px solid red; */
     }
   }
   
@@ -315,6 +423,7 @@
     }
   
     .player-card {
+      width: 100%;
       padding: 10px;
       flex-direction: row;
       align-items: center;
@@ -341,5 +450,124 @@
   
     .star {
       margin-left: 2px;
+    }
+
+    .loadingPage{
+      width: 100%;
+    }
+
+    .loading-cycle{
+      width: 70%;
+      height: 40%;
+      /* background-color: red; */
+    } 
+
+    .favicondiv{
+      width: 100%;
+      /* border: 2px solid red; */
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .scoutdiscovery {
+      padding: 10px;
+      height: auto;
+    }
+  
+    .scoutdiscoveryform {
+      padding: 10px;
+      border-radius: 12px;
+    }
+  
+    .input-wrapper {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 15px;
+    }
+  
+    .selectoption {
+      height: 40px;
+      font-size: 14px;
+    }
+  
+    .filterbuttons {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+      margin-top: 10px;
+      align-items: stretch;
+    }
+  
+    .clear_btn,
+    .apply_btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 14px;
+    }
+  
+    .dropdown-menu {
+      width: 100%;
+    }
+  
+    .player_discoverylist {
+      flex-direction: column;
+      gap: 10px;
+      height: auto;
+      padding: 0;
+    }
+  
+    .discoveryList-div {
+      width: 100%;
+      height: auto;
+    }
+  
+    .player-card {
+      width: 100%;
+      /* display: flex;
+      justify-content: ; */
+      padding: 10px;
+      flex-direction: row;
+      align-items: center;
+      /* gap: 10px; */
+    }
+  
+    .player-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+    }
+  
+    .player-details h4 {
+      font-size: 14px;
+    }
+  
+    .player-details p {
+      
+      /* border: 4px solid red; */
+      font-size: 12px;
+    }
+  
+    .player-rating {
+      font-size: 22px;
+    }
+  
+    .star {
+      margin-left: 2px;
+    }
+
+    .loadingPage{
+      width: 100%;
+    }
+
+    .loading-cycle{
+      width: 70%;
+      height: 40%;
+      /* background-color: red; */
+    } 
+
+    .favicondiv{
+      width: 100%;
+      /* border: 2px solid red; */
     }
   }

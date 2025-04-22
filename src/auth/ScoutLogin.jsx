@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc"
 import { useNavigate } from "react-router"
 import axios from "axios"
 import { useDispatch } from "react-redux"
-import { setUser } from "../global/Fearures"
+import { setScoutDetails, setScoutToken } from "../global/Fearures"
 import { Flex, Spin } from "antd"
 import { LoadingOutlined } from "@ant-design/icons"
 import { toast } from "react-toastify"
@@ -63,12 +63,20 @@ const ScoutLogin = () => {
       try {
         const response = await axios.post(`${BASE_URL}/api/scouts/login`, login)
         console.log("Login successful:", response.data)
-        dispatch(setUser(response.data))
+        dispatch(setScoutDetails(response.data))
+        dispatch(setScoutToken(response.data))
+        toast.success("Login successful!");
+        setTimeout(() => {
+          navigate("/scout_profile");
+        }, 2000);
 
-        navigate(`/scout_profile/${response.data.data.id}`)
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message)
-        toast.error("Login failed. Please try again later.")
+       if (error.message === "Network Error") {
+        toast.error("Oops Network error! Please check your connection and try again.");
+      } else {
+        toast.error("Login failed. Please try again later.");
+      }
 
         if (error.response && error.response.data) {
           const apiErrors = error.response.data.errors
@@ -158,7 +166,7 @@ const ScoutLogin = () => {
           </button>
         </form>
 
-        <div className="second_option">
+        {/* <div className="second_option">
           <div className="line"></div>
           <h4>OR</h4>
           <div className="line"></div>
@@ -167,7 +175,7 @@ const ScoutLogin = () => {
         <button style={{ cursor: "pointer" }} className="google_button" onClick={handleGoogleSignup}>
           <FcGoogle />
           <p>Sign up with Google</p>
-        </button>
+        </button> */}
 
         <div className="form_footer">
           <h4>

@@ -92,7 +92,7 @@ const PricingPlans = () => {
                   <button className={item.btnClass} 
                    onClick={() => navigate("/signup_option")}
                     >
-                     Get Started for Free
+                     Get Started
                   </button>
                 </div>
                 <div className={item.tagClass}>

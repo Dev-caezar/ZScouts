@@ -3,18 +3,20 @@ import axios from 'axios';
 import "../styles/editProfile.css";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import Profiletracker from '../components/layout/static/Profiletracker';
-import { Select } from 'antd';
+import { Flex, Select, Spin } from 'antd';
 import { useNavigate, useParams } from 'react-router';
-import { useDispatch } from 'react-redux';
-import { setPlayer } from '../global/Player';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPlayerKyc } from '../global/Player';
+import { LoadingOutlined } from '@ant-design/icons';
 import { toast } from 'react-toastify';
 
 const EditProfile = () => {
-  const { id } = useParams();
+  const players = useSelector((state)=> state.player.playerDetails.id)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
 
+  const [loading, setLoading] = useState(false)
   const [player, setPlayerState] = useState({
     age: "",
     nationality: "",
@@ -27,7 +29,7 @@ const EditProfile = () => {
     primaryPosition: "",
     secondaryPosition: "",
     currentClub: "",
-    strengths: "",
+    ability: "",
     followDiet: "",
     contactInfoOfCoaches: "",
     openToTrials: "",
@@ -47,27 +49,35 @@ const EditProfile = () => {
   const BASE_URL = "https://zscouts.onrender.com";
 
   const handleSubmit = async () => {
+    setLoading(true)
     try {
       const formData = new FormData();
       for (const key in player) {
         formData.append(key, player[key]);
       }
 
-      const response = await axios.post(`${BASE_URL}/api/v1/playerkyc/${id}`, formData, {
+      const response = await axios.post(`${BASE_URL}/api/v1/playerkyc/${players}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 
       console.log("Player profile submitted:", response.data);
-      dispatch(setPlayer(response.data));
-      toast.success("KYC submitted successfully!");
+      setLoading(false)
+      dispatch(setPlayerKyc(response.data));
+      toast.success("Your submission is complete! Scouts can now review your profile and get in touch!");
+      setTimeout(() => {
+        navigate(-1)
+      }, 2000);
     } catch (error) {
       console.error("Error submitting profile:", error);
+      setLoading(false)
       toast.error("Failed to submit profile.");
     }
   };
   const handleBack =()=>{
     navigate(-1)
   }
+
+  const loadingIcon = <LoadingOutlined style={{ fontSize: 90, color: "green" }} spin />
 
   return (
     <div className='player_kyc_body'>
@@ -76,21 +86,28 @@ const EditProfile = () => {
           <IoReturnUpBackOutline style={{cursor: "pointer"}} className='back_icon' onClick={handleBack}/>
         </div>
         <Profiletracker />
-
-        {/* Personal Data */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Personal Data</h4>
           </div>
           <div className="edit_card_bottom">
             <div className="edit_input_container">
-              <h4>Strengths*</h4>
-              <input 
-                value={player.strengths}
-                onChange={e => handleChange("strengths", e.target.value)}
-                type="text"
-                placeholder='Strengths'
-                className='edit_input'
+              <h4>Ability*</h4>
+               <Select
+                showSearch
+                placeholder="ability"
+                optionFilterProp="label"
+                onChange={value => handleChange("ability", value)}
+                style={{ width: '80%' }}
+                value={player.ability}
+                options={[
+                  { value: 'dribbling', label: 'dribbling' },
+                  { value: 'passing', label: 'passing' },
+                  { value: 'shooting', label: 'shooting' },
+                  { value: 'defending', label: 'defending' },
+                  { value: 'speed', label: 'speed' },
+                  { value: 'stamina', label: 'stamina' },
+                ]}
               />
             </div>
             <div className="date_input_container">
@@ -166,8 +183,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Contact Information */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Contact Information</h4>
@@ -195,8 +210,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Football Profile */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Football Profile</h4>
@@ -204,22 +217,36 @@ const EditProfile = () => {
           <div className="contact_card_bottom">
             <div className="contact_input_container">
               <h4>Primary position*</h4>
-              <input 
-                type="text"
+                <Select
+                showSearch
+                placeholder="Primary position"
+                optionFilterProp="label"
+                onChange={value => handleChange("primaryPosition", value)}
+                style={{ width: '80%' }}
                 value={player.primaryPosition}
-                onChange={e => handleChange("primaryPosition", e.target.value)}
-                placeholder='Primary position'
-                className='contact_input'
+                options={[
+                  { value: 'GK', label: 'GK' },
+                  { value: 'DEF', label: 'DEF' },
+                  { value: 'MF', label: 'MF' },
+                  { value: 'ST', label: 'ST' },
+                ]}
               />
             </div>
             <div className="contact_input_container">
               <h4>Secondary position*</h4>
-              <input 
-                type="text"
+              <Select
+                showSearch
+                placeholder="secondary position"
+                optionFilterProp="label"
+                onChange={value => handleChange("secondaryPosition", value)}
+                style={{ width: '80%' }}
                 value={player.secondaryPosition}
-                onChange={e => handleChange("secondaryPosition", e.target.value)}
-                placeholder='Secondary position'
-                className='contact_input'
+                options={[
+                  { value: 'GK', label: 'GK' },
+                  { value: 'DEF', label: 'DEF' },
+                  { value: 'MF', label: 'MF' },
+                  { value: 'ST', label: 'ST' },
+                ]}
               />
             </div>
             <div className="contact_input_container">
@@ -234,8 +261,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Medical & Fitness */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Medical & Fitness Information</h4>
@@ -258,8 +283,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Coach Information */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Coach Information</h4>
@@ -277,8 +300,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Other Information */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Other Information</h4>
@@ -316,8 +337,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        {/* Media Upload */}
         <div className="edit_card">
           <div className="edit_card_top">
             <h4>Upload Media</h4>
@@ -340,8 +359,17 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-
-        <button className='complete_cta' onClick={handleSubmit}>Submit</button>
+        <button className='complete_cta' onClick={handleSubmit}>
+          {
+            loading? 
+            <div className="loading_modal">
+              <Flex>
+                 <Spin indicator={loadingIcon} />
+              </Flex>
+            </div>:
+            "Submit"
+          }
+        </button>
       </div>
     </div>
   );

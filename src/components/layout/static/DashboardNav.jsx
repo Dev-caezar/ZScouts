@@ -5,33 +5,36 @@ import { MdVideoLibrary } from "react-icons/md";
 import { AiFillSetting } from "react-icons/ai";
 import { IoClose, IoLogOut } from "react-icons/io5";
 import { useNavigate, useParams } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutPlayer } from '../../../global/Player';
+import whitelogo from "../../../assets/whiteLogo.png"
 
 const DashboardNav = () => {
   const [logout, setLogout] = useState(false);
-  const player = useSelector((state)=> state.player.player)
-  console.log("this is my id", player?.data?.id)
+  const dispatch = useDispatch();
+  const player = useSelector((state)=> state.player.playerDetails.id)
+  console.log("this is my id", player)
   const nav = useNavigate();
 
-  const handlePlayerProfile = () => nav(`/player_profile/${player?.data?.id}`);
-  const handlePlayerVideo = () => nav(`/player_video/${player?.data?.id}`);
-  const handlePlayerSettings = () => nav(`/player_setting/${player?.data?.id}`);
+  const handlePlayerProfile = () => nav("/player_profile");
+  const handlePlayerVideo = () => nav("/player_video");
+  const handlePlayerSettings = () => nav("/player_setting");
   const handleLogout = () => setLogout(true);
 
   const closeModal = () => setLogout(false);
 
   const confirmLogout = () => {
+    dispatch(logoutPlayer())
     console.log("Logged out");
-    nav("/")
     closeModal();
+    nav("/")
   };
-
   return (
     <div className='sidebar_body'>
       <div className="sidebar_wrapper">
         <div className="sidebar_header">
           <div className="sidebar_dashboard_logo">
-            <img src="/src/assets/whiteLogo.png" alt="Logo" />
+            <img src={whitelogo} alt="Logo" />
           </div>
         </div>
 

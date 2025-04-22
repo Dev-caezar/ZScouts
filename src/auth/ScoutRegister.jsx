@@ -6,9 +6,13 @@ import axios from "axios"
 import "../styles/scoutregister.css"
 import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons"
+import { useDispatch } from "react-redux"
+import { setScoutDetails } from "../global/Fearures"
+import { toast } from "react-toastify"
 
 const ScoutRegister = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -66,18 +70,27 @@ const ScoutRegister = () => {
   }
 
   const BASE_URL = "https://zscouts.onrender.com"
-  console.log(`${BASE_URL}/api/scouts/register`)
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (validateForm()) {
       setLoading(true)
       try {
         const response = await axios.post(`${BASE_URL}/api/scouts/register`, register)
-        console.log("Registration successful:", response.data)
-        navigate("/email_page")
+        console.log("Registration successful:", response)
+        dispatch(setScoutDetails(response.data.data))
+        toast.success("Successfully registered as a scout! Please check your email to verify. ");
+        setTimeout(() => {
+          navigate("/email_page");
+        }, 2000);
+        
       } catch (error) {
-        console.error("Registration failed:", error.response?.data || error.message)
+        console.log("Registration failed:", error.response?.data || error.message)
+        if (error.message === "Network Error") {
+          toast.error("Oops Network error! Please check your connection and try again.");
+        } else {
+          toast.error("Registration failed. Please try again later.");
+        }
+
         if (error.response && error.response.data) {
           const apiErrors = error.response.data.errors
           setErrors((prev) => ({ ...prev, ...apiErrors }))
@@ -191,7 +204,7 @@ const ScoutRegister = () => {
              }
           </button>
         </form>
-
+{/* 
         <div className="second_option">
           <div className="line"></div>
           <h4>OR</h4>
@@ -201,7 +214,7 @@ const ScoutRegister = () => {
         <button className='google_button' onClick={handleGoogleSignup}>
           <FcGoogle />
           <p>Sign up with Google</p>
-        </button>
+        </button> */}
 
         <div className="sform_footer">
           <h4>Already have an account? <span onClick={navigateToLogin}>login here.</span></h4>

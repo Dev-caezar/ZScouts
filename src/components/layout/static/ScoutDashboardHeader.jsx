@@ -6,10 +6,12 @@ import { IoLogOut } from 'react-icons/io5'
 import { MdCancel, MdVideoLibrary } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
+import zlogo from "../../../assets/Zlogo.jpg"
 
 const ScoutDashboardHeader = () => {
     const nav = useNavigate()
-    const user = useSelector(state => state.user.user)
+    const user = useSelector(state => state.user.scoutDetails.data)
+    console.log(user)
 
   const [openNav, setOpenNav] = useState(false)
   const [logout, setLogout] = useState(false)
@@ -26,6 +28,11 @@ const ScoutDashboardHeader = () => {
     nav("/")
     closeModal()
   }
+  const initial = user?.fullname ? user.fullname.charAt(0).toUpperCase() : '';
+  console.log(initial)
+  const handlePlayerProfile = () => nav("/scout_profile");
+  const handlePlayerVideo = () => nav("/player_discovery");
+  const handlePlayerSettings = () => nav("/scout_setting");
 
   const closeModal = () => setLogout(false)
   return (
@@ -35,15 +42,21 @@ const ScoutDashboardHeader = () => {
               <h4>Welcome to Your Solution!</h4>
               <p>Manage your profile and stay connected.</p>
               <div className="dashboard_logo">
-                <img src="/src/assets/Zlogo.jpg" alt="Dashboard Logo" />
+                <img src={zlogo} alt="Dashboard Logo" />
               </div>
             </div>
     
             <div className="header_right">
-              <div className="header_right_img"></div>
+              <div className="header_right_img">
+                {
+                  user?.profilePic ?
+                  <img src={user?.profilePic} alt="Dashboard Logo" />:
+                  <span className='profile_initial'>{initial}</span>
+                }
+              </div>
               <div className="header_right_txt">
-                <h4>{user?.data?.fullname}</h4>
-                <p>{user?.data?.email}</p>
+                <h4>{user?.fullname}</h4>
+                <p>{user?.email}</p>
               </div>
               <HiMenuAlt3 className='dash_icon' onClick={handleOpenNav} />
     
@@ -58,18 +71,18 @@ const ScoutDashboardHeader = () => {
                     </div>
     
                     <div className="d_modal_content">
-                      <div className="modal_card" onClick={() => nav("/player_profile")}>
+                      <div className="modal_card" onClick={handlePlayerProfile}>
                         <BiSolidCategory className='d_sidebar_icon' />
                         <h4>My Profile</h4>
                       </div>
-                      <div className="modal_card" onClick={() => nav("/player_video")}>
+                      <div className="modal_card" onClick={handlePlayerVideo}>
                         <MdVideoLibrary className='d_sidebar_icon' />
-                        <h4>My Videos</h4>
+                        <h4>Player Discovery</h4>
                       </div>
                     </div>
     
                     <div className="modal_footer">
-                      <div className="modal_card" onClick={() => nav("/player_setting")}>
+                      <div className="modal_card" onClick={handlePlayerSettings}>
                         <AiFillSetting className='d_sidebar_icon' />
                         <h4>Settings</h4>
                       </div>

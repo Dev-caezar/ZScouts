@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 const EmailVerify = () => {
   const BASE_URL = "https://zscouts.onrender.com"
-  const token = useParams().token
+  const {token} = useParams()
   const [isVerified, setIsVerified] = useState(false)
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
@@ -20,7 +20,7 @@ const EmailVerify = () => {
       setIsVerified(true)
       setTimeout(() => {
         navigate("/login_option")
-      }, 4000)
+      }, 2000)
     } catch (err) {
       console.log(err)
       toast.error(err?.response?.data?.message || "Verification failed")

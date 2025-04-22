@@ -4,23 +4,29 @@ import Profiletracker from '../components/layout/static/Profiletracker';
 import { Box, Rating } from '@mui/material';
 import { useParams } from 'react-router';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { LoadingOutlined } from '@ant-design/icons';
+import { Flex, Spin } from 'antd';
+import { setPlayerKyc } from '../global/Player';
 
 const PlayerProfile = () => {
-  const [authenticated, setAuthenticated] = useState(null);
+  const [authenticated, setAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedFile, setSelectedFile] = useState(null);
   const BASE_URL = "https://zscouts.onrender.com";
-  const { id } = useParams()
-  console.log(id)
+    const player= useSelector((state)=> state.player.playerDetails)
+    const profile= useSelector((state)=> state.player.playerKyc)
+    const dispatch = useDispatch()
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/players/getplayer/${id}`);
+        const response = await axios.get(`${BASE_URL}/api/players/getplayer/${player.id}`);
+        dispatch(setPlayerKyc( response.data.data.playerKyc))
         console.log(response.data)
         setUser(response.data.data);
-        setAuthenticated(response.data.data);
+        setAuthenticated(response.data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching user:", error);
@@ -29,35 +35,45 @@ const PlayerProfile = () => {
     };
 
     fetchUser();
-  }, [id]);
+  }, []);
 
- 
+  const firstInitial = player.fullname ? player?.fullname.charAt(0).toUpperCase() : '';
+  console.log(firstInitial)
+   const loadingIcon = <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />
 
   if (loading) {
-    return <div className='playerProfile_body'>Loading profile...</div>;
+    return (
+      <div className="loader">
+         <Flex>
+            <Spin indicator={loadingIcon} />
+        </Flex>
+      </div>
+    )
   }
 
   const playerKyc = user?.playerKyc;
+  console.log(playerKyc)
 
   return (
     <div className='playerProfile_body'>
       <div className="profile_wrapper">
         {authenticated?.data?.profileCompletion ? <div className="completed_profile"></div> : <Profiletracker />}
-
         <div className="profile_wrapper_card">
           <div className="user_card">
             <div className="user_image">
-              {user?.profilePicture
-                ? <img src={user.profilePicture} alt="Profile" />
-                : <div className="placeholder_image"></div>}
+            {!profile?.profilePic ? (
+              <h4 className="player_profile_initial">{firstInitial}</h4>
+            ) : (
+              <img src={profile?.profilePic} alt="Profile" />
+            )}
             </div>
 
             <div className="user_details">
-              <h4>{user?.fullname || "N/A"}</h4>
+              <h4>{player?.fullname || "N/A"}</h4>
               <h5>{playerKyc?.primaryPosition || "Position N/A"}</h5>
               <p>{playerKyc?.age ? `${playerKyc.age} years` : "-"}</p>
               <Box>
-                <Rating name="legend" value={user?.rating || 0} disabled />
+                <Rating name="legend" value={playerKyc?.rating || 0} disabled />
               </Box>
             </div>
           </div>
@@ -67,7 +83,7 @@ const PlayerProfile = () => {
               <h4>Personal Information</h4>
             </div>
             <div className="details_bottom">
-              <div className="info"><h4>Full Name</h4><p>{user?.fullname || "-"}</p></div>
+              {/* <div className="info"><h4>Full Name</h4><p>{player?.fullname || "-"}</p></div> */}
               <div className="info"><h4>Age</h4><p>{playerKyc?.age || "-"}</p></div>
               <div className="info"><h4>Nationality</h4><p>{playerKyc?.nationality || "-"}</p></div>
               <div className="info"><h4>Height (CM)</h4><p>{playerKyc?.height || "-"}</p></div>
@@ -81,7 +97,7 @@ const PlayerProfile = () => {
               <h4>Contact Information</h4>
             </div>
             <div className="contact_details_bottom">
-              <div className="info"><h4>Email Address</h4><p>{user?.email || "-"}</p></div>
+              <div className="info"><h4>Email Address</h4><p>{player?.email || "-"}</p></div>
               <div className="info"><h4>Phone Number</h4><p>{playerKyc?.phoneNumber || "-"}</p></div>
               <div className="info"><h4>Home Address</h4><p>{playerKyc?.homeAddress || "-"}</p></div>
             </div>
@@ -119,17 +135,17 @@ const PlayerProfile = () => {
             </div>
           </div>
 
-          {authenticated && (
-            <div className="player_contact_details">
-              <div className="plan_top">
-                <h4>You’re on the Free Plan</h4>
-                <p>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</p>
-              </div>
-              <div className="plan_bottom">
-                <button className='premium_cta'>Upgrade to Premium</button>
-              </div>
-            </div>
-          )}
+          {authenticated? 
+          <div className="player_contact_details">
+          <div className="plan_top">
+            <h4>You’re on the Free Plan</h4>
+            <p>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</p>
+          </div>
+          <div className="plan_bottom">
+            <button className='premium_cta'>Upgrade to Premium</button>
+          </div>
+        </div>:
+          null }
 
           <div className="player_video_profile">
             <div className="video_bottom">
@@ -143,10 +159,9 @@ const PlayerProfile = () => {
               </div>
             </div>
           </div>
-          <button className='complete_cta'>Submit</button>
+          </div>
         </div>
       </div>
-    </div>
   );
 };
 

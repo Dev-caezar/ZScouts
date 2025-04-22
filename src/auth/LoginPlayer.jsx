@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux'
-import { setPlayer } from '../global/Player'
+import { setPlayerDetails,setPlayerToken } from '../global/Player'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Flex, Spin } from 'antd'
 
@@ -14,8 +14,6 @@ import { Flex, Spin } from 'antd'
 const LoginPlayer = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const player = useSelector((state) => state.player.player)
-  console.log(player)
   const [showPass, setShowPass] = useState(false)
    const [loading, setLoading] = useState(false);
         const handlePassword =()=>{
@@ -84,12 +82,14 @@ useEffect(() => {
   setLoading(true);
   try {
     const res = await axios.post(`${BASE_URL}/api/players/login`, { email, password });
-    dispatch(setPlayer(res.data))
+    dispatch(setPlayerDetails(res.data.data))
+    dispatch(setPlayerToken(res.data.token))
+    console.log("i don login :",res.data.data)
     console.log(res);
     toast.success('Login successful');
     setLoading(false)
     setTimeout(() => {
-      navigate(`/player_profile/${res.data.data.id}`);
+      navigate("/player_profile");
       setIsDisabled(false)
     }, 2000);
   } catch (error) {
@@ -126,9 +126,9 @@ useEffect(() => {
                         <small style={{ paddingInline: 10, color: 'red' }}>{emailErr}</small>
                     </div>
                     <div class="playerlogin_floating-label">
-                        <input type={showPass? "password" : "text"} id="password" placeholder=" " required  className='plogin_input' value={password} onChange={handleChangePassword} style={{ borderColor: passwordErr ? 'red' : 'gray' }}/>
+                        <input type={!showPass? "password" : "text"} id="password" placeholder=" " required  className='plogin_input' value={password} onChange={handleChangePassword} style={{ borderColor: passwordErr ? 'red' : 'gray' }}/>
                         <label for="password" className='plogin_Label'>Password </label>
-                       {!showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
+                       {showPass? <FaRegEyeSlash className='eye' onClick={handlePassword}/> :
                         <FaRegEye className='eye' onClick={handlePassword}/>}
                     <div className="player_forgot_password">
                       <p onClick={handleFrgotPass}>Forgot password?</p>
@@ -137,11 +137,11 @@ useEffect(() => {
                     </div>
                     <button type="submit" disabled={isDisabled} style={{cursor: isDisabled || loading ?  'not-allowed' : 'pointer', backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00"   }} className='player_login_button'>{loading ? 
                     <Flex align="center" justify="center" style={{ height: "100%" }}>
-                    <Spin indicator={loadingIcon} />
-                  </Flex>
+                      <Spin indicator={loadingIcon} />
+                    </Flex>
                      : "Login"}</button>
                     </form>
-                    <div className="second_option">
+                    {/* <div className="second_option">
                       <div className="line"></div>
                       <h4>OR</h4>
                       <div className="line"></div>
@@ -149,7 +149,7 @@ useEffect(() => {
                     <button className='google_button'>
                       <FcGoogle/>
                       <p>Sign up with Google</p>
-                    </button>
+                    </button> */}
                     <div className="form_footer">
                     <h4>Dont have an account? <span onClick={handleSignup}>signup here.</span></h4>
                     <h4>© 2025 ZScouts. All rights reserved</h4>

@@ -1,0 +1,496 @@
+.get-one-player-video-main{
+    width: 100%;
+    height: max-content;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.get-one-player-video-main-wrap{
+    width: 98%;
+    height: auto;
+    /* background-color: yellow; */
+}
+
+.get-one-div-top{
+    width: 100%;
+    height: 72vh;
+    /* background-color: blue; */
+}
+
+.get-one-div-top-top{
+    width: 100%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+.my-go-back-button{
+    width: 5%;
+    height: 80%;
+    /* background-color: green; */
+    font-size: 35px;
+    font-weight: 600;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.get-one-video-div{
+    width: 100%;
+    height: 87%;
+    /* background-color: magenta; */
+}
+.get-one-video-div video{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.get-one-profile{
+    width: 100%;
+    height: 28vh;
+    /* background-color: red; */
+}
+
+.get-one-div-top-text{
+    width: 100%;
+    height: 35%;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    /* background-color: yellow; */
+}
+
+.get-one-profile-main{
+    width: 100%;
+    height: 65%;
+    /* background-color: blanchedalmond; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.get-one-profile-main-iner-1{
+    width: 29%;
+    height: 90%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+}
+
+.get-one-profile-main-iner-1-circle{
+    width: 95px;
+    height: 95px;
+    border-radius: 95px;
+    /* background-color: green; */
+
+    & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+    }
+}
+
+.get-one-profile-main-iner-1-profile-text{
+    width: 67%;
+    height: 100%;
+    /* background-color: yellow; */
+}
+
+.get-one-player-name{
+    width: 100%;
+    height: 30%;
+    font-size: 18px;
+    /* background-color: green; */
+    font-weight: 600;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.get-one-player-position{
+    width: 100%;
+    height: 20%;
+    /* background-color: red; */
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    font-weight: 500;
+}
+
+.get-one-player-years{
+    width: 100%;
+    height: 20%;
+    /* background-color: magenta; */
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    font-weight: 500;
+}
+
+.get-one-player-rating-div{
+    width: 100%;
+    height: 30%;
+    /* background-color: orange; */
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    color: gray;
+    gap: 3px;
+    font-weight: 500;
+}
+
+.get-one-profile-main-iner-2{
+    width: 35%;
+    height: 100%;
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating-inner-div{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
+}
+
+.rating-inner-div-1{
+    width: 50%;
+    height: 100%;
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+.rating-inner-div-2{
+    width: 50%;
+    height: 100%;
+    /* background-color: magenta; */
+    display: flex;
+    align-items: center;
+    color: gray;
+    gap: 3px;
+    font-weight: 500;
+}
+
+.get-one-recommendations{
+    width: 100%;
+    height: max-content;
+    /* background-color: blue; */
+}
+
+.details_text{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: red; */
+}
+.details_text h4{
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+}
+.details_text p{
+    color: var(--Colors-Secondary-500, #07232F);
+    font-family: "Poppins",sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 150% */
+}
+
+.get-one-recommendation-top{
+    width: 100%;
+    height: 15vh;
+    /* background-color: red; */
+    display: flex;
+    padding-top: 30px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 25px;
+}
+.rated_value{
+    width: 30%;
+    height: 100%;
+    /* background-color: red; */
+}
+.get-one-recommendation-video{
+    width: 100%;
+    height: max-content;
+    /* background-color: green; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    /* overflow-y: auto; */
+}
+
+.one-player-profile-recommendation{
+    width: 48%;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.one-player-profile-recommendation-div-1{
+    width: 100%;
+    height: 100%;
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* flex-direction: row; */
+}
+.player-img-card {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color:#0C8F00;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+.one-player-profile-recommendation-div-1-image{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: yellow; */
+
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.one-player-profile-recommendation-div-1-text{
+    width: 60%;
+    height: 100%;
+    /* background-color: red; */
+}
+
+.one-player-profile-recommendation-div-1-name{
+    width: 100%;
+    height: 100%;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: gold; */
+    /* padding-left: 15px; */
+}
+
+
+.one-player-profile-recommendation-div-2{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    /* padding-left: 30px; */
+    align-items: center;
+    color: gray;
+    gap: 5px;
+}
+
+@media screen and (min-width: 250px) and (max-width: 320px){
+    .get-one-div-top-text{
+        /* background-color: red; */
+        font-size: 17px;
+    }
+
+    .get-one-profile-main{
+        /* background-color: magenta; */
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .get-one-profile-main-iner-1{
+        /* background-color: red; */
+        width: 100%;
+    }
+
+    .get-one-profile-main-iner-1-circle{
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+    }
+
+    
+    .get-one-profile-main-iner-2{
+        width: 100%;
+        /* background-color: magenta; */
+    }
+
+    .rating-inner-div-1{
+        /* background-color: green; */
+        height: 100%;
+        font-size: 12px;
+        padding: 10px;
+        align-items: end;
+    }
+
+    .get-one-player-name{
+        font-size: 12px;
+    }
+
+    
+    .get-one-player-position{
+        font-size: 12px;
+}
+
+.get-one-player-years{
+    font-size: 12px;
+}
+
+.get-one-player-rating-div{
+    font-size: 12px;
+}
+
+    .rating-inner-div-2{
+        /* background-color: blue; */
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        font-size: 12px;
+        padding: 10px;
+        align-items: end;
+    }
+
+    .get-one-recommendation-top{
+        font-size: 16px;
+    }
+
+    .one-player-profile-recommendation{
+        width: 100%;
+    }
+
+    .one-player-profile-recommendation{
+        height: 12vh;
+    }
+
+    .one-player-profile-recommendation-div-1-name{
+        font-size: 8px;
+    }
+
+    .one-player-profile-recommendation-div-1-position{
+        font-size: 8px;
+    }
+
+    .one-player-profile-recommendation-div-1-years{
+        font-size: 8px;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 475px){
+    .get-one-div-top-text{
+        /* background-color: red; */
+        font-size: 18px;
+    }
+
+    .get-one-profile-main{
+        /* background-color: magenta; */
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .get-one-profile-main-iner-1{
+        /* background-color: red; */
+        width: 100%;
+    }
+
+    .get-one-profile-main-iner-1-circle{
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+    }
+
+    
+    .get-one-profile-main-iner-2{
+        width: 100%;
+        /* background-color: magenta; */
+    }
+
+    .rating-inner-div-1{
+        /* background-color: green; */
+        height: 100%;
+        font-size: 13px;
+        padding: 10px;
+        align-items: end;
+    }
+
+    .get-one-player-name{
+        font-size: 13px;
+    }
+
+    
+    .get-one-player-position{
+        font-size: 13px;
+}
+
+.get-one-player-years{
+    font-size: 13px;
+}
+
+.get-one-player-rating-div{
+    font-size: 12px;
+}
+
+    .rating-inner-div-2{
+        /* background-color: blue; */
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        font-size: 15px;
+        padding: 10px;
+        align-items: end;
+    }
+
+    .get-one-recommendation-top{
+        font-size: 17px;
+    }
+
+    .one-player-profile-recommendation{
+        width: 100%;
+    }
+
+    .one-player-profile-recommendation{
+        height: 13vh;
+    }
+
+    .one-player-profile-recommendation-div-1-name{
+        font-size: 11px;
+    }
+
+    .one-player-profile-recommendation-div-1-position{
+        font-size: 11px;
+    }
+
+    .one-player-profile-recommendation-div-1-years{
+        font-size: 11px;
+    }
+}

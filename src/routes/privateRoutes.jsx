@@ -1,14 +1,13 @@
-import React from 'react'
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { HomeLayout } from '../components';
-import { Navigate, Outlet } from 'react-router';
-import AuthLayout from '../components/layout/AuthLayout';
+import { Navigate, Outlet } from 'react-router-dom';
+import DashboardLayout from '../components/layout/DashboardLayout';
 
 const PrivateRoutes = () => {
- 
-  return (
-    <div></div>
-  )
-}
+  const token = useSelector((state) => state.player.playerToken);
+  console.log("Token:", token);
 
-export default PrivateRoutes
+  return token ? <DashboardLayout /> : <Navigate to="/login_option" />;
+};
+
+export default PrivateRoutes;
