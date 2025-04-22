@@ -6,6 +6,7 @@ import { MdVideoLibrary } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { logout } from '../../../global/Fearures';
+import whitelogo from "../../../assets/whiteLogo.png"
 
 
 const ScoutDashboardNav = () => {
@@ -32,7 +33,7 @@ const ScoutDashboardNav = () => {
           <div className="sidebar_wrapper">
             <div className="sidebar_header">
               <div className="sidebar_dashboard_logo">
-                <img src="/src/assets/whiteLogo.png" alt="Logo" />
+                <img src={whitelogo} alt="Logo" />
               </div>
             </div>
     

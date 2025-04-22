@@ -7,6 +7,7 @@ import { IoClose, IoLogOut } from "react-icons/io5";
 import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutPlayer } from '../../../global/Player';
+import whitelogo from "../../../assets/whiteLogo.png"
 
 const DashboardNav = () => {
   const [logout, setLogout] = useState(false);
@@ -33,7 +34,7 @@ const DashboardNav = () => {
       <div className="sidebar_wrapper">
         <div className="sidebar_header">
           <div className="sidebar_dashboard_logo">
-            <img src="/src/assets/whiteLogo.png" alt="Logo" />
+            <img src={whitelogo} alt="Logo" />
           </div>
         </div>
 
