@@ -40,6 +40,9 @@ import PlayerDetails from './components/Chiemerie/PlayerDetails';
 import GetOnePlayerVideo from './pages/GetOnePlayerVideo';
 import OnePlayerProfile from './pages/OnePlayerProfile';
 import PlayerDiscovery from './pages/PlayerDiscovery';
+import PrivateRoutes from './routes/privateRoutes';
+import ScoutprivateRoutes from './routes/ScoutprivateRoutes';
+import Terms from './pages/Terms';
 
 const App = () => {
  const Router = createBrowserRouter([

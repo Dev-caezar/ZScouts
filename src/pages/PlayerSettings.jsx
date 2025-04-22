@@ -2,14 +2,10 @@ import React, { useState } from 'react'
 import '../styles/playersettings.css'
 import { TiPlus } from "react-icons/ti";
 import { FaRegEye } from "react-icons/fa6";
-
 import { toast } from 'react-toastify';
-import PaymentModal from './PaymentModal';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import PaymentModal from './PaymentModal';
-import DeactivateModal from './DeactivateModal';
-import PlayerPayment from './PlayerPayment';
+import PaymentModal from '../pages/PaymentModal';
 
 const PlayerSettings = () => {
    const [showModal, setShowModal] = useState(false);
