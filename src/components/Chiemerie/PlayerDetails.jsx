@@ -6,9 +6,6 @@ import axios from 'axios';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Flex, Spin } from 'antd';
 
-import { CgMenuRight } from "react-icons/cg";
-import { Drawer } from "@mui/material";
-import { MdDeleteOutline } from "react-icons/md";
 const PlayerDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -54,36 +51,27 @@ const PlayerDetails = () => {
         <div className="back_card">
           <IoReturnUpBackOutline className='back_icon' onClick={handleBack} />
         </div>
-       <article className="theVideos-wrap">
-        {playerDetails.map((playerdetails, index)=>(
-            <>
-            <div key={index} className="thevideo">
-                <div className="click-video"></div>
-            <h2 className="playerDetails-h2">{playerdetails.Title}</h2>
-            <p className="playerDetails-description">{playerdetails.description}</p>
-            <div className="playerDetails-rating">
-       <IoStarOutline size={25}/>
-       <IoStarOutline size={25}/>
-       <IoStarOutline size={25}/>
-       <IoStarOutline size={25}/>
-       <IoStarOutline size={25}/>
-       </div>
-            </div>
-            </>
-        ))}
-       </article>
-       </div>
-      </section>
 
-      
+        <div className="profile_data">
+          <div className="details_image">
+            {player?.playerKyc?.profilePic ? (
+              <img 
+                src={player.playerKyc.profilePic} 
+                alt={player.fullname} 
+                className="player-img"
+              />
+            ) : (
+              <span className="details_profile_initial">{firstInitial}</span>
+            )}
+          </div>
 
-      <section className="upgrageSection-wrap">
-        <div className="upgrageSection">
-            <span className="freePlan-text">You’re on the Free Plan</span>
-            <p className="playerDetails-information">To access Player’s contact information, update to premium</p><br />
-            <button className="playerDetails-button">Upgrade to premium</button>
+          <div className="details_user">
+            <h4>{player.fullname}</h4>
+            <p>{player.playerKyc?.secondaryPosition || "N/A"}</p>
+            <p>{player.playerKyc?.age ? `${player.playerKyc.age} years` : "Age N/A"}</p>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
