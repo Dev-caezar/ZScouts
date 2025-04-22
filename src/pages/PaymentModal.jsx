@@ -16,7 +16,7 @@ const PaymentModal = ({ onClose }) => {
     if (!token) {
       setError("Authorization required. Please log in first.");
       return;
-    }
+    } 
 
     setLoading(true);
     setError(null); 

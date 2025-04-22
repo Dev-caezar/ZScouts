@@ -45,20 +45,19 @@ const PlayerSettings = () => {
     setImageValue(file);
   };
 
+  const handleDeactivate = () => {
+    setShowDeactivateModal(true);
+  };
+
+  const confirmDeactivate = () => {
+    setShowDeactivateModal(false);
+    alert("Your account has been deactivated");
+  };
   const handleImageUpload = async () => {
     if (!imageValue) {
       toast.error("Please select an image to upload.");
       return;
     }
-    const handleDeactivate = () => {
-      setShowDeactivateModal(true);
-    };
-  
-    const confirmDeactivate = () => {
-      setShowDeactivateModal(false);
-      alert("Your account has been deactivated");
-    };
-
     const formData = new FormData();
     formData.append("profilepic", imageValue);
     formData.append("id", player);
