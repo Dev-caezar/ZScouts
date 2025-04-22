@@ -16,8 +16,9 @@ const ScoutSettings = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [profileImage, setProfileImage] = useState(null);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
-  const scout = useSelector((state)=> state?.user.scoutKyc.scoutId)
-  console.log(scout)
+  const scout = useSelector((state) => state?.user.scoutKyc.scoutId);
+  const scoutDetails = useSelector((state) => state?.user.scoutDetails.data);
+  console.log(scoutDetails.id);
 
   const handleDeactivate = () => {
     setShowDeactivateModal(true);
@@ -37,10 +38,12 @@ const ScoutSettings = () => {
     const passwordData = { oldPassword, newPassword, confirmPassword };
     console.log("Change Password:", passwordData);
   };
-  const BASE_URL = "https://zscouts.onrender.com"
+
+  const BASE_URL = "https://zscouts.onrender.com";
+
   const handleUploadProfileImage = async (file) => {
     const formData = new FormData();
-    formData.append("profileImage", file);
+    formData.append("profilepic", file);  // Updated field name
 
     try {
       const response = await axios.post(
@@ -53,7 +56,7 @@ const ScoutSettings = () => {
         }
       );
       console.log("Image uploaded:", response.data);
-      setUploadedImageUrl(response.data.imageUrl); // Assuming your API returns the image URL here
+      setUploadedImageUrl(response.data.imageUrl);
       alert("Profile image updated successfully!");
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -90,10 +93,9 @@ const ScoutSettings = () => {
             </div>
           </div>
 
-
           <div className="scoutprofiletext">
-            <h4 className="scoutprofile_name">Ozofor Chioma</h4>
-            <p className="scoutprofile_email">cynthiaozofor@gmail.com</p>
+            <h4 className="scoutprofile_name">{scoutDetails.fullname}</h4>
+            <p className="scoutprofile_email">{scoutDetails.email}</p>
           </div>
         </div>
       </div>

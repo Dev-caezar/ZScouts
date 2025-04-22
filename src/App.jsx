@@ -184,7 +184,7 @@ const App = () => {
           element:<PlayerDetails/>
         },
         {
-          path: "get_one_player_video/:id",
+          path: "get_one_player_video",
           element: < GetOnePlayerVideo />,
         },
         {

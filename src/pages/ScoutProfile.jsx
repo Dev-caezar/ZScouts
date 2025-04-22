@@ -32,6 +32,7 @@ const ScoutProfile = () => {
 
     fetchUser();
   }, [user.id]);
+  console.log(authenticated?.data)
 
   useEffect(() => {
     if (profilepic && profilepic.file) {

@@ -6,17 +6,20 @@ import axios from 'axios';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Flex, Spin } from 'antd';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const PlayerDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [player, setPlayer] = useState(null);
+  const [videos, setVideos] = useState([]);
   const BASE_URL = "https://zscouts.onrender.com";
 
   const handleBack = () => {
     navigate(-1);
   };
 
+  // Fetch player details
   useEffect(() => {
     const fetchPlayer = async () => {
       try {
@@ -26,33 +29,29 @@ const PlayerDetails = () => {
         console.error("Error fetching player details:", error);
       }
     };
-
     fetchPlayer();
   }, [id]);
 
-    const playerId = useSelector((state) => state.player.playerKyc)
-  const fetchVideos = async () => {
-      setLoading(true);
+  // Fetch player videos
+  useEffect(() => {
+    const fetchVideos = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/players/player-vids/${playerId.playerId}`);
+        const response = await axios.get(`${BASE_URL}/api/players/player-vids/${id}`);
         setVideos(response.data.data);
+        toast.success(response.data.data);
       } catch (error) {
-        console.error("Error fetching video:", error);
-      } finally {
-        setLoading(false);
+        console.error("Error fetching videos:", error);
+        toast.error("Error fetching videos:", error);
       }
     };
-  
-    useEffect(() => {
-      if (playerId) {
-        fetchVideos();
-      }
-    }, [playerId]);
+
+    if (id) {
+      fetchVideos();
+    }
+  }, [id]);
 
   const firstInitial = player?.fullname ? player.fullname.charAt(0).toUpperCase() : '';
-  const loadingIcon = (
-    <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />
-  );
+  const loadingIcon = <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />;
 
   if (!player) {
     return (
@@ -65,7 +64,7 @@ const PlayerDetails = () => {
   }
 
   const handleGetPlayer = (videoUrl) => {
-    navigate(`/get_one_player_video/${id}`, { state: { videoUrl } });
+    navigate('/get_one_player_video', { state: { videoUrl, player } });
   };
 
   return (
@@ -101,39 +100,20 @@ const PlayerDetails = () => {
             <h4>View profile details</h4>
           </div>
           <div className="detail_video_container">
-            {player?.playerKyc?.media ? (
-              Array.isArray(player.playerKyc.videoUpload) && player.playerKyc.videoUpload.length > 0 ? (
-                player.playerKyc.videoUpload.map((videoUrl, index) => (
-                  <div className="details_video_card" key={index}>
-                    <div className="video_player" onClick={() => handleGetPlayer(videoUrl)}>
-                      <video
-                        src={videoUrl}
-                        controls
-                        style={{ width: "100%", borderRadius: "10px" }}
-                      ></video>
-                      <div className="video_info">
-                        <p>
-                          Uploaded on: {new Date(player.playerKyc.createdAt).toLocaleDateString('en-GB', {
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric',
-                          })}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="details_video_card">
-                  <div className="video_player" onClick={() => handleGetPlayer(player.playerKyc.videoUpload)}>
+            {videos.length > 0 ? (
+              videos.map((video, index) => (
+                <div className="details_video_card" key={index}>
+                  <div className="video_player" onClick={() => handleGetPlayer(video.videoUpload)}>
                     <video
-                      src={player.playerKyc.media}
+                      src={video.videoUpload}
                       controls
                       style={{ width: "100%", borderRadius: "10px" }}
+                      onError={(e) => console.error("Error loading video:", e)}
+                      onCanPlayThrough={(e) => console.log("Video is ready to play:", e)}
                     ></video>
                     <div className="video_info">
                       <p>
-                        Uploaded on: {new Date(player.playerKyc.createdAt).toLocaleDateString('en-GB', {
+                        Uploaded on: {new Date(video.createdAt).toLocaleDateString('en-GB', {
                           day: 'numeric',
                           month: 'long',
                           year: 'numeric',
@@ -142,11 +122,17 @@ const PlayerDetails = () => {
                     </div>
                   </div>
                 </div>
-              )
+              ))
             ) : (
               <p>No videos uploaded yet.</p>
             )}
           </div>
+        </div>
+
+        <div className="premium_container">
+          <h4>You’re on the Free Plan</h4>
+          <p>To access Player’s contact information, update to premium</p>
+          <button className='upgrade_cta'>Upgrade to premium</button>
         </div>
       </div>
     </div>

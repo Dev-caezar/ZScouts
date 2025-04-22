@@ -202,7 +202,7 @@ const ScoutRegister = () => {
              }
           </button>
         </form>
-
+{/* 
         <div className="second_option">
           <div className="line"></div>
           <h4>OR</h4>
@@ -212,7 +212,7 @@ const ScoutRegister = () => {
         <button className='google_button' onClick={handleGoogleSignup}>
           <FcGoogle />
           <p>Sign up with Google</p>
-        </button>
+        </button> */}
 
         <div className="sform_footer">
           <h4>Already have an account? <span onClick={navigateToLogin}>login here.</span></h4>

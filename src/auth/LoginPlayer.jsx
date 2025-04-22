@@ -141,7 +141,7 @@ useEffect(() => {
                     </Flex>
                      : "Login"}</button>
                     </form>
-                    <div className="second_option">
+                    {/* <div className="second_option">
                       <div className="line"></div>
                       <h4>OR</h4>
                       <div className="line"></div>
@@ -149,7 +149,7 @@ useEffect(() => {
                     <button className='google_button'>
                       <FcGoogle/>
                       <p>Sign up with Google</p>
-                    </button>
+                    </button> */}
                     <div className="form_footer">
                     <h4>Dont have an account? <span onClick={handleSignup}>signup here.</span></h4>
                     <h4>© 2025 ZScouts. All rights reserved</h4>

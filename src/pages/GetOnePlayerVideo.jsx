@@ -4,12 +4,18 @@ import { IoIosStar } from 'react-icons/io';
 import { TbArrowBackUp } from "react-icons/tb";
 import { useNavigate, useLocation } from 'react-router';
 import axios from 'axios';
+import { Rating } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const GetOnePlayerVideo = () => {
-  const nav = useNavigate();
+  const nav = useNavigate(); 
   const { state } = useLocation();
+  const { videoUrl, player } = state;
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [value, setValue] = useState(0); 
+  const token = useSelector((state) => state.user.scoutToken.token);
   const BASE_URL = "https://zscouts.onrender.com";
 
   useEffect(() => {
@@ -27,6 +33,36 @@ const GetOnePlayerVideo = () => {
     fetchPlayers();
   }, []);
 
+  const handleRatingChange = async (event, newValue) => {
+    setValue(newValue);  
+    try {
+      await axios.post(
+        `${BASE_URL}/api/players/${player.id}/rate`,
+        {
+          playerId: player.id,
+          videoUrl: videoUrl,
+          rating: newValue
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+      console.log("Rating submitted successfully");
+      toast.success("Rating submitted successfully");
+    } catch (error) {
+      console.error("Error submitting rating:", error);
+      toast.error("You have already rated this player");
+    }
+  };
+
+  const handleGetOne = (player) => {
+    nav(`/player_details/${player.id}`); 
+  };
+
+  console.log(player);
+
   return (
     <div className='get-one-player-video-main'>
       <div className='get-one-player-video-main-wrap'>
@@ -38,7 +74,7 @@ const GetOnePlayerVideo = () => {
           </div>
           <div className='get-one-video-div'>
             <video controls width="100%">
-              <source src={state?.videoUrl} type='video/mp4' />
+              <source src={videoUrl} type='video/mp4' />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -49,26 +85,23 @@ const GetOnePlayerVideo = () => {
           <div className='get-one-profile-main'>
             <div className='get-one-profile-main-iner-1'>
               <div className='get-one-profile-main-iner-1-circle'>
-                <img src="/src/assets/wisdomimage.png" alt="img" />
+                <img src={player?.playerKyc?.profilePic} alt="img" />
               </div>
               <div className='get-one-profile-main-iner-1-profile-text'>
-                <div className='get-one-player-name'>Osuji Wisdom</div>
-                <div className='get-one-player-position'>Striker</div>
-                <div className='get-one-player-years'>18 years</div>
-                <div className='get-one-player-rating-div'>
-                  {[...Array(5)].map((_, i) => (
-                    <IoIosStar key={i} style={{ cursor: "pointer" }} />
-                  ))}
-                </div>
+                <div className='get-one-player-name'>{player?.fullname}</div>
+                <div className='get-one-player-position'>{player?.playerKyc?.primaryPosition}</div>
+                <div className='get-one-player-years'>{player?.playerKyc?.age} years</div>
               </div>
             </div>
             <div className='get-one-profile-main-iner-2'>
               <div className='rating-inner-div'>
                 <div className='rating-inner-div-1'>Rate this video</div>
                 <div className='rating-inner-div-2'>
-                  {[...Array(5)].map((_, i) => (
-                    <IoIosStar key={i} style={{ cursor: "pointer" }} />
-                  ))}
+                  <Rating
+                    name="simple-controlled"
+                    value={value}
+                    onChange={handleRatingChange}
+                  />
                 </div>
               </div>
             </div>
@@ -82,35 +115,41 @@ const GetOnePlayerVideo = () => {
               <p>Loading recommendations...</p>
             ) : (
               players.map((player, index) => (
-                <div key={index} className='one-player-profile-recommendation'>
+                <div key={index} className='one-player-profile-recommendation' onClick={() => handleGetOne(player)}>
                   <div className='one-player-profile-recommendation-div-1'>
                     <div className='one-player-profile-recommendation-div-1-image'>
-                            {player.profileImage ? (
-                            <img
-                            src={player.profileImage}
-                            alt={player.fullname}
-                            className="player-img"
-                            />
-                        ) : (
-                            <div className="player-img-card">
-                            {player.fullname?.charAt(0).toUpperCase()}
-                            </div>
-                        )}
-                      {/* <img src={player.playerKyc?.profilePic || "/src/assets/wisdomimage.png"} alt="img" /> */}
+                      {player?.playerKyc?.profilePic ? (
+                        <img
+                          src={player.playerKyc.profilePic}
+                          alt={player.fullname}
+                          className="player-img"
+                        />
+                      ) : (
+                        <div className="player-img-card">
+                          {player.fullname?.charAt(0).toUpperCase()}
+                        </div>
+                      )}
                     </div>
-                    <h4>{player.fullname}</h4>
+                    <div className="details_text">
+                      <h4>{player.fullname}</h4>
+                      <p>{player.playerKyc?.primaryPosition}</p>
+                      <p>{player.playerKyc?.age ? `${player.playerKyc.age} Years` : '-'}</p>
+                    </div>
                   </div>
                   <div className='one-player-profile-recommendation-div-2'>
-                    {[...Array(5)].map((_, i) => (
-                      <IoIosStar key={i} style={{ cursor: "pointer" }} />
-                    ))}
+                    <Rating
+                      name="simple-uncontrolled"
+                      onChange={(event, newValue) => {
+                        console.log(newValue);
+                      }}
+                      defaultValue={2}
+                    />
                   </div>
                 </div>
               ))
             )}
           </div>
         </div>
-
       </div>
     </div>
   );

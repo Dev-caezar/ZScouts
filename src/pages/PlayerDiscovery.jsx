@@ -14,11 +14,11 @@ const PlayerDiscovery = () => {
   const [loading, setLoading] = useState(false);
   const [selectedNestedOption, setSelectedNestedOption] = useState("");
 
-  const options = ["Position", "foot"];
+  const options = ["Position", "preferredFoot"];
 
   const optionValues = {
     Position: ["ST", "MF", "DEF", "GK"],
-    foot: ["Left", "Right", "Both"],
+    preferredFoot: ["Left", "Right", "Both"],
   };
 
   const BASE_URL = "https://zscouts.onrender.com";
@@ -67,10 +67,10 @@ const PlayerDiscovery = () => {
   const filteredPlayers = players.filter((player) => {
     if (!selectedOption || !selectedNestedOption) return true;
     if (selectedOption === "Position") {
-      return player.position === selectedNestedOption;
+      return player.playerKyc?.secondaryPosition === selectedNestedOption;
     }
-    if (selectedOption === "foot") {
-      return player.foot === selectedNestedOption;
+    if (selectedOption === "preferredFoot") {
+      return player.playerKyc?.preferredFoot === selectedNestedOption;
     }
     return true;
   });
@@ -154,19 +154,24 @@ const PlayerDiscovery = () => {
                 key={index}
                 onClick={() => handleGetOne(player.id)} 
               >
-                 {player.profileImage ? (
-                    <img
-                      src={player.profileImage}
-                      alt={player.fullname}
-                      className="player-img"
-                    />
-                  ) : (
-                    <div className="player-img-placeholder">
-                      {player.fullname?.charAt(0).toUpperCase()}
-                    </div>
-                  )}
+                 {player?.playerKyc?.profilePic ? (
+                   <div className="player-img-placeholder">
+                  <img
+                    src={player.playerKyc.profilePic}
+                    alt={player.fullname}
+                  />
+                 </div>
+                  
+                ) : (
+                  <div className="player-img-placeholder">
+                    {player.fullname?.charAt(0).toUpperCase()}
+                  </div>
+                )}
                 <div className="player-details">
-                  <h4>{player.fullname}</h4>
+                  <h4>{player?.fullname}</h4>
+                  {/* <h4>{player.playerKyc?.age ? `${player.playerKyc.preferredFoot} Years` : '-'}</h4> */}
+                  <h4>{player?.playerKyc?.preferredFoot} Foot</h4>
+                  <h4>{player?.playerKyc?.secondaryPosition}</h4>
                 </div>
                 <div className="player-rating">
                   {"★★★★★".split("").map((_, i) => (
