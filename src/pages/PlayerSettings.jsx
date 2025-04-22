@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../styles/playersettings.css'
 import { TiPlus } from "react-icons/ti";
 import { FaRegEye } from "react-icons/fa6";
-import DeactivatePopup from '../components/DeactivatePopup';
+
 import { toast } from 'react-toastify';
 import PaymentModal from './PaymentModal';
 import axios from 'axios';
