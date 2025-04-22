@@ -1,7 +1,7 @@
 import React from 'react'
 import DashboardHeader from './static/DashboardHeader'
 import DashboardNav from './static/DashboardNav'
-import { Outlet } from 'react-router'
+import { Link, Outlet } from 'react-router'
 
 const DashboardLayout = () => {
   return (
@@ -15,7 +15,7 @@ const DashboardLayout = () => {
         <div className="footer">
           <h4>©2025 Zscout | All rights reserved</h4>
           <h4>Privacy</h4>
-          <h4>Terms</h4>
+          <h4><Link to="/terms_condition">Terms</Link> </h4>
         </div>
       </div>
     </div>

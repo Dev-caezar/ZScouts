@@ -4,7 +4,7 @@ import { BiSolidCategory } from "react-icons/bi";
 import { MdVideoLibrary } from "react-icons/md";
 import { AiFillSetting } from "react-icons/ai";
 import { IoClose, IoLogOut } from "react-icons/io5";
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutPlayer } from '../../../global/Player';
 import whitelogo from "../../../assets/whiteLogo.png"

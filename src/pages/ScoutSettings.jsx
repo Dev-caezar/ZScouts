@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showDeactivateModal, setShowDeactivateModal] = useState(false);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [oldPassword, setOldPassword] = useState("");
@@ -157,27 +156,21 @@ const ScoutSettings = () => {
       <div className="subscription-section">
         <h3 className="subscription-title">Subscription</h3>
         <div className="subscription-box">
-          <h4 className="plan-title">You’re on the Free Plan</h4>
+          <h4 className="plan-title">You're on the Free Plan</h4>
           <p className="plan-description">
             Unlock premium features and maximize your visibility to scouts.
             Upgrade now to optimize your account!
           </p>
           <button
             className="upgrade-btn"
-            onClick={() => setShowModal(true)}
-          >
+            onClick={() => setShowModal(true)}>
             Upgrade to premium
           </button>
         </div>
       </div>
 
       {showModal && <PaymentModal onClose={() => setShowModal(false)} />}
-      {showDeactivateModal && (
-        <DeactivateModal
-          onClose={() => setShowDeactivateModal(false)}
-          onConfirm={confirmDeactivate}
-        />
-      )}
+     
     </div>
   );
 };

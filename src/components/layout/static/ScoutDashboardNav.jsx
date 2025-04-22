@@ -14,10 +14,15 @@ const ScoutDashboardNav = () => {
       const nav = useNavigate();
       const dispatch = useDispatch()
     
-      const handlePlayerProfile = () => nav("/scout_profile");
+      const handlePlayerProfile = () => nav("/scout_profile/:id");
       const handlePlayerVideo = () => nav("/player_discovery");
+<<<<<<< HEAD
+      const handlePlayerSettings = () => nav("/scout_setting/:id");
+      const handleLogout = () => setLogout(true);
+=======
       const handlePlayerSettings = () => nav("/scout_setting");
       const handleLogout = () => setLogoutState(true);
+>>>>>>> 83a9494c931110b051865a5ec953c90caa450f0f
     
       const closeModal = () => setLogoutState(false);
     

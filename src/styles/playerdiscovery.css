@@ -161,6 +161,7 @@
     height: 15vh;
     display: flex;
     align-items: center;
+    cursor: pointer;
     background-color: #FFFFFF;
     padding: 5px;
     border-radius: 8px;

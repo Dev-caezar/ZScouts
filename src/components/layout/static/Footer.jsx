@@ -10,9 +10,9 @@ const Footer = () => {
         <div className='footer-logo'>
          <img src={zlogo} alt="ZScouts logo" className='footer-logo-img' />
           <div className='social-icons'>
-            <a href="#"><FaXTwitter /></a>
-            <a href="#"><FaFacebook /></a>
-            <a href="#"><FaInstagram /></a>
+            <a href="https://x.com/zcoutzcouts?s=21"><FaXTwitter /></a>
+            <a href="https://www.facebook.com/share/16BCTeaFCK/?mibextid=wwXIfr"><FaFacebook /></a>
+            <a href="https://www.instagram.com/zscoutzscouts/?__pwa=1Instagram"><FaInstagram /></a>
             <a href="#"><FaLinkedin /></a>
           </div>
         </div>

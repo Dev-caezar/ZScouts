@@ -167,7 +167,7 @@ const RegisterPlayer = () => {
             <p>I agree to <span>Terms & Conditions</span></p>
           </div>
         </div>
-        <button  type="submit" style={{cursor: isDisabled || loading ? 'not-allowed' : 'pointer'}}  disabled={isDisabled || loading } className='player_register_button'> {loading ?
+        <button  type="submit" style={{cursor: isDisabled || loading ? 'not-allowed' : 'pointer', backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00"}}  disabled={isDisabled || loading } className='player_register_button'> {loading ?
         <Flex align="center" justify="center" style={{ height: "100%" }}>
           <Spin indicator={loadingIcon} />
       </Flex>

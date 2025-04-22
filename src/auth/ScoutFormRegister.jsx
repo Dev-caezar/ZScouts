@@ -196,8 +196,8 @@ const ScoutFormRegister = () => {
         </div>
 
         <div className="scoutPersonalCredentialsForm">
-          <span className="scoutInformationsTitlesFormTitile">Credentials</span>
-          <p className="scoutInformationLabel-text">Upload Verification Document*</p>
+          <span className="scoutInformationsTitlesFormTitile"> Professional Credentials</span>
+          <p className="scoutInformationLabel-text">Scouting License/Certification*</p>
           <div className="credentials-Certificate-Upload">
             <article style={{fontSize: "15px"}} className="Upload-Certificate">
               Verification Document Upload

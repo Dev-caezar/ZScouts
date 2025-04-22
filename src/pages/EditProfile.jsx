@@ -83,7 +83,7 @@ const EditProfile = () => {
     <div className='player_kyc_body'>
       <div className="player_kyc_wrapper">
         <div className="back_card">
-          <IoReturnUpBackOutline className='back_icon' onClick={handleBack}/>
+          <IoReturnUpBackOutline style={{cursor: "pointer"}} className='back_icon' onClick={handleBack}/>
         </div>
         <Profiletracker />
         <div className="edit_card">

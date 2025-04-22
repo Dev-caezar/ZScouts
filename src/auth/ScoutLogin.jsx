@@ -16,6 +16,7 @@ const ScoutLogin = () => {
 
   const [showPass, setShowPass] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const [login, setLogin] = useState({
     email: "",
@@ -88,6 +89,7 @@ const ScoutLogin = () => {
         }
       } finally {
         setLoading(false)
+        setIsDisabled(false)
       }
     }
   }
@@ -155,7 +157,7 @@ const ScoutLogin = () => {
             </div>
           </div>
 
-          <button type="submit" className="register_button" style={{ cursor: "pointer" }}>
+          <button type="submit" className="register_button" style={{ cursor: isDisabled || loading ? 'not-allowed' : 'pointer',  backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00" }}>
             {loading ? (
               <Flex align="center" justify="center" style={{ height: "100%" }}>
                 <Spin indicator={loadingIcon} />

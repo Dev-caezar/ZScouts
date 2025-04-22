@@ -1,0 +1,359 @@
+.personal_wrapper {
+    width: 100%;
+    height: 100vh;
+    background-color: #F3F3F3;
+    padding: 50px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+
+}
+
+.personal_wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.back_icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    
+  }
+
+  .back_icon:hover {
+    opacity: 0.7;
+  }
+  
+
+.player_profile {
+    width: 90%;
+    height: 90px;
+    /* background-color: #8a1111; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.player_profileicon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: paleturquoise;
+    object-fit: cover;
+    border: 2px solid white;
+    flex-shrink: 0;
+    
+}
+
+.player_profile_details {
+    width: 20%;
+    height: 80px;
+    /* background-color: palegreen; */
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  
+}
+
+.playerprofile_name {
+    color: var(--Colors-Neutral-1000, #333333);
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-top: 20px;
+}
+  
+.playerprofile_info {
+    color: var(--Colors-Secondary-500, #07232F);
+    font-family: 'Poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.playerprofile_age {
+    color: var(--Colors-Neutral-800, #606060);
+font-family: 'Poppins';
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; 
+}
+  
+.playerprofile_stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 10px;
+    
+}
+  
+  .star_icon {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) saturate(100%) invert(40%) sepia(5%) saturate(0%) hue-rotate(180deg) brightness(85%);
+}
+
+.playerprofile_plan {
+    width: 90%;
+    height: 20%;
+    background-color: #FFFFFF;
+    margin-top: 50px;
+    border-radius: 16px;
+
+}
+
+.plan_text {
+    width: 25%;
+    height: 25px;
+    background-color: white;
+    text-align: center;
+    border-radius: 16px;
+
+}
+
+.plantext_holder {
+color: #000;
+font-family: 'Poppins';
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px;
+padding-top: 10px;
+
+}
+
+.plan_access {
+color: #000000;
+font-family: 'Poppins';
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px;
+margin-left: 30px;
+margin-top: 10px; 
+
+
+}
+
+.plan_access_note {
+    width: 50%;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 20px; 
+    /* background-color: rgb(92, 30, 30); */
+    /* padding: px 0; */
+}
+
+.upgrade-button {
+    padding: 10px 15px;
+    background-color: #0C8F00;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+    margin-left: 15px;
+}
+
+.upgrade-button:hover {
+    background-color: #087e24;
+}
+
+.personal-info {
+    width: 90%;
+    height: 20%;
+    background-color: #FFFFFF;
+    margin-top: 30px;
+    border-radius: 16px;
+
+}
+
+.section_card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 17px;
+  }
+  
+  .section_title {
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; 
+    margin-bottom: 16px;
+  }
+  
+  .grid_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  
+  .info_item .label {
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    margin-bottom: 4px;
+  }
+  
+  .info_item .value {
+    color: var(--Colors-Neutral-800, #606060);
+    font-family: 'Poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; 
+  }
+
+
+  @media (max-width: 480px) {
+    .player_profile {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+    }
+  
+    .player_profileicon {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+  
+    .player_profile_details {
+      width: 100%;
+      text-align: center;
+      margin-left: 0;
+      margin-top: 0;
+    }
+  
+    .playerprofile_name {
+      font-size: 16px;
+      margin-top: 0;
+    }
+  
+    .playerprofile_info,
+    .playerprofile_age {
+      font-size: 13px;
+    }
+  
+    .playerprofile_stars {
+      justify-content: center;
+      margin-top: 6px;
+      margin-bottom: 10px;
+    }
+  
+    .playerprofile_plan,
+    .personal-info,
+    .section_card {
+      width: 100%;
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 14px;
+    }
+  
+    .plan_text {
+      width: fit-content;
+      margin: auto;
+      font-size: 14px;
+    }
+  
+    .upgrade-button {
+      width: 100%;
+      margin: 10px 0 0 0;
+    }
+  
+    .grid_container {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  
+    .section_title {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+  
+    .info_item .label,
+    .info_item .value {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .personal_wrapper {
+      padding: 20px;
+    }
+  
+    .player_profile {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+    }
+  
+    .player_profileicon {
+      width: 70px;
+      height: 70px;
+    }
+  
+    .player_profile_details {
+      width: 100%;
+      align-items: center;
+      margin-left: 0;
+      text-align: center;
+      height: auto;
+      margin-top: 10px;
+    }
+  
+    .playerprofile_name {
+      font-size: 14px;
+    }
+  
+    .playerprofile_info,
+    .playerprofile_age {
+      font-size: 11px;
+    }
+  
+    .playerprofile_stars {
+      justify-content: center;
+    }
+  
+    .playerprofile_plan,
+    .personal-info {
+      width: 100%;
+      margin-top: 30px;
+    }
+  
+    .plan_access_note {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .upgrade-button {
+      margin-left: 0;
+    }
+  
+    .plan_text {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .grid_container {
+      grid-template-columns: 1fr;
+    }
+  }

@@ -183,7 +183,7 @@ const PlayerDiscovery = () => {
               </div>
             ))
           ) : (
-            <h5 style={{ color: "red" }}>No players found</h5>
+            <h5 style={{ color: "grey" }}>No players found</h5>
           )}
         </div>
       </div>
