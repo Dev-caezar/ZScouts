@@ -40,6 +40,8 @@ import PlayerDetails from './components/Chiemerie/PlayerDetails';
 import GetOnePlayerVideo from './pages/GetOnePlayerVideo';
 import OnePlayerProfile from './pages/OnePlayerProfile';
 import PlayerDiscovery from './pages/PlayerDiscovery';
+import PrivateRoutes from './routes/privateRoutes';
+import ScoutprivateRoutes from './routes/ScoutprivateRoutes';
 
 const App = () => {
  const Router = createBrowserRouter([
@@ -135,7 +137,7 @@ const App = () => {
       ],
     },
     {
-      element: <DashboardLayout />,
+      element: <PrivateRoutes />,
       children: [
         {
           path: "player_profile",
@@ -158,7 +160,7 @@ const App = () => {
       ],
     },
     {
-      element: <ScoutDashboardLayout />,
+      element: <ScoutprivateRoutes />,
       children: [
         {
           path: "scout_profile",
@@ -208,7 +210,6 @@ const App = () => {
         {
           path:"scout_admindashboard",element:<AdminScoutDashboard/>
         },
-       
       ]
 
     }

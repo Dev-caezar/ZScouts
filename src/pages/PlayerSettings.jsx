@@ -6,8 +6,13 @@ import DeactivatePopup from '../components/DeactivatePopup';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import PaymentModal from './PaymentModal';
+import DeactivateModal from './DeactivateModal';
+import PlayerPayment from './PlayerPayment';
 
 const PlayerSettings = () => {
+   const [showModal, setShowModal] = useState(false);
+   const [showDeactivateModal, setShowDeactivateModal] = useState(false);
   const [imageValue, setImageValue] = useState(null);
   const [isPopUpOpen, setIsPopupOpen] = useState(false);
   const player = useSelector((state)=> state.player.playerKyc)
@@ -45,6 +50,14 @@ const PlayerSettings = () => {
       toast.error("Please select an image to upload.");
       return;
     }
+    const handleDeactivate = () => {
+      setShowDeactivateModal(true);
+    };
+  
+    const confirmDeactivate = () => {
+      setShowDeactivateModal(false);
+      alert("Your account has been deactivated");
+    };
 
     const formData = new FormData();
     formData.append("profilepic", imageValue);
@@ -182,9 +195,16 @@ const PlayerSettings = () => {
                 <div className='youre-on-a-fee-plan-top'>You're on the Free Plan</div>
                 <div className='youre-on-a-fee-plan-middle'>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</div>
                 <div className='youre-on-a-fee-plan-bottom'>
-                  <button className='upgrade-to-premium-btn'>Upgrade to premium</button>
+                  <button className='upgrade-to-premium-btn' onClick={()=> setShowModal(true)}>Upgrade to premium</button>
                 </div>
               </div>
+                {showModal && <PlayerPayment onClose={() => setShowModal(false)} />}
+                  {showDeactivateModal && (
+                    <DeactivateModal
+                      onClose={() => setShowDeactivateModal(false)}
+                      onConfirm={confirmDeactivate}
+                    />
+                  )}
             </div>
           </div>
         </div>

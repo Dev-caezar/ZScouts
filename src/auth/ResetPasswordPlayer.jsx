@@ -39,7 +39,7 @@ const ResetPasswordPlayers = () => {
       setLoading(false)
 
       setTimeout(() => {
-        navigate("/login")
+        navigate("/login_option")
       }, 2000)
 
     } catch (err) {

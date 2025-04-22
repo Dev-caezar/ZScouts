@@ -169,8 +169,6 @@ const PlayerVideo = () => {
             </div>
           </div>
         )}
-
-        {/* Video List */}
         <div className="player-video-main-header">
           <div className="my-video-text"><h1>My Videos</h1></div>
           <div className="my-video-upload-btn">
@@ -181,10 +179,10 @@ const PlayerVideo = () => {
         <div className="all-my-mapped-videos">
           {videos.length > 0 ? (
             videos.map((vid) => (
-              <div key={vid._id || vid.media} className="One-posted-video">
+              <div key={vid.id || vid.videoUpload} className="One-posted-video">
                 <div className="video-div-top">
                   <video controls width="100%">
-                    <source src={vid.media} type="video/mp4" />
+                    <source src={vid.videoUpload} type="video/mp4" />
                   </video>
                 </div>
                 <div className="video-text-div-buttom">
