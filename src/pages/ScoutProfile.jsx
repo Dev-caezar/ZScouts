@@ -106,7 +106,7 @@ const ScoutProfile = () => {
             </div>
           </div>
           <div className="scoutHeader2">
-            <button onClick={() => navigate("/scout_form")} className="scoutComplete-KYC-button">Complete KYC</button>
+            <button style={{cursor: "pointer"}} onClick={() => navigate("/scout_form")} className="scoutComplete-KYC-button">Complete KYC</button>
           </div>
         </div>
       )}

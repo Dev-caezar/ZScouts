@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router';
 import axios from 'axios';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Flex, Spin } from 'antd';
+import { useSelector } from 'react-redux';
 
 const PlayerDetails = () => {
   const navigate = useNavigate();
@@ -28,6 +29,25 @@ const PlayerDetails = () => {
 
     fetchPlayer();
   }, [id]);
+
+    const playerId = useSelector((state) => state.player.playerKyc)
+  const fetchVideos = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`${BASE_URL}/api/players/player-vids/${playerId.playerId}`);
+        setVideos(response.data.data);
+      } catch (error) {
+        console.error("Error fetching video:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    useEffect(() => {
+      if (playerId) {
+        fetchVideos();
+      }
+    }, [playerId]);
 
   const firstInitial = player?.fullname ? player.fullname.charAt(0).toUpperCase() : '';
   const loadingIcon = (
@@ -82,8 +102,8 @@ const PlayerDetails = () => {
           </div>
           <div className="detail_video_container">
             {player?.playerKyc?.media ? (
-              Array.isArray(player.playerKyc.media) && player.playerKyc.media.length > 0 ? (
-                player.playerKyc.media.map((videoUrl, index) => (
+              Array.isArray(player.playerKyc.videoUpload) && player.playerKyc.videoUpload.length > 0 ? (
+                player.playerKyc.videoUpload.map((videoUrl, index) => (
                   <div className="details_video_card" key={index}>
                     <div className="video_player" onClick={() => handleGetPlayer(videoUrl)}>
                       <video
@@ -107,7 +127,7 @@ const PlayerDetails = () => {
                 <div className="details_video_card">
                   <div className="video_player" onClick={() => handleGetPlayer(player.playerKyc.videoUpload)}>
                     <video
-                      src={player.playerKyc.videoUpload}
+                      src={player.playerKyc.media}
                       controls
                       style={{ width: "100%", borderRadius: "10px" }}
                     ></video>

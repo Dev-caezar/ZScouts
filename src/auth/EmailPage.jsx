@@ -23,10 +23,9 @@ const EmailPage = () => {
       setIsVerified(true)
       setTimeout(() => {
         navigate("/login_option")
-      }, 4000)
+      }, 2000)
     } catch (err) {
       console.log(err)
-      // toast.error(err?.response?.data?.message || "Verification failed")
     } finally {
       setLoading(false)
     }

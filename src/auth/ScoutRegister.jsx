@@ -8,6 +8,7 @@ import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons"
 import { useDispatch } from "react-redux"
 import { setScoutDetails } from "../global/Fearures"
+import { toast } from "react-toastify"
 
 const ScoutRegister = () => {
   const navigate = useNavigate()
@@ -76,9 +77,19 @@ const ScoutRegister = () => {
         const response = await axios.post(`${BASE_URL}/api/scouts/register`, register)
         console.log("Registration successful:", response)
         dispatch(setScoutDetails(response.data.data))
-        navigate("/email_page")
+        toast.success("Successfully registered as a scout! Please check your email to verify. ");
+        setTimeout(() => {
+          navigate("/email_page");
+        }, 2000);
+        
       } catch (error) {
         console.log("Registration failed:", error.response?.data || error.message)
+        if (error.message === "Network Error") {
+          toast.error("Oops Network error! Please check your connection and try again.");
+        } else {
+          toast.error("Registration failed. Please try again later.");
+        }
+
         if (error.response && error.response.data) {
           const apiErrors = error.response.data.errors
           setErrors((prev) => ({ ...prev, ...apiErrors }))

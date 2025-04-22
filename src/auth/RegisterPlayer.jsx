@@ -110,7 +110,7 @@ const RegisterPlayer = () => {
       setLoading(false)
       setTimeout(() => {
         navigate('/email_page')
-      }, 5000);
+      }, 2000);
       setIsDisabled(false)
       
     } catch (error) {

@@ -91,7 +91,7 @@ useEffect(() => {
     setTimeout(() => {
       navigate("/player_profile");
       setIsDisabled(false)
-    }, 1000);
+    }, 2000);
   } catch (error) {
     console.log(error);
     if (error.response) {
