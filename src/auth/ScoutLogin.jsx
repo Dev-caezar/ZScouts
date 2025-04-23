@@ -1,7 +1,6 @@
 import { useState } from "react"
 import "../styles/scoutLogin.css"
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa"
-import { FcGoogle } from "react-icons/fc"
 import { useNavigate } from "react-router"
 import axios from "axios"
 import { useDispatch } from "react-redux"
@@ -94,9 +93,7 @@ const ScoutLogin = () => {
     }
   }
 
-  const handleGoogleSignup = () => {
-    console.log("Google sign-up clicked")
-  }
+  
 
   const handleLoginRedirect = () => {
     navigate("/scout_register")

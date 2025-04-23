@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles/scoutsettings.css";
-import PaymentModal from "./PaymentModal";
-import DeactivateModal from "./DeactivateModal";
 import { IoCameraOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
+import PaymentModal from "../pages/PaymentModal";
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,16 +16,9 @@ const ScoutSettings = () => {
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const scout = useSelector((state) => state?.user.scoutKyc.scoutId);
   const scoutDetails = useSelector((state) => state?.user.scoutDetails.data);
-  console.log(scoutDetails.id);
+  console.log(scoutDetails);
 
-  const handleDeactivate = () => {
-    setShowDeactivateModal(true);
-  };
 
-  const confirmDeactivate = () => {
-    setShowDeactivateModal(false);
-    alert("Your account has been deactivated");
-  };
 
   const handleSavePersonalData = () => {
     const personalData = { fullName, email };
@@ -42,7 +34,7 @@ const ScoutSettings = () => {
 
   const handleUploadProfileImage = async (file) => {
     const formData = new FormData();
-    formData.append("profilepic", file);  // Updated field name
+    formData.append("profilepic", file);  
 
     try {
       const response = await axios.post(
@@ -156,21 +148,22 @@ const ScoutSettings = () => {
       <div className="subscription-section">
         <h3 className="subscription-title">Subscription</h3>
         <div className="subscription-box">
-          <h4 className="plan-title">You're on the Free Plan</h4>
+          <h4 className="plan-title">You’re on the Free Plan</h4>
           <p className="plan-description">
             Unlock premium features and maximize your visibility to scouts.
             Upgrade now to optimize your account!
           </p>
           <button
             className="upgrade-btn"
-            onClick={() => setShowModal(true)}>
+            onClick={() => setShowModal(true)}
+          >
             Upgrade to premium
           </button>
         </div>
       </div>
 
       {showModal && <PaymentModal onClose={() => setShowModal(false)} />}
-     
+      
     </div>
   );
 };

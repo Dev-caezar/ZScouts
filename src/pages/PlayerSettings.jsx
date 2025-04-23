@@ -1,29 +1,27 @@
 import React, { useState } from 'react'
 import '../styles/playersettings.css'
 import { TiPlus } from "react-icons/ti";
-import { FaRegEye } from "react-icons/fa6";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { toast } from 'react-toastify';
-import PaymentModal from './PaymentModal';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import DeactivateModal from './DeactivateModal';
-import PlayerPayment from './PlayerPayment';
+import PaymentModal from '../pages/PaymentModal';
 
 const PlayerSettings = () => {
-   const [showModal, setShowModal] = useState(false);
-   const [showDeactivateModal, setShowDeactivateModal] = useState(false);
   const [imageValue, setImageValue] = useState(null);
-  const [isPopUpOpen, setIsPopupOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
   const player = useSelector((state)=> state.player.playerKyc)
   const profile = useSelector((state)=> state.player.playerDetails)
-  console.log(player?.profilePic)
   const dispatch = useDispatch()
 
   const BASE_URL = "https://zscouts.onrender.com";
 
   const validateImage = (image) => {
     const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-    const maxSize = 2 * 1024 * 1024; 
+    const maxSize = 2 * 1024 * 1024;
     if (!allowedTypes.includes(image.type)) {
       toast.error("Invalid file type. Please upload a JPEG or PNG image.");
       return false;
@@ -44,14 +42,6 @@ const PlayerSettings = () => {
     setImageValue(file);
   };
 
-  const handleDeactivate = () => {
-    setShowDeactivateModal(true);
-  };
-
-  const confirmDeactivate = () => {
-    setShowDeactivateModal(false);
-    alert("Your account has been deactivated");
-  };
   const handleImageUpload = async () => {
     if (!imageValue) {
       toast.error("Please select an image to upload.");
@@ -63,22 +53,27 @@ const PlayerSettings = () => {
 
     try {
       const response = await axios.post(`${BASE_URL}/api/v1/profilepic/${player.id}`, formData);
-      console.log("profile pics:", response.data.data)
       toast.success("Profile picture uploaded successfully!");
     } catch (error) {
-      console.error(error);
       toast.error("Failed to upload image. Please try again.");
     }
   };
-  const firstInitial = profile?.fullname ? profile.fullname.charAt(0).toUpperCase() : '';
+
+  const handleSaveChanges = async () => {
+    try {
+      const response = await axios.put(`${BASE_URL}/api/v1/player/${player.id}`, {
+        fullname: fullName,
+        email: email
+      });
+      toast.success("Details updated successfully!");
+    } catch (error) {
+      toast.error("Failed to update details.");
+    }
+  };
+
   return (
     <div className='player-settings-main'>
       <div className='player-settings-main-wrap'>
-
-        <DeactivatePopup isopen={isPopUpOpen} onclose={() => setIsPopupOpen(false)}>
-          <div className='deactivate-pop-up-inner'></div>
-        </DeactivatePopup>
-
         <div className='player-settings-main-wrap-header'>
           <h1>Account settings</h1>
         </div>
@@ -87,23 +82,21 @@ const PlayerSettings = () => {
           <div className='player-settings-main-inner'>
             <div className='player-settings-main-inner-1'>
               <img 
-                src={imageValue ? URL.createObjectURL(imageValue) : "https://via.placeholder.com/150"} 
+                src={imageValue ? URL.createObjectURL(imageValue) : (profile?.profilePic || "https://via.placeholder.com/150")} 
                 alt="profile preview" 
               />
               <div className='player-setting-upload-icon'>
-                <input type="file" id='l' hidden onChange={getImageUrl} />
-                <label htmlFor="l"><TiPlus style={{ cursor: "pointer" }} /></label>
+                <input type="file" id='upload-img' hidden onChange={getImageUrl} />
+                <label htmlFor="upload-img"><TiPlus style={{ cursor: "pointer" }} /></label>
               </div>
             </div>
 
             <div className='player-settings-main-inner-2'>
-              <p style={{ fontWeight: "600", color: "#333333" }}>Osuji Wisdom</p>
-              <p style={{ fontSize: "11px", fontWeight: "600", color: "gray" }}>wisdomosuji26@gmail.com</p>
-              <p 
-                onClick={() => setIsPopupOpen(true)} 
-                style={{ textDecoration: "underline", color: "red", fontSize: "13px", cursor: "pointer", fontWeight: "500" }}>
-                Deactivate account
-              </p>
+              <p style={{ fontWeight: "600", color: "#333333" }}>{profile?.fullname || "Player Name"}</p>
+              <p style={{ fontSize: "11px", fontWeight: "600", color: "gray" }}>{profile?.email || "player@email.com"}</p>
+              {imageValue && (
+                <button onClick={handleImageUpload} className="upload-image-btn">Upload</button>
+              )}
             </div>
           </div>
         </div>
@@ -117,19 +110,31 @@ const PlayerSettings = () => {
                   <div className='personal-details-form-fullname'>
                     <div className='personal-details-form-name'>Full name</div>
                     <div className='personal-details-form-input'>
-                      <input type="text" placeholder='Enter your fullname...' className='my-personal-input' />
+                      <input 
+                        type="text" 
+                        placeholder='Enter your fullname...' 
+                        className='my-personal-input' 
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                      />
                     </div>
-                    <div className='personal-details-error-div'></div>
                   </div>
                   <div className='personal-details-form-email'>
                     <div className='personal-details-form-name'>Email</div>
                     <div className='personal-details-form-input'>
-                      <input type="email" placeholder='Enter your email...' className='my-personal-input' />
+                      <input 
+                        type="email" 
+                        placeholder='Enter your email...' 
+                        className='my-personal-input' 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
                     </div>
-                    <div className='personal-details-error-div'></div>
                   </div>
                   <div className='personal-details-form-button-div'>
-                    <button type="button" className='personal-detail-save-changes-btn'>Save change</button>
+                    <button type="button" className='personal-detail-save-changes-btn' onClick={handleSaveChanges}>
+                      Save change
+                    </button>
                   </div>
                 </div>
               </form>
@@ -141,41 +146,27 @@ const PlayerSettings = () => {
             <div className='change-pasword-div-bottom'>
               <form className='change-password-div-form'>
                 <div className='change-password-form-wrap'>
-                  <div className='change-password-old-password'>
-                    <div className='change-password-old-password-top'>Old password</div>
-                    <div className='change-password-old-password-bottom'>
-                      <div className='change-password-old-password-bottom-1'>
-                        <input type="password" className='my-change-password-input' placeholder='Enter password' />
-                      </div>
-                      <div className='change-password-old-password-bottom-2'>
-                        <FaRegEye style={{ cursor: "pointer" }} />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='change-password-old-password'>
-                    <div className='change-password-old-password-top'>New password</div>
-                    <div className='change-password-old-password-bottom'>
-                      <div className='change-password-old-password-bottom-1'>
-                        <input type="password" className='my-change-password-input' placeholder='Enter password' />
-                      </div>
-                      <div className='change-password-old-password-bottom-2'>
-                        <FaRegEye style={{ cursor: "pointer" }} />
+                  {["Old password", "New password", "Confirm password"].map((label, idx) => (
+                    <div className='change-password-old-password' key={idx}>
+                      <div className='change-password-old-password-top'>{label}</div>
+                      <div className='change-password-old-password-bottom'>
+                        <div className='change-password-old-password-bottom-1'>
+                          <input 
+                            type={showPassword ? "text" : "password"} 
+                            className='my-change-password-input' 
+                            placeholder='Enter password' 
+                          />
+                        </div>
+                        <div className='change-password-old-password-bottom-2'>
+                          {showPassword ? (
+                            <FaRegEyeSlash onClick={() => setShowPassword(false)} style={{ cursor: "pointer" }} />
+                          ) : (
+                            <FaRegEye onClick={() => setShowPassword(true)} style={{ cursor: "pointer" }} />
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  <div className='change-password-old-password'>
-                    <div className='change-password-old-password-top'>Confirm password</div>
-                    <div className='change-password-old-password-bottom'>
-                      <div className='change-password-old-password-bottom-1'>
-                        <input type="password" className='my-change-password-input' placeholder='Enter password' />
-                      </div>
-                      <div className='change-password-old-password-bottom-2'>
-                        <FaRegEye style={{ cursor: "pointer" }} />
-                      </div>
-                    </div>
-                  </div>
+                  ))}
 
                   <div className='change-pasword-btn'>
                     <button type="button" className='change-password-btn-main'>Change</button>
@@ -197,7 +188,9 @@ const PlayerSettings = () => {
                   <button className='upgrade-to-premium-btn' onClick={()=> setShowModal(true)}>Upgrade to premium</button>
                 </div>
               </div>
+              {showModal && <PaymentModal onClose={() => setShowModal(false)} />}
             </div>
+
             <div className='subscription-div-plan-bottom3-footer'>
               <div className='all-right-reserved-and-privacy-and-terms'>
                 <div className='all-right-reserved'>©2025 Zcout | All rights reserved</div>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import "../styles/playerProfile.css";
 import Profiletracker from '../components/layout/static/Profiletracker';
 import { Box, Rating } from '@mui/material';
-import { useParams } from 'react-router';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoadingOutlined } from '@ant-design/icons';
