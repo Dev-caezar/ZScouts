@@ -337,28 +337,6 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-        <div className="edit_card">
-          <div className="edit_card_top">
-            <h4>Upload Media</h4>
-          </div>
-          <div className="contact_card_bottom">
-            <div className="contact_input_container">
-              <input 
-                type="file"
-                accept="video/*,image/*"
-                onChange={handleMediaUpload}
-                className='contact_input'
-              />
-              {player.media && (
-                <video 
-                  controls 
-                  src={URL.createObjectURL(player.media)} 
-                  style={{ marginTop: '10px', maxWidth: '20%' }}
-                />
-              )}
-            </div>
-          </div>
-        </div>
         <button className='complete_cta' onClick={handleSubmit}>
           {
             loading? 

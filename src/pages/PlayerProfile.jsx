@@ -7,23 +7,47 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Flex, Spin } from 'antd';
 import { setPlayerKyc } from '../global/Player';
+import KoraPayment from 'kora-checkout';
 
 const PlayerProfile = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedFile, setSelectedFile] = useState(null);
-  const BASE_URL = "https://zscouts.onrender.com";
-    const player= useSelector((state)=> state.player.playerDetails)
-    const profile= useSelector((state)=> state.player.playerKyc)
-    const dispatch = useDispatch()
+  const [paymentLoading, setPaymentLoading] = useState(false);
+  const [paymentError, setPaymentError] = useState(null);
 
+  const BASE_URL = "https://zscouts.onrender.com";
+  const player = useSelector((state) => state.player.playerDetails);
+  const profile = useSelector((state) => state.player.playerKyc);
+  const dispatch = useDispatch();
+
+  const UpgradeToPremiumpayment = () => {
+    const paymentOptions = {
+      key: "pk_test_VZb26Tf4s9GGHJuD9iUWdgiqEoCfQjhoHXG1nv4f",
+      reference: `ref-${Date.now()}`,
+      amount: 5000,
+      customer: {
+          name: "Jane Doe",
+          email: "jane@example.com"
+      },
+      onSuccess: () => {
+          console.log('Payment successful');
+      },
+      onFailed: (err) => {
+          console.error(err.message);
+      }
+  };
+
+  const payment = new KoraPayment();
+  payment.initialize(paymentOptions);
+  };
+  
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/api/players/getplayer/${player.id}`);
-        dispatch(setPlayerKyc( response.data.data.playerKyc))
-        console.log(response.data)
+        dispatch(setPlayerKyc(response.data.data.playerKyc));
         setUser(response.data.data);
         setAuthenticated(response.data);
         setLoading(false);
@@ -37,17 +61,16 @@ const PlayerProfile = () => {
   }, []);
 
   const firstInitial = player.fullname ? player?.fullname.charAt(0).toUpperCase() : '';
-  console.log(firstInitial)
-   const loadingIcon = <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />
+  const loadingIcon = <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />;
 
   if (loading) {
     return (
       <div className="loader">
-         <Flex>
-            <Spin indicator={loadingIcon} />
+        <Flex>
+          <Spin indicator={loadingIcon} />
         </Flex>
       </div>
-    )
+    );
   }
 
   const playerKyc = user?.playerKyc;
@@ -55,16 +78,16 @@ const PlayerProfile = () => {
   return (
     <div className='playerProfile_body'>
       <div className="profile_wrapper">
-        {/* {authenticated?.data?.profileCompletion ? <div className="completed_profile"></div> : <Profiletracker />} */}
-        <Profiletracker />
+        {authenticated?.data?.profileCompletion ? <div className="completed_profile"></div> : <Profiletracker />}
+        {/* <Profiletracker /> */}
         <div className="profile_wrapper_card">
           <div className="user_card">
             <div className="user_image">
-            {!profile?.profilePic ? (
-              <h4 className="player_profile_initial">{firstInitial}</h4>
-            ) : (
-              <img src={profile?.profilePic} alt="Profile" />
-            )}
+              {!profile?.profilePic ? (
+                <h4 className="player_profile_initial">{firstInitial}</h4>
+              ) : (
+                <img src={profile?.profilePic} alt="Profile" />
+              )}
             </div>
 
             <div className="user_details">
@@ -83,7 +106,6 @@ const PlayerProfile = () => {
               <h4>Personal Information</h4>
             </div>
             <div className="details_bottom">
-              {/* <div className="info"><h4>Full Name</h4><p>{player?.fullname || "-"}</p></div> */}
               <div className="info"><h4>Age</h4><p>{playerKyc?.age || "-"}</p></div>
               <div className="info"><h4>Nationality</h4><p>{playerKyc?.nationality || "-"}</p></div>
               <div className="info"><h4>Height (CM)</h4><p>{playerKyc?.height || "-"}</p></div>
@@ -135,20 +157,24 @@ const PlayerProfile = () => {
             </div>
           </div>
 
-          {authenticated? 
-          <div className="player_contact_details">
-          <div className="plan_top">
-            <h4>You’re on the Free Plan</h4>
-            <p>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</p>
-          </div>
-          <div className="plan_bottom">
-            <button className='premium_cta'>Upgrade to Premium</button>
-          </div>
-        </div>:
-          null }
-          </div>
+          {authenticated ? (
+            <div className="player_contact_details">
+              <div className="plan_top">
+                <h4>You’re on the Free Plan</h4>
+                <p>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</p>
+              </div>
+              <div className="plan_bottom">
+                <button className='premium_cta' onClick={UpgradeToPremiumpayment} disabled={paymentLoading}>
+                  {paymentLoading ? "Processing..." : "Upgrade to Premium"}
+                </button>
+                {paymentError && <p style={{ color: 'red' }}>{paymentError}</p>}
+              </div>
+            </div>
+          ) : null}
+
         </div>
       </div>
+    </div>
   );
 };
 

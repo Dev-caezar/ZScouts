@@ -106,7 +106,8 @@ const RegisterPlayer = () => {
     try {
       const res = await axios.post(`${BASE_URL}/api/players/register`, data)
       dispatch(setPlayerDetails(res.data.data))
-      toast.success('Sign up successful. please check your Email to verify')
+      console.log(res)
+      toast.success(res.data.data.message)
       setLoading(false)
       setTimeout(() => {
         navigate('/email_page')
@@ -114,7 +115,7 @@ const RegisterPlayer = () => {
       setIsDisabled(false)
       
     } catch (error) {
-      console.log(error)
+      console.log(error.response.data.message)
 
       if (error.response) {
         const message = error.response.data?.message || 'An error occurred during registration.';

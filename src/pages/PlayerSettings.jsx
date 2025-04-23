@@ -5,16 +5,41 @@ import { FaRegEye } from "react-icons/fa6";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import KoraPayment from 'kora-checkout';
 
 const PlayerSettings = () => {
   const [imageValue, setImageValue] = useState(null);
   const [isPopUpOpen, setIsPopupOpen] = useState(false);
+  const [paymentLoading, setPaymentLoading] = useState(false);
+  const [paymentSuccess, setPaymentSuccess] = useState(false)
   const player = useSelector((state)=> state.player.playerKyc)
   const profile = useSelector((state)=> state.player.playerDetails)
   console.log(player)
   const dispatch = useDispatch()
 
   const BASE_URL = "https://zscouts.onrender.com";
+
+    const UpgradeToPremiumpayment = () => {
+      const paymentOptions = {
+        key: "pk_test_VZb26Tf4s9GGHJuD9iUWdgiqEoCfQjhoHXG1nv4f",
+        reference: `ref-${Date.now()}`,
+        amount: 3000,
+        customer: {
+            name: profile.fullname,
+            email: profile.email
+        },
+        onSuccess: () => {
+            setPaymentSuccess(true)
+            console.log('Payment successful');
+        },
+        onFailed: (err) => {
+            console.error(err.message);
+        }
+    };
+  
+    const payment = new KoraPayment();
+    payment.initialize(paymentOptions);
+    };
 
   const validateImage = (image) => {
     const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -169,7 +194,10 @@ const PlayerSettings = () => {
           </div>
         </div>
 
-        <div className='subscription-div-plan'>
+        {
+          paymentSuccess ? 
+          <div className="div"></div>:
+          <div className='subscription-div-plan'>
           <div className='subscription-div-plan-wrap'>
             <div className='subscription-div-plan-top'>Subscription</div>
             <div className='subscription-div-plan-middle'>
@@ -177,12 +205,15 @@ const PlayerSettings = () => {
                 <div className='youre-on-a-fee-plan-top'>You're on the Free Plan</div>
                 <div className='youre-on-a-fee-plan-middle'>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</div>
                 <div className='youre-on-a-fee-plan-bottom'>
-                  <button className='upgrade-to-premium-btn'>Upgrade to premium</button>
+                <button className='upgrade-to-premium-btn' onClick={UpgradeToPremiumpayment} disabled={paymentLoading}>
+                  {paymentLoading ? "Processing..." : "Upgrade to Premium"}
+                </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        }
 
       </div>
     </div>
