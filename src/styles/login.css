@@ -1,6 +1,7 @@
 .player_login_body{
     width: 70%;
     height: 100vh;
+    min-height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +46,8 @@
 }
 .login_form_body{
     width: 100%;
-    height: max-content;
+    height: 55%;
+    min-height: max-content;
     display: flex;
     flex-direction: column;
     justify-content:center;
