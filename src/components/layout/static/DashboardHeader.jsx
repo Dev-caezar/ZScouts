@@ -7,6 +7,8 @@ import { BiSolidCategory } from 'react-icons/bi'
 import { AiFillSetting } from 'react-icons/ai'
 import { IoLogOut } from 'react-icons/io5'
 import { useSelector } from 'react-redux'
+import zscoutlogo from '../../../assets/whiteLogo.png'
+import whitelogo from '../../../assets/Zlogo.jpg'
 
 const DashboardHeader = () => {
   const nav = useNavigate()
@@ -42,7 +44,7 @@ const DashboardHeader = () => {
           <h4>Welcome to Your Solution!</h4>
           <p>Manage your profile and stay connected.</p>
           <div className="dashboard_logo">
-            <img src="/src/assets/Zlogo.jpg" alt="Dashboard Logo" />
+            <img src={whitelogo} alt="Dashboard Logo" />
           </div>
         </div>
         <div className="header_right">
@@ -63,7 +65,7 @@ const DashboardHeader = () => {
               <div className="dashboardheader_modal_wrapper">
                 <div className="d_modal_header">
                   <div className="d_modal_img">
-                    <img src="/src/assets/whiteLogo.png" alt="Modal Logo" />
+                    <img src={zscoutlogo} alt="Modal Logo" />
                   </div>
                   <MdCancel className='cancel_icon' onClick={handleOpenNav} />
                 </div>
