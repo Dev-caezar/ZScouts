@@ -260,3 +260,13 @@
     font-size: 18px;
   }
 }
+
+
+
+
+@media (max-width: 600px) {
+.pricing-container{
+  width: 100%;
+}
+}
+

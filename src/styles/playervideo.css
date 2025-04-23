@@ -693,7 +693,10 @@
 }
 
 
-@media screen and (min-width: 481px) and (max-width: 620px) {
+
+@media (max-width: 840px){
+
+
     .player-video-main-header{
         /* background-color: yellow; */
         width: 100%;

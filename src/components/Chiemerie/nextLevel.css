@@ -137,4 +137,28 @@
       font-size: 14px;
     }
   }
+
+
+
+
+
+  
+@media (max-width: 600px) {
+  .nextLevel-body{
+    width: 100%;
+  }
+}
+/* @media (min-width: 601px) and (max-width: 1024px) {}
+
+
+@media (max-width: 481.78px) {
+   
+    }
+
+@media (min-width:3840px) and (min-height:2160px) {
+
+  .nextLevel-body{
+    width: 100%;
+  }
+} */
   

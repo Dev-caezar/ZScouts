@@ -818,6 +818,7 @@
     }
 
     .inner_card{
+        
 
         & h4{
             font-size: 14px;
@@ -863,4 +864,19 @@
             font-size: 16px;
         }
     }
+}
+
+
+
+
+@media (max-width: 481.78px) {
+   .contact_body{
+    width: 100%;
+   }
+    }
+
+@media (min-width:3840px) and (min-height:2160px) {
+    .contact_body{
+        width: 100%;
+       }
 }
