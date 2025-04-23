@@ -71,7 +71,7 @@ const EditProfile = () => {
       console.error("Error submitting profile:", error);
       setLoading(false)
       toast.error("Failed to submit profile.");
-    }
+    } 
   };
   const handleBack =()=>{
     navigate(-1)

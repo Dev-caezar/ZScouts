@@ -25,6 +25,18 @@
     align-items: center;
     flex-direction: column;
 }
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  .shake {
+    animation: shake 0.3s ease-in-out;
+  }
+  
 .error_msg {
   color: red;
   font-size: 12px;

@@ -195,7 +195,7 @@ const ScoutRegister = () => {
             <p>I agree to  <span>Terms & Conditions</span></p>
           </div>
 
-          <button type='submit' className='scout_register_button' style={{ cursor: isDisabled || loading ? 'not-allowed' : 'pointer',  backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00"}}>
+          <button type='submit' className='scout_register_button'>
             {loading ? 
                 <Flex align="center" justify="center" style={{ height: "100%" }}>
                 <Spin indicator={loadingIcon} />
@@ -204,18 +204,6 @@ const ScoutRegister = () => {
              }
           </button>
         </form>
-{/* 
-        <div className="second_option">
-          <div className="line"></div>
-          <h4>OR</h4>
-          <div className="line"></div>
-        </div>
-
-        <button className='google_button' onClick={handleGoogleSignup}>
-          <FcGoogle />
-          <p>Sign up with Google</p>
-        </button> */}
-
         <div className="sform_footer">
           <h4>Already have an account? <span onClick={navigateToLogin}>login here.</span></h4>
           <h4>© 2025 ZScouts. All rights reserved</h4>

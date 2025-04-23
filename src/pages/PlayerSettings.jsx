@@ -5,16 +5,13 @@ import { FaRegEye } from "react-icons/fa6";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import PaymentModal from '../pages/PaymentModal';
 
 const PlayerSettings = () => {
-   const [showModal, setShowModal] = useState(false);
-   const [showDeactivateModal, setShowDeactivateModal] = useState(false);
   const [imageValue, setImageValue] = useState(null);
   const [isPopUpOpen, setIsPopupOpen] = useState(false);
   const player = useSelector((state)=> state.player.playerKyc)
   const profile = useSelector((state)=> state.player.playerDetails)
-  console.log(player?.profilePic)
+  console.log(player)
   const dispatch = useDispatch()
 
   const BASE_URL = "https://zscouts.onrender.com";
@@ -42,19 +39,12 @@ const PlayerSettings = () => {
     setImageValue(file);
   };
 
-  const handleDeactivate = () => {
-    setShowDeactivateModal(true);
-  };
-
-  const confirmDeactivate = () => {
-    setShowDeactivateModal(false);
-    alert("Your account has been deactivated");
-  };
   const handleImageUpload = async () => {
     if (!imageValue) {
       toast.error("Please select an image to upload.");
       return;
     }
+
     const formData = new FormData();
     formData.append("profilepic", imageValue);
     formData.append("id", player);
@@ -68,15 +58,11 @@ const PlayerSettings = () => {
       toast.error("Failed to upload image. Please try again.");
     }
   };
-  const firstInitial = profile?.fullname ? profile.fullname.charAt(0).toUpperCase() : '';
+  const firstInitial = player?.fullname ? player.fullname.charAt(0).toUpperCase() : '';
+
   return (
     <div className='player-settings-main'>
       <div className='player-settings-main-wrap'>
-
-        <DeactivatePopup isopen={isPopUpOpen} onclose={() => setIsPopupOpen(false)}>
-          <div className='deactivate-pop-up-inner'></div>
-        </DeactivatePopup>
-
         <div className='player-settings-main-wrap-header'>
           <h1>Account settings</h1>
         </div>
@@ -84,10 +70,14 @@ const PlayerSettings = () => {
         <div className='setting-profile-picture-div'>
           <div className='player-settings-main-inner'>
             <div className='player-settings-main-inner-1'>
-              <img 
+              {
+                player.profilepic? 
+                <img 
                 src={imageValue ? URL.createObjectURL(imageValue) : "https://via.placeholder.com/150"} 
                 alt="profile preview" 
-              />
+              />:
+              <span className="sprofile_initial">{firstInitial}</span>
+              }
               <div className='player-setting-upload-icon'>
                 <input type="file" id='l' hidden onChange={getImageUrl} />
                 <label htmlFor="l"><TiPlus style={{ cursor: "pointer" }} /></label>
@@ -95,13 +85,8 @@ const PlayerSettings = () => {
             </div>
 
             <div className='player-settings-main-inner-2'>
-              <p style={{ fontWeight: "600", color: "#333333" }}>Osuji Wisdom</p>
-              <p style={{ fontSize: "11px", fontWeight: "600", color: "gray" }}>wisdomosuji26@gmail.com</p>
-              <p 
-                onClick={() => setIsPopupOpen(true)} 
-                style={{ textDecoration: "underline", color: "red", fontSize: "13px", cursor: "pointer", fontWeight: "500" }}>
-                Deactivate account
-              </p>
+              <p style={{ fontWeight: "600", color: "#333333" }}>{profile.fullname}</p>
+              <p style={{ fontSize: "11px", fontWeight: "600", color: "gray" }}>{profile.email}</p>
             </div>
           </div>
         </div>
@@ -176,7 +161,7 @@ const PlayerSettings = () => {
                   </div>
 
                   <div className='change-pasword-btn'>
-                    <button type="button" className='change-password-btn-main'>Change</button>
+                    <button type="button" className='change-password-btn-main' onClick={handleImageUpload}>Change</button>
                   </div>
                 </div>
               </form>
@@ -192,7 +177,7 @@ const PlayerSettings = () => {
                 <div className='youre-on-a-fee-plan-top'>You're on the Free Plan</div>
                 <div className='youre-on-a-fee-plan-middle'>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</div>
                 <div className='youre-on-a-fee-plan-bottom'>
-                  <button className='upgrade-to-premium-btn' onClick={()=> setShowModal(true)}>Upgrade to premium</button>
+                  <button className='upgrade-to-premium-btn'>Upgrade to premium</button>
                 </div>
               </div>
             </div>

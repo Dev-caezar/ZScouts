@@ -52,12 +52,12 @@ const PlayerProfile = () => {
   }
 
   const playerKyc = user?.playerKyc;
-  console.log(playerKyc)
 
   return (
     <div className='playerProfile_body'>
       <div className="profile_wrapper">
         {authenticated?.data?.profileCompletion ? <div className="completed_profile"></div> : <Profiletracker />}
+        {/* <Profiletracker /> */}
         <div className="profile_wrapper_card">
           <div className="user_card">
             <div className="user_image">
@@ -73,7 +73,8 @@ const PlayerProfile = () => {
               <h5>{playerKyc?.primaryPosition || "Position N/A"}</h5>
               <p>{playerKyc?.age ? `${playerKyc.age} years` : "-"}</p>
               <Box>
-                <Rating name="legend" value={playerKyc?.rating || 0} disabled />
+                <Rating name="legend" value={user?.ratings?.ratingScore || 0} disabled />
+                {console.log(user?.ratings?.ratingScore)}
               </Box>
             </div>
           </div>
