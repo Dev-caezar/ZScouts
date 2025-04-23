@@ -44,7 +44,7 @@ const DashboardHeader = () => {
           <h4>Welcome to Your Solution!</h4>
           <p>Manage your profile and stay connected.</p>
           <div className="dashboard_logo">
-            <img src={whitelogo} alt="Dashboard Logo" />
+            <img src={zscoutlogo } alt="Dashboard Logo" />
           </div>
         </div>
         <div className="header_right">
@@ -65,7 +65,7 @@ const DashboardHeader = () => {
               <div className="dashboardheader_modal_wrapper">
                 <div className="d_modal_header">
                   <div className="d_modal_img">
-                    <img src={zscoutlogo} alt="Modal Logo" />
+                    <img src={whitelogo} alt="Modal Logo" />
                   </div>
                   <MdCancel className='cancel_icon' onClick={handleOpenNav} />
                 </div>
