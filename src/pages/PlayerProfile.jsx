@@ -26,10 +26,10 @@ const PlayerProfile = () => {
     const paymentOptions = {
       key: "pk_test_VZb26Tf4s9GGHJuD9iUWdgiqEoCfQjhoHXG1nv4f",
       reference: `ref-${Date.now()}`,
-      amount: 5000,
+      amount: 3000,
       customer: {
-          name: "Jane Doe",
-          email: "jane@example.com"
+          name: player.fullname,
+          email: player.email,
       },
       onSuccess: () => {
           console.log('Payment successful');
