@@ -71,9 +71,12 @@ const PlayerVideo = () => {
 
     } catch (error) {
       console.error("Error uploading video:", error);
-      toast.error('Failed to upload video.');
-    } finally {
-      setIsPosting(false);
+    
+      if (error.response && error.response.status === 413) {
+        toast.error("Upload failed: File size exceeds 25MB limit!");
+      } else {
+        toast.error('Failed to upload video.');
+      }
     }
   };
 
