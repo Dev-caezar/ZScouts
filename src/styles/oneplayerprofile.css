@@ -282,3 +282,57 @@
 
     }
 }
+
+@media screen and (min-width: 476px) and (max-width: 620px){
+    
+    .OnePlayerProfile-top-2-inner{
+        /* background-color: blue; */
+        width: 100%;
+    }
+
+    .OnePlayerProfile-top-2-inner-1{
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+    }
+
+    .OnePlayerProfile-top-2-inner-2-top{
+        /* background-color: yellow; */
+        font-size: 12px;
+    }
+
+    .OnePlayerProfile-top-2-inner-2-position{
+        font-size: 12px;
+    }
+
+    .OnePlayerProfile-top-2-inner-2-years{
+        font-size: 12px;
+    }
+
+    .OnePlayerProfile-top-2-inner-2-rating{
+        font-size: 12px;
+    }
+
+    .upgrade-to-premium-div-wrap{
+        width: 100%;
+    }
+
+    .upgrade-to-premium-div-wrap-1{
+        /* background-color: red; */
+        height: 40%;
+        font-size: 12px;
+    }
+
+    .upgrade-to-premium-div-wrap-2{
+        /* background-color: green; */
+        font-size: 10px;
+    }
+
+    .upgrade-to-premium-div-wrap-button{
+        width: 35%;
+        height: 70%;
+        font-size: 8px;
+        border-radius: 6px;
+
+    }
+}
