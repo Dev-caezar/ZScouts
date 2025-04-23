@@ -181,15 +181,6 @@ const PlayerSettings = () => {
                 </div>
               </div>
             </div>
-            <div className='subscription-div-plan-bottom3-footer'>
-              <div className='all-right-reserved-and-privacy-and-terms'>
-                <div className='all-right-reserved'>©2025 Zcout | All rights reserved</div>
-                <div className='privacy-and-terms'>
-                  <p>Privacy</p>
-                  <p>Terms</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import "../styles/playerProfile.css";
 import Profiletracker from '../components/layout/static/Profiletracker';
 import { Box, Rating } from '@mui/material';
-import { useParams } from 'react-router';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoadingOutlined } from '@ant-design/icons';
@@ -147,19 +146,6 @@ const PlayerProfile = () => {
           </div>
         </div>:
           null }
-
-          <div className="player_video_profile">
-            <div className="video_bottom">
-              <div className="video_bottom_text">
-                <h4>Videos</h4>
-              </div>
-              <div className="bottom_video_card">
-                {playerKyc?.media
-                  ? <video src={playerKyc.media} controls width="100%" />
-                  : <p>No videos uploaded</p>}
-              </div>
-            </div>
-          </div>
           </div>
         </div>
       </div>

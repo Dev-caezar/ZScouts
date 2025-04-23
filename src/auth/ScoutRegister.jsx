@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
 import { useNavigate } from "react-router-dom"
@@ -41,6 +41,12 @@ const ScoutRegister = () => {
     setRegister((prev) => ({ ...prev, [name]: value }))
     setErrors((prev) => ({ ...prev, [name]: "" }))  
   }
+
+useEffect(() => {
+  const allFieldsFilled = Object.values(register).every((value) => value.trim() !== "");
+  setIsDisabled(!allFieldsFilled);
+}, [register]);
+
 
   const validateForm = () => {
     const formErrors = {}
@@ -195,15 +201,25 @@ const ScoutRegister = () => {
             <p>I agree to  <span>Terms & Conditions</span></p>
           </div>
 
-          <button type='submit' className='scout_register_button'>
-            {loading ? 
-                <Flex align="center" justify="center" style={{ height: "100%" }}>
-                <Spin indicator={loadingIcon} />
-              </Flex>:
-             'Create Account'
-             }
-          </button>
+          <button 
+      type='submit' 
+     className='scout_register_button'
+     disabled={isDisabled || loading}
+     style={{
+    cursor: isDisabled || loading ? 'not-allowed' : 'pointer',
+    backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00"
+    }}
+   >
+  {loading ? 
+    <Flex align="center" justify="center" style={{ height: "100%" }}>
+      <Spin indicator={loadingIcon} />
+    </Flex>
+    : 'Create Account'
+  }
+</button>
+
         </form>
+
         <div className="sform_footer">
           <h4>Already have an account? <span onClick={navigateToLogin}>login here.</span></h4>
           <h4>© 2025 ZScouts. All rights reserved</h4>

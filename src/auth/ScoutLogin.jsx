@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "../styles/scoutLogin.css"
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
@@ -24,6 +24,12 @@ const ScoutLogin = () => {
   })
 
   const [errors, setErrors] = useState({})
+
+  useEffect(() => {
+    const allFieldsFilled = login.email.trim() && login.password.trim()
+    setIsDisabled(!allFieldsFilled)
+  }, [login])
+
 
   const togglePasswordVisibility = () => {
     setShowPass((prev) => !prev)
@@ -75,7 +81,7 @@ const ScoutLogin = () => {
        if (error.message === "Network Error") {
         toast.error("Oops Network error! Please check your connection and try again.");
       } else {
-        toast.error("Login failed. Please try again later.");
+        toast.error("Invalid Login Credentials");
       }
 
         if (error.response && error.response.data) {
@@ -157,7 +163,16 @@ const ScoutLogin = () => {
             </div>
           </div>
 
-          <button type="submit" className="register_button" style={{ cursor: isDisabled || loading ? 'not-allowed' : 'pointer',  backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00" }}>
+          <button
+        type="submit"
+        disabled={isDisabled || loading}
+       className="register_button"
+       style={{
+       cursor: isDisabled || loading ? 'not-allowed' : 'pointer',
+       backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00"
+       }}
+>
+
             {loading ? (
               <Flex align="center" justify="center" style={{ height: "100%" }}>
                 <Spin indicator={loadingIcon} />
@@ -165,17 +180,6 @@ const ScoutLogin = () => {
             ) : "Login"}
           </button>
         </form>
-
-        {/* <div className="second_option">
-          <div className="line"></div>
-          <h4>OR</h4>
-          <div className="line"></div>
-        </div>
-
-        <button style={{ cursor: "pointer" }} className="google_button" onClick={handleGoogleSignup}>
-          <FcGoogle />
-          <p>Sign up with Google</p>
-        </button> */}
 
         <div className="form_footer">
           <h4>
