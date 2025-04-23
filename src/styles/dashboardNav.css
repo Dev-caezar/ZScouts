@@ -156,8 +156,12 @@
     flex-direction: column;
     align-items: center;
 }
-@media (max-width: 480px){
+@media (max-width: 840px){
     .sidebar_body{
         display: none;
     }
 }
+
+
+
+
