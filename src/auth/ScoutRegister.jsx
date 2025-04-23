@@ -8,6 +8,7 @@ import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons"
 import { useDispatch } from "react-redux"
 import { setScoutDetails } from "../global/Fearures"
+import { toast } from "react-toastify"
 
 const ScoutRegister = () => {
   const navigate = useNavigate()
@@ -16,6 +17,7 @@ const ScoutRegister = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [loading, setLoading] = useState(false)
+   const [isDisabled, setIsDisabled] = useState(true);
 
   const [register, setRegister] = useState({
     fullname: "",
@@ -76,9 +78,19 @@ const ScoutRegister = () => {
         const response = await axios.post(`${BASE_URL}/api/scouts/register`, register)
         console.log("Registration successful:", response)
         dispatch(setScoutDetails(response.data.data))
-        navigate("/email_page")
+        toast.success("Successfully registered as a scout! Please check your email to verify. ");
+        setTimeout(() => {
+          navigate("/email_page");
+        }, 2000);
+        
       } catch (error) {
         console.log("Registration failed:", error.response?.data || error.message)
+        if (error.message === "Network Error") {
+          toast.error("Oops Network error! Please check your connection and try again.");
+        } else {
+          toast.error("Registration failed. Please try again later.");
+        }
+
         if (error.response && error.response.data) {
           const apiErrors = error.response.data.errors
           setErrors((prev) => ({ ...prev, ...apiErrors }))
@@ -90,6 +102,7 @@ const ScoutRegister = () => {
         }
       } finally {
         setLoading(false)
+        setIsDisabled(false)
       }
     }
   }
@@ -179,10 +192,10 @@ const ScoutRegister = () => {
 
           <div className="terms_card">
             <input type="checkbox" id="terms" className='checkbox' required />
-            <p>I agree to <span>Terms & Conditions</span></p>
+            <p>I agree to  <span>Terms & Conditions</span></p>
           </div>
 
-          <button type='submit' className='scout_register_button' disabled={loading}>
+          <button type='submit' className='scout_register_button' style={{ cursor: isDisabled || loading ? 'not-allowed' : 'pointer',  backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00"}}>
             {loading ? 
                 <Flex align="center" justify="center" style={{ height: "100%" }}>
                 <Spin indicator={loadingIcon} />
@@ -191,7 +204,7 @@ const ScoutRegister = () => {
              }
           </button>
         </form>
-
+{/* 
         <div className="second_option">
           <div className="line"></div>
           <h4>OR</h4>
@@ -201,7 +214,7 @@ const ScoutRegister = () => {
         <button className='google_button' onClick={handleGoogleSignup}>
           <FcGoogle />
           <p>Sign up with Google</p>
-        </button>
+        </button> */}
 
         <div className="sform_footer">
           <h4>Already have an account? <span onClick={navigateToLogin}>login here.</span></h4>

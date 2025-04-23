@@ -74,7 +74,7 @@ const ContactUs = () => {
                   <p>I agree to <span>Terms & Condition</span></p>
                 </div>
               </div>
-              <button className='board_button'>Submit</button>
+              <button style={{cursor: "pointer"}} className='board_button'>Submit</button>
             </div>
             <div className="board_contact">
               <div className="contact_card">

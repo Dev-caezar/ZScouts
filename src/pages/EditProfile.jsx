@@ -63,8 +63,10 @@ const EditProfile = () => {
       console.log("Player profile submitted:", response.data);
       setLoading(false)
       dispatch(setPlayerKyc(response.data));
-      navigate(-1)
-      toast.success("Profile submitted successfully!");
+      toast.success("Your submission is complete! Scouts can now review your profile and get in touch!");
+      setTimeout(() => {
+        navigate(-1)
+      }, 2000);
     } catch (error) {
       console.error("Error submitting profile:", error);
       setLoading(false)
@@ -81,7 +83,7 @@ const EditProfile = () => {
     <div className='player_kyc_body'>
       <div className="player_kyc_wrapper">
         <div className="back_card">
-          <IoReturnUpBackOutline className='back_icon' onClick={handleBack}/>
+          <IoReturnUpBackOutline style={{cursor: "pointer"}} className='back_icon' onClick={handleBack}/>
         </div>
         <Profiletracker />
         <div className="edit_card">

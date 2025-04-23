@@ -91,7 +91,7 @@ useEffect(() => {
     setTimeout(() => {
       navigate("/player_profile");
       setIsDisabled(false)
-    }, 1000);
+    }, 2000);
   } catch (error) {
     console.log(error);
     if (error.response) {
@@ -135,13 +135,13 @@ useEffect(() => {
                     </div>
                     <small style={{ color: 'red' }}>{passwordErr}</small>
                     </div>
-                    <button type="submit" disabled={isDisabled} style={{cursor: isDisabled || loading ?  'not-allowed' : 'pointer',  }} className='player_login_button'>{loading ? 
+                    <button type="submit" disabled={isDisabled} style={{cursor: isDisabled || loading ?  'not-allowed' : 'pointer', backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00"   }} className='player_login_button'>{loading ? 
                     <Flex align="center" justify="center" style={{ height: "100%" }}>
                       <Spin indicator={loadingIcon} />
                     </Flex>
                      : "Login"}</button>
                     </form>
-                    <div className="second_option">
+                    {/* <div className="second_option">
                       <div className="line"></div>
                       <h4>OR</h4>
                       <div className="line"></div>
@@ -149,7 +149,7 @@ useEffect(() => {
                     <button className='google_button'>
                       <FcGoogle/>
                       <p>Sign up with Google</p>
-                    </button>
+                    </button> */}
                     <div className="form_footer">
                     <h4>Dont have an account? <span onClick={handleSignup}>signup here.</span></h4>
                     <h4>© 2025 ZScouts. All rights reserved</h4>

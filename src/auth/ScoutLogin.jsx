@@ -16,6 +16,7 @@ const ScoutLogin = () => {
 
   const [showPass, setShowPass] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const [login, setLogin] = useState({
     email: "",
@@ -64,11 +65,18 @@ const ScoutLogin = () => {
         console.log("Login successful:", response.data)
         dispatch(setScoutDetails(response.data))
         dispatch(setScoutToken(response.data))
+        toast.success("Login successful!");
+        setTimeout(() => {
+          navigate("/scout_profile");
+        }, 2000);
 
-        navigate("/scout_profile")
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message)
-        toast.error("Login failed. Please try again later.")
+       if (error.message === "Network Error") {
+        toast.error("Oops Network error! Please check your connection and try again.");
+      } else {
+        toast.error("Login failed. Please try again later.");
+      }
 
         if (error.response && error.response.data) {
           const apiErrors = error.response.data.errors
@@ -81,6 +89,7 @@ const ScoutLogin = () => {
         }
       } finally {
         setLoading(false)
+        setIsDisabled(false)
       }
     }
   }
@@ -148,7 +157,7 @@ const ScoutLogin = () => {
             </div>
           </div>
 
-          <button type="submit" className="register_button" style={{ cursor: "pointer" }}>
+          <button type="submit" className="register_button" style={{ cursor: isDisabled || loading ? 'not-allowed' : 'pointer',  backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00" }}>
             {loading ? (
               <Flex align="center" justify="center" style={{ height: "100%" }}>
                 <Spin indicator={loadingIcon} />
@@ -157,7 +166,7 @@ const ScoutLogin = () => {
           </button>
         </form>
 
-        <div className="second_option">
+        {/* <div className="second_option">
           <div className="line"></div>
           <h4>OR</h4>
           <div className="line"></div>
@@ -166,7 +175,7 @@ const ScoutLogin = () => {
         <button style={{ cursor: "pointer" }} className="google_button" onClick={handleGoogleSignup}>
           <FcGoogle />
           <p>Sign up with Google</p>
-        </button>
+        </button> */}
 
         <div className="form_footer">
           <h4>

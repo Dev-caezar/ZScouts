@@ -21,7 +21,7 @@ const Hero = () => {
           Play at the Next Level.
         </h1>
         <h4>Create your profile, showcase your talent, and connect with scouts worldwide.</h4>
-        <button className="get_started" onClick={handleGetStarted}>Get started now</button>
+        <button style={{cursor: "pointer"}} className="get_started" onClick={handleGetStarted}>Get started now</button>
         <div className="avatar_holder">
           <div className="avatar_container">
             <img src={position} alt="" />

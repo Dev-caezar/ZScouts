@@ -743,7 +743,6 @@
     }
 
     .contact_hero_content{
-        /* background-color: green; */
         width: 100%;
 
         & h2{
@@ -756,17 +755,14 @@
     }
 
     .message_board{
-        /* background-color: red; */
         height: max-content;
     }
 
     .board_wrapper{
-        /* background-color: blue; */
         height: auto;
     }
 
     .board_header{
-        /* background-color: yellow; */
         padding: 10px;
 
         & h2{
@@ -779,14 +775,12 @@
     }
 
     .board_content{
-        /* background-color: magenta; */
         display: flex;
         width: 100%;
         flex-direction: column;
     }
 
     .board_input{
-        /* background-color: yellow; */
         width: 100%;
         padding-bottom: 10px;
         padding-top: 10px;
@@ -794,7 +788,6 @@
     }
 
     .boardinput_header{
-        /* background-color: red; */
         display: flex;
         align-items: end;
 
@@ -804,13 +797,11 @@
     }
 
     .board_text{
-        /* background-color: magenta; */
         height: 7vh;
         font-size: 14px;
     }
 
     .board_button{
-        /* background-color: red; */
         height: 10%;
         border-radius: 6px;
         font-size: 20px;
@@ -820,7 +811,6 @@
 
     .board_contact{
         width: 100%;
-        /* background-color: red; */
         border-radius: 7px;
         display: flex;
         flex-direction: column;
@@ -828,6 +818,7 @@
     }
 
     .inner_card{
+        
 
         & h4{
             font-size: 14px;
@@ -857,12 +848,10 @@
     }
 
     .question_box{
-        /* background-color: green; */
         height: 5vh;
     }
 
     .question_card{
-        /* background-color: magenta; */
 
         & h4 {
             font-size: 18px;
@@ -870,10 +859,24 @@
     }
 
     .answer_card{
-        /* background-color: green; */
        
         & p {
             font-size: 16px;
         }
     }
+}
+
+
+
+
+@media (max-width: 481.78px) {
+   .contact_body{
+    width: 100%;
+   }
+    }
+
+@media (min-width:3840px) and (min-height:2160px) {
+    .contact_body{
+        width: 100%;
+       }
 }

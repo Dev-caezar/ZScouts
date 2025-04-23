@@ -4,13 +4,14 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { setPlayerKyc } from "../global/Player"
 import { Select } from "antd"
+import { setScoutKyc } from "../global/Fearures"
+import LoadingModal from "../components/LoadingModal"
 
 const ScoutFormRegister = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.user.scoutDetails.data.id)
-  console.log(user)
+  const [loading, setLoading] = useState(false)
   const [scoutForm, setScoutform] = useState({
     gender: "",
     nationality: "",
@@ -34,6 +35,8 @@ const ScoutFormRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    setLoading(true) // show loading modal
+
     try {
       const formData = new FormData()
       formData.append("gender", scoutForm.gender)
@@ -51,18 +54,25 @@ const ScoutFormRegister = () => {
           "Content-Type": "multipart/form-data"
         }
       })
-      dispatch(setPlayerKyc(response.data))
-      toast.success("Form submitted successfully!")
+
+      dispatch(setScoutKyc(response.data.data))
+      toast.success("Form submitted successfully! You can now scout for players.")
       console.log("Form data sent:", response.data)
-      navigate(-1)
+      setTimeout(() => {
+        navigate(-1)
+      }, 2000)
     } catch (error) {
       console.error("Error submitting form", error)
       toast.error("Failed to submit form. Try again.")
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
     <div className='scoutFormWrapper'>
+      {loading && <LoadingModal />}
+
       <div className="scoutHeaderForm">
         <div className="scoutHeaderForm1">
           <div className="scoutPercentage">0%</div>
@@ -90,7 +100,7 @@ const ScoutFormRegister = () => {
 
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Gender*</p>
-               <Select
+              <Select
                 showSearch
                 placeholder="gender"
                 optionFilterProp="label"
@@ -103,6 +113,7 @@ const ScoutFormRegister = () => {
                 ]}
               />
             </article>
+
             <article className="scoutInformationFormArticle">
               <p className="scoutInformationLabel-text">Phone Number*</p>
               <input className="scoutpersonalINformatiom-input" type="tel" placeholder="Enter Phone Number"
@@ -141,7 +152,6 @@ const ScoutFormRegister = () => {
                   { value: 'First team scout', label: 'First team scout' },
                 ]}
               />
-
             </article>
 
             <article className="scoutInformationFormArticle">
@@ -176,8 +186,8 @@ const ScoutFormRegister = () => {
             </article>
 
             <article className="scoutInformationFormArticle">
-              <p className="scoutInformationLabel-text"> Age*</p>
-              <input className="scoutpersonalINformatiom-input" type="text" placeholder=" Age"
+              <p className="scoutInformationLabel-text">Age*</p>
+              <input className="scoutpersonalINformatiom-input" type="text" placeholder="Age"
                 value={scoutForm.age}
                 onChange={(e) => setScoutform({ ...scoutForm, age: e.target.value })}
               />
@@ -186,8 +196,8 @@ const ScoutFormRegister = () => {
         </div>
 
         <div className="scoutPersonalCredentialsForm">
-          <span className="scoutInformationsTitlesFormTitile">Credentials</span>
-          <p className="scoutInformationLabel-text">Upload Verification Document*</p>
+          <span className="scoutInformationsTitlesFormTitile"> Professional Credentials</span>
+          <p className="scoutInformationLabel-text">Scouting License/Certification*</p>
           <div className="credentials-Certificate-Upload">
             <article style={{fontSize: "15px"}} className="Upload-Certificate">
               Verification Document Upload
@@ -199,7 +209,14 @@ const ScoutFormRegister = () => {
           </div>
         </div>
       </div>
-      <button className="ScoutSubmitFormButton" onClick={handleSubmit} disabled={!scoutForm.verificationDocument}>Submit</button>
+
+      <button 
+        style={{ cursor: "pointer" }} 
+        className="ScoutSubmitFormButton" 
+        onClick={handleSubmit} 
+        disabled={!scoutForm.verificationDocument}>
+        Submit
+      </button>
     </div>
   )
 }

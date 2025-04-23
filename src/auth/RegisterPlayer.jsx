@@ -110,7 +110,7 @@ const RegisterPlayer = () => {
       setLoading(false)
       setTimeout(() => {
         navigate('/email_page')
-      }, 5000);
+      }, 2000);
       setIsDisabled(false)
       
     } catch (error) {
@@ -167,13 +167,13 @@ const RegisterPlayer = () => {
             <p>I agree to <span>Terms & Conditions</span></p>
           </div>
         </div>
-        <button  type="submit" style={{cursor: isDisabled || loading ? 'not-allowed' : 'pointer'}}  disabled={isDisabled || loading } className='player_register_button'> {loading ?
+        <button  type="submit" style={{cursor: isDisabled || loading ? 'not-allowed' : 'pointer', backgroundColor: isDisabled ? "#0c8f006e" : "#0C8F00"}}  disabled={isDisabled || loading } className='player_register_button'> {loading ?
         <Flex align="center" justify="center" style={{ height: "100%" }}>
           <Spin indicator={loadingIcon} />
       </Flex>
          : 'Create Account'}</button>
         </form>
-        <div className="second_option">
+        {/* <div className="second_option">
           <div className="line"></div>
           <h4>OR</h4>
           <div className="line"></div>
@@ -181,7 +181,7 @@ const RegisterPlayer = () => {
         <button style={{cursor: "pointer"}} className='google_button'>
           <FcGoogle/>
           <p>Sign up with Google</p>
-        </button>
+        </button> */}
         <div className="form_footer">
         <h4>Already have an account? <span onClick={handleLogin}>login here.</span></h4>
         <h4>© 2025 ZScouts. All rights reserved</h4>

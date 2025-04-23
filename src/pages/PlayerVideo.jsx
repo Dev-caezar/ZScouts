@@ -127,7 +127,7 @@ const PlayerVideo = () => {
                 <div className="share-single-video"><p>Share a single video in your upload.</p></div>
                 <div className="upload-from-computer-btn">
                   <input type="file" id="fileUpload" hidden onChange={getImageUrl} />
-                  <label className="my-label-input" htmlFor="fileUpload">Upload from computer</label>
+                  <label className="my-label-input-button" htmlFor="fileUpload">Upload from computer</label>
                 </div>
               </div>
             </div>
@@ -151,17 +151,9 @@ const PlayerVideo = () => {
                     <img src={Video} alt="preview" />
                   )}
                 </div>
-                <div className='text-area-div'>
-                  <div className='text-area-div-1'>
-                    <textarea
-                      value={description}
-                      onChange={(e) => setDescription(e.target.value)}
-                      className='my-text-area-main-main'
-                      placeholder='Add description...'
-                    ></textarea>
-                  </div>
-                  <div className='text-area-div-2'>
-                    <button
+                </div>
+              <div className='post-btn-div-buttom'>
+              <button
                       onClick={handlePost}
                       disabled={!Video}
                       style={{
@@ -171,16 +163,12 @@ const PlayerVideo = () => {
                       }}
                       className='post-video-div'
                     >
-                      {isPosting ? (<div className="spinner"></div>) : "Post"}
+                      {isPosting ? (<div className="spinner"></div>) : "Post video"}
                     </button>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         )}
-
-        {/* Video List */}
         <div className="player-video-main-header">
           <div className="my-video-text"><h1>My Videos</h1></div>
           <div className="my-video-upload-btn">
@@ -191,10 +179,10 @@ const PlayerVideo = () => {
         <div className="all-my-mapped-videos">
           {videos.length > 0 ? (
             videos.map((vid) => (
-              <div key={vid._id || vid.media} className="One-posted-video">
+              <div key={vid.id || vid.videoUpload} className="One-posted-video">
                 <div className="video-div-top">
                   <video controls width="100%">
-                    <source src={vid.media} type="video/mp4" />
+                    <source src={vid.videoUpload} type="video/mp4" />
                   </video>
                 </div>
                 <div className="video-text-div-buttom">

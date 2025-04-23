@@ -2,11 +2,12 @@ import "./scoutProfile.css";
 import { HiPlusCircle } from "react-icons/hi";
 import { CiStar } from "react-icons/ci";
 import { useNavigate, useParams } from "react-router";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
+import { Rating } from "@mui/material";
 
 const ScoutProfile = () => {
   const [profilepic, setProfilePic] = useState();
@@ -31,6 +32,7 @@ const ScoutProfile = () => {
 
     fetchUser();
   }, [user.id]);
+  console.log(authenticated?.data)
 
   useEffect(() => {
     if (profilepic && profilepic.file) {
@@ -78,6 +80,7 @@ const ScoutProfile = () => {
 
   const loadingIcon = <LoadingOutlined style={{ fontSize: 80, color: "#0C8F00" }} spin />
 
+  const [value, setValue] = React.useState(0);
 
   if(loading){
     return(
@@ -104,26 +107,36 @@ const ScoutProfile = () => {
             </div>
           </div>
           <div className="scoutHeader2">
-            <button onClick={() => navigate("/scout_form")} className="scoutComplete-KYC-button">Complete KYC</button>
+            <button style={{cursor: "pointer"}} onClick={() => navigate("/scout_form")} className="scoutComplete-KYC-button">Complete KYC</button>
           </div>
         </div>
       )}
 
 
       <div className="scoutProfileImage-scoutText-wrappper">
-        <div className="scoutProfileImage">
-          <img src={profilepic?.url || authenticated?.data?.profilepic} alt="" />
-         <label htmlFor="l">
-         <HiPlusCircle className="HiPlusCircle"  size={30} style={{ color: "white" }} />
-         <input type="file" id="l" onChange={getImageUrl} hidden />
-         </label>
-        </div>
+        {authenticated?.data?.profileImage ? (
+          <img
+            src={authenticated?.data.profilePic}
+            className="player-img"
+          />
+        ) : (
+          <div className="player-img-placeholder">
+            {authenticated?.data?.fullname?.charAt(0).toUpperCase()}
+          </div>
+        )}
         <div className="scoutText">
           <span className="scoutName">{authenticated?.data?.fullname}</span>
           <p className="ScoutTilte">Scout</p>
           <p className="scoutAge">{authenticated?.data?.scoutKyc?.age} Years</p>
           <div className="starRating">
-            <CiStar size={20} /><CiStar size={20} /><CiStar size={20} /><CiStar size={20} /><CiStar size={20} />
+            <Rating
+              name="simple-uncontrolled"
+              style={{fontSize: 20}}
+              onChange={(event, newValue) => {
+                console.log(newValue);
+              }}
+              defaultValue={0}
+            />
           </div>
         </div>
       </div>
@@ -170,7 +183,7 @@ const ScoutProfile = () => {
                 </article>
                 <article>
                   <p className="email-phone-address-text">{info.home}</p>
-                  <p className="email-phone-addressResult">-</p>
+                  <p className="email-phone-addressResult">{authenticated?.data?.scoutKyc?.phoneNumber}</p>
                 </article>
               </div>
             ))}
@@ -196,7 +209,7 @@ const ScoutProfile = () => {
                 </article>
                 <article>
                   <p className="informations3-text">{info.position}</p>
-                  <p className="informations3Result">{authenticated?.data?.scoutKyc?.prefferedPosition}</p>
+                  <p className="informations3Result">{authenticated?.data?.scoutKyc?.preferredPosition}</p>
                 </article>
               </div>
             ))}
@@ -217,11 +230,6 @@ const ScoutProfile = () => {
             </section>
           </div>
         </div>
-      </div>
-
-      <div className="scout-privacy-reserved">
-        <p className="scoutReserved">2025 Zscout | All rights reserved</p>
-        <p className="scoutReserved">Privacy Terms</p>
       </div>
     </div>
   );

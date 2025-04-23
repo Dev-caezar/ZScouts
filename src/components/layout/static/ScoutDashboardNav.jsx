@@ -6,6 +6,7 @@ import { MdVideoLibrary } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { logout } from '../../../global/Fearures';
+import whitelogo from "../../../assets/whiteLogo.png"
 
 
 const ScoutDashboardNav = () => {
@@ -16,7 +17,7 @@ const ScoutDashboardNav = () => {
       const handlePlayerProfile = () => nav("/scout_profile");
       const handlePlayerVideo = () => nav("/player_discovery");
       const handlePlayerSettings = () => nav("/scout_setting");
-      const handleLogout = () => setLogoutState(true);
+      const handleLogout = () => setLogout(true);
     
       const closeModal = () => setLogoutState(false);
     
@@ -32,7 +33,7 @@ const ScoutDashboardNav = () => {
           <div className="sidebar_wrapper">
             <div className="sidebar_header">
               <div className="sidebar_dashboard_logo">
-                <img src="/src/assets/whiteLogo.png" alt="Logo" />
+                <img src={whitelogo} alt="Logo" />
               </div>
             </div>
     

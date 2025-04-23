@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import '../styles/playersettings.css'
 import { TiPlus } from "react-icons/ti";
 import { FaRegEye } from "react-icons/fa6";
-import DeactivatePopup from '../components/DeactivatePopup';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import PaymentModal from '../pages/PaymentModal';
 
 const PlayerSettings = () => {
+   const [showModal, setShowModal] = useState(false);
+   const [showDeactivateModal, setShowDeactivateModal] = useState(false);
   const [imageValue, setImageValue] = useState(null);
   const [isPopUpOpen, setIsPopupOpen] = useState(false);
   const player = useSelector((state)=> state.player.playerKyc)
@@ -40,12 +42,19 @@ const PlayerSettings = () => {
     setImageValue(file);
   };
 
+  const handleDeactivate = () => {
+    setShowDeactivateModal(true);
+  };
+
+  const confirmDeactivate = () => {
+    setShowDeactivateModal(false);
+    alert("Your account has been deactivated");
+  };
   const handleImageUpload = async () => {
     if (!imageValue) {
       toast.error("Please select an image to upload.");
       return;
     }
-
     const formData = new FormData();
     formData.append("profilepic", imageValue);
     formData.append("id", player);
@@ -75,14 +84,10 @@ const PlayerSettings = () => {
         <div className='setting-profile-picture-div'>
           <div className='player-settings-main-inner'>
             <div className='player-settings-main-inner-1'>
-              {
-                player?.profilePic? 
-                <img 
-                src={imageValue ? URL.createObjectURL(imageValue) :player?.profilePic} 
+              <img 
+                src={imageValue ? URL.createObjectURL(imageValue) : "https://via.placeholder.com/150"} 
                 alt="profile preview" 
-              />:
-              <span className="sprofile_initial">{firstInitial}</span>
-              }
+              />
               <div className='player-setting-upload-icon'>
                 <input type="file" id='l' hidden onChange={getImageUrl} />
                 <label htmlFor="l"><TiPlus style={{ cursor: "pointer" }} /></label>
@@ -90,8 +95,13 @@ const PlayerSettings = () => {
             </div>
 
             <div className='player-settings-main-inner-2'>
-              <p style={{ fontWeight: "600", color: "#333333" }}>{profile.fullname}</p>
-              <p style={{ fontSize: "11px", fontWeight: "600", color: "gray" }}>{profile.email}</p>
+              <p style={{ fontWeight: "600", color: "#333333" }}>Osuji Wisdom</p>
+              <p style={{ fontSize: "11px", fontWeight: "600", color: "gray" }}>wisdomosuji26@gmail.com</p>
+              <p 
+                onClick={() => setIsPopupOpen(true)} 
+                style={{ textDecoration: "underline", color: "red", fontSize: "13px", cursor: "pointer", fontWeight: "500" }}>
+                Deactivate account
+              </p>
             </div>
           </div>
         </div>
@@ -166,7 +176,7 @@ const PlayerSettings = () => {
                   </div>
 
                   <div className='change-pasword-btn'>
-                    <button type="button" className='change-password-btn-main' onClick={handleImageUpload}>Change</button>
+                    <button type="button" className='change-password-btn-main'>Change</button>
                   </div>
                 </div>
               </form>
@@ -182,7 +192,16 @@ const PlayerSettings = () => {
                 <div className='youre-on-a-fee-plan-top'>You're on the Free Plan</div>
                 <div className='youre-on-a-fee-plan-middle'>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</div>
                 <div className='youre-on-a-fee-plan-bottom'>
-                  <button className='upgrade-to-premium-btn'>Upgrade to premium</button>
+                  <button className='upgrade-to-premium-btn' onClick={()=> setShowModal(true)}>Upgrade to premium</button>
+                </div>
+              </div>
+            </div>
+            <div className='subscription-div-plan-bottom3-footer'>
+              <div className='all-right-reserved-and-privacy-and-terms'>
+                <div className='all-right-reserved'>©2025 Zcout | All rights reserved</div>
+                <div className='privacy-and-terms'>
+                  <p>Privacy</p>
+                  <p>Terms</p>
                 </div>
               </div>
             </div>

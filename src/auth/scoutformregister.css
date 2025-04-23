@@ -286,7 +286,7 @@ padding: 10px;
 }
 
 .Upload-Certificate{
-    width: 70%;
+    width: 80%;
     height: 50px;
     border-bottom-left-radius: 7px;
     border-top-left-radius: 7px;
@@ -295,9 +295,9 @@ padding: 10px;
     display: flex;
     align-items: center;
     padding: 10px;
-    font-family: Poppins;
+    font-family: 'Poppins';
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
     color: rgba(0, 0, 0, 0.503);
     letter-spacing: 0px;
@@ -311,15 +311,15 @@ padding: 10px;
   }
   
   .custom-upload {
-    width: 82px;
+    width: 80px;
     height: 50px;
-    background: #000;
+    background: #07232F;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-weight: bold;
+    font-size: 16px;
     border-radius: 5px;
     position: absolute;
     right: 20%;
@@ -335,6 +335,10 @@ padding: 10px;
     border: none;
     color: white;
     font-size: 16px;
+    cursor: pointer;
+}
+.ScoutSubmitFormButton:hover {
+    background-color: rgb(6, 113, 6);
 }
 
 

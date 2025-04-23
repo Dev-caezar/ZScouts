@@ -60,17 +60,20 @@
 }
 .inner_button{
     width: 80%;
-    height: 50px;
+    height: 45px;
     border: none;
     border-radius: 8px;
     background-color: #0C8F00;
     color: #FFF;
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins";
     font-size: 15px;
     font-style: normal;
-    font-weight: 600;
-    line-height: 24px; /* 150% */
+    font-weight: 500;
+    line-height: 24px; 
 
+}
+.inner_button:hover {
+  background-color: #126b08;
 }
 
 /* Tablet view (max-width: 768px) */
@@ -134,4 +137,28 @@
       font-size: 14px;
     }
   }
+
+
+
+
+
+  
+@media (max-width: 600px) {
+  .nextLevel-body{
+    width: 100%;
+  }
+}
+/* @media (min-width: 601px) and (max-width: 1024px) {}
+
+
+@media (max-width: 481.78px) {
+   
+    }
+
+@media (min-width:3840px) and (min-height:2160px) {
+
+  .nextLevel-body{
+    width: 100%;
+  }
+} */
   
