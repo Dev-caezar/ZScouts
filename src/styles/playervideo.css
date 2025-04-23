@@ -691,3 +691,136 @@
         font-size: 12px;
     }
 }
+
+
+
+@media (max-width: 840px){
+
+
+    .player-video-main-header{
+        /* background-color: yellow; */
+        width: 100%;
+    }
+
+    .my-video-text{
+        /* background-color: green; */
+
+        & h1{
+            font-size: 25px;
+        }
+    }
+    
+
+    .upload-new-video-btn{
+        width: 60%;
+        border-radius: 4px;
+        font-size: 10px;
+    }
+
+    .One-posted-video{
+        width: 100%;
+    }
+
+    .match-highlight-text{
+        /* background-color: red; */
+        
+        & h1 {
+            font-size: 18px;
+        }
+    }
+
+    .time-of-video-posted{
+        /* background-color: yellow; */
+        font-size: 15px;
+    }
+
+    .video-rating-div{
+        /* background-color: green; */
+        font-size: 13px;
+    }
+
+    .my-video-delete-btn{
+        font-size: 15px;
+    }
+
+    .all-my-mapped-videos{
+        /* background-color: yellow; */
+
+        & h3 {
+            font-size: 16px;
+        }
+    }
+
+    .create-post-div{
+        /* background-color: blue; */
+        padding-left: 60px;
+        
+        & h1 {
+            font-size: 15px;
+        }
+    }
+
+    .pop-up-bottom-inner{
+        /* background-color: red; */
+        height: 100%;
+    }
+
+    .pop-up-bottom-inner-icon-div{
+        /* background-color: blue; */
+        font-size: 68px;
+        color: red;
+    }
+
+    .select-files-to-begin{
+        /* background-color: yellow; */
+
+        & h1 {
+            font-size: 25px;
+        }
+    }
+
+    .share-single-video{
+        /* background-color: magenta; */
+        letter-spacing: 0;
+        font-size: 15px;
+    }
+
+    .my-label-input{
+        height: 23%;
+        width: 36%;
+        font-size: 10px;
+    }
+
+    .mini-preview-inner-content-bottom{
+        height: 100%;
+    }
+
+    .mini-preview-popup-overlay{
+        display: flex;
+        padding-left: 2px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mini-preview-inner-content{
+        width: 90%;
+        /* background-color: blue; */
+        height: 60%;
+        border: 1px solid gray;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        animation: zoomIn 2s ease-out;
+    }
+
+    .my-image-value-div{
+        width: 100%;
+    }
+
+    .post-btn-div-buttom{
+        width: 100%;
+    }
+    .post-video-div{
+        height: 23%;
+        width: 40%;
+        font-size: 12px;
+    }
+}

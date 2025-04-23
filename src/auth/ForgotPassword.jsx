@@ -47,7 +47,7 @@ const ForgotPassword = () => {
     setMessage("")
 
     try {
-      const res = await axios.post(`${BASE_URL}/api/scouts/forgot-password`, { email })
+      const res = await axios.post(`${BASE_URL}/api/players/forgot-password`, { email })
       setMessage(res.data.message)
       toast.success(res.data.message)
       setEmail("")

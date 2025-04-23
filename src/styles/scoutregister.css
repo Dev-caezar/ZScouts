@@ -275,3 +275,37 @@
         width: 100%
     }
 }
+
+
+
+
+   
+
+
+@media (max-width: 600px) {
+    .scout_register_body{
+        width: 100%;
+        /* background-color: red; */
+    }
+    
+    .scout_register_card{
+        width: 70%;
+        height: 100%;
+    }
+   
+}
+
+
+
+@media (max-width: 840px) {
+    .scout_register_body{
+        width: 100%;
+        /* background-color: red; */
+        height: 100%;
+    }
+    
+    .scout_register_card{
+        width: 70%;
+        height: 100%;
+    }
+}

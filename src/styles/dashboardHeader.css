@@ -279,7 +279,25 @@
     background-color: #07232F;
     cursor: pointer;
   }
-@media (max-width: 480px){
+
+
+  @media (max-width: 840px) {
+    .header_left{
+      display: none;
+    }
+
+    .header_right{
+      display: flex;
+      /* border: 4px solid blue; */
+    }
+
+    .dash_icon{
+      display: block;
+      
+      height: 60px; 
+    }
+  }
+@media (max-width: 840px){
     .dashboard_header_wrapper{
         display: flex;
         justify-content: space-between;
