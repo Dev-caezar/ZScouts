@@ -1,13 +1,15 @@
 import React from 'react'
 import "../../../styles/auth_nav.css"
 import authLogo from "../../../assets/auth_logo.png"
+import { useNavigate } from 'react-router'
 
 const AuthNav = () => {
+    const nav = useNavigate()
   return (
      <div className="nav_body">
                 <div className="image_header">
                    <div className="img_headerwrapper">
-                   <div className="auth_image_holder">
+                   <div className="auth_image_holder" onClick={()=>nav("/") }>
                         <img src={authLogo} alt="" />
                     </div>
                    </div>
