@@ -1,9 +1,11 @@
 import React from 'react'
 import DashboardHeader from './static/DashboardHeader'
 import DashboardNav from './static/DashboardNav'
-import { Link, Outlet } from 'react-router'
+import {  Outlet, useNavigate } from 'react-router'
 
 const DashboardLayout = () => {
+const nav = useNavigate()
+
   return (
     <div className="dashboardLayout_body">
       <DashboardNav />
@@ -15,7 +17,7 @@ const DashboardLayout = () => {
         <div className="footer">
           <h4>©2025 Zscout | All rights reserved</h4>
           <h4>Privacy</h4>
-          <h4><Link to="/terms_condition">Terms</Link> </h4>
+          <h4 onClick={()=> nav("/terms_condition")} style={{cursor: 'pointer'}}>Terms</h4>
         </div>
       </div>
     </div>

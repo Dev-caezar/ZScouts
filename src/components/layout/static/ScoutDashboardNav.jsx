@@ -17,7 +17,7 @@ const ScoutDashboardNav = () => {
       const handlePlayerProfile = () => nav("/scout_profile");
       const handlePlayerVideo = () => nav("/player_discovery");
       const handlePlayerSettings = () => nav("/scout_setting");
-      const handleLogout = () => setLogout(true);
+      const handleLogout = () => setLogoutState(true);
     
       const closeModal = () => setLogoutState(false);
     
