@@ -55,8 +55,8 @@ const PlayerProfile = () => {
   return (
     <div className='playerProfile_body'>
       <div className="profile_wrapper">
-        {authenticated?.data?.profileCompletion ? <div className="completed_profile"></div> : <Profiletracker />}
-        {/* <Profiletracker /> */}
+        {/* {authenticated?.data?.profileCompletion ? <div className="completed_profile"></div> : <Profiletracker />} */}
+        <Profiletracker />
         <div className="profile_wrapper_card">
           <div className="user_card">
             <div className="user_image">

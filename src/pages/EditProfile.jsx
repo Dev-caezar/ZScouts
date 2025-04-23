@@ -4,7 +4,7 @@ import "../styles/editProfile.css";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import Profiletracker from '../components/layout/static/Profiletracker';
 import { Flex, Select, Spin } from 'antd';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPlayerKyc } from '../global/Player';
 import { LoadingOutlined } from '@ant-design/icons';
@@ -94,7 +94,7 @@ const EditProfile = () => {
             <div className="edit_input_container">
               <h4>Ability*</h4>
                <Select
-                showSearch
+              
                 placeholder="ability"
                 optionFilterProp="label"
                 onChange={value => handleChange("ability", value)}
@@ -133,7 +133,7 @@ const EditProfile = () => {
             <div className="gender_input_container">
               <h4>Gender*</h4>
               <Select
-                showSearch
+               
                 placeholder="Gender"
                 optionFilterProp="label"
                 onChange={value => handleChange("gender", value)}
@@ -168,7 +168,7 @@ const EditProfile = () => {
             <div className="edit_input_container">
               <h4>Preferred foot*</h4>
               <Select
-                showSearch
+                
                 placeholder="Option"
                 optionFilterProp="label"
                 value={player.preferredFoot}
@@ -218,7 +218,7 @@ const EditProfile = () => {
             <div className="contact_input_container">
               <h4>Primary position*</h4>
                 <Select
-                showSearch
+              
                 placeholder="Primary position"
                 optionFilterProp="label"
                 onChange={value => handleChange("primaryPosition", value)}
@@ -235,7 +235,7 @@ const EditProfile = () => {
             <div className="contact_input_container">
               <h4>Secondary position*</h4>
               <Select
-                showSearch
+               
                 placeholder="secondary position"
                 optionFilterProp="label"
                 onChange={value => handleChange("secondaryPosition", value)}
@@ -269,7 +269,7 @@ const EditProfile = () => {
             <div className="contact_input_container">
               <h4>Do you follow a diet plan?*</h4>
               <Select
-                showSearch
+                
                 placeholder="Option"
                 optionFilterProp="label"
                 value={player.followDiet}
@@ -308,7 +308,7 @@ const EditProfile = () => {
             <div className="contact_input_container">
               <h4>Are you open to trials?*</h4>
               <Select
-                showSearch
+               
                 placeholder="Option"
                 optionFilterProp="label"
                 value={player.openToTrials}
@@ -323,7 +323,7 @@ const EditProfile = () => {
             <div className="contact_input_container">
               <h4>Are you willing to relocate?*</h4>
               <Select
-                showSearch
+               
                 placeholder="Option"
                 optionFilterProp="label"
                 value={player.willingToRelocate}
