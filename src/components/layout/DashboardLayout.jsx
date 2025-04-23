@@ -1,11 +1,10 @@
 import React from 'react'
 import DashboardHeader from './static/DashboardHeader'
 import DashboardNav from './static/DashboardNav'
-import {  Outlet, useNavigate } from 'react-router'
+import {Outlet, useNavigate } from 'react-router'
 
 const DashboardLayout = () => {
-const nav = useNavigate()
-
+  const navigate = useNavigate()
   return (
     <div className="dashboardLayout_body">
       <DashboardNav />

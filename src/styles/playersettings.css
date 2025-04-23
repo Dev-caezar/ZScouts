@@ -715,3 +715,144 @@
         display: none;
     }
 }
+
+
+@media screen and (min-width: 481px) and (max-width: 620px) {
+    .player-settings-main-wrap{
+        /* background-color: blue; */
+        width: 100%;
+    }
+
+    .player-settings-main-wrap-header{
+        width: 100%;
+        /* background-color: yellow; */
+        font-size: 12px;
+    }
+
+    .setting-profile-picture-div{
+        /* background-color: red; */
+        height: max-content;
+    }
+
+    .player-settings-main-inner{
+        /* background-color: blue; */
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .personal-details-div-top, .change-password-div-top{
+        padding-left: 12px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .player-settings-main-inner-1{
+        /* background-color: yellow; */
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        background-color: #33333375;
+        font-size: 12px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        /* width: 100%; */
+    }
+
+    .player-settings-main-inner-2{
+        /* background-color: magenta; */
+        padding: 8px;
+        gap: 3px;
+        width: 100%;
+
+        & p {
+            font-size: 18px;
+        }
+        /* width: 100%; */
+    }
+
+    .player-settings-main-form{
+        /* background-color: magenta; */
+        height: auto;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    .personal-details-div{
+        width: 100%;
+        height: 60vh;
+    }
+
+    .change-password-btn-main{
+        width: 30%;
+        height: 54%;
+        border-radius: 4px;
+    }
+
+    .my-change-password-input, .my-personal-input{
+        font-size: 14.5px;
+    }
+
+    .personal-detail-save-changes-btn{
+        font-size: 10px;
+        width: 30%;
+        height: 54%;
+        border-radius: 4px;
+    }
+
+    .personal-details-form, .change-password-div-form{
+        /* background-color: blue; */
+        border-radius: 7px;
+    }
+
+    .change-password-div{
+        width: 100%;
+        height: 75vh;
+    }
+
+    .subscription-div-plan-top{
+        padding-left: 18px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .youre-on-a-fee-plan-top{
+        width: 100%;
+        /* background-color: maroon; */
+        font-size: 16px;
+        font-weight: 600;
+        height: 15%;
+    }
+
+    .youre-on-a-fee-plan-middle{
+        /* background-color: yellow; */
+        height: 40%;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+    .upgrade-to-premium-btn{
+        width: 50%;
+        height: 55%;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+
+    .all-right-reserved-and-privacy-and-terms{
+        /* background-color: red; */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .all-right-reserved{
+        /* background-color: yellow; */
+        font-size: 12px;
+    }
+
+    .privacy-and-terms{
+        display: none;
+    }
+}

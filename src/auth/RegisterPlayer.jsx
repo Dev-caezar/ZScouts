@@ -106,7 +106,8 @@ const RegisterPlayer = () => {
     try {
       const res = await axios.post(`${BASE_URL}/api/players/register`, data)
       dispatch(setPlayerDetails(res.data.data))
-      toast.success('Sign up successful. please check your Email to verify')
+      console.log(res)
+      toast.success(res.data.data.message)
       setLoading(false)
       setTimeout(() => {
         navigate('/email_page')
@@ -114,7 +115,7 @@ const RegisterPlayer = () => {
       setIsDisabled(false)
       
     } catch (error) {
-      console.log(error)
+      console.log(error.response.data.message)
 
       if (error.response) {
         const message = error.response.data?.message || 'An error occurred during registration.';
@@ -173,15 +174,7 @@ const RegisterPlayer = () => {
       </Flex>
          : 'Create Account'}</button>
         </form>
-        {/* <div className="second_option">
-          <div className="line"></div>
-          <h4>OR</h4>
-          <div className="line"></div>
-        </div>
-        <button style={{cursor: "pointer"}} className='google_button'>
-          <FcGoogle/>
-          <p>Sign up with Google</p>
-        </button> */}
+
         <div className="form_footer">
         <h4>Already have an account? <span onClick={handleLogin}>login here.</span></h4>
         <h4>© 2025 ZScouts. All rights reserved</h4>
