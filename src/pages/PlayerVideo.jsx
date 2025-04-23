@@ -196,7 +196,7 @@ const PlayerVideo = () => {
               </div>
             ))
           ) : (
-            <h5 style={{ color: "red" }}>No videos posted yet</h5>
+            <h5 style={{ color: "gray" }}>No videos posted yet</h5>
           )}
         </div>
 

@@ -4,6 +4,7 @@ import "../styles/scoutsettings.css";
 import { IoCameraOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import PaymentModal from "../pages/PaymentModal";
+import KoraPayment from "kora-checkout";
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
@@ -13,10 +14,34 @@ const ScoutSettings = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [profileImage, setProfileImage] = useState(null);
+  const [paymentSuccess, setPaymentSuccess] = useState(false)
+  const [paymentLoading, setPaymentLoading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const scout = useSelector((state) => state?.user.scoutKyc.scoutId);
   const scoutDetails = useSelector((state) => state?.user.scoutDetails.data);
   console.log(scoutDetails);
+
+  const UpgradeToPremiumpayment = () => {
+    const paymentOptions = {
+      key: "pk_test_VZb26Tf4s9GGHJuD9iUWdgiqEoCfQjhoHXG1nv4f",
+      reference: `ref-${Date.now()}`,
+      amount: 15000,
+      customer: {
+          name: scoutDetails.fullname,
+          email: scoutDetails.email,
+      },
+      onSuccess: () => {
+          setPaymentSuccess(true)
+          console.log('Payment successful');
+      },
+      onFailed: (err) => {
+          console.error(err.message);
+      }
+  };
+
+  const payment = new KoraPayment();
+  payment.initialize(paymentOptions);
+  };
 
 
 
@@ -145,25 +170,26 @@ const ScoutSettings = () => {
         </div>
       </div>
 
-      <div className="subscription-section">
-        <h3 className="subscription-title">Subscription</h3>
-        <div className="subscription-box">
-          <h4 className="plan-title">You’re on the Free Plan</h4>
-          <p className="plan-description">
-            Unlock premium features and maximize your visibility to scouts.
-            Upgrade now to optimize your account!
-          </p>
-          <button
-            className="upgrade-btn"
-            onClick={() => setShowModal(true)}
-          >
-            Upgrade to premium
-          </button>
+      {
+          paymentSuccess ? 
+          <div className="div"></div>:
+          <div className='subscription-div-plan'>
+          <div className='subscription-div-plan-wrap'>
+            <div className='subscription-div-plan-top'>Subscription</div>
+            <div className='subscription-div-plan-middle'>
+              <div className='subscription-div-plan-middle-wrap'>
+                <div className='youre-on-a-fee-plan-top'>You're on the Free Plan</div>
+                <div className='youre-on-a-fee-plan-middle'>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</div>
+                <div className='youre-on-a-fee-plan-bottom'>
+                <button className='upgrade-to-premium-btn' onClick={UpgradeToPremiumpayment} disabled={paymentLoading}>
+                  {paymentLoading ? "Processing..." : "Upgrade to Premium"}
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {showModal && <PaymentModal onClose={() => setShowModal(false)} />}
-      
+        }      
     </div>
   );
 };

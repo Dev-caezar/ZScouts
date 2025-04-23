@@ -22,58 +22,11 @@ const PlayerProfile = () => {
   const profile = useSelector((state) => state.player.playerKyc);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (!window.Korapay) {
-  //     const script = document.createElement("script");
-  //     script.src = "https://js.korapay.com/inline.js";
-  //     script.async = true;
-  //     script.onload = () => console.log("KoraPay script loaded");
-  //     document.body.appendChild(script);
-  //   }
-  // }, []);
-  
-
-  // const UpgradeToPremiumpayment = () => {
-  //   if (!window.Korapay || !window.Korapay.initialize) {
-  //     console.error("KoraPay script not loaded");
-  //     alert("Payment service not available. Please try again later.");
-  //     return;
-  //   }
-  
-  //   const reference = `tx_ref_${Date.now()}`;
-  //   const playerName = player?.fullname || "Player Name";
-  //   const playerEmail = player?.email || "noemail@example.com";
-  
-  //   window.Korapay.initialize({
-  //     key: "sk_test_XhjF4TzPkxZtnziGjgNDQeay3kmov2Z2RZ95hX6u",
-  //     amount: 5000,
-  //     currency: "NGN",
-  //     reference,
-  //     customer: {
-  //       name: playerName,
-  //       email: playerEmail,
-  //     },
-  //     callback: function (response) {
-  //       console.log("Payment response: ", response);
-  
-  //       if (response.status === "success") {
-  //         alert("Payment successful!");
-  //         // 🔁 Optional: Call your backend to upgrade the player
-  //       } else {
-  //         alert("Payment was not successful.");
-  //       }
-  //     },
-  //     onClose: function () {
-  //       console.log("Payment modal closed");
-  //     },
-  //   });
-  // };
-
   const UpgradeToPremiumpayment = () => {
     const paymentOptions = {
       key: "pk_test_VZb26Tf4s9GGHJuD9iUWdgiqEoCfQjhoHXG1nv4f",
       reference: `ref-${Date.now()}`,
-      amount: 5000, // Example amount
+      amount: 5000,
       customer: {
           name: "Jane Doe",
           email: "jane@example.com"
@@ -126,6 +79,7 @@ const PlayerProfile = () => {
     <div className='playerProfile_body'>
       <div className="profile_wrapper">
         {authenticated?.data?.profileCompletion ? <div className="completed_profile"></div> : <Profiletracker />}
+        {/* <Profiletracker /> */}
         <div className="profile_wrapper_card">
           <div className="user_card">
             <div className="user_image">
@@ -141,7 +95,8 @@ const PlayerProfile = () => {
               <h5>{playerKyc?.primaryPosition || "Position N/A"}</h5>
               <p>{playerKyc?.age ? `${playerKyc.age} years` : "-"}</p>
               <Box>
-                <Rating name="legend" value={playerKyc?.rating || 0} disabled />
+                <Rating name="legend" value={user?.ratings?.ratingScore || 0} disabled />
+                {console.log(user?.ratings?.ratingScore)}
               </Box>
             </div>
           </div>
@@ -216,19 +171,6 @@ const PlayerProfile = () => {
               </div>
             </div>
           ) : null}
-
-          <div className="player_video_profile">
-            <div className="video_bottom">
-              <div className="video_bottom_text">
-                <h4>Videos</h4>
-              </div>
-              <div className="bottom_video_card">
-                {playerKyc?.media
-                  ? <video src={playerKyc.media} controls width="100%" />
-                  : <p>No videos uploaded</p>}
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>

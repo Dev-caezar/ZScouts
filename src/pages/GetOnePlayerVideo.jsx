@@ -32,16 +32,17 @@ const GetOnePlayerVideo = () => {
 
     fetchPlayers();
   }, []);
+  const [rate, setRate] = useState(0);
 
   const handleRatingChange = async (event, newValue) => {
-    setValue(newValue);  
+    setRate(newValue);
     try {
       await axios.post(
         `${BASE_URL}/api/players/${player.id}/rate`,
         {
           playerId: player.id,
           videoUrl: videoUrl,
-          rating: newValue
+          ratingScore: newValue
         },
         {
           headers: {
@@ -56,7 +57,8 @@ const GetOnePlayerVideo = () => {
       toast.error("You have already rated this player");
     }
   };
-
+  
+  console.log(rate)
   const handleGetOne = (player) => {
     nav(`/player_details/${player.id}`); 
   };
@@ -99,7 +101,7 @@ const GetOnePlayerVideo = () => {
                 <div className='rating-inner-div-2'>
                   <Rating
                     name="simple-controlled"
-                    value={value}
+                    value={rate}
                     onChange={handleRatingChange}
                   />
                 </div>
@@ -142,7 +144,7 @@ const GetOnePlayerVideo = () => {
                       onChange={(event, newValue) => {
                         console.log(newValue);
                       }}
-                      defaultValue={2}
+                      defaultValue={player?.ratings?.ratingScore}
                     />
                   </div>
                 </div>
