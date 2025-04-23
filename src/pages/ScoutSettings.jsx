@@ -7,7 +7,6 @@ import PaymentModal from "../pages/PaymentModal";
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showDeactivateModal, setShowDeactivateModal] = useState(false);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [oldPassword, setOldPassword] = useState("");
@@ -19,14 +18,7 @@ const ScoutSettings = () => {
   const scoutDetails = useSelector((state) => state?.user.scoutDetails.data);
   console.log(scoutDetails);
 
-  const handleDeactivate = () => {
-    setShowDeactivateModal(true);
-  };
 
-  const confirmDeactivate = () => {
-    setShowDeactivateModal(false);
-    alert("Your account has been deactivated");
-  };
 
   const handleSavePersonalData = () => {
     const personalData = { fullName, email };
@@ -42,7 +34,7 @@ const ScoutSettings = () => {
 
   const handleUploadProfileImage = async (file) => {
     const formData = new FormData();
-    formData.append("profilepic", file);  // Updated field name
+    formData.append("profilepic", file);  
 
     try {
       const response = await axios.post(
