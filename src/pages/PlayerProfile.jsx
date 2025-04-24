@@ -16,6 +16,7 @@ const PlayerProfile = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [paymentLoading, setPaymentLoading] = useState(false);
   const [paymentError, setPaymentError] = useState(null);
+  const [paymentsucces, setPaymentSuccess] = useState(false)
 
   const BASE_URL = "https://zscouts.onrender.com";
   const player = useSelector((state) => state.player.playerDetails);
@@ -32,6 +33,7 @@ const PlayerProfile = () => {
           email: player.email,
       },
       onSuccess: () => {
+        setPaymentSuccess(true)
           console.log('Payment successful');
       },
       onFailed: (err) => {
@@ -79,7 +81,6 @@ const PlayerProfile = () => {
     <div className='playerProfile_body'>
       <div className="profile_wrapper">
         {authenticated?.data?.profileCompletion ? <div className="completed_profile"></div> : <Profiletracker />}
-        {/* <Profiletracker /> */}
         <div className="profile_wrapper_card">
           <div className="user_card">
             <div className="user_image">
@@ -95,8 +96,13 @@ const PlayerProfile = () => {
               <h5>{playerKyc?.primaryPosition || "Position N/A"}</h5>
               <p>{playerKyc?.age ? `${playerKyc.age} years` : "-"}</p>
               <Box>
-                <Rating name="legend" value={user?.ratings?.ratingScore || 0} disabled />
-                {console.log(user?.ratings?.ratingScore)}
+              <Rating 
+                name="legend" 
+                value={user?.ratings?.[0]?.ratingScore || 0} 
+                disabled 
+              />
+
+                {console.log(user?.ratings)}
               </Box>
             </div>
           </div>
@@ -157,7 +163,7 @@ const PlayerProfile = () => {
             </div>
           </div>
 
-          {authenticated ? (
+          {paymentsucces ? (
             <div className="player_contact_details">
               <div className="plan_top">
                 <h4>You’re on the Free Plan</h4>
