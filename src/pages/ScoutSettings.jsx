@@ -5,6 +5,7 @@ import { IoCameraOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import PaymentModal from "../pages/PaymentModal";
 import KoraPayment from "kora-checkout";
+import { setSubscribed } from "../global/Fearures";
 
 const ScoutSettings = () => {
   const [showModal, setShowModal] = useState(false);
@@ -19,7 +20,7 @@ const ScoutSettings = () => {
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const scout = useSelector((state) => state?.user.scoutKyc.scoutId);
   const scoutDetails = useSelector((state) => state?.user?.scoutDetails?.data);
-  // console.log(scoutDetails);
+  const subscribed = useSelector((state) => state?.user?.subscribed);
 
   const UpgradeToPremiumpayment = () => {
     const paymentOptions = {
@@ -31,7 +32,7 @@ const ScoutSettings = () => {
           email: scoutDetails.email,
       },
       onSuccess: () => {
-          setPaymentSuccess(true)
+          setSubscribed(true)
           console.log('Payment successful');
       },
       onFailed: (err) => {
@@ -171,7 +172,7 @@ const ScoutSettings = () => {
       </div>
 
       {
-          paymentSuccess ? 
+          !subscribed ? 
           <div className="div"></div>:
           <div className='subscription-div-plan'>
           <div className='subscription-div-plan-wrap'>
