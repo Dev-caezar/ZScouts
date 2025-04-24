@@ -29,7 +29,22 @@
     height: 18vh;
     /* background-color: magenta; */
 }
-
+.upload_container{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: gold; */
+}
+.dp_cta{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0c8f00;
+    color: white;
+}
 .player-settings-main-inner{
     width: 30%;
     height: 100%;

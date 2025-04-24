@@ -186,12 +186,16 @@ const PlayerSettings = () => {
                   </div>
 
                   <div className='change-pasword-btn'>
-                    <button type="button" className='change-password-btn-main' onClick={handleImageUpload}>Change</button>
+                    <button type="button" className='change-password-btn-main' >Change</button>
                   </div>
                 </div>
               </form>
             </div>
           </div>
+        </div>
+        <div className="upload_container">
+        <button className='dp_cta' onClick={handleImageUpload}>upload</button>
+
         </div>
 
         {

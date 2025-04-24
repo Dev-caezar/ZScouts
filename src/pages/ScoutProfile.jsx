@@ -242,7 +242,7 @@ const ScoutProfile = () => {
             ))}
           </div>
         </div>
-        {subscribed ? (
+        {!subscribed ? (
             <div className="player_contact_details">
               <div className="plan_top">
                 <h4>You’re on the Free Plan</h4>
