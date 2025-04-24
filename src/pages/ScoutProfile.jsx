@@ -4,19 +4,23 @@ import { CiStar } from "react-icons/ci";
 import { useNavigate, useParams } from "react-router";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Rating } from "@mui/material";
 import KoraPayment from "kora-checkout";
+import { MdVerified } from "react-icons/md";
+import { setSubscribed } from "../global/Fearures";
 
 const ScoutProfile = () => {
   const [profilepic, setProfilePic] = useState();
+  const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
   const [paymentLoading, setPaymentLoading] = useState(false);
   const navigate = useNavigate();
   const BASE_URL = "https://zscouts.onrender.com";
   const user = useSelector(state => state.user.scoutDetails.data)
+  const subscribed = useSelector(state => state.user.subscribed)
   const [authenticated, setAuthenticated] = useState(null);
   const [paymentError, setPaymentError] = useState(null);
 
@@ -31,7 +35,7 @@ const ScoutProfile = () => {
           email: user.email
       },
       onSuccess: () => {
-          setPaymentSuccess(true)
+          dispatch(setSubscribed(true))
           console.log('Payment successful');
       },
       onFailed: (err) => {
@@ -143,7 +147,7 @@ const ScoutProfile = () => {
 
 
       <div className="scoutProfileImage-scoutText-wrappper">
-        {authenticated?.data?.profileImage ? (
+        {authenticated?.data?.profileImage ?(
           <img
             src={authenticated?.data.profilePic}
             className="player-img"
@@ -154,7 +158,11 @@ const ScoutProfile = () => {
           </div>
         )}
         <div className="scoutText">
-          <span className="scoutName">{authenticated?.data?.fullname}</span>
+        <span className="scoutName">
+          {authenticated?.data?.fullname}
+          {authenticated?.data?.isAdmin && <MdVerified style={{color: "green"}}/>}
+        </span>
+
           <p className="ScoutTilte">Scout</p>
           <p className="scoutAge">{authenticated?.data?.scoutKyc?.age} Years</p>
         </div>
@@ -234,7 +242,7 @@ const ScoutProfile = () => {
             ))}
           </div>
         </div>
-        {authenticated ? (
+        {subscribed ? (
             <div className="player_contact_details">
               <div className="plan_top">
                 <h4>You’re on the Free Plan</h4>
