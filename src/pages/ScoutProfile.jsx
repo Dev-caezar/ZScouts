@@ -196,11 +196,11 @@ const ScoutProfile = () => {
                   <p className="email-phone-address-text">{info.email}</p>
                   <p className="email-phone-addressResult">{authenticated?.data?.email}</p>
                 </article>
-                <article>
+                <article className="email-phone-addressArticle">
                   <p className="email-phone-address-text">{info.phone}</p>
                   <p className="email-phone-addressResult">{authenticated?.data?.scoutKyc?.phoneNumber}</p>
                 </article>
-                <article>
+                <article className="email-phone-addressArticle">
                   <p className="email-phone-address-text">{info.home}</p>
                   <p className="email-phone-addressResult">{authenticated?.data?.scoutKyc?.phoneNumber}</p>
                 </article>
@@ -214,19 +214,19 @@ const ScoutProfile = () => {
           <div className="scoutInformations-wrap">
             {scoutInformation.map(info => (
               <div key={info.id} className="informations3">
-                <article className="informations3Article">
+                <article className="email-phone-addressArticle">
                   <p className="informations3-text">{info.club}</p>
                   <p className="informations3Result">{authenticated?.data?.scoutKyc?.clubName}</p>
                 </article>
-                <article>
+                <article className="email-phone-addressArticle">
                   <p className="informations3-text">{info.role}</p>
                   <p className="informations3Result">{authenticated?.data?.scoutKyc?.scoutingRole}</p>
                 </article>
-                <article>
+                <article className="email-phone-addressArticle">
                   <p className="informations3-text">{info.league}</p>
                   <p className="informations3Result">{authenticated?.data?.scoutKyc?.league}</p>
                 </article>
-                <article>
+                <article className="email-phone-addressArticle">
                   <p className="informations3-text">{info.position}</p>
                   <p className="informations3Result">{authenticated?.data?.scoutKyc?.preferredPosition}</p>
                 </article>
