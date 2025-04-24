@@ -8,14 +8,41 @@ import { useSelector } from "react-redux";
 import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Rating } from "@mui/material";
+import KoraPayment from "kora-checkout";
 
 const ScoutProfile = () => {
   const [profilepic, setProfilePic] = useState();
   const [loading, setLoading] = useState(false)
+  const [paymentLoading, setPaymentLoading] = useState(false);
   const navigate = useNavigate();
   const BASE_URL = "https://zscouts.onrender.com";
   const user = useSelector(state => state.user.scoutDetails.data)
   const [authenticated, setAuthenticated] = useState(null);
+  const [paymentError, setPaymentError] = useState(null);
+
+
+  const UpgradeToPremiumpayment = () => {
+    const paymentOptions = {
+      key: "pk_test_VZb26Tf4s9GGHJuD9iUWdgiqEoCfQjhoHXG1nv4f",
+      reference: `ref-${Date.now()}`,
+      amount: 15000,
+      customer: {
+          name: user.fullname,
+          email: user.email
+      },
+      onSuccess: () => {
+          setPaymentSuccess(true)
+          console.log('Payment successful');
+      },
+      onFailed: (err) => {
+          console.error(err.message);
+      }
+  };
+
+  const payment = new KoraPayment();
+  payment.initialize(paymentOptions);
+  };
+
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -91,6 +118,8 @@ const ScoutProfile = () => {
       </div>
     )
   }
+  
+
   return (
     <div className="scoutProfile-wrapper">
       {authenticated?.data?.profileCompletion ? (
@@ -128,16 +157,6 @@ const ScoutProfile = () => {
           <span className="scoutName">{authenticated?.data?.fullname}</span>
           <p className="ScoutTilte">Scout</p>
           <p className="scoutAge">{authenticated?.data?.scoutKyc?.age} Years</p>
-          <div className="starRating">
-            <Rating
-              name="simple-uncontrolled"
-              style={{fontSize: 20}}
-              onChange={(event, newValue) => {
-                console.log(newValue);
-              }}
-              defaultValue={0}
-            />
-          </div>
         </div>
       </div>
 
@@ -215,6 +234,21 @@ const ScoutProfile = () => {
             ))}
           </div>
         </div>
+        {authenticated ? (
+            <div className="player_contact_details">
+              <div className="plan_top">
+                <h4>You’re on the Free Plan</h4>
+                <p>Unlock premium features and maximize your visibility to scouts. Upgrade now to optimize your account!</p>
+              </div>
+              <div className="plan_bottom">
+                <button className='premium_cta' onClick={UpgradeToPremiumpayment} disabled={paymentLoading}>
+                  {paymentLoading ? "Processing..." : "Upgrade to Premium"}
+                </button>
+                {paymentError && <p style={{ color: 'red' }}>{paymentError}</p>}
+              </div>
+            </div>
+          ) : null}
+
 
         <div className="scoutPersonalCredentials">
           <span className="scoutInformationsTitles">Professional Credentials</span>

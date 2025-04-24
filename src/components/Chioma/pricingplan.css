@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: gold; */
+   
   }
   
   
@@ -84,7 +84,7 @@
     border-radius: 8px;
     position: absolute;
     top: -15px;
-    left: 40%;
+    left: 37%;
     text-align: center;
     display: flex;
     justify-content: center;

@@ -1,56 +1,63 @@
-.scout_login_body{
+.scout_login_body {
     width: 70%;
     height: 100vh;
+    min-height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.scout_login_card{
+
+.scout_login_card {
     width: 45%;
     height: 85%;
+    min-height: max-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
-.scout_login_head{
+
+.scout_login_head {
     width: 100%;
     height: 15%;
+    min-height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.scout_login_head h2{
+.scout_login_head h2 {
     color: #07232F;
     text-align: center;
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 21.701px;
     font-style: normal;
     font-weight: 700;
-    line-height: 32.551px; 
+    line-height: 32.551px;
 }
-.scout_login_head p{
+
+.scout_login_head p {
     color: #8E8E8E;
     text-align: center;
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 16.276px; 
+    line-height: 16.276px;
 }
-.slogin_form_body{
+
+.slogin_form_body {
     width: 100%;
     height: max-content;
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
     gap: 10px;
 }
+
 .sl_floating-label {
     position: relative;
     width: 100%;
@@ -58,7 +65,7 @@
     min-height: max-content;
 }
 
-.scout_login_input{
+.scout_login_input {
     width: 100%;
     padding: 12px 8px;
     font-size: 13px;
@@ -66,23 +73,25 @@
     border-radius: 8px;
     outline: none;
     background: transparent;
-    position:relative;
+    position: relative;
 }
+
 .scout_login_input.error {
     border: 1.5px solid #e74c3c;
     animation: shake 0.3s 2;
-  }
-  @keyframes shake {
+}
+
+@keyframes shake {
     25% {
-        translate:  6px 0;
+        translate: 6px 0;
     }
     50% {
-       translate:  -6px 0
+        translate: -6px 0;
     }
     75% {
-       translate:  6px 0
+        translate: 6px 0;
     }
-  }
+}
 
 .slformLabel {
     position: absolute;
@@ -106,70 +115,81 @@
 .scout_login_input:focus {
     border-color: #0C8F00;
 }
-.login_eye{
+
+.login_eye {
     position: absolute;
     right: 10px;
     top: 15px;
+    cursor: pointer;
 }
-.terms_card{
+
+.terms_card {
     width: 100%;
     height: 30px;
+    min-height: max-content;
     display: flex;
     align-items: center;
     padding: 5px;
     gap: 10px;
 }
-.checkbox{
+
+.checkbox {
     width: 15px;
     height: 15px;
     accent-color: #0C8F00;
 }
-.terms_card p{
+
+.terms_card p {
     color: var(--Colors-Neutral-700, #777);
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 10.85px;
     font-style: normal;
     font-weight: 400;
     line-height: 16.276px;
 }
-.terms_card p span{
+
+.terms_card p span {
     color: #0C8F00;
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 10.85px;
     font-style: normal;
     font-weight: 500;
     line-height: 16.276px;
 }
-.register_button{
+
+.register_button {
     width: 100%;
     height: 40px;
     background-color: #0C8F00;
     color: white;
     border-radius: 8px;
     border: none;
+    cursor: pointer;
 }
-.second_option{
+
+.second_option {
     width: 100%;
-    /* height: px; */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    /* background-color: red; */
 }
-.line{
+
+.line {
     width: 45%;
     border: 1px solid #777777;
 }
-.second_option h4{
+
+.second_option h4 {
     color: var(--Colors-Neutral-700, #777);
-    font-family: "Poppins"sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 10.85px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
-.google_button{
+
+.google_button {
     width: 100%;
     height: 40px;
     background-color: white;
@@ -181,16 +201,19 @@
     align-items: center;
     gap: 10px;
     font-size: 20px;
+    cursor: pointer;
 }
-.google_button p{
+
+.google_button p {
     color: #777;
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 18px; 
+    line-height: 18px;
 }
-.form_footer{
+
+.form_footer {
     width: 100%;
     height: 10%;
     display: flex;
@@ -198,54 +221,54 @@
     align-items: center;
     justify-content: space-between;
 }
-.form_footer h4{
+
+.form_footer h4 {
     color: var(--Colors-Neutral-700, #777);
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 10.85px;
     font-style: normal;
     font-weight: 400;
-    line-height: 16.276px; 
+    line-height: 16.276px;
 }
-.form_footer h4 span{
+
+.form_footer h4 span {
     color: var(--Colors-New-Primary-600, #0C8F00);
-    font-family: "Poppins"sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 10.85px;
     font-style: normal;
     font-weight: 500;
     line-height: 16.276px;
     cursor: pointer;
 }
-@media (max-width: 480px){
-    .scout_login_body{
+
+/* Responsive Queries */
+@media (max-width: 480px),
+(max-width: 600px) {
+    .scout_login_body {
         width: 100%;
         height: 100vh;
+        min-height: max-content;
         display: flex;
         align-items: center;
-        align-items: center;
     }
-    .scout_login_card{
+
+    .scout_login_card {
         width: 85%;
+        height: max-content;
     }
 }
-
-
-@media (max-width: 600px) {
-    .scout_login_body{
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        align-items: center;
-    }
-    .scout_login_card{
-        width: 85%;
-    } 
-}
-
-
 
 @media (min-width: 600px) and (max-width: 1024px) {
-    .scout_login_body{
+    .scout_login_body {
         width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .scout_login_card {
+        width: 70%;
+        height: auto;
     }
 }

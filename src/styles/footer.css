@@ -69,7 +69,7 @@
 .footer-contact h3 .footer-address h3 {
     color: var(--Colors-Neutral-100, #FFF);
     font-family: "Poppins",sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: 24px;
@@ -83,7 +83,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */
+    line-height: 24px; 
     margin-top: 10px;
 }
 
@@ -93,7 +93,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */
+    line-height: 24px; 
     margin-top: 10px;
 }
 
@@ -114,7 +114,7 @@
     margin-top: 80px;
     font-size: 12px;
     color: #FFFFFF;
-    margin-right: 70px;
+    margin-right: 75px;
 }
 
 

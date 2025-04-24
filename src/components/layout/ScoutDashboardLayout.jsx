@@ -1,9 +1,10 @@
 import React from 'react'
-import { Outlet } from 'react-router'
+import { Outlet, useNavigate } from 'react-router'
 import ScoutDashboardNav from './static/ScoutDashboardNav'
 import ScoutDashboardHeader from './static/ScoutDashboardHeader'
 
 const ScoutDashboardLayout = () => {
+  const nav = useNavigate()
   return (
     <div className="dashboardLayout_body">
           <ScoutDashboardNav />
@@ -15,7 +16,7 @@ const ScoutDashboardLayout = () => {
             <div className="footer">
               <h4>©2025 Zscout | All rights reserved</h4>
               <h4>Privacy</h4>
-              <h4>Terms</h4>
+              <h4 onClick={()=> nav("/terms_condition")} style={{cursor: 'pointer'}}>Terms</h4>
             </div>
           </div>
         </div>

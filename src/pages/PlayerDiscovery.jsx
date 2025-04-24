@@ -4,6 +4,7 @@ import "../styles/playerdiscovery.css";
 import { Flex, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router";
+import { Rating } from "@mui/material";
 
 const PlayerDiscovery = () => {
   const navigate = useNavigate();
@@ -173,13 +174,11 @@ const PlayerDiscovery = () => {
                   <h4>{player?.playerKyc?.preferredFoot} Foot</h4>
                   <h4>{player?.playerKyc?.secondaryPosition}</h4>
                 </div>
-                <div className="player-rating">
-                  {"★★★★★".split("").map((_, i) => (
-                    <span key={i} className="star">
-                      ★
-                    </span>
-                  ))}
-                </div>
+                <Rating 
+                name="legend" 
+                value={player?.ratings?.[0]?.ratingScore || 0} 
+                disabled 
+              />
               </div>
             ))
           ) : (

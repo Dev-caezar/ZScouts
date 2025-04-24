@@ -1,70 +1,90 @@
-.Popup-overlay{
+.popup-overlay{
     width: 100%;
     height: 100vh;
-    background-color: gray;
-    background: transparent;
     position: fixed;
-    z-index: 999;
-    padding-left: 150px;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999; 
+    backdrop-filter: blur(2px); 
 }
-
-       
-@keyframes zoomIn {
-    from {
-      transform: scale(0.8);
-      opacity: 0.8;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-}
-
 .pop-up-content{
+    width: 65%;
+    height: 65%;
     background-color: white;
-    width: 50%;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    height: 76%;
-    animation: zoomIn 1s ease-out;
+}
+.content_header{
+    width: 100%;
+    height: 10%;
+    padding-inline: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.vcancel_icon{
+    font-size: 25px;
+    cursor: pointer;
 }
 
-
-@media screen and (min-width: 250px) and (max-width: 320px) {
-    .Popup-overlay{
-        /* background-color: yellow; */
-        display: flex;
-        padding-left: 2px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .pop-up-content{
-        width: 90%;
-        /* background-color: blue; */
-        height: 60%;
-        border: 1px solid gray;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        animation: zoomIn 2s ease-out;
-    }
+.uploadvideo_body{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 10px;
+}
+.upload_icon{
+    font-size: 80px;
+}
+.uploadvideo_body h4{
+    color: var(--Colors-Neutral-1000, #333);
+    font-family: "Poppins",sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px; 
+}
+.uploadvideo_body p{
+    color: var(--Colors-Neutral-700, #777);
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; 
+}
+.uploadvideo_body video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.vid_cta{
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #0C8F00;
+}
+.upload_footer{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
-@media screen and (min-width: 321px) and (max-width: 480px) {
-    .Popup-overlay{
-        /* background-color: yellow; */
-        display: flex;
-        padding-left: 2px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .pop-up-content{
-        width: 90%;
-        /* background-color: blue; */
-        height: 65%;
-        border: 1px solid gray;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        animation: zoomIn 2s ease-out;
-    }
+.post_cta{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #0C8F00;
 }

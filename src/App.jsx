@@ -157,8 +157,10 @@ const App = () => {
           path: "player_setting",
           element: <PlayerSettings />,
         },
-
-       
+        {
+          path: "/terms_condition",
+          element: <Terms />,
+        } 
       ],
     },
     {
@@ -193,10 +195,6 @@ const App = () => {
           path: "one_player_profile",
           element: < OnePlayerProfile />,
         },
-        {
-          path: "/terms_condition",
-          element: <Terms />,
-        }
       ],
     },
     {
