@@ -18,8 +18,8 @@ const ScoutSettings = () => {
   const [paymentLoading, setPaymentLoading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const scout = useSelector((state) => state?.user.scoutKyc.scoutId);
-  const scoutDetails = useSelector((state) => state?.user.scoutDetails.data);
-  console.log(scoutDetails);
+  const scoutDetails = useSelector((state) => state?.user?.scoutDetails?.data);
+  // console.log(scoutDetails);
 
   const UpgradeToPremiumpayment = () => {
     const paymentOptions = {

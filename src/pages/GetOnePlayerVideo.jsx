@@ -139,13 +139,11 @@ const GetOnePlayerVideo = () => {
                     </div>
                   </div>
                   <div className='one-player-profile-recommendation-div-2'>
-                    <Rating
-                      name="simple-uncontrolled"
-                      onChange={(event, newValue) => {
-                        console.log(newValue);
-                      }}
-                      defaultValue={player?.ratings?.ratingScore}
-                    />
+                  <Rating 
+                    name="legend" 
+                    value={player?.ratings?.[0]?.ratingScore || 0} 
+                    disabled 
+                  />
                   </div>
                 </div>
               ))

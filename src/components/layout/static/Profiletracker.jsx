@@ -47,7 +47,7 @@ const Profiletracker = () => {
             </Flex>
           </div>
           <div className="text_head">
-            <h4>{!player? "Complete Your Profile to Get Noticed!": "Congratulations you have successfully completed your profile"}</h4>
+            <h4>{player? "Complete Your Profile to Get Noticed!": "Congratulations you have successfully completed your profile"}</h4>
             <p>Scouts are looking for top talent—fill in your details to stand out!
               It only takes a few minutes.</p>
           </div>
