@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/getoneplayervideo.css";
-import { IoIosStar } from 'react-icons/io';
 import { TbArrowBackUp } from "react-icons/tb";
 import { useNavigate, useLocation } from 'react-router';
 import axios from 'axios';
@@ -14,8 +13,10 @@ const GetOnePlayerVideo = () => {
   const { videoUrl, player } = state;
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [value, setValue] = useState(0); 
+  const [comment, setComment] = useState("");
+  const [rate, setRate] = useState(0);
   const token = useSelector((state) => state.user.scoutToken.token);
+  const user = useSelector((state) => state.user.scoutDetails.data);
   const BASE_URL = "https://zscouts.onrender.com";
 
   useEffect(() => {
@@ -32,38 +33,45 @@ const GetOnePlayerVideo = () => {
 
     fetchPlayers();
   }, []);
-  const [rate, setRate] = useState(0);
 
-  const handleRatingChange = async (event, newValue) => {
+  const handleRatingChange = (event, newValue) => {
     setRate(newValue);
+  };
+
+  const handleSubmitRating = async () => {
+    if (!rate || !comment.trim()) {
+      return toast.warn("Please provide both a rating and a comment.");
+    }
+
     try {
       await axios.post(
         `${BASE_URL}/api/players/${player.id}/rate`,
         {
           playerId: player.id,
           videoUrl: videoUrl,
-          ratingScore: newValue
+          ratingScore: rate,
+          comment: comment,
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
           }
         }
       );
-      console.log("Rating submitted successfully");
-      toast.success("Rating submitted successfully");
+      toast.success("Rating and comment submitted!");
+      setComment("");
+      setRate(0);
     } catch (error) {
-      console.error("Error submitting rating:", error);
-      toast.error("You have already rated this player");
+      console.error("Error submitting:", error);
+      toast.error("You have already rated this player.");
     }
   };
-  
-  console.log(rate)
+
   const handleGetOne = (player) => {
     nav(`/player_details/${player.id}`); 
   };
 
-  console.log(player);
+  const firstInitial = user.fullname ? user.fullname.charAt(0).toUpperCase() : '';
 
   return (
     <div className='get-one-player-video-main'>
@@ -110,6 +118,31 @@ const GetOnePlayerVideo = () => {
           </div>
         </div>
 
+        <div className="comment_section">
+          <div className="scout_pics">
+            {user?.profilePics ? (
+              <img src={user.profilePics} alt="Scout" />
+            ) : (
+              <span>{firstInitial}</span>
+            )}
+          </div>
+          <div className='comment-box'>
+            <input
+              placeholder='Leave a comment about this video...'
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              className='comment-textarea'
+              rows={4}
+            />
+            <div 
+              className={`post_cta ${(!rate || !comment.trim()) ? "disabled" : ""}`} 
+              onClick={(!rate || !comment.trim()) ? null : handleSubmitRating}
+            >
+              <h4>Post</h4>
+            </div>
+          </div>
+        </div>
+
         <div className='get-one-recommendations'>
           <div className='get-one-recommendation-top'>Recommendations</div>
           <div className='get-one-recommendation-video'>
@@ -139,11 +172,11 @@ const GetOnePlayerVideo = () => {
                     </div>
                   </div>
                   <div className='one-player-profile-recommendation-div-2'>
-                  <Rating 
-                    name="legend" 
-                    value={player?.ratings?.[0]?.ratingScore || 0} 
-                    disabled 
-                  />
+                    <Rating 
+                      name="legend" 
+                      value={player?.ratings?.[0]?.ratingScore || 0} 
+                      disabled 
+                    />
                   </div>
                 </div>
               ))
